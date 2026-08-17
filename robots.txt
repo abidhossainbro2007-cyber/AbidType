@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abidhossainbro2007-cyber.github.io/AbidType/sitemap.xml
