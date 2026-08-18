@@ -27,6 +27,114 @@
     href="style.css"
   >
 
+  <style>
+
+    /* =================================================
+       INFINITE TYPING AREA
+    ================================================= */
+
+    .typing-container {
+      position: relative;
+      min-height: 230px;
+      overflow: hidden;
+      padding: 28px;
+      border-radius: 18px;
+    }
+
+    #textDisplay {
+      min-height: 170px;
+      max-height: 170px;
+      overflow: hidden;
+
+      font-size: 24px;
+      line-height: 2;
+      letter-spacing: .3px;
+
+      white-space: pre-wrap;
+      word-break: normal;
+      overflow-wrap: break-word;
+
+      position: relative;
+      z-index: 2;
+
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    #textDisplay span {
+      display: inline;
+    }
+
+    #textDisplay .correct {
+      color: #22c55e;
+    }
+
+    #textDisplay .wrong {
+      color: #ef4444;
+      text-decoration: underline;
+    }
+
+    #textDisplay .current {
+      background: rgba(59,130,246,.25);
+      border-radius: 3px;
+      box-shadow: 0 0 0 1px rgba(59,130,246,.35);
+    }
+
+    /*
+      INPUT is placed INSIDE the typing box.
+      It is transparent so target text remains visible.
+    */
+
+    #typingInput {
+      position: absolute;
+
+      left: 28px;
+      right: 28px;
+      bottom: 18px;
+
+      width: calc(100% - 56px);
+      height: 55px;
+
+      background: rgba(255,255,255,.04);
+
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+
+      padding: 14px 16px;
+
+      color: transparent;
+      caret-color: #60a5fa;
+
+      font-size: 20px;
+      line-height: 1.4;
+
+      outline: none;
+
+      resize: none;
+
+      z-index: 5;
+    }
+
+    #typingInput:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.12);
+    }
+
+    .infinite-note {
+      margin-top: 8px;
+      text-align: center;
+      opacity: .65;
+      font-size: 13px;
+    }
+
+    .language-count {
+      margin-top: 5px;
+      font-size: 12px;
+      opacity: .65;
+    }
+
+  </style>
+
 </head>
 
 
@@ -81,9 +189,7 @@
 <main class="container">
 
 
-  <!-- ===================================================
-       ACCOUNT / WELCOME
-  ==================================================== -->
+  <!-- ACCOUNT -->
 
   <section class="account-card">
 
@@ -105,7 +211,7 @@
 
 
   <!-- ===================================================
-       SETUP AREA
+       SETUP
   ==================================================== -->
 
   <section
@@ -137,87 +243,60 @@
 
       <select id="language">
 
-        <option value="en">
-          🇺🇸 English
-        </option>
-
-        <option value="bn">
-          🇧🇩 বাংলা
-        </option>
-
-        <option value="hi">
-          🇮🇳 हिन्दी
-        </option>
-
-        <option value="ur">
-          🇵🇰 اردو
-        </option>
-
-        <option value="ar">
-          🇸🇦 العربية
-        </option>
-
-        <option value="es">
-          🇪🇸 Español
-        </option>
-
-        <option value="fr">
-          🇫🇷 Français
-        </option>
-
-        <option value="de">
-          🇩🇪 Deutsch
-        </option>
-
-        <option value="it">
-          🇮🇹 Italiano
-        </option>
-
-        <option value="pt">
-          🇵🇹 Português
-        </option>
-
-        <option value="ru">
-          🇷🇺 Русский
-        </option>
-
-        <option value="zh">
-          🇨🇳 中文
-        </option>
-
-        <option value="ja">
-          🇯🇵 日本語
-        </option>
-
-        <option value="ko">
-          🇰🇷 한국어
-        </option>
-
-        <option value="tr">
-          🇹🇷 Türkçe
-        </option>
-
-        <option value="id">
-          🇮🇩 Bahasa Indonesia
-        </option>
-
-        <option value="ms">
-          🇲🇾 Bahasa Melayu
-        </option>
-
-        <option value="vi">
-          🇻🇳 Tiếng Việt
-        </option>
-
-        <option value="th">
-          🇹🇭 ไทย
-        </option>
-
-        <option value="nl">
-          🇳🇱 Nederlands
-        </option>
+        <option value="en">🇺🇸 English</option>
+        <option value="bn">🇧🇩 বাংলা</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ur">🇵🇰 اردو</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="id">🇮🇩 Bahasa Indonesia</option>
+        <option value="ms">🇲🇾 Bahasa Melayu</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="th">🇹🇭 ไทย</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="uk">🇺🇦 Українська</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="sk">🇸🇰 Slovenčina</option>
+        <option value="ro">🇷🇴 Română</option>
+        <option value="hu">🇭🇺 Magyar</option>
+        <option value="el">🇬🇷 Ελληνικά</option>
+        <option value="he">🇮🇱 עברית</option>
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="ta">🇮🇳 தமிழ்</option>
+        <option value="te">🇮🇳 తెలుగు</option>
+        <option value="ml">🇮🇳 മലയാളം</option>
+        <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+        <option value="gu">🇮🇳 ગુજરાતી</option>
+        <option value="mr">🇮🇳 मराठी</option>
+        <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+        <option value="ne">🇳🇵 नेपाली</option>
+        <option value="si">🇱🇰 සිංහල</option>
+        <option value="my">🇲🇲 မြန်မာ</option>
+        <option value="km">🇰🇭 ខ្មែរ</option>
+        <option value="lo">🇱🇦 ລາວ</option>
+        <option value="sw">🌍 Kiswahili</option>
+        <option value="af">🇿🇦 Afrikaans</option>
+        <option value="fil">🇵🇭 Filipino</option>
+        <option value="da">🇩🇰 Dansk</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="no">🇳🇴 Norsk</option>
+        <option value="fi">🇫🇮 Suomi</option>
 
       </select>
+
+      <div class="language-count">
+        🌍 50+ languages available
+      </div>
 
     </div>
 
@@ -259,7 +338,7 @@
 
 
 
-    <!-- DURATION -->
+    <!-- TIMER -->
 
     <div class="control-group">
 
@@ -303,7 +382,7 @@
 
 
 
-    <!-- CUSTOM TIME -->
+    <!-- CUSTOM -->
 
     <div
       id="customTimeWrap"
@@ -320,7 +399,6 @@
         min="10"
         max="3600"
         value="60"
-        placeholder="Enter seconds"
       >
 
       <small>
@@ -330,8 +408,6 @@
     </div>
 
 
-
-    <!-- START -->
 
     <button
       id="startTestBtn"
@@ -356,8 +432,6 @@
   >
 
 
-    <!-- TIMER -->
-
     <div class="test-top">
 
       <div class="timer-box">
@@ -380,7 +454,7 @@
         </span>
 
         <strong id="currentLanguage">
-          Typing
+          English
         </strong>
 
       </div>
@@ -390,7 +464,7 @@
 
 
     <!-- =================================================
-         TYPING BOX
+         ONE BIG TYPING BOX
     ================================================== -->
 
     <div
@@ -398,16 +472,11 @@
       id="typingContainer"
     >
 
-
-      <!-- TEXT INSIDE BOX -->
-
       <div
         id="textDisplay"
         class="text-display"
       ></div>
 
-
-      <!-- USER TYPING -->
 
       <textarea
         id="typingInput"
@@ -419,12 +488,14 @@
         placeholder="Start typing here..."
       ></textarea>
 
-
     </div>
 
 
+    <div class="infinite-note">
+      ✨ Keep typing — new words will appear automatically until the timer ends.
+    </div>
 
-    <!-- TEST BUTTONS -->
+
 
     <div class="test-actions">
 
@@ -451,7 +522,7 @@
 
 
   <!-- ===================================================
-       RESULT AREA
+       RESULT
   ==================================================== -->
 
   <section
@@ -473,94 +544,41 @@
 
 
 
-    <!-- RESULT STATS -->
-
     <div class="result-grid">
 
-
       <div class="result-card">
-
-        <span>
-          WPM
-        </span>
-
-        <strong id="resultWpm">
-          0
-        </strong>
-
+        <span>WPM</span>
+        <strong id="resultWpm">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Accuracy
-        </span>
-
-        <strong id="resultAccuracy">
-          0%
-        </strong>
-
+        <span>Accuracy</span>
+        <strong id="resultAccuracy">0%</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Words
-        </span>
-
-        <strong id="resultWords">
-          0
-        </strong>
-
+        <span>Words</span>
+        <strong id="resultWords">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Errors
-        </span>
-
-        <strong id="resultErrors">
-          0
-        </strong>
-
+        <span>Errors</span>
+        <strong id="resultErrors">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Correct Words
-        </span>
-
-        <strong id="correctWords">
-          0
-        </strong>
-
+        <span>Correct Words</span>
+        <strong id="correctWords">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Wrong Words
-        </span>
-
-        <strong id="wrongWords">
-          0
-        </strong>
-
+        <span>Wrong Words</span>
+        <strong id="wrongWords">0</strong>
       </div>
-
 
     </div>
 
 
-
-    <!-- GRAPH -->
 
     <div class="graph-box">
 
@@ -575,8 +593,6 @@
     </div>
 
 
-
-    <!-- RESULT BUTTON -->
 
     <button
       id="tryAgainBtn"
@@ -643,9 +659,7 @@
   class="modal hidden"
 >
 
-
   <div class="modal-content">
-
 
     <button
       id="closeAuth"
@@ -664,9 +678,6 @@
     <p id="authMessage"></p>
 
 
-
-    <!-- DISPLAY NAME -->
-
     <div class="auth-field">
 
       <label for="displayName">
@@ -682,9 +693,6 @@
 
     </div>
 
-
-
-    <!-- EMAIL -->
 
     <div class="auth-field">
 
@@ -702,9 +710,6 @@
     </div>
 
 
-
-    <!-- PASSWORD -->
-
     <div class="auth-field">
 
       <label for="password">
@@ -721,9 +726,6 @@
     </div>
 
 
-
-    <!-- SUBMIT -->
-
     <button
       id="submitAuth"
       type="button"
@@ -732,12 +734,6 @@
       Sign up
     </button>
 
-
-    <!-- GOOGLE BUTTON IS CREATED BY app.js -->
-
-
-
-    <!-- SWITCH -->
 
     <button
       id="switchAuth"
@@ -761,18 +757,576 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
-<!-- =====================================================
-     ABIDTYPE CONFIG
-===================================================== -->
-
 <script src="config.js"></script>
 
 
+<script src="app.js"></script>
+
+
+
 <!-- =====================================================
-     ABIDTYPE APP
+     ABIDTYPE INFINITE TYPING PATCH
 ===================================================== -->
 
-<script src="app.js"></script>
+<script>
+
+(function () {
+
+  /*
+    This patch keeps the existing AbidType features
+    and changes the typing engine to an endless
+    typing-test style.
+  */
+
+  const input = document.getElementById("typingInput");
+  const display = document.getElementById("textDisplay");
+  const language = document.getElementById("language");
+  const currentLanguage =
+    document.getElementById("currentLanguage");
+
+  if (!input || !display) return;
+
+
+  /* ===================================================
+     LANGUAGE TEXT
+  =================================================== */
+
+  const languageTexts = {
+
+    en:
+      "Typing practice helps you become faster and more accurate. Keep your hands relaxed and focus on the letters in front of you. Good typing comes from regular practice and patience. Keep going and improve your speed every day. ",
+
+    bn:
+      "নিয়মিত টাইপিং অনুশীলন করলে আপনার গতি এবং নির্ভুলতা ধীরে ধীরে বাড়বে। প্রথমে সঠিকভাবে টাইপ করার চেষ্টা করুন এবং পরে গতি বাড়ান। প্রতিদিন অনুশীলন করুন এবং নিজের রেকর্ড উন্নত করুন। ",
+
+    hi:
+      "नियमित टाइपिंग अभ्यास से आपकी गति और सटीकता बेहतर होती है। पहले सही टाइप करने पर ध्यान दें और फिर धीरे धीरे अपनी गति बढ़ाएं। हर दिन अभ्यास करें और अपना नया रिकॉर्ड बनाएं। ",
+
+    ur:
+      "باقاعدگی سے ٹائپنگ کی مشق کرنے سے آپ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درست ٹائپ کرنے پر توجہ دیں اور پھر آہستہ آہستہ اپنی رفتار بڑھائیں۔ ہر روز مشق کریں اور اپنا نیا ریکارڈ بنائیں۔ ",
+
+    ar:
+      "تساعد ممارسة الكتابة بانتظام على تحسين السرعة والدقة. ركز على كتابة الكلمات بشكل صحيح أولاً ثم حاول زيادة سرعتك تدريجياً. تدرب كل يوم وحاول تحقيق نتيجة أفضل. ",
+
+    es:
+      "La práctica regular de mecanografía ayuda a mejorar la velocidad y la precisión. Concéntrate primero en escribir correctamente y después aumenta tu velocidad poco a poco. Practica cada día y mejora tu récord. ",
+
+    fr:
+      "La pratique régulière de la frappe permet d'améliorer la vitesse et la précision. Concentrez-vous d'abord sur la précision puis augmentez progressivement votre vitesse. Entraînez-vous chaque jour. ",
+
+    de:
+      "Regelmäßiges Tippen hilft dir, schneller und genauer zu werden. Konzentriere dich zuerst auf die Genauigkeit und steigere danach langsam deine Geschwindigkeit. Übe jeden Tag und verbessere dein Ergebnis. ",
+
+    it:
+      "La pratica regolare della digitazione aiuta a migliorare velocità e precisione. Concentrati prima sulla correttezza e aumenta gradualmente la velocità. Esercitati ogni giorno e migliora il tuo record. ",
+
+    pt:
+      "A prática regular de digitação ajuda a melhorar a velocidade e a precisão. Concentre-se primeiro em digitar corretamente e depois aumente sua velocidade aos poucos. Pratique todos os dias. ",
+
+    ru:
+      "Регулярная практика печати помогает улучшить скорость и точность. Сначала сосредоточьтесь на правильности, а затем постепенно увеличивайте скорость. Тренируйтесь каждый день и улучшайте свой результат. ",
+
+    zh:
+      "坚持练习打字可以提高速度和准确率。首先注意正确输入，然后逐渐提高速度。每天练习一点点，不断挑战自己并创造更好的成绩。 ",
+
+    ja:
+      "タイピングを नियमितに練習すると、速度と正確さが向上します。まず正確に入力することを意識して、その後少しずつ速度を上げましょう。毎日練習して新しい記録を作りましょう。 ",
+
+    ko:
+      "꾸준히 타이핑을 연습하면 속도와 정확도가 향상됩니다. 먼저 정확하게 입력하는 데 집중하고 그 다음 속도를 조금씩 높여 보세요. 매일 연습하면서 새로운 기록에 도전하세요. ",
+
+    tr:
+      "Düzenli klavye çalışması hızınızı ve doğruluğunuzu geliştirir. Önce doğru yazmaya odaklanın ve daha sonra hızınızı yavaş yavaş artırın. Her gün pratik yapın ve yeni bir rekor kırın. ",
+
+    id:
+      "Latihan mengetik secara rutin membantu meningkatkan kecepatan dan ketepatan. Fokuslah pada pengetikan yang benar terlebih dahulu lalu tingkatkan kecepatan secara perlahan. Berlatihlah setiap hari. ",
+
+    ms:
+      "Latihan menaip secara konsisten membantu meningkatkan kelajuan dan ketepatan. Fokus pada ketepatan dahulu kemudian tingkatkan kelajuan secara beransur-ansur. Berlatih setiap hari untuk mencapai rekod baharu. ",
+
+    vi:
+      "Luyện tập gõ phím thường xuyên giúp cải thiện tốc độ và độ chính xác. Hãy tập trung vào việc gõ đúng trước rồi tăng tốc dần dần. Hãy luyện tập mỗi ngày và thử phá kỷ lục của chính mình. ",
+
+    th:
+      "การฝึกพิมพ์อย่างสม่ำเสมอช่วยเพิ่มความเร็วและความแม่นยำ ควรเน้นการพิมพ์ให้ถูกต้องก่อนแล้วค่อยเพิ่มความเร็ว ฝึกทุกวันเพื่อพัฒนาผลงานของคุณ ",
+
+    nl:
+      "Regelmatig typen helpt je snelheid en nauwkeurigheid te verbeteren. Richt je eerst op correct typen en verhoog daarna geleidelijk je snelheid. Oefen elke dag en verbeter je eigen record. ",
+
+    pl:
+      "Regularne ćwiczenie pisania pomaga poprawić szybkość i dokładność. Najpierw skup się na poprawnym pisaniu, a następnie stopniowo zwiększaj prędkość. Ćwicz codziennie i poprawiaj swój rekord. ",
+
+    uk:
+      "Регулярна практика друку допомагає покращити швидкість і точність. Спочатку зосередьтеся на правильності, а потім поступово збільшуйте швидкість. Тренуйтеся щодня. ",
+
+    cs:
+      "Pravidelné procvičování psaní pomáhá zlepšit rychlost a přesnost. Nejprve se zaměřte na správnost a potom postupně zvyšujte rychlost. Procvičujte každý den a zlepšujte svůj výsledek. ",
+
+    ro:
+      "Exersarea regulată a tastării ajută la îmbunătățirea vitezei și preciziei. Concentrează-te mai întâi pe corectitudine și apoi crește treptat viteza. Exersează în fiecare zi. ",
+
+    hu:
+      "A rendszeres gépelési gyakorlás javítja a sebességet és a pontosságot. Először a helyes gépelésre figyelj, majd fokozatosan növeld a sebességedet. Gyakorolj minden nap. ",
+
+    el:
+      "Η τακτική εξάσκηση στην πληκτρολόγηση βελτιώνει την ταχύτητα και την ακρίβεια. Εστίασε πρώτα στη σωστή πληκτρολόγηση και μετά αύξησε σταδιακά την ταχύτητά σου. ",
+
+    he:
+      "תרגול הקלדה קבוע עוזר לשפר את המהירות והדיוק. התמקדו קודם בהקלדה נכונה ולאחר מכן הגדילו בהדרגה את המהירות. תרגלו בכל יום ושפרו את התוצאה שלכם. ",
+
+    fa:
+      "تمرین منظم تایپ کردن باعث افزایش سرعت و دقت می‌شود. ابتدا روی درست تایپ کردن تمرکز کنید و سپس به تدریج سرعت خود را افزایش دهید. هر روز تمرین کنید و رکورد جدیدی بسازید. ",
+
+    ta:
+      "தொடர்ந்து தட்டச்சு பயிற்சி செய்வது வேகத்தையும் துல்லியத்தையும் மேம்படுத்துகிறது. முதலில் சரியாக தட்டச்சு செய்வதில் கவனம் செலுத்துங்கள். பின்னர் மெதுவாக வேகத்தை அதிகரிக்கவும். ",
+
+    te:
+      "క్రమం తప్పకుండా టైపింగ్ సాధన చేయడం వల్ల వేగం మరియు ఖచ్చితత్వం మెరుగుపడతాయి. ముందుగా సరిగ్గా టైప్ చేయడంపై దృష్టి పెట్టండి. తరువాత క్రమంగా వేగాన్ని పెంచండి. ",
+
+    ml:
+      "ക്രമമായി ടൈപ്പിംഗ് പരിശീലിക്കുന്നത് വേഗവും കൃത്യതയും മെച്ചപ്പെടുത്താൻ സഹായിക്കുന്നു. ആദ്യം ശരിയായി ടൈപ്പ് ചെയ്യുന്നതിൽ ശ്രദ്ധിക്കുക. പിന്നീട് പതുക്കെ വേഗം വർധിപ്പിക്കുക. ",
+
+    kn:
+      "ನಿಯಮಿತ ಟೈಪಿಂಗ್ ಅಭ್ಯಾಸವು ವೇಗ ಮತ್ತು ನಿಖರತೆಯನ್ನು ಸುಧಾರಿಸುತ್ತದೆ. ಮೊದಲು ಸರಿಯಾಗಿ ಟೈಪ್ ಮಾಡುವುದರ ಮೇಲೆ ಗಮನ ಹರಿಸಿ ನಂತರ ನಿಧಾನವಾಗಿ ವೇಗವನ್ನು ಹೆಚ್ಚಿಸಿ. ಪ್ರತಿದಿನ ಅಭ್ಯಾಸ ಮಾಡಿ. ",
+
+    gu:
+      "નિયમિત ટાઇપિંગ અભ્યાસ ઝડપ અને ચોકસાઈ સુધારવામાં મદદ કરે છે. પહેલા યોગ્ય રીતે ટાઇપ કરવા પર ધ્યાન આપો અને પછી ધીમે ધીમે ઝડપ વધારો. દરરોજ અભ્યાસ કરો. ",
+
+    mr:
+      "नियमित टायपिंग सराव केल्याने वेग आणि अचूकता सुधारते. प्रथम योग्य टायपिंगवर लक्ष द्या आणि नंतर हळूहळू वेग वाढवा. दररोज सराव करा आणि नवीन विक्रम बनवा. ",
+
+    pa:
+      "ਨਿਯਮਿਤ ਟਾਈਪਿੰਗ ਅਭਿਆਸ ਨਾਲ ਗਤੀ ਅਤੇ ਸ਼ੁੱਧਤਾ ਵਿੱਚ ਸੁਧਾਰ ਹੁੰਦਾ ਹੈ। ਪਹਿਲਾਂ ਸਹੀ ਟਾਈਪ ਕਰਨ ਉੱਤੇ ਧਿਆਨ ਦਿਓ ਅਤੇ ਫਿਰ ਹੌਲੀ ਹੌਲੀ ਆਪਣੀ ਗਤੀ ਵਧਾਓ। ਹਰ ਰੋਜ਼ ਅਭਿਆਸ ਕਰੋ। ",
+
+    ne:
+      "नियमित टाइपिङ अभ्यासले गति र शुद्धता सुधार गर्न मद्दत गर्छ। पहिले सही टाइप गर्न ध्यान दिनुहोस् र त्यसपछि बिस्तारै गति बढाउनुहोस्। हरेक दिन अभ्यास गर्नुहोस्। ",
+
+    si:
+      "නිතිපතා ටයිප් කිරීමේ පුහුණුව වේගය සහ නිවැරදිභාවය වැඩි දියුණු කරයි. පළමුව නිවැරදිව ටයිප් කිරීමට අවධානය යොමු කර පසුව වේගය වැඩි කරන්න. ",
+
+    my:
+      "ပုံမှန်စာရိုက်လေ့ကျင့်ခြင်းသည် မြန်နှုန်းနှင့် တိကျမှုကို တိုးတက်စေသည်။ ပထမဦးစွာ မှန်ကန်စွာရိုက်ရန် အာရုံစိုက်ပြီး နောက်ပိုင်းတွင် မြန်နှုန်းကို တဖြည်းဖြည်း တိုးမြှင့်ပါ။ ",
+
+    km:
+      "ការអនុវត្តការវាយអក្សរជាប្រចាំជួយបង្កើនល្បឿន និងភាពត្រឹមត្រូវ។ ផ្តោតលើការវាយឲ្យត្រឹមត្រូវជាមុនសិន បន្ទាប់មកបង្កើនល្បឿនបន្តិចម្តងៗ។ ",
+
+    lo:
+      "ການຝຶກພິມເປັນປະຈຳຊ່ວຍໃຫ້ຄວາມໄວແລະຄວາມແມ່ນຍຳດີຂຶ້ນ. ເນັ້ນການພິມໃຫ້ຖືກຕ້ອງກ່ອນ ແລ້ວຄ່ອຍໆເພີ່ມຄວາມໄວ. ",
+
+    sw:
+      "Mazoezi ya kuandika kwa kibodi mara kwa mara husaidia kuongeza kasi na usahihi. Zingatia usahihi kwanza kisha ongeza kasi taratibu. Fanya mazoezi kila siku. ",
+
+    af:
+      "Gereelde tik oefening help om jou spoed en akkuraatheid te verbeter. Fokus eers op korrekte tik en verhoog daarna jou spoed geleidelik. Oefen elke dag. ",
+
+    fil:
+      "Ang regular na pagsasanay sa pagta-type ay nakakatulong upang mapabuti ang bilis at katumpakan. Unahin ang tamang pag-type bago unti-unting dagdagan ang bilis. ",
+
+    da:
+      "Regelmæssig skriveøvelse hjælper med at forbedre hastighed og nøjagtighed. Fokuser først på at skrive korrekt og øg derefter hastigheden gradvist. Øv dig hver dag. ",
+
+    sv:
+      "Regelbunden tangentbordsträning hjälper dig att förbättra hastighet och noggrannhet. Fokusera först på att skriva korrekt och öka sedan hastigheten stegvis. Öva varje dag. ",
+
+    no:
+      "Regelmessig skriveøvelse hjelper deg med å forbedre hastighet og nøyaktighet. Fokuser først på å skrive riktig og øk deretter hastigheten gradvis. Øv hver dag. ",
+
+    fi:
+      "Säännöllinen kirjoitusharjoittelu auttaa parantamaan nopeutta ja tarkkuutta. Keskity ensin oikeaan kirjoittamiseen ja lisää sitten nopeutta vähitellen. Harjoittele joka päivä. "
+
+  };
+
+
+  /* ===================================================
+     WORD POOL
+  =================================================== */
+
+  let baseText = "";
+  let generatedText = "";
+  let cursor = 0;
+
+
+  function getLanguageText() {
+
+    const lang = language.value;
+
+    return languageTexts[lang] ||
+      languageTexts.en;
+
+  }
+
+
+  function makeLongText() {
+
+    const source = getLanguageText();
+
+    /*
+      Repeat the language text many times.
+      So the test NEVER runs out of words.
+    */
+
+    let result = "";
+
+    for (let i = 0; i < 80; i++) {
+      result += source;
+    }
+
+    return result.trim();
+
+  }
+
+
+  function getModeText(text) {
+
+    const mode =
+      document.getElementById("mode")?.value ||
+      "normal";
+
+
+    if (mode === "capital") {
+      return text.toUpperCase();
+    }
+
+
+    if (mode === "small") {
+
+      return text
+        .replace(/[.,!?;:'"()[\]{}\-—–]/g, "")
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .trim();
+
+    }
+
+
+    if (mode === "punctuation") {
+
+      return text;
+
+    }
+
+
+    return text;
+
+  }
+
+
+  function generateInfiniteText() {
+
+    baseText =
+      getModeText(makeLongText());
+
+    generatedText =
+      baseText;
+
+    cursor = 0;
+
+  }
+
+
+  /* ===================================================
+     DISPLAY
+  =================================================== */
+
+  function renderText() {
+
+    const typed =
+      input.value;
+
+    /*
+      If user reaches near the end,
+      automatically add more text.
+    */
+
+    if (
+      typed.length >
+      generatedText.length - 500
+    ) {
+
+      generatedText +=
+        " " +
+        getModeText(
+          makeLongText()
+        );
+
+    }
+
+
+    display.innerHTML = "";
+
+
+    const visibleStart =
+      Math.max(
+        0,
+        typed.length - 20
+      );
+
+
+    const visibleEnd =
+      Math.min(
+        generatedText.length,
+        typed.length + 180
+      );
+
+
+    const fragment =
+      document.createDocumentFragment();
+
+
+    for (
+      let i = visibleStart;
+      i < visibleEnd;
+      i++
+    ) {
+
+      const span =
+        document.createElement("span");
+
+
+      span.textContent =
+        generatedText[i];
+
+
+      if (
+        i < typed.length
+      ) {
+
+        span.className =
+          typed[i] === generatedText[i]
+            ? "correct"
+            : "wrong";
+
+      }
+
+
+      if (
+        i === typed.length
+      ) {
+
+        span.className =
+          "current";
+
+      }
+
+
+      fragment.appendChild(
+        span
+      );
+
+    }
+
+
+    display.appendChild(
+      fragment
+    );
+
+  }
+
+
+  /* ===================================================
+     START TEST
+  =================================================== */
+
+  const oldStart =
+    window.startTest;
+
+
+  /*
+    We don't remove your old timer.
+    This patch prepares unlimited text.
+  */
+
+  document
+    .getElementById("startTestBtn")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        generateInfiniteText();
+
+        input.value = "";
+
+        renderText();
+
+        const lang =
+          language.options[
+            language.selectedIndex
+          ]?.text || "Typing";
+
+        if (currentLanguage) {
+          currentLanguage.textContent =
+            lang.replace(
+              /^[^\s]+\s/,
+              ""
+            );
+        }
+
+        setTimeout(
+          () => input.focus(),
+          100
+        );
+
+      }
+    );
+
+
+  /* ===================================================
+     TYPING
+  =================================================== */
+
+  let audio =
+    null;
+
+
+  function keySound() {
+
+    try {
+
+      if (!audio) {
+
+        audio =
+          new (
+            window.AudioContext ||
+            window.webkitAudioContext
+          )();
+
+      }
+
+
+      if (
+        audio.state ===
+        "suspended"
+      ) {
+
+        audio.resume();
+
+      }
+
+
+      const oscillator =
+        audio.createOscillator();
+
+
+      const gain =
+        audio.createGain();
+
+
+      oscillator.type =
+        "sine";
+
+
+      oscillator.frequency.value =
+        420 +
+        Math.random() * 100;
+
+
+      gain.gain.setValueAtTime(
+        0.025,
+        audio.currentTime
+      );
+
+
+      gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        audio.currentTime + 0.04
+      );
+
+
+      oscillator.connect(gain);
+
+      gain.connect(
+        audio.destination
+      );
+
+
+      oscillator.start();
+
+      oscillator.stop(
+        audio.currentTime + 0.045
+      );
+
+    } catch (e) {}
+
+  }
+
+
+  input.addEventListener(
+    "input",
+    () => {
+
+      /*
+        Prevent typing from ever
+        becoming longer than target.
+      */
+
+      if (
+        input.value.length >
+        generatedText.length
+      ) {
+
+        input.value =
+          input.value.slice(
+            0,
+            generatedText.length
+          );
+
+      }
+
+
+      keySound();
+
+      renderText();
+
+    }
+  );
+
+
+  /* ===================================================
+     LANGUAGE CHANGE
+  =================================================== */
+
+  language.addEventListener(
+    "change",
+    () => {
+
+      generateInfiniteText();
+
+      renderText();
+
+    }
+  );
+
+
+  /* ===================================================
+     MODE CHANGE
+  =================================================== */
+
+  document
+    .getElementById("mode")
+    ?.addEventListener(
+      "change",
+      () => {
+
+        generateInfiniteText();
+
+        renderText();
+
+      }
+    );
+
+
+  /* ===================================================
+     INITIAL
+  =================================================== */
+
+  generateInfiniteText();
+
+  renderText();
+
+
+})();
+
+</script>
 
 
 </body>
