@@ -3,1554 +3,808 @@ const supabaseClient = window.supabase.createClient(
   window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
 );
 
-
 /* =========================
    PASSAGES
 ========================= */
 
 const passages = {
-
-  en:
-    "Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed confidence and consistency. Practice regularly and you will become faster and more accurate.",
-
-  bn:
-    "নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।"
-
+  en: "Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.",
+  bn: "নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।"
 };
-
-
-/* =========================
-   HELPER
-========================= */
-
-const $ = id =>
-  document.getElementById(id);
-
-const authModal =
-  $("authModal");
-
 
 /* =========================
    TEST STATE
 ========================= */
 
 let test = {
-
-  running:false,
-
-  start:0,
-
-  timer:null,
-
-  duration:60,
-
-  text:"",
-
-  errors:0,
-
-  typed:0,
-
-  points:[],
-
-  lastPointTime:0
-
+  running: false,
+  start: 0,
+  timer: null,
+  duration: 60,
+  text: "",
+  errors: 0,
+  typed: 0,
+  correct: 0,
+  mode: "normal",
+  graph: [],
+  lastGraphSecond: -1
 };
 
-
 /* =========================
-   MODE
+   HELPERS
 ========================= */
 
-function getModeText(){
+const $ = id => document.getElementById(id);
 
-  const language =
-    $("language").value;
+const authModal = $("authModal");
 
-  const mode =
-    $("mode").value;
+/* =========================
+   MODE SYSTEM
+========================= */
 
-  let text =
-    passages[language];
+function createModeSelector() {
+  if ($("typingMode")) return;
 
+  const controls = document.querySelector(".controls");
+  if (!controls) return;
 
-  if(mode === "capital"){
+  const label = document.createElement("label");
+  label.innerHTML = `
+    Mode
+    <select id="typingMode">
+      <option value="normal">Normal</option>
+      <option value="small">Small Letters</option>
+      <option value="capital">Capital Letters</option>
+      <option value="punctuation">Punctuation</option>
+    </select>
+  `;
 
+  controls.appendChild(label);
+
+  $("typingMode").addEventListener("change", () => {
+    test.mode = $("typingMode").value;
+    reset();
+  });
+}
+
+/* =========================
+   TEXT GENERATION
+========================= */
+
+function buildText() {
+  const language = $("language").value;
+  let text = passages[language] || passages.en;
+
+  if (test.mode === "small") {
+    text = text
+      .replace(/[.,!?;:'"()\-]/g, "")
+      .toLowerCase();
+  }
+
+  if (test.mode === "capital") {
+    text = text
+      .replace(/[.,!?;:'"()\-]/g, "")
+      .toUpperCase();
+  }
+
+  if (test.mode === "punctuation") {
     text =
-      text
-        .replace(/[.,!?;:'"()\-]/g,"")
-        .toUpperCase();
-
+      "Typing well means using punctuation correctly. Practice commas, periods, question marks, exclamation marks, and other symbols. Accuracy matters more than speed, so type every character carefully.";
   }
-
-
-  if(mode === "small"){
-
-    text =
-      text
-        .replace(/[.,!?;:'"()\-]/g,"")
-        .toLowerCase()
-        .replace(/\s+/g," ");
-
-  }
-
-
-  if(mode === "punctuation"){
-
-    if(language === "en"){
-
-      text =
-        "Typing every day is a great habit! Can you improve your speed, accuracy, and confidence? Practice carefully, stay focused, and keep going.";
-
-    }
-
-  }
-
 
   return text;
-
 }
 
+function setupText() {
+  test.text = buildText();
 
-/* =========================
-   SETUP TEXT
-========================= */
+  $("textDisplay").innerHTML = [...test.text]
+    .map(
+      (c, i) =>
+        `<span data-i="${i}">${
+          c === " " ? "&nbsp;" : escapeHtml(c)
+        }</span>`
+    )
+    .join("");
 
-function setupText(){
-
-  test.text =
-    getModeText();
-
-
-  $("textDisplay").innerHTML =
-    [...test.text]
-      .map((char,index) => {
-
-        return `
-          <span data-i="${index}">
-            ${
-              char === " "
-                ? "&nbsp;"
-                : char
-            }
-          </span>
-        `;
-
-      })
-      .join("");
-
+  highlightCurrent();
 }
 
-
-/* =========================
-   MODE DESCRIPTION
-========================= */
-
-function updateModeInfo(){
-
-  const mode =
-    $("mode").value;
-
-
-  const info = {
-
-    normal:
-      "Normal typing with natural sentences.",
-
-    punctuation:
-      "Practice commas, full stops, question marks and other punctuation.",
-
-    capital:
-      "All letters are CAPITAL letters. Punctuation is removed.",
-
-    small:
-      "All words are lowercase and punctuation/symbols are removed."
-
-  };
-
-
-  $("modeInfo").textContent =
-    info[mode];
-
+function escapeHtml(text) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
-
 
 /* =========================
    RESET
 ========================= */
 
-function resetTest(){
-
+function reset() {
   clearInterval(test.timer);
 
   test.running = false;
-
   test.start = 0;
-
   test.errors = 0;
-
   test.typed = 0;
+  test.correct = 0;
+  test.graph = [];
+  test.lastGraphSecond = -1;
 
-  test.points = [];
+  test.duration = Number($("duration").value);
 
-  test.lastPointTime = 0;
-
-
-  test.duration =
-    Number($("duration").value);
-
-
-  $("setupArea")
-    .classList
-    .remove("hidden");
-
-
-  $("testArea")
-    .classList
-    .add("hidden");
-
-
-  $("resultArea")
-    .classList
-    .add("hidden");
-
-
-  $("time").textContent =
-    test.duration;
-
-
+  $("time").textContent = test.duration;
+  $("wpm").textContent = "0";
+  $("accuracy").textContent = "100%";
+  $("errors").textContent = "0";
   $("typingInput").value = "";
 
+  $("result").classList.add("hidden");
 
   setupText();
-
-  updateModeInfo();
-
 }
 
-
 /* =========================
-   START TEST
+   ACCURACY + WPM
 ========================= */
 
-function startTest(){
-
-  clearInterval(test.timer);
-
-
-  test.running = true;
-
-  test.start = Date.now();
-
-  test.errors = 0;
-
-  test.typed = 0;
-
-  test.points = [];
-
-  test.lastPointTime = 0;
-
-
-  $("setupArea")
-    .classList
-    .add("hidden");
-
-
-  $("testArea")
-    .classList
-    .remove("hidden");
-
-
-  $("resultArea")
-    .classList
-    .add("hidden");
-
-
-  $("typingInput").value = "";
-
-
-  $("time").textContent =
-    test.duration;
-
-
-  setupText();
-
-
-  $("typingInput").focus();
-
-
-  test.timer =
-    setInterval(() => {
-
-      const elapsed =
-        (Date.now() - test.start)
-        / 1000;
-
-
-      const left =
-        Math.max(
-          0,
-          test.duration -
-          Math.floor(elapsed)
-        );
-
-
-      $("time").textContent =
-        left;
-
-
-      updateStats();
-
-
-      if(left <= 0){
-
-        finishTest();
-
-      }
-
-    },100);
-
-}
-
-
-/* =========================
-   CALCULATE STATS
-========================= */
-
-function calculateStats(){
-
-  const input =
-    $("typingInput").value;
-
+function calculateStats() {
+  const input = $("typingInput").value;
 
   let errors = 0;
+  let correct = 0;
 
-  let correctCharacters = 0;
-
-
-  [...input].forEach(
-    (char,index) => {
-
-      if(char === test.text[index]){
-
-        correctCharacters++;
-
-      }else{
-
-        errors++;
-
-      }
-
+  [...input].forEach((char, index) => {
+    if (char === test.text[index]) {
+      correct++;
+    } else {
+      errors++;
     }
+  });
+
+  test.errors = errors;
+  test.correct = correct;
+  test.typed = input.length;
+
+  let elapsed = 0;
+
+  if (test.start) {
+    elapsed = (Date.now() - test.start) / 1000;
+  }
+
+  elapsed = Math.max(elapsed, 0.1);
+
+  const minutes = elapsed / 60;
+
+  const wpm = Math.max(
+    0,
+    Math.round((correct / 5) / minutes)
   );
-
-
-  const elapsed =
-    Math.max(
-      1,
-      Math.min(
-        test.duration,
-        (Date.now() - test.start)
-        / 1000
-      )
-    );
-
-
-  const minutes =
-    elapsed / 60;
-
-
-  /*
-    Standard WPM:
-    5 characters = 1 word
-  */
-
-  const wpm =
-    Math.max(
-      0,
-      Math.round(
-        (input.length / 5)
-        / minutes
-      )
-    );
-
-
-  /*
-    Accuracy is based on
-    every typed character.
-  */
 
   const accuracy =
     input.length === 0
       ? 100
       : Math.max(
           0,
-          Math.round(
-            (
-              correctCharacters /
-              input.length
-            ) * 100
-          )
+          Math.round((correct / input.length) * 100)
         );
 
+  const words = input.trim()
+    ? input.trim().split(/\s+/).length
+    : 0;
 
   return {
-
     wpm,
-
     accuracy,
-
     errors,
-
-    correctCharacters,
-
-    elapsed,
-
-    inputLength:input.length
-
+    correct,
+    typed: input.length,
+    words
   };
-
 }
-
 
 /* =========================
-   UPDATE LIVE TEXT
+   UPDATE SCREEN
 ========================= */
 
-function updateStats(){
+function updateStats() {
+  const stats = calculateStats();
 
-  if(!test.running)
-    return;
+  $("wpm").textContent = stats.wpm;
+  $("accuracy").textContent = stats.accuracy + "%";
+  $("errors").textContent = stats.errors;
 
+  highlightCharacters();
 
-  const input =
-    $("typingInput").value;
+  recordGraphPoint(stats);
 
-
-  const stats =
-    calculateStats();
-
-
-  test.errors =
-    stats.errors;
-
-
-  test.typed =
-    input.length;
-
-
-  /*
-    Highlight typed characters
-  */
-
-  [...$("textDisplay").children]
-    .forEach(
-      (span,index) => {
-
-        span.className = "";
-
-
-        if(index < input.length){
-
-          if(
-            input[index] ===
-            test.text[index]
-          ){
-
-            span.className =
-              "correct";
-
-          }else{
-
-            span.className =
-              "wrong";
-
-          }
-
-        }
-
-
-        if(index === input.length){
-
-          span.className =
-            "current";
-
-        }
-
-      }
-    );
-
-
-  /*
-    Graph point every second
-  */
-
-  const second =
-    Math.floor(
-      stats.elapsed
-    );
-
-
-  if(
-    second >
-    test.lastPointTime
-  ){
-
-    test.lastPointTime =
-      second;
-
-
-    let status =
-      "yellow";
-
-
-    if(input.length > 0){
-
-      const last =
-        input[input.length - 1];
-
-      const expected =
-        test.text[input.length - 1];
-
-
-      status =
-        last === expected
-          ? "green"
-          : "red";
-
-    }
-
-
-    test.points.push({
-
-      time:second,
-
-      wpm:stats.wpm,
-
-      status
-
-    });
-
-  }
-
+  return stats;
 }
 
+/* =========================
+   CHARACTER COLORS
+========================= */
+
+function highlightCharacters() {
+  const input = [...$("typingInput").value];
+  const spans = [...$("textDisplay").children];
+
+  spans.forEach((span, index) => {
+    span.className = "";
+
+    if (index < input.length) {
+      if (input[index] === test.text[index]) {
+        span.className = "correct";
+      } else {
+        span.className = "wrong";
+      }
+    }
+
+    if (index === input.length) {
+      span.classList.add("current");
+    }
+  });
+}
+
+function highlightCurrent() {
+  const spans = [...$("textDisplay").children];
+
+  spans.forEach(span => {
+    span.className = "";
+  });
+
+  if (spans[0]) {
+    spans[0].classList.add("current");
+  }
+}
+
+/* =========================
+   GRAPH DATA
+========================= */
+
+function recordGraphPoint(stats) {
+  if (!test.running || !test.start) return;
+
+  const elapsedSecond = Math.floor(
+    (Date.now() - test.start) / 1000
+  );
+
+  if (elapsedSecond === test.lastGraphSecond) return;
+
+  test.lastGraphSecond = elapsedSecond;
+
+  test.graph.push({
+    second: elapsedSecond,
+    wpm: stats.wpm,
+    accuracy: stats.accuracy,
+    errors: stats.errors
+  });
+}
+
+/* =========================
+   START TEST
+========================= */
+
+function start() {
+  if (test.running) return;
+
+  test.running = true;
+  test.start = Date.now();
+  test.graph = [];
+  test.lastGraphSecond = -1;
+
+  test.timer = setInterval(() => {
+    if (!test.running) return;
+
+    const elapsed = Math.floor(
+      (Date.now() - test.start) / 1000
+    );
+
+    const left = Math.max(
+      0,
+      test.duration - elapsed
+    );
+
+    $("time").textContent = left;
+
+    updateStats();
+
+    if (left <= 0) {
+      finish();
+    }
+  }, 250);
+}
 
 /* =========================
    FINISH TEST
 ========================= */
 
-async function finishTest(){
+async function finish() {
+  if (!test.running) return;
 
-  if(!test.running)
-    return;
-
+  const stats = updateStats();
 
   clearInterval(test.timer);
-
-  updateStats();
-
+  test.timer = null;
   test.running = false;
 
+  $("time").textContent = "0";
 
-  const stats =
-    calculateStats();
+  showResult(stats);
 
-
-  /*
-    Count words
-  */
-
-  const typedWords =
-    $("typingInput")
-      .value
-      .trim()
-      .split(/\s+/)
-      .filter(Boolean);
-
-
-  const targetWords =
-    test.text
-      .trim()
-      .split(/\s+/)
-      .filter(Boolean);
-
-
-  let correctWords = 0;
-
-  let wrongWords = 0;
-
-
-  typedWords.forEach(
-    (word,index) => {
-
-      if(
-        word ===
-        targetWords[index]
-      ){
-
-        correctWords++;
-
-      }else{
-
-        wrongWords++;
-
-      }
-
-    }
-  );
-
-
-  $("testArea")
-    .classList
-    .add("hidden");
-
-
-  $("resultArea")
-    .classList
-    .remove("hidden");
-
-
-  $("resultWpm").textContent =
-    stats.wpm;
-
-
-  $("resultAccuracy").textContent =
-    stats.accuracy + "%";
-
-
-  $("resultWords").textContent =
-    typedWords.length;
-
-
-  $("resultErrors").textContent =
-    stats.errors;
-
-
-  $("correctWords").textContent =
-    correctWords;
-
-
-  $("wrongWords").textContent =
-    wrongWords;
-
-
-  drawChart();
-
-
-  await saveResult({
-
-    wpm:stats.wpm,
-
-    accuracy:stats.accuracy,
-
-    errors:stats.errors,
-
-    characters_typed:
-      test.typed
-
-  });
-
+  await saveResult(stats);
 }
 
+/* =========================
+   RESULT SCREEN
+========================= */
+
+function showResult(stats) {
+  const result = $("result");
+
+  result.classList.remove("hidden");
+
+  result.innerHTML = `
+    <div class="result-title">Test Finished 🎉</div>
+
+    <div class="result-grid">
+      <div>
+        <small>WPM</small>
+        <strong>${stats.wpm}</strong>
+      </div>
+
+      <div>
+        <small>ACCURACY</small>
+        <strong>${stats.accuracy}%</strong>
+      </div>
+
+      <div>
+        <small>WORDS</small>
+        <strong>${stats.words}</strong>
+      </div>
+
+      <div>
+        <small>ERRORS</small>
+        <strong>${stats.errors}</strong>
+      </div>
+    </div>
+
+    <div class="result-message">
+      ${
+        stats.accuracy >= 95
+          ? "Excellent accuracy! 🔥"
+          : stats.accuracy >= 85
+          ? "Good job! Keep practicing."
+          : "Keep practicing. Accuracy first!"
+      }
+    </div>
+
+    <div class="graph-title">Performance</div>
+
+    <div class="performance-graph">
+      ${createGraph(stats)}
+    </div>
+
+    <button id="resultRestart" class="primary-btn full">
+      Try Again
+    </button>
+  `;
+
+  $("resultRestart").onclick = reset;
+}
 
 /* =========================
    GRAPH
 ========================= */
 
-function drawChart(){
-
-  const canvas =
-    $("performanceChart");
-
-
-  const ctx =
-    canvas.getContext("2d");
-
-
-  const rect =
-    canvas.getBoundingClientRect();
-
-
-  const dpr =
-    window.devicePixelRatio || 1;
-
-
-  canvas.width =
-    rect.width * dpr;
-
-
-  canvas.height =
-    rect.height * dpr;
-
-
-  ctx.scale(
-    dpr,
-    dpr
-  );
-
-
-  const width =
-    rect.width;
-
-
-  const height =
-    rect.height;
-
-
-  ctx.clearRect(
-    0,
-    0,
-    width,
-    height
-  );
-
-
-  const points =
-    test.points;
-
-
-  if(!points.length){
-
-    ctx.fillStyle =
-      "#9ba4b5";
-
-    ctx.font =
-      "14px Arial";
-
-    ctx.textAlign =
-      "center";
-
-    ctx.fillText(
-      "No graph data",
-      width / 2,
-      height / 2
-    );
-
-    return;
-
+function createGraph(stats) {
+  if (!test.graph.length) {
+    return `<div class="graph-empty">No graph data available.</div>`;
   }
 
+  const maxWpm = Math.max(
+    10,
+    ...test.graph.map(p => p.wpm)
+  );
 
-  const maxWpm =
-    Math.max(
-      10,
-      ...points.map(
-        p => p.wpm
-      )
-    );
+  return `
+    <div class="graph-line">
+      ${test.graph
+        .map(point => {
+          const left =
+            test.duration > 0
+              ? (point.second / test.duration) * 100
+              : 0;
 
-
-  /*
-    Grid
-  */
-
-  ctx.strokeStyle =
-    "#252b36";
-
-  ctx.lineWidth = 1;
-
-
-  for(
-    let i = 1;
-    i <= 4;
-    i++
-  ){
-
-    const y =
-      20 +
-      (
-        i / 5
-      ) *
-      (height - 45);
-
-
-    ctx.beginPath();
-
-    ctx.moveTo(
-      20,
-      y
-    );
-
-    ctx.lineTo(
-      width - 20,
-      y
-    );
-
-    ctx.stroke();
-
-  }
-
-
-  /*
-    Draw performance line
-  */
-
-  const coords =
-    points.map(
-      (point,index) => {
-
-        const x =
-          20 +
-          (
-            index /
+          const bottom =
             Math.max(
-              1,
-              points.length - 1
-            )
-          )
-          *
-          (width - 40);
+              5,
+              (point.wpm / maxWpm) * 85
+            );
 
+          let dotClass = "yellow";
 
-        const y =
-          height -
-          25 -
-          (
-            point.wpm /
-            maxWpm
-          )
-          *
-          (height - 50);
+          if (point.errors > 0) {
+            dotClass = "red";
+          } else if (point.accuracy >= 95) {
+            dotClass = "green";
+          }
 
+          return `
+            <span
+              class="graph-dot ${dotClass}"
+              style="left:${Math.min(left, 98)}%;bottom:${Math.min(
+                bottom,
+                90
+              )}%"
+              title="${point.second}s — ${point.wpm} WPM — ${point.accuracy}%"
+            ></span>
+          `;
+        })
+        .join("")}
+    </div>
 
-        return {
-          x,
-          y,
-          status:
-            point.status
-        };
+    <div class="graph-axis">
+      <span>0s</span>
+      <span>${Math.round(test.duration / 2)}s</span>
+      <span>${test.duration}s</span>
+    </div>
 
-      }
-    );
-
-
-  /*
-    Line
-  */
-
-  ctx.strokeStyle =
-    "#8b7cff";
-
-  ctx.lineWidth = 2;
-
-  ctx.beginPath();
-
-
-  coords.forEach(
-    (point,index) => {
-
-      if(index === 0){
-
-        ctx.moveTo(
-          point.x,
-          point.y
-        );
-
-      }else{
-
-        ctx.lineTo(
-          point.x,
-          point.y
-        );
-
-      }
-
-    }
-  );
-
-
-  ctx.stroke();
-
-
-  /*
-    Colored points
-  */
-
-  coords.forEach(
-    point => {
-
-      if(point.status === "green"){
-
-        ctx.fillStyle =
-          "#35d07f";
-
-      }else if(
-        point.status === "red"
-      ){
-
-        ctx.fillStyle =
-          "#ff536d";
-
-      }else{
-
-        ctx.fillStyle =
-          "#ffd45c";
-
-      }
-
-
-      ctx.beginPath();
-
-      ctx.arc(
-        point.x,
-        point.y,
-        4,
-        0,
-        Math.PI * 2
-      );
-
-      ctx.fill();
-
-    }
-  );
-
+    <div class="graph-legend">
+      <span><i class="green-dot"></i> Correct</span>
+      <span><i class="yellow-dot"></i> Normal</span>
+      <span><i class="red-dot"></i> Error</span>
+    </div>
+  `;
 }
-
 
 /* =========================
    SAVE RESULT
 ========================= */
 
-async function saveResult(stats){
-
-  try{
-
+async function saveResult(stats) {
+  try {
     const {
-      data:{
-        user
-      }
-    } =
-      await supabaseClient
-        .auth
-        .getUser();
+      data: { user }
+    } = await supabaseClient.auth.getUser();
 
-
-    if(!user)
-      return;
-
+    if (!user) return;
 
     await supabaseClient
       .from("typing_results")
       .insert({
-
-        user_id:user.id,
-
-        language_code:
-          $("language").value,
-
-        duration_seconds:
-          test.duration,
-
-        wpm:stats.wpm,
-
-        accuracy:stats.accuracy,
-
-        errors:stats.errors,
-
-        characters_typed:
-          stats.characters_typed
-
+        user_id: user.id,
+        language_code: $("language").value,
+        duration_seconds: test.duration,
+        wpm: stats.wpm,
+        accuracy: stats.accuracy,
+        errors: stats.errors,
+        characters_typed: test.typed
       });
-
-  }catch(error){
-
-    console.error(
-      "Save result error:",
-      error
-    );
-
+  } catch (error) {
+    console.error("Save result error:", error);
   }
-
 }
-
 
 /* =========================
    AUTH
 ========================= */
 
-function openAuth(){
-
-  authModal
-    .classList
-    .remove("hidden");
-
-  $("authMessage")
-    .textContent = "";
-
+function openAuth() {
+  authModal.classList.remove("hidden");
+  $("authMessage").textContent = "";
 }
 
-
-function closeAuth(){
-
-  authModal
-    .classList
-    .add("hidden");
-
+function closeAuth() {
+  authModal.classList.add("hidden");
 }
 
-
-async function signInWithGoogle(){
-
-  $("authMessage")
-    .textContent =
+async function signInWithGoogle() {
+  $("authMessage").textContent =
     "Opening Google sign in...";
 
+  const { error } =
+    await supabaseClient.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo:
+          window.location.origin +
+          window.location.pathname
+      }
+    });
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .auth
-      .signInWithOAuth({
-
-        provider:"google",
-
-        options:{
-
-          redirectTo:
-            window.location.origin +
-            window.location.pathname
-
-        }
-
-      });
-
-
-  if(error){
-
-    $("authMessage")
-      .textContent =
+  if (error) {
+    $("authMessage").textContent =
       error.message;
-
   }
-
 }
-
 
 /* =========================
    GOOGLE BUTTON
 ========================= */
 
-const googleBtn =
-  document.createElement(
-    "button"
-  );
+const googleBtn = document.createElement("button");
 
+googleBtn.type = "button";
+googleBtn.textContent = "Continue with Google";
+googleBtn.className = "google-login-btn";
+googleBtn.onclick = signInWithGoogle;
 
-googleBtn.type =
-  "button";
+const submitButton = $("submitAuth");
 
-
-googleBtn.textContent =
-  "Continue with Google";
-
-
-googleBtn.className =
-  "google-login-btn";
-
-
-googleBtn.onclick =
-  signInWithGoogle;
-
-
-const submitButton =
-  $("submitAuth");
-
-
-if(
+if (
   submitButton &&
   submitButton.parentElement
-){
-
-  submitButton.parentElement
-    .insertBefore(
-      googleBtn,
-      submitButton
-    );
-
+) {
+  submitButton.parentElement.insertBefore(
+    googleBtn,
+    submitButton
+  );
 }
 
-
 /* =========================
-   LOGIN / SIGNUP
+   EMAIL AUTH
 ========================= */
 
 let loginMode = false;
 
+$("switchAuth").onclick = () => {
+  loginMode = !loginMode;
 
-$("switchAuth").onclick =
-  () => {
+  $("authTitle").textContent =
+    loginMode
+      ? "Welcome back"
+      : "Create your account";
 
-    loginMode =
-      !loginMode;
+  $("submitAuth").textContent =
+    loginMode ? "Login" : "Sign up";
 
+  $("displayName").classList.toggle(
+    "hidden",
+    loginMode
+  );
 
-    $("authTitle")
-      .textContent =
-      loginMode
-        ? "Welcome back"
-        : "Create your account";
+  $("switchAuth").textContent =
+    loginMode
+      ? "Need an account? Sign up"
+      : "Already have an account? Login";
 
+  $("authMessage").textContent = "";
+};
 
-    $("submitAuth")
-      .textContent =
-      loginMode
-        ? "Login"
-        : "Sign up";
+$("submitAuth").onclick = async () => {
+  const email = $("email").value.trim();
+  const password = $("password").value;
+  const name = $("displayName").value.trim();
 
+  if (!email || password.length < 6) {
+    $("authMessage").textContent =
+      "Enter an email and a password with at least 6 characters.";
+    return;
+  }
 
-    $("displayName")
-      .classList
-      .toggle(
-        "hidden",
-        loginMode
-      );
+  $("authMessage").textContent =
+    loginMode
+      ? "Logging in..."
+      : "Creating your account...";
 
+  let res;
 
-    $("switchAuth")
-      .textContent =
-      loginMode
-        ? "Need an account? Sign up"
-        : "Already have an account? Login";
+  try {
+    if (loginMode) {
+      res =
+        await supabaseClient.auth.signInWithPassword({
+          email,
+          password
+        });
+    } else {
+      res =
+        await supabaseClient.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              display_name:
+                name || "AbidType User"
+            }
+          }
+        });
+    }
 
-  };
-
-
-$("submitAuth").onclick =
-  async () => {
-
-    const email =
-      $("email")
-        .value
-        .trim();
-
-
-    const password =
-      $("password")
-        .value;
-
-
-    const name =
-      $("displayName")
-        .value
-        .trim();
-
-
-    if(
-      !email ||
-      password.length < 6
-    ){
-
-      $("authMessage")
-        .textContent =
-        "Enter an email and a password with at least 6 characters.";
-
+    if (res.error) {
+      $("authMessage").textContent =
+        res.error.message;
       return;
-
     }
 
-
-    $("authMessage")
-      .textContent =
-      "Please wait...";
-
-
-    try{
-
-      let res;
-
-
-      if(loginMode){
-
-        res =
-          await supabaseClient
-            .auth
-            .signInWithPassword({
-
-              email,
-
-              password
-
-            });
-
-      }else{
-
-        res =
-          await supabaseClient
-            .auth
-            .signUp({
-
-              email,
-
-              password,
-
-              options:{
-
-                data:{
-
-                  display_name:
-                    name ||
-                    "AbidType User"
-
-                }
-
-              }
-
-            });
-
-      }
-
-
-      if(res.error){
-
-        $("authMessage")
-          .textContent =
-          res.error.message;
-
-        return;
-
-      }
-
-
-      if(loginMode){
-
-        closeAuth();
-
-        refreshUser();
-
-        loadHistory();
-
-      }else{
-
-        $("authMessage")
-          .textContent =
-          "Account created. Check your email to confirm, then login.";
-
-      }
-
-    }catch(error){
-
-      $("authMessage")
-        .textContent =
-        error.message;
-
+    if (loginMode) {
+      closeAuth();
+      await refreshUser();
+      await loadHistory();
+    } else {
+      $("authMessage").textContent =
+        "Account created. Check your email to confirm, then login.";
     }
-
-  };
-
+  } catch (error) {
+    $("authMessage").textContent =
+      "Something went wrong. Please try again.";
+    console.error(error);
+  }
+};
 
 /* =========================
-   AUTH BUTTON
+   TYPING INPUT
 ========================= */
 
-$("authBtn").onclick =
-  async () => {
+$("typingInput").addEventListener(
+  "input",
+  () => {
+    const value = $("typingInput").value;
 
-    const {
-      data:{
-        user
-      }
-    } =
-      await supabaseClient
-        .auth
-        .getUser();
+    /*
+      Timer starts ONLY when the first
+      character is actually typed.
+    */
 
-
-    if(user){
-
-      await supabaseClient
-        .auth
-        .signOut();
-
-
-      refreshUser();
-
-
-      $("history")
-        .classList
-        .add("hidden");
-
-    }else{
-
-      openAuth();
-
+    if (value.length > 0 && !test.running) {
+      start();
     }
 
-  };
+    if (test.running) {
+      updateStats();
+    }
+  }
+);
 
+/* =========================
+   BUTTONS
+========================= */
 
-$("closeAuth").onclick =
-  closeAuth;
+$("finishBtn").onclick = finish;
 
+$("restartBtn").onclick = reset;
+
+$("language").onchange = reset;
+
+$("duration").onchange = reset;
+
+$("historyBtn").onclick = loadHistory;
+
+$("themeBtn").onclick = () => {
+  document.body.classList.toggle("light");
+};
+
+$("closeAuth").onclick = closeAuth;
 
 /* =========================
    USER
 ========================= */
 
-async function refreshUser(){
-
+async function refreshUser() {
   const {
-    data:{
-      user
-    }
-  } =
-    await supabaseClient
-      .auth
-      .getUser();
+    data: { user }
+  } = await supabaseClient.auth.getUser();
 
+  if (user) {
+    $("authBtn").textContent = "Logout";
 
-  if(user){
-
-    $("authBtn")
-      .textContent =
-      "Logout";
-
-
-    $("welcome")
-      .textContent =
+    $("welcome").textContent =
       "Welcome, " +
-      (
-        user.user_metadata
-          ?.display_name ||
-        "AbidType User"
-      );
+      (user.user_metadata?.display_name ||
+        "AbidType User");
 
-
-    $("accountNote")
-      .textContent =
+    $("accountNote").textContent =
       user.email;
-
-  }else{
-
-    $("authBtn")
-      .textContent =
+  } else {
+    $("authBtn").textContent =
       "Login / Sign up";
 
-
-    $("welcome")
-      .textContent =
+    $("welcome").textContent =
       "Practice as a guest";
 
-
-    $("accountNote")
-      .textContent =
+    $("accountNote").textContent =
       "Create an account to save your typing results and build your personal record.";
-
   }
-
 }
 
+/* =========================
+   AUTH BUTTON
+========================= */
+
+$("authBtn").addEventListener(
+  "click",
+  async () => {
+    const {
+      data: { user }
+    } = await supabaseClient.auth.getUser();
+
+    if (user) {
+      await supabaseClient.auth.signOut();
+
+      await refreshUser();
+
+      $("history").classList.add("hidden");
+    } else {
+      openAuth();
+    }
+  }
+);
 
 /* =========================
    HISTORY
 ========================= */
 
-async function loadHistory(){
-
+async function loadHistory() {
   const {
-    data:{
-      user
-    }
-  } =
-    await supabaseClient
-      .auth
-      .getUser();
+    data: { user }
+  } = await supabaseClient.auth.getUser();
 
-
-  if(!user){
-
+  if (!user) {
     openAuth();
-
     return;
-
   }
 
-
-  const {
-    data,
-    error
-  } =
+  const { data, error } =
     await supabaseClient
       .from("typing_results")
       .select(
         "language_code,duration_seconds,wpm,accuracy,created_at"
       )
-      .order(
-        "created_at",
-        {
-          ascending:false
-        }
-      )
+      .order("created_at", {
+        ascending: false
+      })
       .limit(10);
 
+  const box = $("history");
 
-  const box =
-    $("history");
+  box.classList.remove("hidden");
 
-
-  box.classList
-    .remove("hidden");
-
-
-  if(error){
-
+  if (error) {
     box.textContent =
       "Could not load history yet.";
-
     return;
-
   }
 
+  box.innerHTML = data.length
+    ? data
+        .map(
+          x => `
+            <div class="history-row">
+              <span>
+                ${
+                  x.language_code === "bn"
+                    ? "বাংলা"
+                    : "English"
+                }
+              </span>
 
-  if(!data.length){
+              <b>${x.wpm} WPM</b>
 
-    box.textContent =
-      "No typing results yet.";
+              <b>${x.accuracy}%</b>
 
-    return;
-
-  }
-
-
-  box.innerHTML =
-    data.map(
-      x => `
-
-        <div class="history-row">
-
-          <span>
-            ${
-              x.language_code === "bn"
-                ? "বাংলা"
-                : "English"
-            }
-          </span>
-
-          <b>
-            ${x.wpm} WPM
-          </b>
-
-          <b>
-            ${x.accuracy}%
-          </b>
-
-          <span>
-            ${
-              new Date(
-                x.created_at
-              ).toLocaleDateString()
-            }
-          </span>
-
-        </div>
-
-      `
-    ).join("");
-
+              <span>
+                ${new Date(
+                  x.created_at
+                ).toLocaleDateString()}
+              </span>
+            </div>
+          `
+        )
+        .join("")
+    : "No typing results yet.";
 }
-
-
-/* =========================
-   EVENTS
-========================= */
-
-$("startTestBtn").onclick =
-  startTest;
-
-
-$("finishBtn").onclick =
-  finishTest;
-
-
-$("restartBtn").onclick =
-  resetTest;
-
-
-$("tryAgainBtn").onclick =
-  resetTest;
-
-
-$("language").onchange =
-  resetTest;
-
-
-$("duration").onchange =
-  resetTest;
-
-
-$("mode").onchange =
-  () => {
-
-    setupText();
-
-    updateModeInfo();
-
-  };
-
-
-$("historyBtn").onclick =
-  loadHistory;
-
-
-$("themeBtn").onclick =
-  () => {
-
-    document.body
-      .classList
-      .toggle("light");
-
-  };
-
-
-$("typingInput")
-  .addEventListener(
-    "input",
-    () => {
-
-      if(test.running){
-
-        updateStats();
-
-      }
-
-    }
-  );
-
-
-/*
-  Stop paste.
-  This prevents users from
-  pasting the answer.
-*/
-
-$("typingInput")
-  .addEventListener(
-    "paste",
-    event => {
-
-      event.preventDefault();
-
-    }
-  );
-
-
-$("typingInput")
-  .addEventListener(
-    "drop",
-    event => {
-
-      event.preventDefault();
-
-    }
-  );
-
 
 /* =========================
    INITIALIZE
 ========================= */
 
+createModeSelector();
+
 setupText();
 
-resetTest();
+reset();
 
 refreshUser();
