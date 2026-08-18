@@ -559,4 +559,118 @@ footer{
     flex-direction:column;
   }
 
+}    /* =========================================
+   ABIDTYPE TYPING BOX FIX
+========================================= */
+
+.typing-box {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.text-display {
+  width: 100%;
+  max-width: 100%;
+  height: 190px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+
+  padding: 24px;
+
+  line-height: 2;
+  font-size: 22px;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+
+  border-radius: 16px;
+  margin-bottom: 15px;
+
+  scroll-behavior: smooth;
+}
+
+/* Every character stays inside the display */
+.text-display span {
+  display: inline;
+}
+
+/* Current character */
+.text-display span.current {
+  background: rgba(255,255,255,.20);
+  border-radius: 3px;
+}
+
+/* Correct */
+.text-display span.correct {
+  color: #22c55e;
+}
+
+/* Wrong */
+.text-display span.wrong {
+  color: #ef4444;
+  text-decoration: underline;
+}
+
+/* Actual typing input */
+#typingInput {
+  width: 100%;
+  max-width: 100%;
+  min-height: 120px;
+
+  box-sizing: border-box;
+
+  resize: vertical;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+
+  padding: 20px;
+
+  font-size: 20px;
+  line-height: 1.7;
+
+  border-radius: 14px;
+}
+
+/* Custom time input */
+#customTimeWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#customTime {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Hidden */
+.hidden {
+  display: none !important;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+  .text-display {
+    height: 170px;
+    padding: 18px;
+    font-size: 18px;
+  }
+
+  #typingInput {
+    min-height: 110px;
+    font-size: 18px;
+  }
+
 }
