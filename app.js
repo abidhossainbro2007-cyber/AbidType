@@ -1,3 +1,7 @@
+/* =====================================================
+   ABIDTYPE — COMPLETE APP.JS
+===================================================== */
+
 const supabaseClient = window.supabase.createClient(
   window.ABIDTYPE_SUPABASE_URL,
   window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
@@ -7,7 +11,7 @@ const $ = (id) => document.getElementById(id);
 
 
 /* =====================================================
-   LANGUAGE TEXT
+   PASSAGES
 ===================================================== */
 
 const passages = {
@@ -83,10 +87,12 @@ function playTypingSound() {
   try {
 
     if (!audioContext) {
+
       audioContext = new (
         window.AudioContext ||
         window.webkitAudioContext
       )();
+
     }
 
     if (audioContext.state === "suspended") {
@@ -105,13 +111,13 @@ function playTypingSound() {
       420 + Math.random() * 100;
 
     gain.gain.setValueAtTime(
-      0.025,
+      0.02,
       audioContext.currentTime
     );
 
     gain.gain.exponentialRampToValueAtTime(
       0.001,
-      audioContext.currentTime + 0.045
+      audioContext.currentTime + 0.04
     );
 
     oscillator.connect(gain);
@@ -120,17 +126,16 @@ function playTypingSound() {
     oscillator.start();
 
     oscillator.stop(
-      audioContext.currentTime + 0.05
+      audioContext.currentTime + 0.045
     );
 
-  } catch (error) {
-    console.log("Keyboard sound unavailable");
-  }
+  } catch (error) {}
+
 }
 
 
 /* =====================================================
-   GET DURATION
+   DURATION
 ===================================================== */
 
 function getSelectedDuration() {
@@ -141,14 +146,10 @@ function getSelectedDuration() {
     return 60;
   }
 
-  const value = durationEl.value;
-
-  if (value === "custom") {
+  if (durationEl.value === "custom") {
 
     let custom =
-      Number(
-        $("customTime")?.value
-      );
+      Number($("customTime")?.value);
 
     if (!custom || custom < 10) {
       custom = 60;
@@ -157,33 +158,23 @@ function getSelectedDuration() {
     return Math.min(custom, 3600);
   }
 
-  const duration = Number(value);
-
-  return duration || 60;
+  return Number(durationEl.value) || 60;
 }
 
 
-/* =====================================================
-   DURATION UI
-===================================================== */
-
 function updateDurationUI() {
 
-  const wrap =
-    $("customTimeWrap");
-
-  const duration =
-    $("duration");
+  const wrap = $("customTimeWrap");
+  const duration = $("duration");
 
   if (!wrap || !duration) {
     return;
   }
 
-  if (duration.value === "custom") {
-    wrap.classList.remove("hidden");
-  } else {
-    wrap.classList.add("hidden");
-  }
+  wrap.classList.toggle(
+    "hidden",
+    duration.value !== "custom"
+  );
 }
 
 
@@ -204,14 +195,10 @@ function buildText() {
     passages.en;
 
 
-  /* CAPITAL */
-
   if (mode === "capital") {
     text = text.toUpperCase();
   }
 
-
-  /* SMALL */
 
   if (mode === "small") {
 
@@ -222,15 +209,10 @@ function buildText() {
           ""
         )
         .toLowerCase()
-        .replace(
-          /\s+/g,
-          " "
-        )
+        .replace(/\s+/g, " ")
         .trim();
   }
 
-
-  /* PUNCTUATION */
 
   if (mode === "punctuation") {
 
@@ -261,20 +243,14 @@ function buildText() {
 
 
 /* =====================================================
-   CREATE LONG TEXT
+   UNLIMITED TEXT
 ===================================================== */
 
 function createUnlimitedText() {
 
-  const base =
-    buildText();
+  const base = buildText();
 
   let result = "";
-
-  /*
-    Create a very long passage so the user
-    normally never reaches the end during a test.
-  */
 
   for (let i = 0; i < 100; i++) {
     result += base + " ";
@@ -285,7 +261,7 @@ function createUnlimitedText() {
 
 
 /* =====================================================
-   TEXT DISPLAY
+   SETUP TEXT
 ===================================================== */
 
 function setupText() {
@@ -311,8 +287,7 @@ function setupText() {
       const span =
         document.createElement("span");
 
-      span.dataset.i =
-        index;
+      span.dataset.i = index;
 
       span.textContent =
         char === " "
@@ -354,7 +329,6 @@ function updateModeInfo() {
   };
 
   if ($("modeInfo")) {
-
     $("modeInfo").textContent =
       messages[mode] ||
       messages.normal;
@@ -368,11 +342,8 @@ function updateModeInfo() {
 
 function updateCurrentLanguage() {
 
-  const language =
-    $("language");
-
-  const current =
-    $("currentLanguage");
+  const language = $("language");
+  const current = $("currentLanguage");
 
   if (!language || !current) {
     return;
@@ -386,17 +357,17 @@ function updateCurrentLanguage() {
   if (option) {
 
     current.textContent =
-      option.textContent
-        .replace(
-          /^[^\p{L}\p{N}]+/u,
-          ""
-        );
+      option.textContent.replace(
+        /^[^\p{L}\p{N}]+/u,
+        ""
+      );
+
   }
 }
 
 
 /* =====================================================
-   RESET TEST
+   RESET
 ===================================================== */
 
 function resetTest() {
@@ -414,7 +385,6 @@ function resetTest() {
   test.duration =
     getSelectedDuration();
 
-
   $("setupArea")
     ?.classList
     .remove("hidden");
@@ -427,25 +397,18 @@ function resetTest() {
     ?.classList
     .add("hidden");
 
-
   if ($("time")) {
-
     $("time").textContent =
       test.duration;
   }
 
-
   if ($("typingInput")) {
-
-    $("typingInput").value =
-      "";
+    $("typingInput").value = "";
   }
-
 
   setupText();
 
   updateModeInfo();
-
   updateCurrentLanguage();
 }
 
@@ -467,12 +430,14 @@ function startTest() {
   test.duration =
     getSelectedDuration();
 
-
   clearInterval(test.timer);
 
+  if ($("time")) {
+    $("time").textContent =
+      test.duration;
+  }
 
   $("typingInput")?.focus();
-
 
   test.timer =
     setInterval(
@@ -484,29 +449,20 @@ function startTest() {
 
         const elapsed =
           Math.floor(
-            (
-              Date.now() -
-              test.start
-            ) / 1000
+            (Date.now() - test.start) / 1000
           );
 
         const left =
           Math.max(
             0,
-            test.duration -
-              elapsed
+            test.duration - elapsed
           );
 
-
         if ($("time")) {
-
-          $("time").textContent =
-            left;
+          $("time").textContent = left;
         }
 
-
         if (left <= 0) {
-
           finishTest();
         }
 
@@ -535,35 +491,23 @@ function updateTypingDisplay() {
   const spans =
     [...display.children];
 
-
   spans.forEach(
     (span, index) => {
 
       span.className = "";
 
-
       if (index < input.length) {
 
         span.classList.add(
-
-          input[index] ===
-            test.text[index]
-
+          input[index] === test.text[index]
             ? "correct"
-
             : "wrong"
         );
       }
 
-
       if (index === input.length) {
 
         span.classList.add("current");
-
-        /*
-          Keep current character visible
-          without jumping the entire page.
-        */
 
         const displayRect =
           display.getBoundingClientRect();
@@ -576,9 +520,9 @@ function updateTypingDisplay() {
           displayRect.top
         ) {
 
-          display.scrollTop -=
-            displayRect.top -
-            spanRect.top;
+          display.scrollTop +=
+            spanRect.top -
+            displayRect.top;
 
         } else if (
           spanRect.bottom >
@@ -602,15 +546,19 @@ function updateTypingDisplay() {
 
 function updateLiveTyping() {
 
+  const input =
+    $("typingInput")?.value || "";
+
+  /*
+    First character starts the timer.
+  */
+
   if (!test.started) {
     startTest();
   }
 
-  test.input =
-    $("typingInput")?.value || "";
-
-  test.typed =
-    test.input.length;
+  test.input = input;
+  test.typed = input.length;
 
   playTypingSound();
 
@@ -619,7 +567,7 @@ function updateLiveTyping() {
 
 
 /* =====================================================
-   CALCULATE STATS
+   STATS
 ===================================================== */
 
 function calculateStats() {
@@ -630,40 +578,28 @@ function calculateStats() {
   const target =
     test.text || "";
 
-
   let errors = 0;
   let correctChars = 0;
-
 
   [...input].forEach(
     (char, index) => {
 
-      if (
-        char ===
-        target[index]
-      ) {
-
+      if (char === target[index]) {
         correctChars++;
-
       } else {
-
         errors++;
       }
+
     }
   );
 
 
   const elapsedSeconds =
     test.start
-
       ? Math.max(
           1,
-          (
-            Date.now() -
-            test.start
-          ) / 1000
+          (Date.now() - test.start) / 1000
         )
-
       : 1;
 
 
@@ -675,42 +611,31 @@ function calculateStats() {
     Math.max(
       0,
       Math.round(
-        (
-          correctChars / 5
-        ) / minutes
+        (correctChars / 5) / minutes
       )
     );
 
 
   const accuracy =
-    input.length > 0
-
+    input.length
       ? Math.max(
           0,
           Math.round(
-            (
-              correctChars /
-              input.length
-            ) * 100
+            (correctChars / input.length) * 100
           )
         )
-
       : 100;
 
 
   const typedWords =
     input.trim()
-      ? input
-          .trim()
-          .split(/\s+/)
+      ? input.trim().split(/\s+/)
       : [];
 
 
   const targetWords =
     target.trim()
-      ? target
-          .trim()
-          .split(/\s+/)
+      ? target.trim().split(/\s+/)
       : [];
 
 
@@ -724,9 +649,9 @@ function calculateStats() {
         word ===
         targetWords[index]
       ) {
-
         correctWords++;
       }
+
     }
   );
 
@@ -734,24 +659,18 @@ function calculateStats() {
   const totalWords =
     typedWords.length;
 
-
   const wrongWords =
     Math.max(
       0,
-      totalWords -
-        correctWords
+      totalWords - correctWords
     );
 
 
-  test.errors =
-    errors;
-
-  test.typed =
-    input.length;
+  test.errors = errors;
+  test.typed = input.length;
 
 
   return {
-
     wpm,
     accuracy,
     errors,
@@ -769,16 +688,14 @@ function calculateStats() {
 
 function createWordResults() {
 
-  const inputValue =
+  const input =
     $("typingInput")?.value || "";
 
-
   const inputWords =
-    inputValue
+    input
       .trim()
       .split(/\s+/)
       .filter(Boolean);
-
 
   const targetWords =
     test.text
@@ -786,23 +703,17 @@ function createWordResults() {
       .split(/\s+/)
       .filter(Boolean);
 
-
   return inputWords.map(
-    (word, index) => {
-
-      return (
-        word ===
-        targetWords[index]
-      )
+    (word, index) =>
+      word === targetWords[index]
         ? "correct"
-        : "wrong";
-    }
+        : "wrong"
   );
 }
 
 
 /* =====================================================
-   FINISH TEST
+   FINISH
 ===================================================== */
 
 async function finishTest() {
@@ -811,85 +722,62 @@ async function finishTest() {
     return;
   }
 
+  test.running = false;
+
+  clearInterval(test.timer);
 
   const stats =
     calculateStats();
 
-
-  clearInterval(test.timer);
-
-
-  test.running = false;
-
-
-  if ($("time")) {
-
-    $("time").textContent =
-      "0";
-  }
-
-
   test.wordResults =
     createWordResults();
 
+  if ($("time")) {
+    $("time").textContent = "0";
+  }
 
   if ($("resultWpm")) {
-
     $("resultWpm").textContent =
       stats.wpm;
   }
 
-
   if ($("resultAccuracy")) {
-
     $("resultAccuracy").textContent =
       stats.accuracy + "%";
   }
 
-
   if ($("resultWords")) {
-
     $("resultWords").textContent =
       stats.totalWords;
   }
 
-
   if ($("resultErrors")) {
-
     $("resultErrors").textContent =
       stats.errors;
   }
 
-
   if ($("correctWords")) {
-
     $("correctWords").textContent =
       stats.correctWords;
   }
 
-
   if ($("wrongWords")) {
-
     $("wrongWords").textContent =
       stats.wrongWords;
   }
-
 
   $("testArea")
     ?.classList
     .add("hidden");
 
-
   $("resultArea")
     ?.classList
     .remove("hidden");
-
 
   setTimeout(
     drawGraph,
     50
   );
-
 
   await saveResult(stats);
 }
@@ -908,7 +796,6 @@ function drawGraph() {
     return;
   }
 
-
   const ctx =
     canvas.getContext("2d");
 
@@ -916,18 +803,13 @@ function drawGraph() {
     return;
   }
 
-
   const width =
-    canvas.clientWidth ||
-    800;
+    canvas.clientWidth || 800;
 
   const height = 260;
 
-
   const ratio =
-    window.devicePixelRatio ||
-    1;
-
+    window.devicePixelRatio || 1;
 
   canvas.width =
     width * ratio;
@@ -935,10 +817,8 @@ function drawGraph() {
   canvas.height =
     height * ratio;
 
-
   canvas.style.height =
     height + "px";
-
 
   ctx.setTransform(
     ratio,
@@ -949,7 +829,6 @@ function drawGraph() {
     0
   );
 
-
   ctx.clearRect(
     0,
     0,
@@ -957,10 +836,8 @@ function drawGraph() {
     height
   );
 
-
   const results =
     test.wordResults;
-
 
   if (!results.length) {
 
@@ -979,93 +856,43 @@ function drawGraph() {
     return;
   }
 
-
   const usableWidth =
     width - 60;
 
-
   const step =
     results.length === 1
-
       ? 0
-
       : usableWidth /
-        (
-          results.length -
-          1
-        );
-
+        (results.length - 1);
 
   results.forEach(
     (result, index) => {
 
       const x =
         results.length === 1
-
           ? width / 2
-
-          : 30 +
-            index *
-              step;
-
+          : 30 + index * step;
 
       const y =
         result === "correct"
-
           ? height - 100
-
           : height - 175;
-
-
-      ctx.beginPath();
-
-      ctx.arc(
-        x,
-        y,
-        5,
-        0,
-        Math.PI * 2
-      );
-
-
-      ctx.fillStyle =
-        result === "correct"
-
-          ? "#22c55e"
-
-          : "#ef4444";
-
-
-      ctx.fill();
-
 
       if (index > 0) {
 
         const previous =
-          results[
-            index - 1
-          ];
-
+          results[index - 1];
 
         const previousY =
           previous === "correct"
-
             ? height - 100
-
             : height - 175;
-
 
         const previousX =
           results.length === 1
-
             ? width / 2
-
             : 30 +
-              (
-                index - 1
-              ) *
-                step;
-
+              (index - 1) * step;
 
         ctx.beginPath();
 
@@ -1079,12 +906,28 @@ function drawGraph() {
           y
         );
 
-
         ctx.strokeStyle =
           "rgba(255,255,255,.18)";
 
         ctx.stroke();
       }
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        y,
+        5,
+        0,
+        Math.PI * 2
+      );
+
+      ctx.fillStyle =
+        result === "correct"
+          ? "#22c55e"
+          : "#ef4444";
+
+      ctx.fill();
 
     }
   );
@@ -1106,11 +949,9 @@ async function saveResult(stats) {
         .auth
         .getUser();
 
-
     if (!user) {
       return;
     }
-
 
     await supabaseClient
       .from("typing_results")
@@ -1150,11 +991,13 @@ async function saveResult(stats) {
 
 
 /* =====================================================
-   AUTH MODAL
+   AUTH
 ===================================================== */
 
 const authModal =
   $("authModal");
+
+let loginMode = false;
 
 
 function openAuth() {
@@ -1163,11 +1006,8 @@ function openAuth() {
     ?.classList
     .remove("hidden");
 
-
   if ($("authMessage")) {
-
-    $("authMessage")
-      .textContent = "";
+    $("authMessage").textContent = "";
   }
 }
 
@@ -1187,12 +1027,9 @@ function closeAuth() {
 async function signInWithGoogle() {
 
   if ($("authMessage")) {
-
-    $("authMessage")
-      .textContent =
+    $("authMessage").textContent =
       "Opening Google sign in...";
   }
-
 
   const { error } =
     await supabaseClient
@@ -1202,29 +1039,19 @@ async function signInWithGoogle() {
         provider: "google",
 
         options: {
-
           redirectTo:
             window.location.origin +
             window.location.pathname
         }
+
       });
 
-
-  if (error) {
-
-    if ($("authMessage")) {
-
-      $("authMessage")
-        .textContent =
-        error.message;
-    }
+  if (error && $("authMessage")) {
+    $("authMessage").textContent =
+      error.message;
   }
 }
 
-
-/* =====================================================
-   GOOGLE BUTTON
-===================================================== */
 
 function addGoogleButton() {
 
@@ -1232,21 +1059,18 @@ function addGoogleButton() {
     return;
   }
 
-
-  const submitButton =
+  const submit =
     $("submitAuth");
 
   if (
-    !submitButton ||
-    !submitButton.parentElement
+    !submit ||
+    !submit.parentElement
   ) {
     return;
   }
 
-
   const button =
     document.createElement("button");
-
 
   button.id =
     "googleLoginBtn";
@@ -1263,56 +1087,40 @@ function addGoogleButton() {
   button.onclick =
     signInWithGoogle;
 
-
-  submitButton
-    .parentElement
-    .insertBefore(
-      button,
-      submitButton
-    );
+  submit.parentElement.insertBefore(
+    button,
+    submit
+  );
 }
 
 
 /* =====================================================
-   LOGIN / SIGNUP
+   AUTH SWITCH
 ===================================================== */
-
-let loginMode = false;
-
 
 if ($("switchAuth")) {
 
-  $("switchAuth")
-    .onclick =
+  $("switchAuth").onclick =
     () => {
 
       loginMode =
         !loginMode;
 
-
       if ($("authTitle")) {
 
-        $("authTitle")
-          .textContent =
+        $("authTitle").textContent =
           loginMode
-
             ? "Welcome back"
-
             : "Create your account";
       }
 
-
       if ($("submitAuth")) {
 
-        $("submitAuth")
-          .textContent =
+        $("submitAuth").textContent =
           loginMode
-
             ? "Login"
-
             : "Sign up";
       }
-
 
       if ($("displayName")) {
 
@@ -1324,15 +1132,11 @@ if ($("switchAuth")) {
           );
       }
 
-
       if ($("switchAuth")) {
 
-        $("switchAuth")
-          .textContent =
+        $("switchAuth").textContent =
           loginMode
-
             ? "Need an account? Sign up"
-
             : "Already have an account? Login";
       }
 
@@ -1346,25 +1150,17 @@ if ($("switchAuth")) {
 
 if ($("submitAuth")) {
 
-  $("submitAuth")
-    .onclick =
+  $("submitAuth").onclick =
     async () => {
 
       const email =
-        $("email")
-          ?.value
-          .trim();
-
+        $("email")?.value.trim();
 
       const password =
-        $("password")
-          ?.value || "";
-
+        $("password")?.value || "";
 
       const name =
-        $("displayName")
-          ?.value
-          .trim();
+        $("displayName")?.value.trim();
 
 
       if (
@@ -1374,8 +1170,7 @@ if ($("submitAuth")) {
 
         if ($("authMessage")) {
 
-          $("authMessage")
-            .textContent =
+          $("authMessage").textContent =
             "Enter an email and a password with at least 6 characters.";
         }
 
@@ -1384,9 +1179,7 @@ if ($("submitAuth")) {
 
 
       if ($("authMessage")) {
-
-        $("authMessage")
-          .textContent =
+        $("authMessage").textContent =
           "Please wait...";
       }
 
@@ -1400,10 +1193,8 @@ if ($("submitAuth")) {
           await supabaseClient
             .auth
             .signInWithPassword({
-
               email,
               password
-
             });
 
       } else {
@@ -1424,7 +1215,9 @@ if ($("submitAuth")) {
                     name ||
                     "AbidType User"
                 }
+
               }
+
             });
       }
 
@@ -1433,8 +1226,7 @@ if ($("submitAuth")) {
 
         if ($("authMessage")) {
 
-          $("authMessage")
-            .textContent =
+          $("authMessage").textContent =
             result.error.message;
         }
 
@@ -1452,8 +1244,7 @@ if ($("submitAuth")) {
 
         if ($("authMessage")) {
 
-          $("authMessage")
-            .textContent =
+          $("authMessage").textContent =
             "Account created. Check your email to confirm, then login.";
         }
       }
@@ -1468,40 +1259,35 @@ if ($("submitAuth")) {
 
 if ($("authBtn")) {
 
-  $("authBtn")
-    .addEventListener(
-      "click",
-      async () => {
+  $("authBtn").onclick =
+    async () => {
 
-        const {
-          data: { user }
-        } =
-          await supabaseClient
-            .auth
-            .getUser();
+      const {
+        data: { user }
+      } =
+        await supabaseClient
+          .auth
+          .getUser();
 
+      if (user) {
 
-        if (user) {
+        await supabaseClient
+          .auth
+          .signOut();
 
-          await supabaseClient
-            .auth
-            .signOut();
+        await refreshUser();
 
+        $("history")
+          ?.classList
+          .add("hidden");
 
-          await refreshUser();
+      } else {
 
-
-          $("history")
-            ?.classList
-            .add("hidden");
-
-        } else {
-
-          openAuth();
-        }
+        openAuth();
 
       }
-    );
+
+    };
 }
 
 
@@ -1510,30 +1296,23 @@ if ($("authBtn")) {
 ===================================================== */
 
 if ($("closeAuth")) {
-
-  $("closeAuth")
-    .onclick =
+  $("closeAuth").onclick =
     closeAuth;
 }
 
 
 if (authModal) {
 
-  authModal
-    .addEventListener(
-      "click",
-      (event) => {
+  authModal.addEventListener(
+    "click",
+    (event) => {
 
-        if (
-          event.target ===
-          authModal
-        ) {
-
-          closeAuth();
-        }
-
+      if (event.target === authModal) {
+        closeAuth();
       }
-    );
+
+    }
+  );
 }
 
 
@@ -1543,20 +1322,8 @@ if (authModal) {
 
 if ($("startTestBtn")) {
 
-  $("startTestBtn")
-    .onclick =
+  $("startTestBtn").onclick =
     () => {
-
-      /*
-        Prepare fresh typing text.
-      */
-
-      setupText();
-
-
-      /*
-        Reset test state.
-      */
 
       clearInterval(test.timer);
 
@@ -1568,28 +1335,22 @@ if ($("startTestBtn")) {
       test.wordResults = [];
       test.input = "";
 
-
       test.duration =
         getSelectedDuration();
 
+      setupText();
 
       $("setupArea")
         ?.classList
         .add("hidden");
 
-
       $("testArea")
         ?.classList
         .remove("hidden");
 
-
-      if ($("resultArea")) {
-
-        $("resultArea")
-          .classList
-          .add("hidden");
-      }
-
+      $("resultArea")
+        ?.classList
+        .add("hidden");
 
       if ($("time")) {
 
@@ -1597,17 +1358,22 @@ if ($("startTestBtn")) {
           test.duration;
       }
 
-
       if ($("typingInput")) {
 
-        $("typingInput").value =
-          "";
+        $("typingInput").value = "";
 
         $("typingInput").focus();
       }
 
-
       updateCurrentLanguage();
+
+      /*
+        IMPORTANT:
+        Start timer immediately when
+        Start Typing Test is clicked.
+      */
+
+      startTest();
 
     };
 }
@@ -1619,23 +1385,23 @@ if ($("startTestBtn")) {
 
 if ($("typingInput")) {
 
-  $("typingInput")
-    .addEventListener(
-      "input",
-      updateLiveTyping
-    );
+  $("typingInput").addEventListener(
+    "input",
+    updateLiveTyping
+  );
+
 }
 
 
 /* =====================================================
-   FINISH
+   FINISH BUTTON
 ===================================================== */
 
 if ($("finishBtn")) {
 
-  $("finishBtn")
-    .onclick =
+  $("finishBtn").onclick =
     finishTest;
+
 }
 
 
@@ -1645,12 +1411,13 @@ if ($("finishBtn")) {
 
 if ($("restartBtn")) {
 
-  $("restartBtn")
-    .onclick =
+  $("restartBtn").onclick =
     () => {
 
       resetTest();
+
     };
+
 }
 
 
@@ -1660,12 +1427,13 @@ if ($("restartBtn")) {
 
 if ($("tryAgainBtn")) {
 
-  $("tryAgainBtn")
-    .onclick =
+  $("tryAgainBtn").onclick =
     () => {
 
       resetTest();
+
     };
+
 }
 
 
@@ -1675,12 +1443,13 @@ if ($("tryAgainBtn")) {
 
 if ($("language")) {
 
-  $("language")
-    .onchange =
+  $("language").onchange =
     () => {
 
       resetTest();
+
     };
+
 }
 
 
@@ -1690,14 +1459,15 @@ if ($("language")) {
 
 if ($("duration")) {
 
-  $("duration")
-    .onchange =
+  $("duration").onchange =
     () => {
 
       updateDurationUI();
 
       resetTest();
+
     };
+
 }
 
 
@@ -1707,8 +1477,7 @@ if ($("duration")) {
 
 if ($("customTime")) {
 
-  $("customTime")
-    .oninput =
+  $("customTime").oninput =
     () => {
 
       if (
@@ -1719,14 +1488,17 @@ if ($("customTime")) {
         test.duration =
           getSelectedDuration();
 
-
         if ($("time")) {
 
           $("time").textContent =
             test.duration;
+
         }
+
       }
+
     };
+
 }
 
 
@@ -1736,125 +1508,15 @@ if ($("customTime")) {
 
 if ($("mode")) {
 
-  $("mode")
-    .onchange =
+  $("mode").onchange =
     () => {
 
       updateModeInfo();
 
       resetTest();
+
     };
-}
 
-
-/* =====================================================
-   HISTORY BUTTON
-===================================================== */
-
-if ($("historyBtn")) {
-
-  $("historyBtn")
-    .onclick =
-    loadHistory;
-}
-
-
-/* =====================================================
-   THEME
-===================================================== */
-
-if ($("themeBtn")) {
-
-  $("themeBtn")
-    .onclick =
-    () => {
-
-      document.body
-        .classList
-        .toggle("light");
-    };
-}
-
-
-/* =====================================================
-   USER
-===================================================== */
-
-async function refreshUser() {
-
-  try {
-
-    const {
-      data: { user }
-    } =
-      await supabaseClient
-        .auth
-        .getUser();
-
-
-    if (user) {
-
-      if ($("authBtn")) {
-
-        $("authBtn")
-          .textContent =
-          "Logout";
-      }
-
-
-      if ($("welcome")) {
-
-        $("welcome")
-          .textContent =
-          "Welcome, " +
-          (
-            user.user_metadata
-              ?.display_name ||
-            "AbidType User"
-          );
-      }
-
-
-      if ($("accountNote")) {
-
-        $("accountNote")
-          .textContent =
-          user.email || "";
-      }
-
-    } else {
-
-      if ($("authBtn")) {
-
-        $("authBtn")
-          .textContent =
-          "Login / Sign up";
-      }
-
-
-      if ($("welcome")) {
-
-        $("welcome")
-          .textContent =
-          "Practice as a guest";
-      }
-
-
-      if ($("accountNote")) {
-
-        $("accountNote")
-          .textContent =
-          "Create an account to save your typing results and build your personal record.";
-      }
-    }
-
-  } catch (error) {
-
-    console.error(
-      "Refresh user error:",
-      error
-    );
-  }
 }
 
 
@@ -1870,7 +1532,6 @@ async function loadHistory() {
     await supabaseClient
       .auth
       .getUser();
-
 
   if (!user) {
 
@@ -1905,14 +1566,11 @@ async function loadHistory() {
   const box =
     $("history");
 
-
   if (!box) {
     return;
   }
 
-
-  box.classList
-    .remove("hidden");
+  box.classList.remove("hidden");
 
 
   if (error) {
@@ -1926,10 +1584,7 @@ async function loadHistory() {
   }
 
 
-  if (
-    !data ||
-    !data.length
-  ) {
+  if (!data || !data.length) {
 
     box.textContent =
       "No typing results yet.";
@@ -1939,58 +1594,155 @@ async function loadHistory() {
 
 
   box.innerHTML =
-    data
-      .map(
-        (item) => {
+    data.map(
+      (item) => {
 
-          const language =
-            String(
-              item.language_code || "en"
-            ).toUpperCase();
+        const language =
+          String(
+            item.language_code || "en"
+          ).toUpperCase();
+
+        const wpm =
+          Number(item.wpm || 0);
+
+        const accuracy =
+          Number(item.accuracy || 0);
+
+        const date =
+          item.created_at
+            ? new Date(
+                item.created_at
+              ).toLocaleDateString()
+            : "";
+
+        return `
+
+          <div class="history-row">
+
+            <span>
+              ${language}
+            </span>
+
+            <b>
+              ${wpm} WPM
+            </b>
+
+            <b>
+              ${accuracy}%
+            </b>
+
+            <span>
+              ${date}
+            </span>
+
+          </div>
+
+        `;
+
+      }
+    ).join("");
+
+}
 
 
-          const wpm =
-            Number(item.wpm || 0);
+if ($("historyBtn")) {
+
+  $("historyBtn").onclick =
+    loadHistory;
+
+}
 
 
-          const accuracy =
-            Number(item.accuracy || 0);
+/* =====================================================
+   THEME
+===================================================== */
+
+if ($("themeBtn")) {
+
+  $("themeBtn").onclick =
+    () => {
+
+      document.body
+        .classList
+        .toggle("light");
+
+    };
+
+}
 
 
-          const date =
-            item.created_at
-              ? new Date(
-                  item.created_at
-                ).toLocaleDateString()
-              : "";
+/* =====================================================
+   USER
+===================================================== */
+
+async function refreshUser() {
+
+  try {
+
+    const {
+      data: { user }
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
 
 
-          return `
+    if (user) {
 
-            <div class="history-row">
+      if ($("authBtn")) {
 
-              <span>
-                ${language}
-              </span>
+        $("authBtn").textContent =
+          "Logout";
+      }
 
-              <b>
-                ${wpm} WPM
-              </b>
+      if ($("welcome")) {
 
-              <b>
-                ${accuracy}%
-              </b>
+        $("welcome").textContent =
+          "Welcome, " +
+          (
+            user.user_metadata
+              ?.display_name ||
+            "AbidType User"
+          );
+      }
 
-              <span>
-                ${date}
-              </span>
+      if ($("accountNote")) {
 
-            </div>
+        $("accountNote").textContent =
+          user.email || "";
+      }
 
-          `;
-        }
-      )
-      .join("");
+    } else {
+
+      if ($("authBtn")) {
+
+        $("authBtn").textContent =
+          "Login / Sign up";
+      }
+
+      if ($("welcome")) {
+
+        $("welcome").textContent =
+          "Practice as a guest";
+      }
+
+      if ($("accountNote")) {
+
+        $("accountNote").textContent =
+          "Create an account to save your typing results and build your personal record.";
+      }
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "Refresh user error:",
+      error
+    );
+
+  }
+
 }
 
 
@@ -2001,10 +1753,7 @@ async function loadHistory() {
 supabaseClient
   .auth
   .onAuthStateChange(
-    async (
-      event,
-      session
-    ) => {
+    async () => {
 
       await refreshUser();
 
@@ -2029,6 +1778,7 @@ window.addEventListener(
     ) {
 
       drawGraph();
+
     }
 
   }
