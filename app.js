@@ -55,9 +55,35 @@ async function saveResult(stats){
   });
 }
 function openAuth(){authModal.classList.remove("hidden");$("authMessage").textContent=""}
-function closeAuth(){authModal.classList.add("hidden")}
+function closeAuth(){authModal.classList.add("hidden")}  
+async function signInWithGoogle(){
+  $("authMessage").textContent="Opening Google sign in...";
+  
+  const { error } = await supabaseClient.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: window.location.origin + window.location.pathname
+    }
+  });
+
+  if(error){
+    $("authMessage").textContent=error.message;
+  }
+}
+
+const googleBtn=document.createElement("button");
+googleBtn.type="button";
+googleBtn.textContent="Continue with Google";
+googleBtn.className="google-login-btn";
+googleBtn.onclick=signInWithGoogle;
+
+const submitButton=$("submitAuth");
+if(submitButton && submitButton.parentElement){
+  submitButton.parentElement.insertBefore(googleBtn,submitButton);
+}
 let loginMode=false;
-$("authBtn").onclick=openAuth;$("closeAuth").onclick=closeAuth;
+
+
 $("switchAuth").onclick=()=>{loginMode=!loginMode;$("authTitle").textContent=loginMode?"Welcome back":"Create your account";$("submitAuth").textContent=loginMode?"Login":"Sign up";$("displayName").classList.toggle("hidden",loginMode);$("switchAuth").textContent=loginMode?"Need an account? Sign up":"Already have an account? Login"};
 $("submitAuth").onclick=async()=>{
   const email=$("email").value.trim(), password=$("password").value, name=$("displayName").value.trim();
