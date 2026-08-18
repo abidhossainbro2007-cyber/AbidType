@@ -1,8 +1,3 @@
-/* =========================================================
-   ABIDTYPE — GLOBAL TYPING TEST
-   10FASTFINGERS STYLE ENGINE
-========================================================= */
-
 const supabaseClient = window.supabase.createClient(
   window.ABIDTYPE_SUPABASE_URL,
   window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
@@ -11,150 +6,166 @@ const supabaseClient = window.supabase.createClient(
 const $ = (id) => document.getElementById(id);
 
 
-/* =========================================================
-   LANGUAGE WORD BANKS
-========================================================= */
+/* =====================================================
+   LANGUAGE TEXT
+===================================================== */
 
-const wordBanks = {
+const passages = {
 
-  en: `
-  the of and to a in is you that it he was for on are as with his they I at be this have from or one had by word but not what all were we when your can said there use an each which she do how their if will up other about out many then them these so some her would make like him into time has look two more write go see number no way could people my than first water been call who oil its now find long down day did get come made may part
-  typing practice speed accuracy keyboard computer learning improve skill focus work every words sentence language global test result performance correct wrong fast slow strong better daily training professional student user website
-  `,
+  en: [
+    "Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally.",
+    "Every day is a new opportunity to improve your typing speed, confidence, and consistency.",
+    "Keep your fingers relaxed and try to maintain a steady rhythm while typing.",
+    "Practice regularly and your typing speed will become faster and more accurate over time."
+  ],
 
-  bn: `
-  আমি তুমি সে তারা আমরা আপনার আমার এই সেই এবং কিন্তু অথবা যদি যে একটি একটি করে থেকে জন্য সঙ্গে আছে হবে ছিল ছিলাম ছিলে করা করতে পারেন পারে যাবে আসবে মানুষ সময় দিন রাত ভালো নতুন পুরোনো বড় ছোট দ্রুত ধীরে কাজ শেখা শিক্ষা অনুশীলন টাইপিং কিবোর্ড কম্পিউটার গতি নির্ভুলতা দক্ষতা পরীক্ষা ফলাফল শব্দ বাক্য ভাষা বিশ্ব বাংলা নিয়মিত প্রতিদিন চেষ্টা সফলতা উন্নতি আত্মবিশ্বাস
-  `,
+  bn: [
+    "নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে।",
+    "প্রথমে নির্ভুলতার দিকে মনোযোগ দিন এবং পরে স্বাভাবিকভাবে আপনার গতি বাড়বে।",
+    "প্রতিদিন অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।",
+    "নিয়মিত টাইপিং অনুশীলন আপনাকে দ্রুত এবং নির্ভুলভাবে টাইপ করতে সাহায্য করবে।"
+  ],
 
-  hi: `
-  मैं तुम वह हम आप यह वह और लेकिन या अगर जो एक से के लिए साथ है होगा था करना सकते हैं जाएगा आएगा लोग समय दिन रात अच्छा नया पुराना बड़ा छोटा तेज धीरे काम सीखना शिक्षा अभ्यास टाइपिंग कीबोर्ड कंप्यूटर गति सटीकता कौशल परीक्षण परिणाम शब्द वाक्य भाषा दुनिया हिंदी नियमित रोज प्रयास सफलता सुधार आत्मविश्वास
-  `,
+  hi: [
+    "नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है।",
+    "पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं।",
+    "हर दिन अभ्यास करने से आपका आत्मविश्वास और टाइपिंग कौशल बेहतर होगा।"
+  ],
 
-  ur: `
-  میں تم وہ ہم آپ یہ اور لیکن یا اگر جو ایک سے کے لیے ساتھ ہے ہوگا تھا کرنا سکتے ہیں جائے گا آئے گا لوگ وقت دن رات اچھا نیا پرانا بڑا چھوٹا تیز آہستہ کام سیکھنا تعلیم مشق ٹائپنگ کی بورڈ کمپیوٹر رفتار درستگی مہارت ٹیسٹ نتیجہ لفظ جملہ زبان دنیا اردو روزانہ کوشش کامیابی بہتری اعتماد
-  `,
+  ur: [
+    "باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔",
+    "پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔",
+    "روزانہ مشق کرنے سے آپ کی ٹائپنگ کی مہارت بہتر ہوگی۔"
+  ],
 
-  ar: `
-  أنا أنت هو هي نحن أنتم هذا هذه و لكن أو إذا الذي التي من إلى في على مع عن كان يكون سوف يمكن الناس الوقت اليوم الليل جيد جديد قديم كبير صغير سريع بطيء عمل تعلم تعليم تدريب كتابة لوحة مفاتيح حاسوب سرعة دقة مهارة اختبار نتيجة كلمة جملة لغة عالم عربي ممارسة يومية نجاح تحسين ثقة
-  `,
+  ar: [
+    "تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم.",
+    "ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي.",
+    "كل يوم هو فرصة جديدة لتحسين مهارات الكتابة والثقة."
+  ],
 
-  es: `
-  el la los las de que y a en un una es se no por con para como está del más pero sus le ya o este sí porque cuando muy sin sobre también me hasta hay donde quien todo esta puede tiempo año día vida mundo persona trabajo casa bueno nuevo grande pequeño rápido lento aprender práctica escribir teclado computadora velocidad precisión habilidad prueba resultado palabra frase idioma español diario mejorar confianza
-  `,
+  es: [
+    "Escribir es una habilidad que mejora con la práctica regular.",
+    "Concéntrate primero en la precisión y la velocidad llegará de forma natural.",
+    "Cada día es una nueva oportunidad para mejorar tu velocidad."
+  ],
 
-  fr: `
-  le la les de et un une à en est que pour dans avec sur par plus pas ce se il elle nous vous ils mais comme son sa au aussi très tout cette peut temps jour monde personne travail maison bon nouveau grand petit rapide lent apprendre pratique écrire clavier ordinateur vitesse précision compétence test résultat mot phrase langue français quotidien améliorer confiance
-  `,
+  fr: [
+    "La frappe est une compétence qui s'améliore avec une pratique régulière.",
+    "Concentrez-vous d'abord sur la précision et la vitesse viendra naturellement.",
+    "Chaque jour est une nouvelle occasion de progresser."
+  ],
 
-  de: `
-  der die das und ein eine zu in ist von mit auf für nicht ich du er sie wir ihr sie auch als bei aus nach über aber oder wenn dann nur sehr mehr kann werden war haben sein machen gehen kommen gut neu alt groß klein schnell langsam lernen üben schreiben tastatur computer geschwindigkeit genauigkeit fähigkeit test ergebnis wort satz sprache deutsch täglich verbessern sicherheit
-  `,
+  de: [
+    "Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert.",
+    "Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird folgen.",
+    "Jeder Tag bietet eine neue Möglichkeit, besser zu werden."
+  ],
 
-  it: `
-  il la lo i gli le di e un una a in è che per con su da non io tu lui lei noi voi loro anche come questo questa più molto può essere fare andare venire bene nuovo vecchio grande piccolo veloce lento imparare pratica scrivere tastiera computer velocità precisione abilità test risultato parola frase lingua italiano ogni giorno migliorare fiducia
-  `,
+  it: [
+    "La digitazione è un'abilità che migliora con la pratica regolare.",
+    "Concentrati prima sulla precisione e la velocità arriverà naturalmente.",
+    "Ogni giorno è una nuova opportunità per migliorare."
+  ],
 
-  pt: `
-  o a os as de e um uma para em é que com por não eu você ele ela nós vocês eles também como este esta mais muito pode ser fazer ir vir bom novo velho grande pequeno rápido lento aprender prática escrever teclado computador velocidade precisão habilidade teste resultado palavra frase idioma português todos dia melhorar confiança
-  `,
+  pt: [
+    "A digitação é uma habilidade que melhora com a prática regular.",
+    "Concentre-se primeiro na precisão e a velocidade virá naturalmente.",
+    "Cada dia é uma nova oportunidade para melhorar."
+  ],
 
-  ru: `
-  и в не на я что с он как а это по из за мы для вы они от но о его она так все уже быть был была были можно будет делать делать идти день время человек новый старый большой маленький быстро медленно учиться практика писать клавиатура компьютер скорость точность навык тест результат слово предложение язык русский каждый день улучшение уверенность
-  `,
+  ru: [
+    "Печать — это навык, который улучшается благодаря регулярной практике.",
+    "Сначала сосредоточьтесь на точности, а скорость придет естественно.",
+    "Каждый день дает новую возможность стать лучше."
+  ],
 
-  zh: `
-  我 你 他 她 我们 他们 这 那 和 但是 或者 如果 一个 这个 什么 是 有 在 不 会 可以 要 来 去 看 做 说 人 时间 今天 明天 世界 工作 学习 学生 老师 好 新 大 小 快 慢 练习 打字 键盘 电脑 速度 准确 技能 测试 结果 单词 句子 语言 中文 每天 提高 成功 信心
-  `,
+  zh: [
+    "打字是一项可以通过 नियमित练习不断提高的技能。",
+    "首先专注于准确性，然后速度会自然提高。",
+    "每天都是提升打字能力和信心的新机会。"
+  ],
 
-  ja: `
-  私 あなた 彼 彼女 私たち これ それ そして しかし また もし 一つ です あります できます します 行く 来る 見る 人 時間 今日 明日 世界 仕事 学習 学生 良い 新しい 大きい 小さい 速い 遅い 練習 タイピング キーボード コンピューター 速度 正確 技能 テスト 結果 言葉 文 日本語 毎日 上達 成功 自信
-  `,
+  ja: [
+    "タイピングは नियमितな練習によって上達するスキルです。",
+    "まず正確さを意識しましょう。",
+    "毎日少しずつ練習することで速度と自信を高めることができます。"
+  ],
 
-  ko: `
-  나 너 그 그녀 우리 이것 저것 그리고 하지만 또는 만약 하나 이다 있다 할 수 있다 하다 가다 오다 보다 사람 시간 오늘 내일 세계 일 공부 학생 좋은 새로운 큰 작은 빠른 느린 연습 타이핑 키보드 컴퓨터 속도 정확도 기술 테스트 결과 단어 문장 한국어 매일 향상 성공 자신감
-  `,
+  ko: [
+    "타이핑은 꾸준한 연습을 통해 향상되는 기술입니다.",
+    "먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.",
+    "매일 조금씩 연습하면 자신감과 실력도 향상됩니다."
+  ],
 
-  tr: `
-  ben sen o biz siz onlar bu şu ve ama veya eğer bir için ile de da ne olmak yapmak gitmek gelmek görmek insan zaman bugün yarın dünya iş öğrenmek öğrenci iyi yeni eski büyük küçük hızlı yavaş pratik yazmak klavye bilgisayar hız doğruluk beceri test sonuç kelime cümle dil Türkçe günlük geliştirmek başarı güven
-  `,
+  tr: [
+    "Yazma becerisi düzenli pratik ile gelişir.",
+    "Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.",
+    "Her gün kendinizi geliştirmek için yeni bir fırsattır."
+  ],
 
-  id: `
-  saya kamu dia kita mereka ini itu dan tetapi atau jika satu untuk dengan dari dalam adalah bisa akan melakukan pergi datang melihat orang waktu hari dunia kerja belajar siswa baik baru lama besar kecil cepat lambat latihan mengetik keyboard komputer kecepatan akurasi keterampilan tes hasil kata kalimat bahasa Indonesia setiap hari meningkatkan sukses percaya diri
-  `,
+  id: [
+    "Mengetik adalah keterampilan yang meningkat dengan latihan rutin.",
+    "Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti.",
+    "Setiap hari adalah kesempatan baru untuk berkembang."
+  ],
 
-  ms: `
-  saya kamu dia kami mereka ini itu dan tetapi atau jika satu untuk dengan dari dalam adalah boleh akan buat pergi datang lihat orang masa hari dunia kerja belajar pelajar baik baru lama besar kecil cepat perlahan latihan menaip papan kekunci komputer kelajuan ketepatan kemahiran ujian keputusan perkataan ayat bahasa Melayu setiap hari meningkat berjaya yakin
-  `,
+  ms: [
+    "Kemahiran menaip akan bertambah baik dengan latihan yang konsisten.",
+    "Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat.",
+    "Setiap hari ialah peluang baharu untuk menjadi lebih baik."
+  ],
 
-  vi: `
-  tôi bạn anh cô chúng ta họ này đó và nhưng hoặc nếu một cho với từ trong là có thể sẽ làm đi đến xem người thời gian hôm nay ngày mai thế giới công việc học sinh tốt mới cũ lớn nhỏ nhanh chậm luyện tập gõ bàn phím máy tính tốc độ chính xác kỹ năng kiểm tra kết quả từ câu ngôn ngữ Việt Nam mỗi ngày cải thiện thành công tự tin
-  `,
+  vi: [
+    "Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên.",
+    "Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.",
+    "Mỗi ngày là một cơ hội mới để cải thiện kỹ năng."
+  ],
 
-  th: `
-  ฉัน คุณ เขา เรา พวกเขา นี้ นั้น และ แต่ หรือ ถ้า หนึ่ง สำหรับ กับ จาก ใน คือ มี สามารถ จะ ทำ ไป มา ดู คน เวลา วันนี้ พรุ่งนี้ โลก งาน เรียน นักเรียน ดี ใหม่ เก่า ใหญ่ เล็ก เร็ว ช้า ฝึก พิมพ์ แป้นพิมพ์ คอมพิวเตอร์ ความเร็ว ความแม่นยำ ทักษะ ทดสอบ ผลลัพธ์ คำ ประโยค ภาษาไทย ทุกวัน พัฒนา ความสำเร็จ ความมั่นใจ
-  `,
+  th: [
+    "การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ",
+    "ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ",
+    "ทุกวันคือโอกาสใหม่ในการพัฒนาทักษะการพิมพ์"
+  ],
 
-  nl: `
-  ik jij hij zij wij jullie zij dit dat en maar of als een voor met van in is zijn kan zal doen gaan komen zien mensen tijd vandaag morgen wereld werk leren student goed nieuw oud groot klein snel langzaam oefenen typen toetsenbord computer snelheid nauwkeurigheid vaardigheid test resultaat woord zin taal nederlands elke dag verbeteren succes vertrouwen
-  `
+  nl: [
+    "Typen is een vaardigheid die beter wordt door regelmatig te oefenen.",
+    "Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen.",
+    "Elke dag is een nieuwe kans om beter te worden."
+  ]
 
 };
 
 
-/* =========================================================
-   CONVERT WORD BANK TO ARRAYS
-========================================================= */
-
-Object.keys(wordBanks).forEach((language) => {
-
-  wordBanks[language] = wordBanks[language]
-    .replace(/\s+/g, " ")
-    .trim()
-    .split(" ")
-    .filter(Boolean);
-
-});
-
-
-/* =========================================================
-   TEST STATE
-========================================================= */
+/* =====================================================
+   STATE
+===================================================== */
 
 let test = {
 
   running: false,
-
   started: false,
-
   start: 0,
-
   timer: null,
 
   duration: 60,
 
   text: "",
-
-  words: [],
-
   errors: 0,
-
   typed: 0,
 
   wordResults: [],
 
-  correctChars: 0,
-
-  lastInputLength: 0
+  passageIndex: 0
 
 };
 
 
-/* =========================================================
-   AUDIO
-========================================================= */
+/* =====================================================
+   SOUND
+===================================================== */
 
 let audioContext = null;
-
 
 function playTypingSound() {
 
@@ -163,21 +174,14 @@ function playTypingSound() {
     if (!audioContext) {
 
       audioContext =
-        new (
-          window.AudioContext ||
-          window.webkitAudioContext
-        )();
+        new (window.AudioContext ||
+          window.webkitAudioContext)();
 
     }
 
-    if (
-      audioContext.state === "suspended"
-    ) {
-
+    if (audioContext.state === "suspended") {
       audioContext.resume();
-
     }
-
 
     const oscillator =
       audioContext.createOscillator();
@@ -185,12 +189,10 @@ function playTypingSound() {
     const gain =
       audioContext.createGain();
 
-
     oscillator.type = "sine";
 
     oscillator.frequency.value =
-      380 + Math.random() * 130;
-
+      420 + Math.random() * 100;
 
     gain.gain.setValueAtTime(
       0.025,
@@ -202,13 +204,8 @@ function playTypingSound() {
       audioContext.currentTime + 0.04
     );
 
-
     oscillator.connect(gain);
-
-    gain.connect(
-      audioContext.destination
-    );
-
+    gain.connect(audioContext.destination);
 
     oscillator.start();
 
@@ -218,437 +215,293 @@ function playTypingSound() {
 
   } catch (error) {
 
-    console.log(
-      "Typing sound unavailable"
-    );
+    console.log("Typing sound unavailable");
 
   }
 
 }
 
 
-/* =========================================================
-   AUTH MODAL
-========================================================= */
+/* =====================================================
+   AUTH
+===================================================== */
 
-const authModal =
-  $("authModal");
+const authModal = $("authModal");
 
 
 function openAuth() {
 
-  if (!authModal) return;
+  authModal.classList.remove("hidden");
 
-  authModal.classList.remove(
-    "hidden"
-  );
-
-  if ($("authMessage")) {
-
-    $("authMessage").textContent =
-      "";
-
-  }
+  $("authMessage").textContent = "";
 
 }
 
 
 function closeAuth() {
 
-  if (!authModal) return;
-
-  authModal.classList.add(
-    "hidden"
-  );
+  authModal.classList.add("hidden");
 
 }
 
 
-/* =========================================================
-   RANDOM WORD
-========================================================= */
+async function signInWithGoogle() {
 
-function randomWord(language) {
+  $("authMessage").textContent =
+    "Opening Google sign in...";
 
-  const bank =
-    wordBanks[language] ||
-    wordBanks.en;
+  const { error } =
+    await supabaseClient.auth.signInWithOAuth({
 
-  return bank[
-    Math.floor(
-      Math.random() * bank.length
-    )
-  ];
+      provider: "google",
+
+      options: {
+
+        redirectTo:
+          window.location.origin +
+          window.location.pathname
+
+      }
+
+    });
+
+  if (error) {
+
+    $("authMessage").textContent =
+      error.message;
+
+  }
 
 }
 
 
-/* =========================================================
-   BUILD INITIAL TEXT
-========================================================= */
+function addGoogleButton() {
 
-function buildText() {
+  if ($("googleLoginBtn")) return;
+
+  const button =
+    document.createElement("button");
+
+  button.id =
+    "googleLoginBtn";
+
+  button.type =
+    "button";
+
+  button.textContent =
+    "Continue with Google";
+
+  button.className =
+    "google-login-btn";
+
+  button.onclick =
+    signInWithGoogle;
+
+  const submitButton =
+    $("submitAuth");
+
+  if (
+    submitButton &&
+    submitButton.parentElement
+  ) {
+
+    submitButton.parentElement.insertBefore(
+      button,
+      submitButton
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   BUILD PASSAGE
+===================================================== */
+
+function getRandomPassage() {
 
   const language =
     $("language").value;
 
-  const mode =
-    $("mode").value;
+  const list =
+    passages[language] ||
+    passages.en;
 
+  const index =
+    test.passageIndex %
+    list.length;
 
-  const words = [];
+  test.passageIndex++;
 
-
-  /*
-    Generate a large amount initially.
-    More words are added automatically later.
-  */
-
-  for (
-    let i = 0;
-    i < 300;
-    i++
-  ) {
-
-    let word =
-      randomWord(language);
-
-
-    if (
-      mode === "capital"
-    ) {
-
-      word =
-        word.toUpperCase();
-
-    }
-
-
-    if (
-      mode === "small"
-    ) {
-
-      word =
-        word
-          .replace(
-            /[.,!?;:'"()[\]{}\-—–]/g,
-            ""
-          )
-          .toLowerCase();
-
-    }
-
-
-    words.push(word);
-
-  }
-
-
-  if (
-    mode === "punctuation"
-  ) {
-
-    const punctuation =
-      [
-        ",",
-        ".",
-        "!",
-        "?",
-        ":",
-        ";"
-      ];
-
-
-    for (
-      let i = 0;
-      i < words.length;
-      i++
-    ) {
-
-      if (
-        Math.random() < 0.22
-      ) {
-
-        const mark =
-          punctuation[
-            Math.floor(
-              Math.random() *
-                punctuation.length
-            )
-          ];
-
-        words[i] += mark;
-
-      }
-
-    }
-
-  }
-
-
-  return words.join(" ");
+  return list[index];
 
 }
 
 
-/* =========================================================
-   SETUP TEXT DISPLAY
-========================================================= */
+function applyMode(text) {
 
-function setupText() {
+  const mode =
+    $("mode").value;
 
-  test.text =
-    buildText();
+  if (mode === "capital") {
+
+    return text.toUpperCase();
+
+  }
+
+  if (mode === "small") {
+
+    return text
+      .replace(/[.,!?;:'"()[\]{}\-—–]/g, "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+
+  }
+
+  if (mode === "punctuation") {
+
+    const punctuationTexts = {
+
+      en:
+        "Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?",
+
+      bn:
+        "নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?",
+
+      es:
+        "Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!",
+
+      fr:
+        "Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!",
+
+      de:
+        "Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!",
+
+      hi:
+        "नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!",
+
+      ar:
+        "تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!"
+
+    };
+
+    const language =
+      $("language").value;
+
+    return (
+      punctuationTexts[language] ||
+      text
+    );
+
+  }
+
+  return text;
+
+}
 
 
-  test.words =
-    test.text
-      .split(/\s+/)
-      .filter(Boolean);
+/* =====================================================
+   INFINITE TEXT
+===================================================== */
 
+function buildInitialText() {
+
+  test.passageIndex = 0;
+
+  let result = "";
+
+  for (let i = 0; i < 10; i++) {
+
+    result +=
+      applyMode(
+        getRandomPassage()
+      ) + " ";
+
+  }
+
+  return result.trim();
+
+}
+
+
+function addMoreText() {
+
+  for (let i = 0; i < 5; i++) {
+
+    test.text +=
+      " " +
+      applyMode(
+        getRandomPassage()
+      );
+
+  }
+
+  renderText();
+
+}
+
+
+/* =====================================================
+   RENDER TEXT
+===================================================== */
+
+function renderText() {
 
   const display =
     $("textDisplay");
 
-
   if (!display) return;
 
+  display.innerHTML = "";
 
-  display.innerHTML =
-    "";
-
-
-  test.words.forEach(
-    (word, wordIndex) => {
+  [...test.text].forEach(
+    (char, index) => {
 
       const span =
-        document.createElement(
-          "span"
-        );
+        document.createElement("span");
 
-      span.className =
-        "typing-word";
-
-      span.dataset.word =
-        wordIndex;
+      span.dataset.i =
+        index;
 
       span.textContent =
-        word;
+        char === " "
+          ? "\u00A0"
+          : char;
 
-
-      display.appendChild(
-        span
-      );
-
-
-      /*
-        Space between words.
-      */
-
-      if (
-        wordIndex <
-        test.words.length - 1
-      ) {
-
-        display.appendChild(
-          document.createTextNode(
-            " "
-          )
-        );
-
-      }
+      display.appendChild(span);
 
     }
   );
-
 
   updateTypingDisplay();
 
 }
 
 
-/* =========================================================
-   ADD MORE WORDS
-========================================================= */
+/* =====================================================
+   SETUP TEXT
+===================================================== */
 
-function addMoreWords() {
-
-  const language =
-    $("language").value;
-
-  const mode =
-    $("mode").value;
-
-
-  const extra = [];
-
-
-  for (
-    let i = 0;
-    i < 200;
-    i++
-  ) {
-
-    let word =
-      randomWord(language);
-
-
-    if (
-      mode === "capital"
-    ) {
-
-      word =
-        word.toUpperCase();
-
-    }
-
-
-    if (
-      mode === "small"
-    ) {
-
-      word =
-        word
-          .replace(
-            /[.,!?;:'"()[\]{}\-—–]/g,
-            ""
-          )
-          .toLowerCase();
-
-    }
-
-
-    if (
-      mode === "punctuation"
-    ) {
-
-      const punctuation =
-        [
-          ",",
-          ".",
-          "!",
-          "?",
-          ":",
-          ";"
-        ];
-
-
-      if (
-        Math.random() < 0.22
-      ) {
-
-        word +=
-          punctuation[
-            Math.floor(
-              Math.random() *
-                punctuation.length
-            )
-          ];
-
-      }
-
-    }
-
-
-    extra.push(word);
-
-  }
-
-
-  const oldLength =
-    test.words.length;
-
-
-  test.words =
-    test.words.concat(
-      extra
-    );
-
+function setupText() {
 
   test.text =
-    test.words.join(
-      " "
-    );
+    buildInitialText();
 
-
-  const display =
-    $("textDisplay");
-
-
-  if (!display) return;
-
-
-  extra.forEach(
-    (word, index) => {
-
-      const realIndex =
-        oldLength +
-        index;
-
-
-      if (
-        display.lastChild &&
-        display.lastChild.nodeType ===
-          Node.TEXT_NODE
-      ) {
-
-        display.appendChild(
-          document.createTextNode(
-            " "
-          )
-        );
-
-      }
-
-
-      const span =
-        document.createElement(
-          "span"
-        );
-
-      span.className =
-        "typing-word";
-
-      span.dataset.word =
-        realIndex;
-
-      span.textContent =
-        word;
-
-
-      display.appendChild(
-        span
-      );
-
-
-      if (
-        realIndex <
-        test.words.length - 1
-      ) {
-
-        display.appendChild(
-          document.createTextNode(
-            " "
-          )
-        );
-
-      }
-
-    }
-  );
+  renderText();
 
 }
 
 
-/* =========================================================
-   MODE INFORMATION
-========================================================= */
+/* =====================================================
+   MODE
+===================================================== */
 
 function updateModeInfo() {
 
   const mode =
     $("mode").value;
-
 
   const messages = {
 
@@ -666,7 +519,6 @@ function updateModeInfo() {
 
   };
 
-
   $("modeInfo").textContent =
     messages[mode] ||
     messages.normal;
@@ -674,25 +526,21 @@ function updateModeInfo() {
 }
 
 
-/* =========================================================
-   CUSTOM TIMER
-========================================================= */
+/* =====================================================
+   DURATION
+===================================================== */
 
 function getSelectedDuration() {
 
   const value =
     $("duration").value;
 
-
-  if (
-    value === "custom"
-  ) {
+  if (value === "custom") {
 
     let custom =
       Number(
         $("customTime").value
       );
-
 
     if (
       !custom ||
@@ -703,14 +551,12 @@ function getSelectedDuration() {
 
     }
 
-
     return Math.min(
       custom,
       3600
     );
 
   }
-
 
   return Number(value);
 
@@ -719,25 +565,21 @@ function getSelectedDuration() {
 
 function updateDurationUI() {
 
-  const wrap =
+  const customWrap =
     $("customTimeWrap");
-
-
-  if (!wrap) return;
-
 
   if (
     $("duration").value ===
     "custom"
   ) {
 
-    wrap.classList.remove(
+    customWrap.classList.remove(
       "hidden"
     );
 
   } else {
 
-    wrap.classList.add(
+    customWrap.classList.add(
       "hidden"
     );
 
@@ -746,16 +588,15 @@ function updateDurationUI() {
 }
 
 
-/* =========================================================
-   RESET TEST
-========================================================= */
+/* =====================================================
+   RESET
+===================================================== */
 
 function resetTest() {
 
   clearInterval(
     test.timer
   );
-
 
   test.running =
     false;
@@ -772,42 +613,33 @@ function resetTest() {
   test.typed =
     0;
 
-  test.correctChars =
-    0;
-
   test.wordResults =
     [];
 
-  test.lastInputLength =
+  test.passageIndex =
     0;
-
 
   test.duration =
     getSelectedDuration();
-
 
   $("setupArea")
     .classList
     .remove("hidden");
 
-
   $("testArea")
     .classList
     .add("hidden");
-
 
   $("resultArea")
     .classList
     .add("hidden");
 
-
-  $("time").textContent =
+  $("time")
+    .textContent =
     test.duration;
 
-
-  $("typingInput").value =
-    "";
-
+  $("typingInput")
+    .value = "";
 
   setupText();
 
@@ -816,16 +648,14 @@ function resetTest() {
 }
 
 
-/* =========================================================
-   START TEST
-========================================================= */
+/* =====================================================
+   START
+===================================================== */
 
 function startTest() {
 
-  if (
-    test.started
-  ) return;
-
+  if (test.started)
+    return;
 
   test.started =
     true;
@@ -836,15 +666,12 @@ function startTest() {
   test.start =
     Date.now();
 
-
   $("typingInput")
     .focus();
-
 
   clearInterval(
     test.timer
   );
-
 
   test.timer =
     setInterval(
@@ -858,7 +685,6 @@ function startTest() {
             ) / 1000
           );
 
-
         const left =
           Math.max(
             0,
@@ -866,20 +692,11 @@ function startTest() {
               elapsed
           );
 
-
         $("time")
           .textContent =
           left;
 
-
-        /*
-          IMPORTANT:
-          Only timer ends the test.
-        */
-
-        if (
-          left <= 0
-        ) {
+        if (left <= 0) {
 
           finishTest();
 
@@ -892,42 +709,28 @@ function startTest() {
 }
 
 
-/* =========================================================
-   CALCULATE STATS
-========================================================= */
+/* =====================================================
+   STATS
+===================================================== */
 
 function calculateStats() {
 
   const input =
-    $("typingInput")
-      .value;
-
+    $("typingInput").value;
 
   const target =
     test.text;
 
+  let errors = 0;
 
-  let errors =
-    0;
+  let correctChars = 0;
 
-  let correctChars =
-    0;
-
-
-  const inputChars =
-    [...input];
-
-
-  const targetChars =
-    [...target];
-
-
-  inputChars.forEach(
+  [...input].forEach(
     (char, index) => {
 
       if (
         char ===
-        targetChars[index]
+        target[index]
       ) {
 
         correctChars++;
@@ -940,22 +743,6 @@ function calculateStats() {
 
     }
   );
-
-
-  /*
-    Extra characters are errors.
-  */
-
-  if (
-    inputChars.length >
-    targetChars.length
-  ) {
-
-    errors +=
-      inputChars.length -
-      targetChars.length;
-
-  }
 
 
   const elapsedSeconds =
@@ -971,8 +758,7 @@ function calculateStats() {
 
 
   const minutes =
-    elapsedSeconds /
-    60;
+    elapsedSeconds / 60;
 
 
   const wpm =
@@ -1004,23 +790,23 @@ function calculateStats() {
 
 
   const typedWords =
-    input
-      .trim()
+    input.trim()
       ? input
           .trim()
           .split(/\s+/)
-          .filter(Boolean)
       : [];
 
 
   const targetWords =
-    target
-      .trim()
+    target.trim()
       ? target
           .trim()
           .split(/\s+/)
-          .filter(Boolean)
       : [];
+
+
+  const totalWords =
+    typedWords.length;
 
 
   let correctWords =
@@ -1043,10 +829,6 @@ function calculateStats() {
   );
 
 
-  const totalWords =
-    typedWords.length;
-
-
   const wrongWords =
     Math.max(
       0,
@@ -1060,9 +842,6 @@ function calculateStats() {
 
   test.typed =
     input.length;
-
-  test.correctChars =
-    correctChars;
 
 
   return {
@@ -1086,73 +865,64 @@ function calculateStats() {
 }
 
 
-/* =========================================================
-   UPDATE TEXT DISPLAY
-========================================================= */
+/* =====================================================
+   DISPLAY
+===================================================== */
 
 function updateTypingDisplay() {
 
   const input =
-    $("typingInput")
-      .value;
-
-
-  const display =
-    $("textDisplay");
-
-
-  if (!display) return;
-
+    $("typingInput").value;
 
   const spans =
-    [
-      ...display.querySelectorAll(
-        ".typing-word"
-      )
-    ];
+    [...$("textDisplay").children];
 
 
   /*
-    Calculate character positions
-    for every word.
+     যদি text শেষের দিকে চলে যায়
+     তাহলে নতুন text যোগ হবে
   */
 
-  let position =
-    0;
+  if (
+    input.length >
+    test.text.length - 150
+  ) {
+
+    addMoreText();
+
+    return;
+
+  }
 
 
   spans.forEach(
-    (span, wordIndex) => {
+    (span, index) => {
 
-      const word =
-        test.words[
-          wordIndex
-        ] || "";
+      span.className = "";
 
-
-      const start =
-        position;
-
-
-      const end =
-        position +
-        word.length;
-
-
-      span.classList.remove(
-        "correct",
-        "wrong",
-        "current"
-      );
-
-
-      /*
-        Current word.
-      */
 
       if (
-        input.length >= start &&
-        input.length <= end
+        index <
+        input.length
+      ) {
+
+        span.classList.add(
+
+          input[index] ===
+            test.text[index]
+
+            ? "correct"
+
+            : "wrong"
+
+        );
+
+      }
+
+
+      if (
+        index ===
+        input.length
       ) {
 
         span.classList.add(
@@ -1161,81 +931,32 @@ function updateTypingDisplay() {
 
       }
 
-
-      /*
-        Word completely typed.
-      */
-
-      if (
-        input.length >= end
-      ) {
-
-        const typedWord =
-          input.slice(
-            start,
-            end
-          );
-
-
-        if (
-          typedWord ===
-          word
-        ) {
-
-          span.classList.add(
-            "correct"
-          );
-
-        } else {
-
-          span.classList.add(
-            "wrong"
-          );
-
-        }
-
-      }
-
-
-      position =
-        end + 1;
-
     }
   );
 
 
   /*
-    Automatically add more words
-    before reaching the end.
-  */
-
-  if (
-    input.length >
-    test.text.length -
-      500
-  ) {
-
-    addMoreWords();
-
-  }
-
-
-  /*
-    Keep current word visible.
+     typing text-এর current
+     character box-এর মধ্যে visible রাখবে
   */
 
   const current =
-    display.querySelector(
-      ".current"
-    );
+    $("textDisplay")
+      .querySelector(
+        ".current"
+      );
 
 
   if (current) {
 
     current.scrollIntoView({
+
       behavior: "smooth",
+
       block: "nearest",
+
       inline: "nearest"
+
     });
 
   }
@@ -1243,34 +964,29 @@ function updateTypingDisplay() {
 }
 
 
-/* =========================================================
+/* =====================================================
    LIVE TYPING
-========================================================= */
+===================================================== */
 
-function updateLiveTyping() {
+function updateLiveTyping(event) {
 
-  if (
-    !test.started
-  ) {
+  if (!test.started) {
 
     startTest();
 
   }
 
 
-  const input =
-    $("typingInput")
-      .value;
-
-
   /*
-    Sound only when new character
-    is actually typed.
+     শুধু character টাইপ করলে sound
   */
 
   if (
-    input.length >
-    test.lastInputLength
+    event &&
+    event.inputType &&
+    event.inputType.startsWith(
+      "insert"
+    )
   ) {
 
     playTypingSound();
@@ -1278,18 +994,14 @@ function updateLiveTyping() {
   }
 
 
-  test.lastInputLength =
-    input.length;
-
-
   updateTypingDisplay();
 
 }
 
 
-/* =========================================================
+/* =====================================================
    WORD RESULTS
-========================================================= */
+===================================================== */
 
 function createWordResults() {
 
@@ -1308,8 +1020,7 @@ function createWordResults() {
       .filter(Boolean);
 
 
-  const results =
-    [];
+  const results = [];
 
 
   inputWords.forEach(
@@ -1321,9 +1032,11 @@ function createWordResults() {
 
 
       results.push(
+
         word === target
           ? "correct"
           : "wrong"
+
       );
 
     }
@@ -1335,17 +1048,17 @@ function createWordResults() {
 }
 
 
-/* =========================================================
+/* =====================================================
    GRAPH
-========================================================= */
+===================================================== */
 
 function drawGraph() {
 
   const canvas =
     $("performanceChart");
 
-
-  if (!canvas) return;
+  if (!canvas)
+    return;
 
 
   const ctx =
@@ -1370,6 +1083,7 @@ function drawGraph() {
 
   canvas.width =
     width * ratio;
+
 
   canvas.height =
     height * ratio;
@@ -1411,13 +1125,11 @@ function drawGraph() {
     ctx.font =
       "14px Arial";
 
-
     ctx.fillText(
       "Type some words to see your performance.",
       30,
       50
     );
-
 
     return;
 
@@ -1481,9 +1193,7 @@ function drawGraph() {
       ) {
 
         const previous =
-          results[
-            index - 1
-          ];
+          results[index - 1];
 
 
         const previousY =
@@ -1498,7 +1208,8 @@ function drawGraph() {
         ctx.moveTo(
           30 +
             (
-              index - 1
+              index -
+              1
             ) *
               step,
           previousY
@@ -1525,15 +1236,16 @@ function drawGraph() {
 }
 
 
-/* =========================================================
-   FINISH TEST
-========================================================= */
+/* =====================================================
+   FINISH
+===================================================== */
 
 async function finishTest() {
 
   if (
     !test.started
-  ) return;
+  )
+    return;
 
 
   const stats =
@@ -1546,10 +1258,6 @@ async function finishTest() {
 
 
   test.running =
-    false;
-
-
-  test.started =
     false;
 
 
@@ -1616,9 +1324,9 @@ async function finishTest() {
 }
 
 
-/* =========================================================
+/* =====================================================
    SAVE RESULT
-========================================================= */
+===================================================== */
 
 async function saveResult(
   stats
@@ -1627,16 +1335,15 @@ async function saveResult(
   try {
 
     const {
-      data: {
-        user
-      }
+      data: { user }
     } =
       await supabaseClient
         .auth
         .getUser();
 
 
-    if (!user) return;
+    if (!user)
+      return;
 
 
     await supabaseClient
@@ -1649,7 +1356,8 @@ async function saveResult(
           user.id,
 
         language_code:
-          $("language").value,
+          $("language")
+            .value,
 
         duration_seconds:
           test.duration,
@@ -1681,109 +1389,9 @@ async function saveResult(
 }
 
 
-/* =========================================================
-   GOOGLE LOGIN
-========================================================= */
-
-async function signInWithGoogle() {
-
-  $("authMessage")
-    .textContent =
-    "Opening Google sign in...";
-
-
-  const {
-    error
-  } =
-    await supabaseClient
-      .auth
-      .signInWithOAuth({
-
-        provider:
-          "google",
-
-        options: {
-
-          redirectTo:
-            window.location.origin +
-            window.location.pathname
-
-        }
-
-      });
-
-
-  if (error) {
-
-    $("authMessage")
-      .textContent =
-      error.message;
-
-  }
-
-}
-
-
-/* =========================================================
-   GOOGLE BUTTON
-========================================================= */
-
-function addGoogleButton() {
-
-  if (
-    $("googleLoginBtn")
-  ) return;
-
-
-  const button =
-    document.createElement(
-      "button"
-    );
-
-
-  button.id =
-    "googleLoginBtn";
-
-
-  button.type =
-    "button";
-
-
-  button.textContent =
-    "Continue with Google";
-
-
-  button.className =
-    "google-login-btn";
-
-
-  button.onclick =
-    signInWithGoogle;
-
-
-  const submitButton =
-    $("submitAuth");
-
-
-  if (
-    submitButton &&
-    submitButton.parentElement
-  ) {
-
-    submitButton.parentElement
-      .insertBefore(
-        button,
-        submitButton
-      );
-
-  }
-
-}
-
-
-/* =========================================================
-   LOGIN / SIGNUP SWITCH
-========================================================= */
+/* =====================================================
+   LOGIN / SIGN UP
+===================================================== */
 
 let loginMode =
   false;
@@ -1826,10 +1434,6 @@ $("switchAuth").onclick =
 
   };
 
-
-/* =========================================================
-   EMAIL AUTH
-========================================================= */
 
 $("submitAuth").onclick =
   async () => {
@@ -1938,7 +1542,6 @@ $("submitAuth").onclick =
 
       await refreshUser();
 
-
     } else {
 
       $("authMessage")
@@ -1950,9 +1553,9 @@ $("submitAuth").onclick =
   };
 
 
-/* =========================================================
+/* =====================================================
    AUTH BUTTON
-========================================================= */
+===================================================== */
 
 $("authBtn")
   .addEventListener(
@@ -1960,9 +1563,7 @@ $("authBtn")
     async () => {
 
       const {
-        data: {
-          user
-        }
+        data: { user }
       } =
         await supabaseClient
           .auth
@@ -1994,10 +1595,6 @@ $("authBtn")
   );
 
 
-/* =========================================================
-   CLOSE AUTH
-========================================================= */
-
 $("closeAuth")
   .onclick =
   closeAuth;
@@ -2020,9 +1617,9 @@ authModal.addEventListener(
 );
 
 
-/* =========================================================
+/* =====================================================
    START BUTTON
-========================================================= */
+===================================================== */
 
 $("startTestBtn")
   .onclick =
@@ -2035,22 +1632,6 @@ $("startTestBtn")
       getSelectedDuration();
 
 
-    test.started =
-      false;
-
-
-    test.running =
-      false;
-
-
-    test.start =
-      0;
-
-
-    test.lastInputLength =
-      0;
-
-
     $("setupArea")
       .classList
       .add("hidden");
@@ -2061,19 +1642,13 @@ $("startTestBtn")
       .remove("hidden");
 
 
-    $("resultArea")
-      .classList
-      .add("hidden");
-
-
     $("time")
       .textContent =
       test.duration;
 
 
     $("typingInput")
-      .value =
-      "";
+      .value = "";
 
 
     $("typingInput")
@@ -2082,9 +1657,9 @@ $("startTestBtn")
   };
 
 
-/* =========================================================
-   TYPING INPUT
-========================================================= */
+/* =====================================================
+   CONTROLS
+===================================================== */
 
 $("typingInput")
   .addEventListener(
@@ -2093,18 +1668,10 @@ $("typingInput")
   );
 
 
-/* =========================================================
-   FINISH BUTTON
-========================================================= */
-
 $("finishBtn")
   .onclick =
   finishTest;
 
-
-/* =========================================================
-   RESTART
-========================================================= */
 
 $("restartBtn")
   .onclick =
@@ -2115,10 +1682,6 @@ $("restartBtn")
   };
 
 
-/* =========================================================
-   TRY AGAIN
-========================================================= */
-
 $("tryAgainBtn")
   .onclick =
   () => {
@@ -2128,10 +1691,6 @@ $("tryAgainBtn")
   };
 
 
-/* =========================================================
-   LANGUAGE
-========================================================= */
-
 $("language")
   .onchange =
   () => {
@@ -2140,10 +1699,6 @@ $("language")
 
   };
 
-
-/* =========================================================
-   DURATION
-========================================================= */
 
 $("duration")
   .onchange =
@@ -2156,10 +1711,6 @@ $("duration")
   };
 
 
-/* =========================================================
-   CUSTOM TIME
-========================================================= */
-
 $("customTime")
   .oninput =
   () => {
@@ -2169,21 +1720,12 @@ $("customTime")
       "custom"
     ) {
 
-      test.duration =
-        getSelectedDuration();
-
-      $("time")
-        .textContent =
-        test.duration;
+      resetTest();
 
     }
 
   };
 
-
-/* =========================================================
-   MODE
-========================================================= */
 
 $("mode")
   .onchange =
@@ -2196,18 +1738,14 @@ $("mode")
   };
 
 
-/* =========================================================
-   HISTORY
-========================================================= */
-
 $("historyBtn")
   .onclick =
   loadHistory;
 
 
-/* =========================================================
+/* =====================================================
    THEME
-========================================================= */
+===================================================== */
 
 $("themeBtn")
   .onclick =
@@ -2215,23 +1753,19 @@ $("themeBtn")
 
     document.body
       .classList
-      .toggle(
-        "light"
-      );
+      .toggle("light");
 
   };
 
 
-/* =========================================================
+/* =====================================================
    USER
-========================================================= */
+===================================================== */
 
 async function refreshUser() {
 
   const {
-    data: {
-      user
-    }
+    data: { user }
   } =
     await supabaseClient
       .auth
@@ -2281,16 +1815,14 @@ async function refreshUser() {
 }
 
 
-/* =========================================================
+/* =====================================================
    HISTORY
-========================================================= */
+===================================================== */
 
 async function loadHistory() {
 
   const {
-    data: {
-      user
-    }
+    data: { user }
   } =
     await supabaseClient
       .auth
@@ -2340,11 +1872,7 @@ async function loadHistory() {
     box.textContent =
       "Could not load history yet.";
 
-
-    console.error(
-      error
-    );
-
+    console.error(error);
 
     return;
 
@@ -2359,7 +1887,6 @@ async function loadHistory() {
     box.textContent =
       "No typing results yet.";
 
-
     return;
 
   }
@@ -2373,10 +1900,7 @@ async function loadHistory() {
           <div class="history-row">
 
             <span>
-              ${(
-                item.language_code ||
-                "en"
-              ).toUpperCase()}
+              ${item.language_code.toUpperCase()}
             </span>
 
             <b>
@@ -2388,11 +1912,9 @@ async function loadHistory() {
             </b>
 
             <span>
-              ${
-                new Date(
-                  item.created_at
-                ).toLocaleDateString()
-              }
+              ${new Date(
+                item.created_at
+              ).toLocaleDateString()}
             </span>
 
           </div>
@@ -2404,9 +1926,9 @@ async function loadHistory() {
 }
 
 
-/* =========================================================
+/* =====================================================
    AUTH STATE
-========================================================= */
+===================================================== */
 
 supabaseClient
   .auth
@@ -2428,9 +1950,9 @@ supabaseClient
   );
 
 
-/* =========================================================
+/* =====================================================
    GRAPH RESIZE
-========================================================= */
+===================================================== */
 
 window.addEventListener(
   "resize",
@@ -2439,7 +1961,9 @@ window.addEventListener(
     if (
       !$("resultArea")
         .classList
-        .contains("hidden")
+        .contains(
+          "hidden"
+        )
     ) {
 
       drawGraph();
@@ -2450,44 +1974,9 @@ window.addEventListener(
 );
 
 
-/* =========================================================
-   LANGUAGE DISPLAY
-========================================================= */
-
-$("language")
-  .addEventListener(
-    "change",
-    () => {
-
-      const selected =
-        $("language")
-          .options[
-            $("language")
-              .selectedIndex
-          ];
-
-
-      const current =
-        $("currentLanguage");
-
-
-      if (
-        current &&
-        selected
-      ) {
-
-        current.textContent =
-          selected.textContent;
-
-      }
-
-    }
-  );
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
+/* =====================================================
+   INIT
+===================================================== */
 
 addGoogleButton();
 
