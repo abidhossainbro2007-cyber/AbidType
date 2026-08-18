@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
+  <meta name="google-site-verification" content="Y01ZA1lSUBktSekrR5D8K3dD3IWmlslvORvFGjvCTpY">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,23 +85,66 @@
 
     <div class="controls">
 
+      <!-- LANGUAGE -->
+
       <label>
         Language
 
         <select id="language">
 
-          <option value="en">
-            English
-          </option>
+          <option value="en">🇺🇸 English</option>
+          <option value="bn">🇧🇩 বাংলা</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="ur">🇵🇰 اردو</option>
+          <option value="ar">🇸🇦 العربية</option>
 
-          <option value="bn">
-            বাংলা
-          </option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="it">🇮🇹 Italiano</option>
+          <option value="pt">🇵🇹 Português</option>
+
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="zh">🇨🇳 中文</option>
+          <option value="ja">🇯🇵 日本語</option>
+          <option value="ko">🇰🇷 한국어</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+
+          <option value="id">🇮🇩 Bahasa Indonesia</option>
+          <option value="vi">🇻🇳 Tiếng Việt</option>
+          <option value="th">🇹🇭 ไทย</option>
+          <option value="nl">🇳🇱 Nederlands</option>
+          <option value="pl">🇵🇱 Polski</option>
+
+          <option value="uk">🇺🇦 Українська</option>
+          <option value="el">🇬🇷 Ελληνικά</option>
+          <option value="he">🇮🇱 עברית</option>
+          <option value="fa">🇮🇷 فارسی</option>
+          <option value="ms">🇲🇾 Bahasa Melayu</option>
+
+          <option value="sv">🇸🇪 Svenska</option>
+          <option value="da">🇩🇰 Dansk</option>
+          <option value="no">🇳🇴 Norsk</option>
+          <option value="fi">🇫🇮 Suomi</option>
+          <option value="cs">🇨🇿 Čeština</option>
+
+          <option value="ro">🇷🇴 Română</option>
+          <option value="hu">🇭🇺 Magyar</option>
+
+          <option value="ta">🇮🇳 தமிழ்</option>
+          <option value="te">🇮🇳 తెలుగు</option>
+          <option value="mr">🇮🇳 मराठी</option>
+          <option value="gu">🇮🇳 ગુજરાતી</option>
+          <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+          <option value="ml">🇮🇳 മലയാളം</option>
+          <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
 
         </select>
 
       </label>
 
+
+      <!-- DURATION -->
 
       <label>
         Duration
@@ -124,6 +167,8 @@
 
       </label>
 
+
+      <!-- MODE -->
 
       <label>
         Practice Mode
@@ -198,7 +243,8 @@
         autocomplete="off"
         autocorrect="off"
         autocapitalize="off"
-        spellcheck="false">
+        spellcheck="false"
+        wrap="soft">
       </textarea>
 
     </div>
@@ -264,6 +310,7 @@
     <div class="word-result">
 
       <div class="correct-word">
+
         <span id="correctWords">
           0
         </span>
@@ -271,6 +318,7 @@
         <small>
           Correct Words
         </small>
+
       </div>
 
 
@@ -314,9 +362,7 @@
 
       </div>
 
-      <canvas
-        id="performanceChart">
-      </canvas>
+      <canvas id="performanceChart"></canvas>
 
     </div>
 
@@ -403,8 +449,8 @@
       </h3>
 
       <p>
-        Practice English and বাংলা,
-        with more languages coming soon.
+        Practice typing in languages
+        from around the world.
       </p>
 
     </article>
