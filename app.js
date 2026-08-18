@@ -808,3 +808,189 @@ setupText();
 reset();
 
 refreshUser();
+/* =========================
+   TYPING MODES
+========================= */
+
+#typingMode {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  background: var(--input);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.result-grid > div {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.result-grid small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+
+.result-grid strong {
+  display: block;
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.result-message {
+  margin-top: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* =========================
+   PERFORMANCE GRAPH
+========================= */
+
+.graph-title {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.performance-graph {
+  height: 260px;
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--input);
+  padding: 10px;
+}
+
+.graph-line {
+  position: relative;
+  height: 210px;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+}
+
+.graph-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  border: 2px solid white;
+}
+
+.graph-dot.green {
+  background: #22c55e;
+}
+
+.graph-dot.yellow {
+  background: #eab308;
+}
+
+.graph-dot.red {
+  background: #ef4444;
+}
+
+.graph-axis {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+.graph-legend {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.graph-legend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.green-dot {
+  background: #22c55e;
+}
+
+.yellow-dot {
+  background: #eab308;
+}
+
+.red-dot {
+  background: #ef4444;
+}
+
+.graph-empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--muted);
+}
+
+/* =========================
+   GOOGLE BUTTON
+========================= */
+
+.google-login-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: white;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.google-login-btn:hover {
+  opacity: .9;
+}
+
+/* =========================
+   MOBILE RESULT
+========================= */
+
+@media (max-width: 700px) {
+  .result-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .performance-graph {
+    height: 230px;
+  }
+
+  .graph-line {
+    height: 180px;
+  }
+}
