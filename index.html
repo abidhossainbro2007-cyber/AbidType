@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="google-site-verification"
@@ -16,41 +21,54 @@
 
   <title>AbidType — Global Typing Practice</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
   <style>
     .typing-container {
       position: relative;
-      min-height: 260px;
+      min-height: 230px;
+      overflow: hidden;
       padding: 28px;
       border-radius: 18px;
-      overflow: hidden;
     }
 
     #textDisplay {
       min-height: 170px;
       max-height: 170px;
       overflow: hidden;
+
       font-size: 24px;
       line-height: 2;
       letter-spacing: .3px;
+
       white-space: pre-wrap;
       word-break: normal;
       overflow-wrap: break-word;
+
+      position: relative;
+      z-index: 2;
+
       padding: 10px;
       border-radius: 12px;
     }
 
-    #textDisplay span.correct {
+    #textDisplay span {
+      display: inline;
+    }
+
+    #textDisplay .correct {
       color: #22c55e;
     }
 
-    #textDisplay span.wrong {
+    #textDisplay .wrong {
       color: #ef4444;
       text-decoration: underline;
     }
 
-    #textDisplay span.current {
+    #textDisplay .current {
       background: rgba(59,130,246,.25);
       border-radius: 3px;
       box-shadow: 0 0 0 1px rgba(59,130,246,.35);
@@ -58,21 +76,30 @@
 
     #typingInput {
       position: absolute;
+
       left: 28px;
       right: 28px;
       bottom: 18px;
+
       width: calc(100% - 56px);
       height: 55px;
+
       background: rgba(255,255,255,.04);
+
       border: 1px solid rgba(255,255,255,.15);
       border-radius: 12px;
+
       padding: 14px 16px;
+
       color: transparent;
       caret-color: #60a5fa;
+
       font-size: 20px;
       line-height: 1.4;
+
       outline: none;
       resize: none;
+
       z-index: 5;
     }
 
@@ -94,45 +121,92 @@
       opacity: .65;
     }
   </style>
+
 </head>
 
 <body>
 
 <header class="header">
+
   <div class="brand">
-    <div class="logo">AbidType</div>
-    <div class="tagline">Global Typing Practice</div>
+
+    <div class="logo">
+      AbidType
+    </div>
+
+    <div class="tagline">
+      Global Typing Practice
+    </div>
+
   </div>
 
   <div class="header-actions">
-    <button id="themeBtn" type="button">🌙</button>
-    <button id="authBtn" type="button">Login / Sign up</button>
+
+    <button
+      id="themeBtn"
+      type="button"
+    >
+      🌙
+    </button>
+
+    <button
+      id="authBtn"
+      type="button"
+    >
+      Login / Sign up
+    </button>
+
   </div>
+
 </header>
+
 
 <main class="container">
 
   <section class="account-card">
+
     <div>
-      <h2 id="welcome">Practice as a guest</h2>
+
+      <h2 id="welcome">
+        Practice as a guest
+      </h2>
+
       <p id="accountNote">
         Create an account to save your typing results
         and build your personal record.
       </p>
+
     </div>
+
   </section>
 
-  <section id="setupArea" class="card">
+
+  <section
+    id="setupArea"
+    class="card"
+  >
 
     <div class="section-title">
-      <h1>Global Typing Test</h1>
-      <p>Choose your language, mode and test duration.</p>
+
+      <h1>
+        Global Typing Test
+      </h1>
+
+      <p>
+        Choose your language, mode and test duration.
+      </p>
+
     </div>
 
+
     <div class="control-group">
-      <label for="language">Language</label>
+
+      <label for="language">
+        Language
+      </label>
 
       <select id="language">
+
         <option value="en">🇺🇸 English</option>
         <option value="bn">🇧🇩 বাংলা</option>
         <option value="hi">🇮🇳 हिन्दी</option>
@@ -153,44 +227,125 @@
         <option value="vi">🇻🇳 Tiếng Việt</option>
         <option value="th">🇹🇭 ไทย</option>
         <option value="nl">🇳🇱 Nederlands</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="uk">🇺🇦 Українська</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="ro">🇷🇴 Română</option>
+        <option value="hu">🇭🇺 Magyar</option>
+        <option value="el">🇬🇷 Ελληνικά</option>
+        <option value="he">🇮🇱 עברית</option>
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="ta">🇮🇳 தமிழ்</option>
+        <option value="te">🇮🇳 తెలుగు</option>
+        <option value="ml">🇮🇳 മലയാളം</option>
+        <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+        <option value="gu">🇮🇳 ગુજરાતી</option>
+        <option value="mr">🇮🇳 मराठी</option>
+        <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+        <option value="ne">🇳🇵 नेपाली</option>
+        <option value="si">🇱🇰 සිංහල</option>
+        <option value="my">🇲🇲 မြန်မာ</option>
+        <option value="km">🇰🇭 ខ្មែរ</option>
+        <option value="lo">🇱🇦 ລາວ</option>
+        <option value="sw">🌍 Kiswahili</option>
+        <option value="af">🇿🇦 Afrikaans</option>
+        <option value="fil">🇵🇭 Filipino</option>
+        <option value="da">🇩🇰 Dansk</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="no">🇳🇴 Norsk</option>
+        <option value="fi">🇫🇮 Suomi</option>
+
       </select>
 
       <div class="language-count">
-        🌍 Global typing practice
+        🌍 50+ languages available
       </div>
+
     </div>
 
+
     <div class="control-group">
-      <label for="mode">Typing Mode</label>
+
+      <label for="mode">
+        Typing Mode
+      </label>
 
       <select id="mode">
-        <option value="normal">Normal</option>
-        <option value="punctuation">Punctuation</option>
-        <option value="capital">CAPITAL Letters</option>
-        <option value="small">lowercase</option>
+
+        <option value="normal">
+          Normal
+        </option>
+
+        <option value="punctuation">
+          Punctuation
+        </option>
+
+        <option value="capital">
+          CAPITAL Letters
+        </option>
+
+        <option value="small">
+          lowercase
+        </option>
+
       </select>
 
       <small id="modeInfo">
         Normal typing practice.
       </small>
+
     </div>
+
 
     <div class="control-group">
-      <label for="duration">Test Duration</label>
+
+      <label for="duration">
+        Test Duration
+      </label>
 
       <select id="duration">
-        <option value="15">15 Seconds</option>
-        <option value="30">30 Seconds</option>
-        <option value="60" selected>60 Seconds</option>
-        <option value="120">2 Minutes</option>
-        <option value="300">5 Minutes</option>
-        <option value="600">10 Minutes</option>
-        <option value="custom">⚙️ Custom</option>
+
+        <option value="15">
+          15 Seconds
+        </option>
+
+        <option value="30">
+          30 Seconds
+        </option>
+
+        <option value="60" selected>
+          60 Seconds
+        </option>
+
+        <option value="120">
+          2 Minutes
+        </option>
+
+        <option value="300">
+          5 Minutes
+        </option>
+
+        <option value="600">
+          10 Minutes
+        </option>
+
+        <option value="custom">
+          ⚙️ Custom
+        </option>
+
       </select>
+
     </div>
 
-    <div id="customTimeWrap" class="control-group hidden">
-      <label for="customTime">Custom Time (seconds)</label>
+
+    <div
+      id="customTimeWrap"
+      class="control-group hidden"
+    >
+
+      <label for="customTime">
+        Custom Time (seconds)
+      </label>
 
       <input
         id="customTime"
@@ -200,8 +355,12 @@
         value="60"
       >
 
-      <small>Minimum 10 seconds, maximum 3600 seconds.</small>
+      <small>
+        Minimum 10 seconds, maximum 3600 seconds.
+      </small>
+
     </div>
+
 
     <button
       id="startTestBtn"
@@ -213,28 +372,56 @@
 
   </section>
 
-  <section id="testArea" class="card hidden">
+
+  <section
+    id="testArea"
+    class="card hidden"
+  >
 
     <div class="test-top">
 
       <div class="timer-box">
-        <span>Time</span>
-        <strong id="time">60</strong>
+
+        <span>
+          Time
+        </span>
+
+        <strong id="time">
+          60
+        </strong>
+
       </div>
 
+
       <div class="test-language">
-        <span>Language</span>
-        <strong id="currentLanguage">English</strong>
+
+        <span>
+          Language
+        </span>
+
+        <strong id="currentLanguage">
+          English
+        </strong>
+
       </div>
 
     </div>
 
-    <div class="typing-container">
 
-      <div id="textDisplay" class="text-display"></div>
+    <div
+      class="typing-container"
+      id="typingContainer"
+    >
+
+      <div
+        id="textDisplay"
+        class="text-display"
+      ></div>
+
 
       <textarea
         id="typingInput"
+        class="typing-input"
         autocomplete="off"
         autocorrect="off"
         autocapitalize="off"
@@ -244,9 +431,11 @@
 
     </div>
 
+
     <div class="infinite-note">
-      ✨ Keep typing — the test will continue until the timer ends.
+      ✨ Keep typing — the typing passage is long enough for your test.
     </div>
+
 
     <div class="test-actions">
 
@@ -269,12 +458,24 @@
 
   </section>
 
-  <section id="resultArea" class="card hidden">
+
+  <section
+    id="resultArea"
+    class="card hidden"
+  >
 
     <div class="section-title">
-      <h2>Your Result</h2>
-      <p>Great job! Here is your typing performance.</p>
+
+      <h2>
+        Your Result
+      </h2>
+
+      <p>
+        Great job! Here is your typing performance.
+      </p>
+
     </div>
+
 
     <div class="result-grid">
 
@@ -310,10 +511,19 @@
 
     </div>
 
+
     <div class="graph-box">
-      <h3>Performance</h3>
-      <canvas id="performanceChart"></canvas>
+
+      <h3>
+        Performance
+      </h3>
+
+      <canvas
+        id="performanceChart"
+      ></canvas>
+
     </div>
+
 
     <button
       id="tryAgainBtn"
@@ -325,41 +535,73 @@
 
   </section>
 
+
   <section class="card">
 
     <div class="history-header">
 
       <div>
-        <h2>Typing History</h2>
-        <p>Your latest typing results.</p>
+
+        <h2>
+          Typing History
+        </h2>
+
+        <p>
+          Your latest typing results.
+        </p>
+
       </div>
 
-      <button id="historyBtn" type="button">
+
+      <button
+        id="historyBtn"
+        type="button"
+      >
         View History
       </button>
 
     </div>
 
-    <div id="history" class="history hidden"></div>
+
+    <div
+      id="history"
+      class="history hidden"
+    ></div>
 
   </section>
 
 </main>
 
-<div id="authModal" class="modal hidden">
+
+<div
+  id="authModal"
+  class="modal hidden"
+>
 
   <div class="modal-content">
 
-    <button id="closeAuth" type="button" class="close-btn">
+    <button
+      id="closeAuth"
+      type="button"
+      class="close-btn"
+    >
       ×
     </button>
 
-    <h2 id="authTitle">Create your account</h2>
+
+    <h2 id="authTitle">
+      Create your account
+    </h2>
+
 
     <p id="authMessage"></p>
 
-    <div class="auth-field" id="displayNameWrap">
-      <label for="displayName">Name</label>
+
+    <div class="auth-field">
+
+      <label for="displayName">
+        Name
+      </label>
 
       <input
         id="displayName"
@@ -367,10 +609,15 @@
         placeholder="Your name"
         autocomplete="name"
       >
+
     </div>
 
+
     <div class="auth-field">
-      <label for="email">Email</label>
+
+      <label for="email">
+        Email
+      </label>
 
       <input
         id="email"
@@ -378,10 +625,15 @@
         placeholder="you@example.com"
         autocomplete="email"
       >
+
     </div>
 
+
     <div class="auth-field">
-      <label for="password">Password</label>
+
+      <label for="password">
+        Password
+      </label>
 
       <input
         id="password"
@@ -389,7 +641,9 @@
         placeholder="Minimum 6 characters"
         autocomplete="current-password"
       >
+
     </div>
+
 
     <button
       id="submitAuth"
@@ -399,6 +653,7 @@
       Sign up
     </button>
 
+
     <button
       id="switchAuth"
       type="button"
@@ -407,1263 +662,16 @@
       Already have an account? Login
     </button>
 
-    <button
-      id="googleLoginBtn"
-      type="button"
-      class="google-login-btn"
-    >
-      Continue with Google
-    </button>
-
   </div>
 
 </div>
 
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="config.js"></script>
 
-<script>
-/* =====================================================
-   ABIDTYPE — CLEAN SINGLE FILE ENGINE
-===================================================== */
-
-const supabaseClient =
-  window.supabase.createClient(
-    window.ABIDTYPE_SUPABASE_URL,
-    window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
-  );
-
-const $ = id => document.getElementById(id);
-
-
-/* =====================================================
-   PASSAGES
-===================================================== */
-
-const passages = {
-
-  en: "Typing practice helps you become faster and more accurate. Keep your hands relaxed and focus on the letters in front of you. Good typing comes from regular practice and patience. Keep going and improve your speed every day.",
-
-  bn: "নিয়মিত টাইপিং অনুশীলন করলে আপনার গতি এবং নির্ভুলতা ধীরে ধীরে বাড়বে। প্রথমে সঠিকভাবে টাইপ করার চেষ্টা করুন এবং পরে গতি বাড়ান। প্রতিদিন অনুশীলন করুন এবং নিজের রেকর্ড উন্নত করুন।",
-
-  hi: "नियमित टाइपिंग अभ्यास से आपकी गति और सटीकता बेहतर होती है। पहले सही टाइप करने पर ध्यान दें और फिर धीरे धीरे अपनी गति बढ़ाएं। हर दिन अभ्यास करें और अपना नया रिकॉर्ड बनाएं।",
-
-  ur: "باقاعدگی سے ٹائپنگ کی مشق کرنے سے آپ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درست ٹائپ کرنے پر توجہ دیں اور پھر آہستہ آہستہ اپنی رفتار بڑھائیں۔",
-
-  ar: "تساعد ممارسة الكتابة بانتظام على تحسين السرعة والدقة. ركز على كتابة الكلمات بشكل صحيح أولاً ثم حاول زيادة سرعتك تدريجياً.",
-
-  es: "La práctica regular de mecanografía ayuda a mejorar la velocidad y la precisión. Concéntrate primero en escribir correctamente y después aumenta tu velocidad poco a poco.",
-
-  fr: "La pratique régulière de la frappe permet d'améliorer la vitesse et la précision. Concentrez-vous d'abord sur la précision puis augmentez progressivement votre vitesse.",
-
-  de: "Regelmäßiges Tippen hilft dir, schneller und genauer zu werden. Konzentriere dich zuerst auf die Genauigkeit und steigere danach langsam deine Geschwindigkeit.",
-
-  it: "La pratica regolare della digitazione aiuta a migliorare velocità e precisione. Concentrati prima sulla correttezza e aumenta gradualmente la velocità.",
-
-  pt: "A prática regular de digitação ajuda a melhorar a velocidade e a precisão. Concentre-se primeiro em digitar corretamente e depois aumente sua velocidade aos poucos.",
-
-  ru: "Регулярная практика печати помогает улучшить скорость и точность. Сначала сосредоточьтесь на правильности, а затем постепенно увеличивайте скорость.",
-
-  zh: "坚持练习打字可以提高速度和准确率。首先注意正确输入，然后逐渐提高速度。每天练习一点点，不断挑战自己。",
-
-  ja: "タイピングを定期的に練習すると、速度と正確さが向上します。まず正確に入力することを意識して、その後少しずつ速度を上げましょう。",
-
-  ko: "꾸준히 타이핑을 연습하면 속도와 정확도가 향상됩니다. 먼저 정확하게 입력하는 데 집중하고 그 다음 속도를 조금씩 높여 보세요.",
-
-  tr: "Düzenli klavye çalışması hızınızı ve doğruluğunuzu geliştirir. Önce doğru yazmaya odaklanın ve daha sonra hızınızı yavaş yavaş artırın.",
-
-  id: "Latihan mengetik secara rutin membantu meningkatkan kecepatan dan ketepatan. Fokuslah pada pengetikan yang benar terlebih dahulu lalu tingkatkan kecepatan secara perlahan.",
-
-  ms: "Latihan menaip secara konsisten membantu meningkatkan kelajuan dan ketepatan. Fokus pada ketepatan dahulu kemudian tingkatkan kelajuan secara beransur-ansur.",
-
-  vi: "Luyện tập gõ phím thường xuyên giúp cải thiện tốc độ và độ chính xác. Hãy tập trung vào việc gõ đúng trước rồi tăng tốc dần dần.",
-
-  th: "การฝึกพิมพ์อย่างสม่ำเสมอช่วยเพิ่มความเร็วและความแม่นยำ ควรเน้นการพิมพ์ให้ถูกต้องก่อนแล้วค่อยเพิ่มความเร็ว",
-
-  nl: "Regelmatig typen helpt je snelheid en nauwkeurigheid te verbeteren. Richt je eerst op correct typen en verhoog daarna geleidelijk je snelheid."
-};
-
-
-/* =====================================================
-   STATE
-===================================================== */
-
-let state = {
-  started: false,
-  running: false,
-  startTime: 0,
-  timer: null,
-  duration: 60,
-  target: "",
-  errors: 0
-};
-
-
-/* =====================================================
-   AUDIO
-===================================================== */
-
-let audioContext = null;
-
-function typingSound() {
-
-  try {
-
-    if (!audioContext) {
-      audioContext =
-        new (
-          window.AudioContext ||
-          window.webkitAudioContext
-        )();
-    }
-
-    if (audioContext.state === "suspended") {
-      audioContext.resume();
-    }
-
-    const oscillator =
-      audioContext.createOscillator();
-
-    const gain =
-      audioContext.createGain();
-
-    oscillator.type = "sine";
-    oscillator.frequency.value =
-      420 + Math.random() * 100;
-
-    gain.gain.setValueAtTime(
-      0.025,
-      audioContext.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      0.001,
-      audioContext.currentTime + 0.04
-    );
-
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-
-    oscillator.start();
-    oscillator.stop(
-      audioContext.currentTime + 0.045
-    );
-
-  } catch (e) {}
-
-}
-
-
-/* =====================================================
-   MODE
-===================================================== */
-
-function getModeText(text) {
-
-  const mode = $("mode").value;
-
-  if (mode === "capital") {
-    return text.toUpperCase();
-  }
-
-  if (mode === "small") {
-    return text
-      .replace(/[.,!?;:'"()[\]{}\-—–]/g, "")
-      .toLowerCase()
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-
-  if (mode === "punctuation") {
-
-    const punctuation = {
-
-      en: "Practice with punctuation marks. Stay focused, type carefully, and remember: accuracy comes first! Can you improve your speed today?",
-
-      bn: "নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?",
-
-      es: "Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!",
-
-      fr: "Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!",
-
-      de: "Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!",
-
-      hi: "नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!",
-
-      ar: "تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!"
-    };
-
-    return punctuation[
-      $("language").value
-    ] || text;
-  }
-
-  return text;
-}
-
-
-/* =====================================================
-   CREATE TARGET
-===================================================== */
-
-function createTarget() {
-
-  const source =
-    passages[$("language").value] ||
-    passages.en;
-
-  const text =
-    getModeText(source);
-
-  let result = "";
-
-  for (let i = 0; i < 100; i++) {
-    result += text + " ";
-  }
-
-  state.target = result.trim();
-
-}
-
-
-/* =====================================================
-   DISPLAY
-===================================================== */
-
-function renderText() {
-
-  const input =
-    $("typingInput").value;
-
-  const target =
-    state.target;
-
-  const display =
-    $("textDisplay");
-
-  display.innerHTML = "";
-
-  const start =
-    Math.max(0, input.length - 25);
-
-  const end =
-    Math.min(
-      target.length,
-      input.length + 220
-    );
-
-  const fragment =
-    document.createDocumentFragment();
-
-  for (let i = start; i < end; i++) {
-
-    const span =
-      document.createElement("span");
-
-    span.textContent =
-      target[i] === " "
-        ? "\u00A0"
-        : target[i];
-
-    if (i < input.length) {
-
-      span.className =
-        input[i] === target[i]
-          ? "correct"
-          : "wrong";
-
-    }
-
-    if (i === input.length) {
-      span.className = "current";
-    }
-
-    fragment.appendChild(span);
-  }
-
-  display.appendChild(fragment);
-
-}
-
-
-/* =====================================================
-   DURATION
-===================================================== */
-
-function getDuration() {
-
-  const value =
-    $("duration").value;
-
-  if (value === "custom") {
-
-    let seconds =
-      Number($("customTime").value);
-
-    if (!seconds || seconds < 10) {
-      seconds = 60;
-    }
-
-    return Math.min(seconds, 3600);
-  }
-
-  return Number(value);
-}
-
-
-function updateDurationUI() {
-
-  $("customTimeWrap")
-    .classList
-    .toggle(
-      "hidden",
-      $("duration").value !== "custom"
-    );
-
-}
-
-
-/* =====================================================
-   MODE INFO
-===================================================== */
-
-function updateModeInfo() {
-
-  const messages = {
-
-    normal:
-      "Normal typing practice.",
-
-    punctuation:
-      "Practice typing with punctuation marks.",
-
-    capital:
-      "Practice typing CAPITAL letters.",
-
-    small:
-      "Practice lowercase letters without punctuation."
-  };
-
-  $("modeInfo").textContent =
-    messages[$("mode").value] ||
-    messages.normal;
-
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
-function resetTest() {
-
-  clearInterval(state.timer);
-
-  state.started = false;
-  state.running = false;
-  state.startTime = 0;
-  state.duration = getDuration();
-  state.errors = 0;
-
-  $("setupArea")
-    .classList
-    .remove("hidden");
-
-  $("testArea")
-    .classList
-    .add("hidden");
-
-  $("resultArea")
-    .classList
-    .add("hidden");
-
-  $("typingInput").value = "";
-
-  $("time").textContent =
-    state.duration;
-
-  createTarget();
-  renderText();
-
-}
-
-
-/* =====================================================
-   START
-===================================================== */
-
-function startTest() {
-
-  if (state.started) return;
-
-  state.started = true;
-  state.running = true;
-  state.startTime = Date.now();
-  state.duration = getDuration();
-
-  $("typingInput").focus();
-
-  clearInterval(state.timer);
-
-  state.timer =
-    setInterval(() => {
-
-      const elapsed =
-        Math.floor(
-          (Date.now() - state.startTime) / 1000
-        );
-
-      const remaining =
-        Math.max(
-          0,
-          state.duration - elapsed
-        );
-
-      $("time").textContent =
-        remaining;
-
-      if (remaining <= 0) {
-        finishTest();
-      }
-
-    }, 200);
-
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-function calculateStats() {
-
-  const input =
-    $("typingInput").value;
-
-  const target =
-    state.target;
-
-  let correctChars = 0;
-  let errors = 0;
-
-  for (let i = 0; i < input.length; i++) {
-
-    if (input[i] === target[i]) {
-      correctChars++;
-    } else {
-      errors++;
-    }
-
-  }
-
-  const elapsed =
-    state.startTime
-      ? Math.max(
-          1,
-          (Date.now() - state.startTime) / 1000
-        )
-      : 1;
-
-  const minutes =
-    elapsed / 60;
-
-  const wpm =
-    Math.max(
-      0,
-      Math.round(
-        (correctChars / 5) / minutes
-      )
-    );
-
-  const accuracy =
-    input.length
-      ? Math.round(
-          (correctChars / input.length) * 100
-        )
-      : 100;
-
-  const typedWords =
-    input.trim()
-      ? input.trim().split(/\s+/)
-      : [];
-
-  const targetWords =
-    target.trim().split(/\s+/);
-
-  let correctWords = 0;
-
-  typedWords.forEach((word, index) => {
-
-    if (word === targetWords[index]) {
-      correctWords++;
-    }
-
-  });
-
-  const totalWords =
-    typedWords.length;
-
-  const wrongWords =
-    Math.max(
-      0,
-      totalWords - correctWords
-    );
-
-  return {
-    wpm,
-    accuracy,
-    errors,
-    totalWords,
-    correctWords,
-    wrongWords,
-    correctChars
-  };
-
-}
-
-
-/* =====================================================
-   GRAPH
-===================================================== */
-
-function drawGraph(stats) {
-
-  const canvas =
-    $("performanceChart");
-
-  if (!canvas) return;
-
-  const width =
-    canvas.clientWidth || 800;
-
-  const height = 260;
-
-  const ratio =
-    window.devicePixelRatio || 1;
-
-  canvas.width =
-    width * ratio;
-
-  canvas.height =
-    height * ratio;
-
-  const ctx =
-    canvas.getContext("2d");
-
-  ctx.setTransform(
-    ratio,
-    0,
-    0,
-    ratio,
-    0,
-    0
-  );
-
-  ctx.clearRect(
-    0,
-    0,
-    width,
-    height
-  );
-
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#9ba4b5";
-
-  ctx.fillText(
-    "Final WPM: " + stats.wpm,
-    30,
-    60
-  );
-
-  ctx.fillText(
-    "Accuracy: " + stats.accuracy + "%",
-    30,
-    95
-  );
-
-  ctx.fillText(
-    "Correct characters: " + stats.correctChars,
-    30,
-    130
-  );
-
-}
-
-
-/* =====================================================
-   FINISH
-===================================================== */
-
-async function finishTest() {
-
-  if (!state.started) return;
-
-  const stats =
-    calculateStats();
-
-  clearInterval(state.timer);
-
-  state.running = false;
-  state.started = false;
-
-  $("time").textContent = "0";
-
-  $("resultWpm").textContent =
-    stats.wpm;
-
-  $("resultAccuracy").textContent =
-    stats.accuracy + "%";
-
-  $("resultWords").textContent =
-    stats.totalWords;
-
-  $("resultErrors").textContent =
-    stats.errors;
-
-  $("correctWords").textContent =
-    stats.correctWords;
-
-  $("wrongWords").textContent =
-    stats.wrongWords;
-
-  $("testArea")
-    .classList
-    .add("hidden");
-
-  $("resultArea")
-    .classList
-    .remove("hidden");
-
-  setTimeout(
-    () => drawGraph(stats),
-    50
-  );
-
-  await saveResult(stats);
-
-}
-
-
-/* =====================================================
-   SAVE RESULT
-===================================================== */
-
-async function saveResult(stats) {
-
-  try {
-
-    const {
-      data: { user }
-    } =
-      await supabaseClient.auth.getUser();
-
-    if (!user) return;
-
-    await supabaseClient
-      .from("typing_results")
-      .insert({
-
-        user_id: user.id,
-
-        language_code:
-          $("language").value,
-
-        duration_seconds:
-          state.duration,
-
-        wpm:
-          stats.wpm,
-
-        accuracy:
-          stats.accuracy,
-
-        errors:
-          stats.errors,
-
-        characters_typed:
-          $("typingInput").value.length
-
-      });
-
-  } catch (error) {
-
-    console.error(
-      "Save result error:",
-      error
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   START BUTTON
-===================================================== */
-
-$("startTestBtn").onclick = () => {
-
-  createTarget();
-
-  $("typingInput").value = "";
-
-  state.duration =
-    getDuration();
-
-  $("time").textContent =
-    state.duration;
-
-  $("setupArea")
-    .classList
-    .add("hidden");
-
-  $("resultArea")
-    .classList
-    .add("hidden");
-
-  $("testArea")
-    .classList
-    .remove("hidden");
-
-  const selected =
-    $("language")
-      .options[
-        $("language").selectedIndex
-      ];
-
-  $("currentLanguage").textContent =
-    selected
-      ? selected.textContent.replace(
-          /^[^\s]+\s/,
-          ""
-        )
-      : "Typing";
-
-  renderText();
-
-  setTimeout(
-    () => $("typingInput").focus(),
-    100
-  );
-
-};
-
-
-/* =====================================================
-   TYPING
-===================================================== */
-
-$("typingInput").addEventListener(
-  "input",
-  () => {
-
-    if (!$("typingInput").value) {
-      renderText();
-      return;
-    }
-
-    if (!state.started) {
-      startTest();
-    }
-
-    typingSound();
-
-    renderText();
-
-  }
-);
-
-
-/* =====================================================
-   CONTROLS
-===================================================== */
-
-$("finishBtn").onclick =
-  finishTest;
-
-$("restartBtn").onclick =
-  resetTest;
-
-$("tryAgainBtn").onclick =
-  resetTest;
-
-$("language").onchange =
-  () => {
-
-    createTarget();
-    renderText();
-
-  };
-
-$("mode").onchange =
-  () => {
-
-    updateModeInfo();
-    createTarget();
-    renderText();
-
-  };
-
-$("duration").onchange =
-  () => {
-
-    updateDurationUI();
-
-    if (!state.started) {
-      state.duration =
-        getDuration();
-
-      $("time").textContent =
-        state.duration;
-    }
-
-  };
-
-
-$("customTime").oninput =
-  () => {
-
-    if (
-      $("duration").value === "custom" &&
-      !state.started
-    ) {
-
-      state.duration =
-        getDuration();
-
-      $("time").textContent =
-        state.duration;
-
-    }
-
-  };
-
-
-/* =====================================================
-   THEME
-===================================================== */
-
-$("themeBtn").onclick =
-  () => {
-
-    document.body
-      .classList
-      .toggle("light");
-
-  };
-
-
-/* =====================================================
-   AUTH
-===================================================== */
-
-let loginMode = false;
-
-function openAuth() {
-
-  $("authModal")
-    .classList
-    .remove("hidden");
-
-  $("authMessage").textContent = "";
-
-}
-
-
-function closeAuth() {
-
-  $("authModal")
-    .classList
-    .add("hidden");
-
-}
-
-
-$("authBtn").onclick =
-  async () => {
-
-    const {
-      data: { user }
-    } =
-      await supabaseClient.auth.getUser();
-
-    if (user) {
-
-      await supabaseClient.auth.signOut();
-
-      refreshUser();
-
-    } else {
-
-      openAuth();
-
-    }
-
-  };
-
-
-$("closeAuth").onclick =
-  closeAuth;
-
-
-$("authModal").onclick =
-  event => {
-
-    if (
-      event.target === $("authModal")
-    ) {
-      closeAuth();
-    }
-
-  };
-
-
-$("switchAuth").onclick =
-  () => {
-
-    loginMode =
-      !loginMode;
-
-    $("authTitle").textContent =
-      loginMode
-        ? "Welcome back"
-        : "Create your account";
-
-    $("submitAuth").textContent =
-      loginMode
-        ? "Login"
-        : "Sign up";
-
-    $("displayNameWrap")
-      .classList
-      .toggle(
-        "hidden",
-        loginMode
-      );
-
-    $("switchAuth").textContent =
-      loginMode
-        ? "Need an account? Sign up"
-        : "Already have an account? Login";
-
-  };
-
-
-$("submitAuth").onclick =
-  async () => {
-
-    const email =
-      $("email").value.trim();
-
-    const password =
-      $("password").value;
-
-    const name =
-      $("displayName").value.trim();
-
-    if (
-      !email ||
-      password.length < 6
-    ) {
-
-      $("authMessage").textContent =
-        "Enter an email and a password with at least 6 characters.";
-
-      return;
-
-    }
-
-    $("authMessage").textContent =
-      "Please wait...";
-
-    let result;
-
-    if (loginMode) {
-
-      result =
-        await supabaseClient.auth
-          .signInWithPassword({
-            email,
-            password
-          });
-
-    } else {
-
-      result =
-        await supabaseClient.auth
-          .signUp({
-
-            email,
-            password,
-
-            options: {
-              data: {
-                display_name:
-                  name || "AbidType User"
-              }
-            }
-
-          });
-
-    }
-
-    if (result.error) {
-
-      $("authMessage").textContent =
-        result.error.message;
-
-      return;
-
-    }
-
-    if (loginMode) {
-
-      closeAuth();
-      refreshUser();
-
-    } else {
-
-      $("authMessage").textContent =
-        "Account created. Check your email to confirm, then login.";
-
-    }
-
-  };
-
-
-/* =====================================================
-   GOOGLE LOGIN
-===================================================== */
-
-$("googleLoginBtn").onclick =
-  async () => {
-
-    $("authMessage").textContent =
-      "Opening Google sign in...";
-
-    const { error } =
-      await supabaseClient.auth
-        .signInWithOAuth({
-
-          provider: "google",
-
-          options: {
-            redirectTo:
-              window.location.origin +
-              window.location.pathname
-          }
-
-        });
-
-    if (error) {
-
-      $("authMessage").textContent =
-        error.message;
-
-    }
-
-  };
-
-
-/* =====================================================
-   USER
-===================================================== */
-
-async function refreshUser() {
-
-  try {
-
-    const {
-      data: { user }
-    } =
-      await supabaseClient.auth.getUser();
-
-    if (user) {
-
-      $("authBtn").textContent =
-        "Logout";
-
-      $("welcome").textContent =
-        "Welcome, " +
-        (
-          user.user_metadata?.display_name ||
-          "AbidType User"
-        );
-
-      $("accountNote").textContent =
-        user.email;
-
-    } else {
-
-      $("authBtn").textContent =
-        "Login / Sign up";
-
-      $("welcome").textContent =
-        "Practice as a guest";
-
-      $("accountNote").textContent =
-        "Create an account to save your typing results and build your personal record.";
-
-    }
-
-  } catch (error) {
-
-    console.error(error);
-
-  }
-
-}
-
-
-/* =====================================================
-   HISTORY
-===================================================== */
-
-$("historyBtn").onclick =
-  async () => {
-
-    const {
-      data: { user }
-    } =
-      await supabaseClient.auth.getUser();
-
-    if (!user) {
-
-      openAuth();
-      return;
-
-    }
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient
-        .from("typing_results")
-        .select(
-          "language_code,duration_seconds,wpm,accuracy,created_at"
-        )
-        .order(
-          "created_at",
-          { ascending: false }
-        )
-        .limit(10);
-
-    const box =
-      $("history");
-
-    box.classList.remove("hidden");
-
-    if (error) {
-
-      box.textContent =
-        "Could not load history yet.";
-
-      console.error(error);
-
-      return;
-
-    }
-
-    if (!data || !data.length) {
-
-      box.textContent =
-        "No typing results yet.";
-
-      return;
-
-    }
-
-    box.innerHTML =
-      data.map(item => `
-
-        <div class="history-row">
-
-          <span>
-            ${item.language_code.toUpperCase()}
-          </span>
-
-          <b>
-            ${item.wpm} WPM
-          </b>
-
-          <b>
-            ${item.accuracy}%
-          </b>
-
-          <span>
-            ${new Date(
-              item.created_at
-            ).toLocaleDateString()}
-          </span>
-
-        </div>
-
-      `).join("");
-
-  };
-
-
-/* =====================================================
-   AUTH STATE
-===================================================== */
-
-supabaseClient.auth.onAuthStateChange(
-  () => {
-    refreshUser();
-  }
-);
-
-
-/* =====================================================
-   RESIZE
-===================================================== */
-
-window.addEventListener(
-  "resize",
-  () => {
-
-    if (
-      !$("resultArea")
-        .classList
-        .contains("hidden")
-    ) {
-
-      const stats = {
-        wpm:
-          Number($("resultWpm").textContent) || 0,
-
-        accuracy:
-          parseInt(
-            $("resultAccuracy").textContent
-          ) || 0,
-
-        correctChars: 0
-      };
-
-      drawGraph(stats);
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   INIT
-===================================================== */
-
-updateModeInfo();
-
-updateDurationUI();
-
-createTarget();
-
-renderText();
-
-refreshUser();
-
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
