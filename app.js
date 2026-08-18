@@ -109,7 +109,14 @@ async function refreshUser(){
 }
 $("authBtn").addEventListener("click",async()=>{
   const {data:{user}}=await supabaseClient.auth.getUser();
-  if(user){await supabaseClient.auth.signOut();refreshUser();$("history").classList.add("hidden");}
+
+  if(user){
+    await supabaseClient.auth.signOut();
+    refreshUser();
+    $("history").classList.add("hidden");
+  }else{
+    openAuth();
+  }
 });
 
 async function loadHistory(){
