@@ -2,13 +2,8 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
     name="google-site-verification"
@@ -20,62 +15,44 @@
     content="AbidType — Global Typing Practice"
   >
 
-  <meta
-    name="theme-color"
-    content="#0b1020"
-  >
-
   <title>AbidType — Global Typing Practice</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 
   <style>
-
     /* =====================================================
-       ABIDTYPE TYPING AREA
+       TYPING AREA
     ===================================================== */
 
     .typing-container {
       position: relative;
       min-height: 260px;
-      padding: 28px;
-      border-radius: 20px;
       overflow: hidden;
+      padding: 28px;
+      border-radius: 18px;
     }
 
     #textDisplay {
-      position: relative;
-      z-index: 2;
-
-      min-height: 175px;
-      max-height: 175px;
-
-      padding: 12px;
+      min-height: 180px;
+      max-height: 180px;
+      overflow: hidden;
 
       font-size: 24px;
       line-height: 2;
-      letter-spacing: .25px;
+
+      letter-spacing: .3px;
 
       white-space: pre-wrap;
       word-break: normal;
       overflow-wrap: break-word;
 
-      overflow: hidden;
+      padding: 10px;
 
-      border-radius: 14px;
-
-      user-select: none;
-      pointer-events: none;
+      border-radius: 12px;
     }
 
     #textDisplay span {
       display: inline;
-      transition:
-        color .08s ease,
-        background .08s ease;
     }
 
     #textDisplay .correct {
@@ -85,22 +62,13 @@
     #textDisplay .wrong {
       color: #ef4444;
       text-decoration: underline;
-      text-decoration-thickness: 2px;
     }
 
     #textDisplay .current {
-      background: rgba(59,130,246,.25);
-      border-radius: 4px;
-      box-shadow:
-        0 0 0 1px rgba(59,130,246,.35);
+      background: rgba(59, 130, 246, .25);
+      border-radius: 3px;
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, .35);
     }
-
-    /*
-      Hidden typing input.
-
-      Text is displayed above by #textDisplay.
-      User types through this textarea.
-    */
 
     #typingInput {
       position: absolute;
@@ -110,14 +78,14 @@
       bottom: 18px;
 
       width: calc(100% - 56px);
-      height: 54px;
+      height: 55px;
+
+      background: rgba(255, 255, 255, .04);
+
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 12px;
 
       padding: 14px 16px;
-
-      background: rgba(255,255,255,.045);
-
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 12px;
 
       color: transparent;
       caret-color: #60a5fa;
@@ -129,81 +97,48 @@
       resize: none;
 
       z-index: 5;
-
-      white-space: nowrap;
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-
-    #typingInput::selection {
-      background: rgba(59,130,246,.25);
     }
 
     #typingInput:focus {
       border-color: #3b82f6;
-
-      box-shadow:
-        0 0 0 3px rgba(59,130,246,.12);
-    }
-
-    #typingInput::placeholder {
-      color: rgba(255,255,255,.4);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, .12);
     }
 
     .infinite-note {
-      margin-top: 10px;
-
+      margin-top: 8px;
       text-align: center;
-
+      opacity: .65;
       font-size: 13px;
-
-      opacity: .6;
     }
 
     .language-count {
       margin-top: 5px;
-
       font-size: 12px;
-
-      opacity: .6;
+      opacity: .65;
     }
 
-    /* Better mobile typing text */
-
+    /* Better mobile typing */
     @media (max-width: 700px) {
 
       .typing-container {
-        min-height: 245px;
+        min-height: 240px;
         padding: 18px;
       }
 
       #textDisplay {
-        min-height: 165px;
-        max-height: 165px;
-
-        padding: 8px;
-
         font-size: 19px;
-        line-height: 1.9;
+        line-height: 1.8;
+        min-height: 160px;
+        max-height: 160px;
       }
 
       #typingInput {
         left: 18px;
         right: 18px;
-
         width: calc(100% - 36px);
-
-        bottom: 12px;
-
-        height: 50px;
-
-        font-size: 18px;
       }
-
     }
-
   </style>
-
 </head>
 
 
@@ -234,11 +169,10 @@
     <button
       id="themeBtn"
       type="button"
-      aria-label="Change theme"
+      aria-label="Toggle theme"
     >
       🌙
     </button>
-
 
     <button
       id="authBtn"
@@ -284,7 +218,7 @@
 
 
   <!-- ===================================================
-       SETUP AREA
+       SETUP
   ==================================================== -->
 
   <section
@@ -316,200 +250,56 @@
 
       <select id="language">
 
-        <option value="en">
-          🇺🇸 English
-        </option>
-
-        <option value="bn">
-          🇧🇩 বাংলা
-        </option>
-
-        <option value="hi">
-          🇮🇳 हिन्दी
-        </option>
-
-        <option value="ur">
-          🇵🇰 اردو
-        </option>
-
-        <option value="ar">
-          🇸🇦 العربية
-        </option>
-
-        <option value="es">
-          🇪🇸 Español
-        </option>
-
-        <option value="fr">
-          🇫🇷 Français
-        </option>
-
-        <option value="de">
-          🇩🇪 Deutsch
-        </option>
-
-        <option value="it">
-          🇮🇹 Italiano
-        </option>
-
-        <option value="pt">
-          🇵🇹 Português
-        </option>
-
-        <option value="ru">
-          🇷🇺 Русский
-        </option>
-
-        <option value="zh">
-          🇨🇳 中文
-        </option>
-
-        <option value="ja">
-          🇯🇵 日本語
-        </option>
-
-        <option value="ko">
-          🇰🇷 한국어
-        </option>
-
-        <option value="tr">
-          🇹🇷 Türkçe
-        </option>
-
-        <option value="id">
-          🇮🇩 Bahasa Indonesia
-        </option>
-
-        <option value="ms">
-          🇲🇾 Bahasa Melayu
-        </option>
-
-        <option value="vi">
-          🇻🇳 Tiếng Việt
-        </option>
-
-        <option value="th">
-          🇹🇭 ไทย
-        </option>
-
-        <option value="nl">
-          🇳🇱 Nederlands
-        </option>
-
-        <option value="pl">
-          🇵🇱 Polski
-        </option>
-
-        <option value="uk">
-          🇺🇦 Українська
-        </option>
-
-        <option value="cs">
-          🇨🇿 Čeština
-        </option>
-
-        <option value="sk">
-          🇸🇰 Slovenčina
-        </option>
-
-        <option value="ro">
-          🇷🇴 Română
-        </option>
-
-        <option value="hu">
-          🇭🇺 Magyar
-        </option>
-
-        <option value="el">
-          🇬🇷 Ελληνικά
-        </option>
-
-        <option value="he">
-          🇮🇱 עברית
-        </option>
-
-        <option value="fa">
-          🇮🇷 فارسی
-        </option>
-
-        <option value="ta">
-          🇮🇳 தமிழ்
-        </option>
-
-        <option value="te">
-          🇮🇳 తెలుగు
-        </option>
-
-        <option value="ml">
-          🇮🇳 മലയാളം
-        </option>
-
-        <option value="kn">
-          🇮🇳 ಕನ್ನಡ
-        </option>
-
-        <option value="gu">
-          🇮🇳 ગુજરાતી
-        </option>
-
-        <option value="mr">
-          🇮🇳 मराठी
-        </option>
-
-        <option value="pa">
-          🇮🇳 ਪੰਜਾਬੀ
-        </option>
-
-        <option value="ne">
-          🇳🇵 नेपाली
-        </option>
-
-        <option value="si">
-          🇱🇰 සිංහල
-        </option>
-
-        <option value="my">
-          🇲🇲 မြန်မာ
-        </option>
-
-        <option value="km">
-          🇰🇭 ខ្មែរ
-        </option>
-
-        <option value="lo">
-          🇱🇦 ລາວ
-        </option>
-
-        <option value="sw">
-          🌍 Kiswahili
-        </option>
-
-        <option value="af">
-          🇿🇦 Afrikaans
-        </option>
-
-        <option value="fil">
-          🇵🇭 Filipino
-        </option>
-
-        <option value="da">
-          🇩🇰 Dansk
-        </option>
-
-        <option value="sv">
-          🇸🇪 Svenska
-        </option>
-
-        <option value="no">
-          🇳🇴 Norsk
-        </option>
-
-        <option value="fi">
-          🇫🇮 Suomi
-        </option>
+        <option value="en">🇺🇸 English</option>
+        <option value="bn">🇧🇩 বাংলা</option>
+        <option value="hi">🇮🇳 हिन्दी</option>
+        <option value="ur">🇵🇰 اردو</option>
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇵🇹 Português</option>
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="zh">🇨🇳 中文</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="ko">🇰🇷 한국어</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="id">🇮🇩 Bahasa Indonesia</option>
+        <option value="ms">🇲🇾 Bahasa Melayu</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="th">🇹🇭 ไทย</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="uk">🇺🇦 Українська</option>
+        <option value="cs">🇨🇿 Čeština</option>
+        <option value="sk">🇸🇰 Slovenčina</option>
+        <option value="ro">🇷🇴 Română</option>
+        <option value="hu">🇭🇺 Magyar</option>
+        <option value="el">🇬🇷 Ελληνικά</option>
+        <option value="he">🇮🇱 עברית</option>
+        <option value="fa">🇮🇷 فارسی</option>
+        <option value="ta">🇮🇳 தமிழ்</option>
+        <option value="te">🇮🇳 తెలుగు</option>
+        <option value="ml">🇮🇳 മലയാളം</option>
+        <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+        <option value="gu">🇮🇳 ગુજરાતી</option>
+        <option value="mr">🇮🇳 मराठी</option>
+        <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+        <option value="ne">🇳🇵 नेपाली</option>
+        <option value="si">🇱🇰 සිංහල</option>
+        <option value="my">🇲🇲 မြန်မာ</option>
+        <option value="km">🇰🇭 ខ្មែរ</option>
+        <option value="lo">🇱🇦 ລາວ</option>
+        <option value="sw">🌍 Kiswahili</option>
+        <option value="af">🇿🇦 Afrikaans</option>
+        <option value="fil">🇵🇭 Filipino</option>
+        <option value="da">🇩🇰 Dansk</option>
+        <option value="sv">🇸🇪 Svenska</option>
+        <option value="no">🇳🇴 Norsk</option>
+        <option value="fi">🇫🇮 Suomi</option>
 
       </select>
-
 
       <div class="language-count">
         🌍 50+ languages available
@@ -519,16 +309,13 @@
 
 
 
-    <!-- =================================================
-         TYPING MODE
-    ================================================== -->
+    <!-- MODE -->
 
     <div class="control-group">
 
       <label for="mode">
         Typing Mode
       </label>
-
 
       <select id="mode">
 
@@ -550,7 +337,6 @@
 
       </select>
 
-
       <small id="modeInfo">
         Normal typing practice.
       </small>
@@ -559,16 +345,13 @@
 
 
 
-    <!-- =================================================
-         DURATION
-    ================================================== -->
+    <!-- DURATION -->
 
     <div class="control-group">
 
       <label for="duration">
         Test Duration
       </label>
-
 
       <select id="duration">
 
@@ -580,10 +363,7 @@
           30 Seconds
         </option>
 
-        <option
-          value="60"
-          selected
-        >
+        <option value="60" selected>
           60 Seconds
         </option>
 
@@ -609,9 +389,7 @@
 
 
 
-    <!-- =================================================
-         CUSTOM TIME
-    ================================================== -->
+    <!-- CUSTOM TIME -->
 
     <div
       id="customTimeWrap"
@@ -622,7 +400,6 @@
         Custom Time (seconds)
       </label>
 
-
       <input
         id="customTime"
         type="number"
@@ -630,7 +407,6 @@
         max="3600"
         value="60"
       >
-
 
       <small>
         Minimum 10 seconds, maximum 3600 seconds.
@@ -665,10 +441,7 @@
   >
 
 
-    <!-- TEST TOP -->
-
     <div class="test-top">
-
 
       <div class="timer-box">
 
@@ -695,20 +468,16 @@
 
       </div>
 
-
     </div>
 
 
 
-    <!-- =================================================
-         TYPING BOX
-    ================================================== -->
+    <!-- TYPING BOX -->
 
     <div
       class="typing-container"
       id="typingContainer"
     >
-
 
       <div
         id="textDisplay"
@@ -724,20 +493,16 @@
         autocapitalize="off"
         spellcheck="false"
         placeholder="Start typing here..."
-        aria-label="Typing input"
       ></textarea>
-
 
     </div>
 
 
     <div class="infinite-note">
-      ✨ Keep typing — the text continues until the timer ends.
+      ✨ Keep typing — the practice text continues until the timer ends.
     </div>
 
 
-
-    <!-- ACTIONS -->
 
     <div class="test-actions">
 
@@ -748,7 +513,6 @@
       >
         Finish Test
       </button>
-
 
       <button
         id="restartBtn"
@@ -765,14 +529,13 @@
 
 
   <!-- ===================================================
-       RESULT AREA
+       RESULT
   ==================================================== -->
 
   <section
     id="resultArea"
     class="card hidden"
   >
-
 
     <div class="section-title">
 
@@ -788,101 +551,47 @@
 
 
 
-    <!-- RESULT GRID -->
-
     <div class="result-grid">
 
-
       <div class="result-card">
-
-        <span>
-          WPM
-        </span>
-
-        <strong id="resultWpm">
-          0
-        </strong>
-
+        <span>WPM</span>
+        <strong id="resultWpm">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Accuracy
-        </span>
-
-        <strong id="resultAccuracy">
-          0%
-        </strong>
-
+        <span>Accuracy</span>
+        <strong id="resultAccuracy">0%</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Words
-        </span>
-
-        <strong id="resultWords">
-          0
-        </strong>
-
+        <span>Words</span>
+        <strong id="resultWords">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Errors
-        </span>
-
-        <strong id="resultErrors">
-          0
-        </strong>
-
+        <span>Errors</span>
+        <strong id="resultErrors">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Correct Words
-        </span>
-
-        <strong id="correctWords">
-          0
-        </strong>
-
+        <span>Correct Words</span>
+        <strong id="correctWords">0</strong>
       </div>
 
-
       <div class="result-card">
-
-        <span>
-          Wrong Words
-        </span>
-
-        <strong id="wrongWords">
-          0
-        </strong>
-
+        <span>Wrong Words</span>
+        <strong id="wrongWords">0</strong>
       </div>
-
 
     </div>
 
 
-
-    <!-- PERFORMANCE -->
 
     <div class="graph-box">
 
       <h3>
         Performance
       </h3>
-
 
       <canvas
         id="performanceChart"
@@ -891,8 +600,6 @@
     </div>
 
 
-
-    <!-- TRY AGAIN -->
 
     <button
       id="tryAgainBtn"
@@ -913,9 +620,7 @@
 
   <section class="card">
 
-
     <div class="history-header">
-
 
       <div>
 
@@ -937,7 +642,6 @@
         View History
       </button>
 
-
     </div>
 
 
@@ -945,7 +649,6 @@
       id="history"
       class="history hidden"
     ></div>
-
 
   </section>
 
@@ -963,15 +666,12 @@
   class="modal hidden"
 >
 
-
   <div class="modal-content">
-
 
     <button
       id="closeAuth"
       type="button"
       class="close-btn"
-      aria-label="Close"
     >
       ×
     </button>
@@ -985,15 +685,11 @@
     <p id="authMessage"></p>
 
 
-
-    <!-- NAME -->
-
     <div class="auth-field">
 
       <label for="displayName">
         Name
       </label>
-
 
       <input
         id="displayName"
@@ -1005,15 +701,11 @@
     </div>
 
 
-
-    <!-- EMAIL -->
-
     <div class="auth-field">
 
       <label for="email">
         Email
       </label>
-
 
       <input
         id="email"
@@ -1025,15 +717,11 @@
     </div>
 
 
-
-    <!-- PASSWORD -->
-
     <div class="auth-field">
 
       <label for="password">
         Password
       </label>
-
 
       <input
         id="password"
@@ -1044,9 +732,6 @@
 
     </div>
 
-
-
-    <!-- AUTH SUBMIT -->
 
     <button
       id="submitAuth"
@@ -1076,21 +761,12 @@
      SUPABASE
 ===================================================== -->
 
-<script
-  src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-></script>
-
-
-<!-- CONFIG -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="config.js"></script>
-
-
-<!-- MAIN APP -->
 
 <script src="app.js"></script>
 
 
 </body>
-
 </html>
