@@ -285,24 +285,76 @@ function startTest(){
   },200);
 }
 
-function updateTypingDisplay(){
-  const input = $("typingInput")?.value || "";
-  const display = $("textDisplay");
+function updateTypingDisplay() {
 
-  if(!display) return;
+  const input =
+    $("typingInput")?.value || "";
 
-  const spans = [...display.children];
+  const display =
+    $("textDisplay");
 
-  spans.forEach((span,index)=>{
+  if (!display) return;
+
+  const spans =
+    [...display.children];
+
+  spans.forEach((span, index) => {
+
     span.className = "";
 
-    if(index < input.length){
-      span.classList.add(
-        input[index] === test.text[index]
-          ? "correct"
-          : "wrong"
-      );
+    if (index < input.length) {
+
+      if (
+        input[index] ===
+        test.text[index]
+      ) {
+        span.classList.add("correct");
+      } else {
+        span.classList.add("wrong");
+      }
+
     }
+
+    if (index === input.length) {
+      span.classList.add("current");
+    }
+
+  });
+
+  /*
+    Automatically keep the current
+    character visible without changing
+    the position of the text.
+  */
+
+  const current =
+    spans[input.length];
+
+  if (current) {
+
+    const displayTop =
+      display.getBoundingClientRect().top;
+
+    const displayBottom =
+      display.getBoundingClientRect().bottom;
+
+    const currentTop =
+      current.getBoundingClientRect().top;
+
+    const currentBottom =
+      current.getBoundingClientRect().bottom;
+
+    if (currentBottom > displayBottom) {
+      display.scrollTop +=
+        currentBottom - displayBottom;
+    }
+
+    if (currentTop < displayTop) {
+      display.scrollTop -=
+        displayTop - currentTop;
+    }
+  }
+}
 
     if(index === input.length){
       span.classList.add("current");
