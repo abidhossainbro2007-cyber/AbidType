@@ -1082,4 +1082,59 @@ body.light .text-display span.current {
 #testArea .typing-input {
   position: relative !important;
   z-index: 10 !important;
+}    /* =====================================================
+   ABIDTYPE — FINAL TYPING TEXT VISIBILITY FIX
+===================================================== */
+
+#textDisplay,
+#textDisplay.text-display {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  height: 180px !important;
+  max-height: 180px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+#textDisplay span,
+#textDisplay.text-display span {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline !important;
+}
+
+/* যেটা এখনো টাইপ করা হয়নি */
+#textDisplay span:not(.correct):not(.wrong) {
+  color: #ffffff !important;
+}
+
+/* ঠিক টাইপ */
+#textDisplay span.correct {
+  color: #22c55e !important;
+}
+
+/* ভুল টাইপ */
+#textDisplay span.wrong {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.15) !important;
+}
+
+/* বর্তমান অক্ষর */
+#textDisplay span.current {
+  color: #ffffff !important;
+  background: rgba(139, 92, 246, 0.35) !important;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Typing box */
+#typingInput,
+#typingInput.typing-input {
+  color: #ffffff !important;
+  background: rgba(17, 24, 39, 0.95) !important;
+  caret-color: #a78bfa !important;
 }
