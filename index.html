@@ -1,114 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification"
+content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
-  <meta
-    name="google-site-verification"
-    content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY"
-  >
+<meta name="description" content="AbidType — Global Typing Practice">
+<title>AbidType — Global Typing Practice</title>
 
-  <meta
-    name="description"
-    content="AbidType — Global Typing Practice"
-  >
+<link rel="stylesheet" href="style.css">
 
-  <title>AbidType — Global Typing Practice</title>
+<style>
+/* =====================================================
+   ABIDTYPE TYPING AREA
+===================================================== */
 
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    .typing-container {
-      position: relative;
-      min-height: 230px;
-      overflow: hidden;
-      padding: 28px;
-      border-radius: 18px;
-    }
-
-    #textDisplay {
-      min-height: 170px;
-      max-height: 170px;
-      overflow: hidden;
-      font-size: 24px;
-      line-height: 2;
-      letter-spacing: .3px;
-      white-space: pre-wrap;
-      word-break: normal;
-      overflow-wrap: break-word;
-      position: relative;
-      z-index: 2;
-      padding: 10px;
-      border-radius: 12px;
-    }
-
-    #textDisplay span {
-      display: inline;
-    }
-
-    #textDisplay .correct {
-      color: #22c55e;
-    }
-
-    #textDisplay .wrong {
-      color: #ef4444;
-      text-decoration: underline;
-    }
-
-    #textDisplay .current {
-      background: rgba(59,130,246,.25);
-      border-radius: 3px;
-      box-shadow: 0 0 0 1px rgba(59,130,246,.35);
-    }
-
-   #typingInput {
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 18px;
-
-  width: calc(100% - 56px);
-  height: 55px;
-
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 12px;
-
-  padding: 14px 16px;
-
-  color: #ffffff;
-  caret-color: #60a5fa;
-
-  font-size: 20px;
-  line-height: 1.4;
-
-  outline: none;
-  resize: none;
-
-  z-index: 5;
-  box-sizing: border-box;
+.typing-container{
+  position:relative;
+  min-height:250px;
+  padding:30px;
+  border-radius:18px;
+  overflow:hidden;
 }
 
-#typingInput:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59,130,246,.12);
-}
-    .infinite-note {
-      margin-top: 8px;
-      text-align: center;
-      opacity: .65;
-      font-size: 13px;
-    }
+#textDisplay{
+  height:180px;
+  overflow:hidden;
+  position:relative;
+  z-index:2;
 
-    .language-count {
-      margin-top: 5px;
-      font-size: 12px;
-      opacity: .65;
-    }
-  </style>
+  padding:18px;
+  border-radius:14px;
+
+  font-size:24px;
+  line-height:1.9;
+  letter-spacing:.3px;
+
+  white-space:pre-wrap;
+  word-break:normal;
+  overflow-wrap:break-word;
+
+  box-sizing:border-box;
+}
+
+#textDisplay span{
+  display:inline;
+}
+
+#textDisplay .correct{
+  color:#22c55e;
+}
+
+#textDisplay .wrong{
+  color:#ef4444;
+  text-decoration:underline;
+}
+
+#textDisplay .current{
+  background:rgba(59,130,246,.28);
+  box-shadow:0 0 0 2px rgba(59,130,246,.25);
+  border-radius:3px;
+}
+
+#typingInput{
+  position:absolute;
+
+  left:30px;
+  right:30px;
+  bottom:18px;
+
+  width:calc(100% - 60px);
+  height:58px;
+
+  padding:14px 16px;
+
+  box-sizing:border-box;
+
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:12px;
+
+  color:#fff;
+  caret-color:#60a5fa;
+
+  font-size:20px;
+  line-height:1.4;
+
+  outline:none;
+  resize:none;
+
+  z-index:10;
+}
+
+#typingInput:focus{
+  border-color:#3b82f6;
+  box-shadow:0 0 0 3px rgba(59,130,246,.12);
+}
+
+.typing-help{
+  text-align:center;
+  margin-top:10px;
+  opacity:.65;
+  font-size:13px;
+}
+
+.hidden{
+  display:none !important;
+}
+</style>
 </head>
 
 <body>
@@ -121,415 +122,344 @@
   </div>
 
   <div class="header-actions">
-
-    <button id="themeBtn" type="button">
-      🌙
-    </button>
-
-    <button id="authBtn" type="button">
-      Login / Sign up
-    </button>
-
+    <button id="themeBtn" type="button">🌙</button>
+    <button id="authBtn" type="button">Login / Sign up</button>
   </div>
 
 </header>
 
+
 <main class="container">
 
-  <section class="account-card">
+<section class="account-card">
+  <div>
+    <h2 id="welcome">Practice as a guest</h2>
+    <p id="accountNote">
+      Create an account to save your typing results
+      and build your personal record.
+    </p>
+  </div>
+</section>
 
-    <div>
 
-      <h2 id="welcome">
-        Practice as a guest
-      </h2>
+<!-- =====================================================
+     SETUP
+===================================================== -->
 
-      <p id="accountNote">
-        Create an account to save your typing results
-        and build your personal record.
-      </p>
+<section id="setupArea" class="card">
 
+  <div class="section-title">
+    <h1>Global Typing Test</h1>
+    <p>Choose your language, mode and test duration.</p>
+  </div>
+
+
+  <div class="control-group">
+
+    <label for="language">Language</label>
+
+    <select id="language">
+
+      <option value="en">🇺🇸 English</option>
+      <option value="bn">🇧🇩 বাংলা</option>
+      <option value="hi">🇮🇳 हिन्दी</option>
+      <option value="ur">🇵🇰 اردو</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="pt">🇵🇹 Português</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="zh">🇨🇳 中文</option>
+      <option value="ja">🇯🇵 日本語</option>
+      <option value="ko">🇰🇷 한국어</option>
+      <option value="tr">🇹🇷 Türkçe</option>
+      <option value="id">🇮🇩 Bahasa Indonesia</option>
+      <option value="ms">🇲🇾 Bahasa Melayu</option>
+      <option value="vi">🇻🇳 Tiếng Việt</option>
+      <option value="th">🇹🇭 ไทย</option>
+      <option value="nl">🇳🇱 Nederlands</option>
+      <option value="pl">🇵🇱 Polski</option>
+      <option value="uk">🇺🇦 Українська</option>
+      <option value="cs">🇨🇿 Čeština</option>
+      <option value="ro">🇷🇴 Română</option>
+      <option value="hu">🇷🇴 Magyar</option>
+      <option value="el">🇬🇷 Ελληνικά</option>
+      <option value="he">🇮🇱 עברית</option>
+      <option value="fa">🇮🇷 فارسی</option>
+      <option value="ta">🇮🇳 தமிழ்</option>
+      <option value="te">🇮🇳 తెలుగు</option>
+      <option value="ml">🇮🇳 മലയാളം</option>
+      <option value="kn">🇮🇳 ಕನ್ನಡ</option>
+      <option value="gu">🇮🇳 ગુજરાતી</option>
+      <option value="mr">🇮🇳 मराठी</option>
+      <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+      <option value="ne">🇳🇵 नेपाली</option>
+      <option value="si">🇱🇰 සිංහල</option>
+      <option value="my">🇲🇲 မြန်မာ</option>
+      <option value="km">🇰🇭 ខ្មែរ</option>
+      <option value="lo">🇱🇦 ລາວ</option>
+      <option value="sw">🌍 Kiswahili</option>
+      <option value="af">🇿🇦 Afrikaans</option>
+      <option value="fil">🇵🇭 Filipino</option>
+      <option value="da">🇩🇰 Dansk</option>
+      <option value="sv">🇸🇪 Svenska</option>
+      <option value="no">🇳🇴 Norsk</option>
+      <option value="fi">🇫🇮 Suomi</option>
+
+    </select>
+
+    <div class="language-count">
+      🌍 50+ languages available
     </div>
 
-  </section>
+  </div>
 
 
-  <section id="setupArea" class="card">
+  <div class="control-group">
 
-    <div class="section-title">
+    <label for="mode">Typing Mode</label>
 
-      <h1>
-        Global Typing Test
-      </h1>
+    <select id="mode">
 
-      <p>
-        Choose your language, mode and test duration.
-      </p>
+      <option value="normal">Normal</option>
+      <option value="punctuation">Punctuation</option>
+      <option value="capital">CAPITAL Letters</option>
+      <option value="small">lowercase</option>
 
-    </div>
+    </select>
 
+    <small id="modeInfo">
+      Normal typing practice.
+    </small>
 
-    <div class="control-group">
-
-      <label for="language">
-        Language
-      </label>
-
-      <select id="language">
-
-        <option value="en">🇺🇸 English</option>
-        <option value="bn">🇧🇩 বাংলা</option>
-        <option value="hi">🇮🇳 हिन्दी</option>
-        <option value="ur">🇵🇰 اردو</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="de">🇩🇪 Deutsch</option>
-        <option value="it">🇮🇹 Italiano</option>
-        <option value="pt">🇵🇹 Português</option>
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="zh">🇨🇳 中文</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="ko">🇰🇷 한국어</option>
-        <option value="tr">🇹🇷 Türkçe</option>
-        <option value="id">🇮🇩 Bahasa Indonesia</option>
-        <option value="ms">🇲🇾 Bahasa Melayu</option>
-        <option value="vi">🇻🇳 Tiếng Việt</option>
-        <option value="th">🇹🇭 ไทย</option>
-        <option value="nl">🇳🇱 Nederlands</option>
-        <option value="pl">🇵🇱 Polski</option>
-        <option value="uk">🇺🇦 Українська</option>
-        <option value="cs">🇨🇿 Čeština</option>
-        <option value="sk">🇸🇰 Slovenčina</option>
-        <option value="ro">🇷🇴 Română</option>
-        <option value="hu">🇭🇺 Magyar</option>
-        <option value="el">🇬🇷 Ελληνικά</option>
-        <option value="he">🇮🇱 עברית</option>
-        <option value="fa">🇮🇷 فارسی</option>
-        <option value="ta">🇮🇳 தமிழ்</option>
-        <option value="te">🇮🇳 తెలుగు</option>
-        <option value="ml">🇮🇳 മലയാളം</option>
-        <option value="kn">🇮🇳 ಕನ್ನಡ</option>
-        <option value="gu">🇮🇳 ગુજરાતી</option>
-        <option value="mr">🇮🇳 मराठी</option>
-        <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
-        <option value="ne">🇳🇵 नेपाली</option>
-        <option value="si">🇱🇰 සිංහල</option>
-        <option value="my">🇲🇲 မြန်မာ</option>
-        <option value="km">🇰🇭 ខ្មែរ</option>
-        <option value="lo">🇱🇦 ລາວ</option>
-        <option value="sw">🌍 Kiswahili</option>
-        <option value="af">🇿🇦 Afrikaans</option>
-        <option value="fil">🇵🇭 Filipino</option>
-        <option value="da">🇩🇰 Dansk</option>
-        <option value="sv">🇸🇪 Svenska</option>
-        <option value="no">🇳🇴 Norsk</option>
-        <option value="fi">🇫🇮 Suomi</option>
-
-      </select>
-
-      <div class="language-count">
-        🌍 50+ languages available
-      </div>
-
-    </div>
+  </div>
 
 
-    <div class="control-group">
+  <div class="control-group">
 
-      <label for="mode">
-        Typing Mode
-      </label>
+    <label for="duration">Test Duration</label>
 
-      <select id="mode">
+    <select id="duration">
 
-        <option value="normal">
-          Normal
-        </option>
+      <option value="15">15 Seconds</option>
+      <option value="30">30 Seconds</option>
+      <option value="60" selected>60 Seconds</option>
+      <option value="120">2 Minutes</option>
+      <option value="300">5 Minutes</option>
+      <option value="600">10 Minutes</option>
+      <option value="custom">⚙️ Custom</option>
 
-        <option value="punctuation">
-          Punctuation
-        </option>
+    </select>
 
-        <option value="capital">
-          CAPITAL Letters
-        </option>
-
-        <option value="small">
-          lowercase
-        </option>
-
-      </select>
-
-      <small id="modeInfo">
-        Normal typing practice.
-      </small>
-
-    </div>
+  </div>
 
 
-    <div class="control-group">
+  <div id="customTimeWrap" class="control-group hidden">
 
-      <label for="duration">
-        Test Duration
-      </label>
+    <label for="customTime">
+      Custom Time (seconds)
+    </label>
 
-      <select id="duration">
-
-        <option value="15">
-          15 Seconds
-        </option>
-
-        <option value="30">
-          30 Seconds
-        </option>
-
-        <option value="60" selected>
-          60 Seconds
-        </option>
-
-        <option value="120">
-          2 Minutes
-        </option>
-
-        <option value="300">
-          5 Minutes
-        </option>
-
-        <option value="600">
-          10 Minutes
-        </option>
-
-        <option value="custom">
-          ⚙️ Custom
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div id="customTimeWrap" class="control-group hidden">
-
-      <label for="customTime">
-        Custom Time (seconds)
-      </label>
-
-      <input
-        id="customTime"
-        type="number"
-        min="10"
-        max="3600"
-        value="60"
-      >
-
-      <small>
-        Minimum 10 seconds, maximum 3600 seconds.
-      </small>
-
-    </div>
-
-
-    <button
-      id="startTestBtn"
-      class="primary-btn"
-      type="button"
+    <input
+      id="customTime"
+      type="number"
+      min="10"
+      max="3600"
+      value="60"
     >
-      Start Typing Test
-    </button>
 
-  </section>
+    <small>
+      Minimum 10 seconds, maximum 3600 seconds.
+    </small>
 
-
-  <section id="testArea" class="card hidden">
-
-    <div class="test-top">
-
-      <div class="timer-box">
-
-        <span>
-          Time
-        </span>
-
-        <strong id="time">
-          60
-        </strong>
-
-      </div>
+  </div>
 
 
-      <div class="test-language">
+  <button
+    id="startTestBtn"
+    class="primary-btn"
+    type="button"
+  >
+    Start Typing Test
+  </button>
 
-        <span>
-          Language
-        </span>
+</section>
 
-        <strong id="currentLanguage">
-          English
-        </strong>
 
-      </div>
+<!-- =====================================================
+     TEST
+===================================================== -->
 
+<section id="testArea" class="card hidden">
+
+  <div class="test-top">
+
+    <div class="timer-box">
+      <span>Time</span>
+      <strong id="time">60</strong>
     </div>
 
+    <div class="test-language">
+      <span>Language</span>
+      <strong id="currentLanguage">English</strong>
+    </div>
+
+  </div>
+
+
+  <div
+    class="typing-container"
+    id="typingContainer"
+  >
 
     <div
-      class="typing-container"
-      id="typingContainer"
-    >
-
-      <div
-        id="textDisplay"
-        class="text-display"
-      ></div>
-
-      <textarea
-        id="typingInput"
-        class="typing-input"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
-        placeholder="Start typing here..."
-      ></textarea>
-
-    </div>
-
-
-    <div class="infinite-note">
-      ✨ Keep typing — new words will appear automatically until the timer ends.
-    </div>
-
-
-    <div class="test-actions">
-
-      <button
-        id="finishBtn"
-        type="button"
-        class="primary-btn"
-      >
-        Finish Test
-      </button>
-
-      <button
-        id="restartBtn"
-        type="button"
-      >
-        Restart
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <section id="resultArea" class="card hidden">
-
-    <div class="section-title">
-
-      <h2>
-        Your Result
-      </h2>
-
-      <p>
-        Great job! Here is your typing performance.
-      </p>
-
-    </div>
-
-
-    <div class="result-grid">
-
-      <div class="result-card">
-        <span>WPM</span>
-        <strong id="resultWpm">0</strong>
-      </div>
-
-      <div class="result-card">
-        <span>Accuracy</span>
-        <strong id="resultAccuracy">0%</strong>
-      </div>
-
-      <div class="result-card">
-        <span>Words</span>
-        <strong id="resultWords">0</strong>
-      </div>
-
-      <div class="result-card">
-        <span>Errors</span>
-        <strong id="resultErrors">0</strong>
-      </div>
-
-      <div class="result-card">
-        <span>Correct Words</span>
-        <strong id="correctWords">0</strong>
-      </div>
-
-      <div class="result-card">
-        <span>Wrong Words</span>
-        <strong id="wrongWords">0</strong>
-      </div>
-
-    </div>
-
-
-    <div class="graph-box">
-
-      <h3>
-        Performance
-      </h3>
-
-      <canvas id="performanceChart"></canvas>
-
-    </div>
-
-
-    <button
-      id="tryAgainBtn"
-      type="button"
-      class="primary-btn"
-    >
-      Try Again
-    </button>
-
-  </section>
-
-
-  <section class="card">
-
-    <div class="history-header">
-
-      <div>
-
-        <h2>
-          Typing History
-        </h2>
-
-        <p>
-          Your latest typing results.
-        </p>
-
-      </div>
-
-      <button
-        id="historyBtn"
-        type="button"
-      >
-        View History
-      </button>
-
-    </div>
-
-
-    <div
-      id="history"
-      class="history hidden"
+      id="textDisplay"
+      class="text-display"
     ></div>
 
-  </section>
+    <textarea
+      id="typingInput"
+      class="typing-input"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Start typing..."
+    ></textarea>
+
+  </div>
+
+  <div class="typing-help">
+    Type the text above. The test starts when you type.
+  </div>
+
+
+  <div class="test-actions">
+
+    <button
+      id="finishBtn"
+      type="button"
+      class="primary-btn"
+    >
+      Finish Test
+    </button>
+
+    <button
+      id="restartBtn"
+      type="button"
+    >
+      Restart
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<section id="resultArea" class="card hidden">
+
+  <div class="section-title">
+    <h2>Your Result</h2>
+    <p>Great job! Here is your typing performance.</p>
+  </div>
+
+
+  <div class="result-grid">
+
+    <div class="result-card">
+      <span>WPM</span>
+      <strong id="resultWpm">0</strong>
+    </div>
+
+    <div class="result-card">
+      <span>Accuracy</span>
+      <strong id="resultAccuracy">0%</strong>
+    </div>
+
+    <div class="result-card">
+      <span>Words</span>
+      <strong id="resultWords">0</strong>
+    </div>
+
+    <div class="result-card">
+      <span>Errors</span>
+      <strong id="resultErrors">0</strong>
+    </div>
+
+    <div class="result-card">
+      <span>Correct Words</span>
+      <strong id="correctWords">0</strong>
+    </div>
+
+    <div class="result-card">
+      <span>Wrong Words</span>
+      <strong id="wrongWords">0</strong>
+    </div>
+
+  </div>
+
+
+  <div class="graph-box">
+
+    <h3>Performance</h3>
+
+    <canvas id="performanceChart"></canvas>
+
+  </div>
+
+
+  <button
+    id="tryAgainBtn"
+    type="button"
+    class="primary-btn"
+  >
+    Try Again
+  </button>
+
+</section>
+
+
+<!-- =====================================================
+     HISTORY
+===================================================== -->
+
+<section class="card">
+
+  <div class="history-header">
+
+    <div>
+      <h2>Typing History</h2>
+      <p>Your latest typing results.</p>
+    </div>
+
+    <button
+      id="historyBtn"
+      type="button"
+    >
+      View History
+    </button>
+
+  </div>
+
+  <div
+    id="history"
+    class="history hidden"
+  ></div>
+
+</section>
 
 </main>
 
+
+<!-- =====================================================
+     AUTH MODAL
+===================================================== -->
 
 <div id="authModal" class="modal hidden">
 
@@ -543,20 +473,15 @@
       ×
     </button>
 
-
     <h2 id="authTitle">
       Create your account
     </h2>
 
-
     <p id="authMessage"></p>
-
 
     <div class="auth-field">
 
-      <label for="displayName">
-        Name
-      </label>
+      <label for="displayName">Name</label>
 
       <input
         id="displayName"
@@ -567,12 +492,9 @@
 
     </div>
 
-
     <div class="auth-field">
 
-      <label for="email">
-        Email
-      </label>
+      <label for="email">Email</label>
 
       <input
         id="email"
@@ -583,12 +505,9 @@
 
     </div>
 
-
     <div class="auth-field">
 
-      <label for="password">
-        Password
-      </label>
+      <label for="password">Password</label>
 
       <input
         id="password"
@@ -599,7 +518,6 @@
 
     </div>
 
-
     <button
       id="submitAuth"
       type="button"
@@ -607,7 +525,6 @@
     >
       Sign up
     </button>
-
 
     <button
       id="switchAuth"
@@ -623,10 +540,1408 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="config.js"></script>
 
-<script src="app.js"></script>
+<script>
+/* =====================================================
+   ABIDTYPE — 10FASTFINGERS STYLE ENGINE
+===================================================== */
+
+const supabaseClient =
+  window.supabase.createClient(
+    window.ABIDTYPE_SUPABASE_URL,
+    window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
+  );
+
+const $ = id =>
+  document.getElementById(id);
+
+
+/* =====================================================
+   PASSAGES
+===================================================== */
+
+const passages = {
+
+en:
+"Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.",
+
+bn:
+"নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।",
+
+hi:
+"नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं। हर दिन सीखने और बेहतर बनने का एक नया अवसर है।",
+
+ur:
+"باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔ ہر دن بہتر سیکھنے کا ایک نیا موقع ہے۔",
+
+ar:
+"تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي. كل يوم هو فرصة جديدة لتحسين مهاراتك وثقتك.",
+
+es:
+"Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará de forma natural. Cada día es una nueva oportunidad para mejorar.",
+
+fr:
+"La frappe est une compétence qui s'améliore avec une pratique régulière. Concentrez-vous d'abord sur la précision et la vitesse viendra naturellement.",
+
+de:
+"Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird ganz natürlich folgen.",
+
+it:
+"La digitazione è un'abilità che migliora con la pratica regolare. Concentrati prima sulla precisione e la velocità arriverà naturalmente.",
+
+pt:
+"A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.",
+
+ru:
+"Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности, а скорость придет естественно.",
+
+zh:
+"打字是一项可以通过定期练习不断提高的技能。首先专注于准确性，然后速度会自然提高。每天都是提升打字能力的新机会。",
+
+ja:
+"タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。毎日少しずつ練習することで速度と自信を高めることができます。",
+
+ko:
+"타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.",
+
+tr:
+"Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.",
+
+id:
+"Mengetik adalah keterampilan yang meningkat dengan latihan rutin. Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti secara alami.",
+
+ms:
+"Kemahiran menaip akan bertambah baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat secara semula jadi.",
+
+vi:
+"Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.",
+
+th:
+"การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ",
+
+nl:
+"Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen."
+
+};
+
+
+/* =====================================================
+   TEST STATE
+===================================================== */
+
+let test = {
+  started:false,
+  running:false,
+  start:0,
+  timer:null,
+  duration:60,
+  text:"",
+  input:"",
+  wordResults:[]
+};
+
+
+/* =====================================================
+   PUNCTUATION
+===================================================== */
+
+const punctuationTexts = {
+
+en:
+"Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?",
+
+bn:
+"নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?",
+
+es:
+"Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!",
+
+fr:
+"Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!",
+
+de:
+"Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!",
+
+hi:
+"नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!",
+
+ar:
+"تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!"
+
+};
+
+
+/* =====================================================
+   DURATION
+===================================================== */
+
+function getDuration(){
+
+  const value =
+    $("duration")?.value || "60";
+
+  if(value === "custom"){
+
+    let n =
+      Number($("customTime")?.value);
+
+    if(!Number.isFinite(n) || n < 10)
+      n = 60;
+
+    return Math.min(n,3600);
+  }
+
+  return Number(value) || 60;
+}
+
+
+function updateDurationUI(){
+
+  const wrap =
+    $("customTimeWrap");
+
+  if(!wrap) return;
+
+  wrap.classList.toggle(
+    "hidden",
+    $("duration")?.value !== "custom"
+  );
+}
+
+
+/* =====================================================
+   BUILD TEXT
+===================================================== */
+
+function buildText(){
+
+  const lang =
+    $("language")?.value || "en";
+
+  const mode =
+    $("mode")?.value || "normal";
+
+  let text =
+    passages[lang] || passages.en;
+
+  if(mode === "punctuation"){
+    text =
+      punctuationTexts[lang] || text;
+  }
+
+  if(mode === "capital"){
+    text = text.toUpperCase();
+  }
+
+  if(mode === "small"){
+
+    text =
+      text
+        .replace(/[.,!?;:'"()[\]{}\-—–]/g,"")
+        .toLowerCase()
+        .replace(/\s+/g," ")
+        .trim();
+  }
+
+  return text;
+}
+
+
+function createLongText(){
+
+  const base =
+    buildText();
+
+  let output = "";
+
+  for(let i=0;i<100;i++){
+    output += base + " ";
+  }
+
+  return output.trim();
+}
+
+
+/* =====================================================
+   DISPLAY
+===================================================== */
+
+function setupText(){
+
+  test.text =
+    createLongText();
+
+  const display =
+    $("textDisplay");
+
+  if(!display) return;
+
+  display.innerHTML = "";
+
+  const fragment =
+    document.createDocumentFragment();
+
+  [...test.text].forEach((char,index)=>{
+
+    const span =
+      document.createElement("span");
+
+    span.textContent =
+      char === " "
+        ? "\u00A0"
+        : char;
+
+    span.dataset.index =
+      index;
+
+    fragment.appendChild(span);
+  });
+
+  display.appendChild(fragment);
+
+  updateDisplay();
+}
+
+
+/* =====================================================
+   10FASTFINGERS STYLE DISPLAY
+===================================================== */
+
+function updateDisplay(){
+
+  const input =
+    $("typingInput")?.value || "";
+
+  const display =
+    $("textDisplay");
+
+  if(!display) return;
+
+  const spans =
+    [...display.children];
+
+  spans.forEach((span,index)=>{
+
+    span.className = "";
+
+    if(index < input.length){
+
+      span.classList.add(
+        input[index] === test.text[index]
+          ? "correct"
+          : "wrong"
+      );
+    }
+
+  });
+
+
+  const current =
+    spans[input.length];
+
+  if(current){
+
+    current.classList.add("current");
+
+    /*
+      Keep the current character/word
+      visible in the typing window.
+    */
+
+    const dRect =
+      display.getBoundingClientRect();
+
+    const cRect =
+      current.getBoundingClientRect();
+
+    if(cRect.bottom > dRect.bottom - 15){
+
+      display.scrollTop +=
+        cRect.bottom -
+        dRect.bottom +
+        35;
+    }
+
+    if(cRect.top < dRect.top + 15){
+
+      display.scrollTop -=
+        dRect.top -
+        cRect.top +
+        35;
+    }
+
+  }
+
+}
+
+
+/* =====================================================
+   MODE INFO
+===================================================== */
+
+function updateModeInfo(){
+
+  const mode =
+    $("mode")?.value || "normal";
+
+  const messages = {
+
+    normal:
+      "Normal typing practice.",
+
+    punctuation:
+      "Practice typing with punctuation marks.",
+
+    capital:
+      "Practice typing CAPITAL letters.",
+
+    small:
+      "Practice lowercase letters without punctuation."
+
+  };
+
+  if($("modeInfo")){
+    $("modeInfo").textContent =
+      messages[mode];
+  }
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function updateLanguage(){
+
+  const select =
+    $("language");
+
+  const current =
+    $("currentLanguage");
+
+  if(!select || !current) return;
+
+  const option =
+    select.options[select.selectedIndex];
+
+  current.textContent =
+    option
+      ? option.textContent.replace(/^[^\p{L}\p{N}]+/u,"")
+      : "English";
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+function beginTest(){
+
+  if(test.started) return;
+
+  test.started = true;
+  test.running = true;
+  test.start = Date.now();
+
+  test.duration =
+    getDuration();
+
+  test.timer =
+    setInterval(updateTimer,100);
+}
+
+
+function updateTimer(){
+
+  if(!test.running) return;
+
+  const elapsed =
+    (Date.now() - test.start) / 1000;
+
+  const left =
+    Math.max(
+      0,
+      test.duration - Math.floor(elapsed)
+    );
+
+  if($("time")){
+    $("time").textContent = left;
+  }
+
+  if(left <= 0){
+    finishTest();
+  }
+}
+
+
+/* =====================================================
+   TYPING
+===================================================== */
+
+$("typingInput")?.addEventListener(
+  "input",
+  ()=>{
+
+    if(!test.started){
+      beginTest();
+    }
+
+    test.input =
+      $("typingInput").value;
+
+    updateDisplay();
+
+    playKeySound();
+  }
+);
+
+
+/* =====================================================
+   KEY SOUND
+===================================================== */
+
+let audioContext = null;
+
+function playKeySound(){
+
+  try{
+
+    if(!audioContext){
+
+      audioContext =
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+    }
+
+    if(audioContext.state === "suspended"){
+      audioContext.resume();
+    }
+
+    const osc =
+      audioContext.createOscillator();
+
+    const gain =
+      audioContext.createGain();
+
+    osc.frequency.value =
+      450 + Math.random()*80;
+
+    gain.gain.setValueAtTime(
+      .018,
+      audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      audioContext.currentTime+.04
+    );
+
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+
+    osc.start();
+
+    osc.stop(
+      audioContext.currentTime+.045
+    );
+
+  }catch(e){}
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function calculateStats(){
+
+  const input =
+    $("typingInput")?.value || "";
+
+  let correctChars = 0;
+  let errors = 0;
+
+  [...input].forEach((char,i)=>{
+
+    if(char === test.text[i]){
+      correctChars++;
+    }else{
+      errors++;
+    }
+
+  });
+
+
+  const elapsed =
+    test.start
+      ? Math.max(
+          1,
+          (Date.now()-test.start)/1000
+        )
+      : 1;
+
+  const minutes =
+    elapsed/60;
+
+  const wpm =
+    Math.max(
+      0,
+      Math.round(
+        (correctChars/5)/minutes
+      )
+    );
+
+
+  const accuracy =
+    input.length
+      ? Math.round(
+          correctChars /
+          input.length *
+          100
+        )
+      : 100;
+
+
+  const typedWords =
+    input.trim()
+      ? input.trim().split(/\s+/)
+      : [];
+
+  const targetWords =
+    test.text.trim().split(/\s+/);
+
+  let correctWords = 0;
+
+  typedWords.forEach((word,i)=>{
+
+    if(word === targetWords[i]){
+      correctWords++;
+    }
+
+  });
+
+  const totalWords =
+    typedWords.length;
+
+  const wrongWords =
+    Math.max(
+      0,
+      totalWords-correctWords
+    );
+
+  return {
+    wpm,
+    accuracy,
+    errors,
+    totalWords,
+    correctWords,
+    wrongWords,
+    correctChars
+  };
+}
+
+
+/* =====================================================
+   WORD RESULTS
+===================================================== */
+
+function makeWordResults(){
+
+  const input =
+    $("typingInput")?.value || "";
+
+  const typed =
+    input.trim()
+      ? input.trim().split(/\s+/)
+      : [];
+
+  const target =
+    test.text.trim().split(/\s+/);
+
+  return typed.map(
+    (word,i)=>
+      word === target[i]
+        ? "correct"
+        : "wrong"
+  );
+}
+
+
+/* =====================================================
+   FINISH
+===================================================== */
+
+async function finishTest(){
+
+  if(!test.started) return;
+
+  clearInterval(test.timer);
+
+  test.running = false;
+
+  const stats =
+    calculateStats();
+
+  test.wordResults =
+    makeWordResults();
+
+  if($("time"))
+    $("time").textContent = "0";
+
+  if($("resultWpm"))
+    $("resultWpm").textContent = stats.wpm;
+
+  if($("resultAccuracy"))
+    $("resultAccuracy").textContent =
+      stats.accuracy+"%";
+
+  if($("resultWords"))
+    $("resultWords").textContent =
+      stats.totalWords;
+
+  if($("resultErrors"))
+    $("resultErrors").textContent =
+      stats.errors;
+
+  if($("correctWords"))
+    $("correctWords").textContent =
+      stats.correctWords;
+
+  if($("wrongWords"))
+    $("wrongWords").textContent =
+      stats.wrongWords;
+
+
+  $("testArea")?.classList.add("hidden");
+
+  $("resultArea")?.classList.remove("hidden");
+
+  setTimeout(drawGraph,50);
+
+  await saveResult(stats);
+}
+
+
+/* =====================================================
+   GRAPH
+===================================================== */
+
+function drawGraph(){
+
+  const canvas =
+    $("performanceChart");
+
+  if(!canvas) return;
+
+  const ctx =
+    canvas.getContext("2d");
+
+  const width =
+    canvas.clientWidth || 800;
+
+  const height = 260;
+
+  const ratio =
+    window.devicePixelRatio || 1;
+
+  canvas.width =
+    width*ratio;
+
+  canvas.height =
+    height*ratio;
+
+  ctx.setTransform(
+    ratio,0,0,ratio,0,0
+  );
+
+  ctx.clearRect(
+    0,0,width,height
+  );
+
+  const results =
+    test.wordResults;
+
+  if(!results.length){
+
+    ctx.fillStyle = "#9ba4b5";
+    ctx.font = "14px Arial";
+
+    ctx.fillText(
+      "Type some words to see your performance.",
+      30,
+      50
+    );
+
+    return;
+  }
+
+  const usable =
+    width-60;
+
+  const step =
+    results.length > 1
+      ? usable/(results.length-1)
+      : 0;
+
+  results.forEach((result,i)=>{
+
+    const x =
+      results.length===1
+        ? width/2
+        : 30+i*step;
+
+    const y =
+      result==="correct"
+        ? height-100
+        : height-175;
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x,y,5,0,Math.PI*2
+    );
+
+    ctx.fillStyle =
+      result==="correct"
+        ? "#22c55e"
+        : "#ef4444";
+
+    ctx.fill();
+
+    if(i>0){
+
+      const prev =
+        results[i-1];
+
+      const px =
+        results.length===1
+          ? width/2
+          : 30+(i-1)*step;
+
+      const py =
+        prev==="correct"
+          ? height-100
+          : height-175;
+
+      ctx.beginPath();
+
+      ctx.moveTo(px,py);
+      ctx.lineTo(x,y);
+
+      ctx.strokeStyle =
+        "rgba(255,255,255,.18)";
+
+      ctx.stroke();
+    }
+
+  });
+
+}
+
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+async function saveResult(stats){
+
+  try{
+
+    const {
+      data:{user}
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
+
+    if(!user) return;
+
+    await supabaseClient
+      .from("typing_results")
+      .insert({
+
+        user_id:user.id,
+
+        language_code:
+          $("language")?.value || "en",
+
+        duration_seconds:
+          test.duration,
+
+        wpm:stats.wpm,
+
+        accuracy:stats.accuracy,
+
+        errors:stats.errors,
+
+        characters_typed:
+          test.input.length
+
+      });
+
+  }catch(error){
+
+    console.error(
+      "Save result error:",
+      error
+    );
+  }
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+function resetTest(){
+
+  clearInterval(test.timer);
+
+  test.started=false;
+  test.running=false;
+  test.start=0;
+  test.input="";
+  test.wordResults=[];
+
+  test.duration =
+    getDuration();
+
+  $("setupArea")
+    ?.classList.remove("hidden");
+
+  $("testArea")
+    ?.classList.add("hidden");
+
+  $("resultArea")
+    ?.classList.add("hidden");
+
+  if($("time")){
+    $("time").textContent =
+      test.duration;
+  }
+
+  if($("typingInput")){
+    $("typingInput").value="";
+  }
+
+  setupText();
+  updateLanguage();
+  updateModeInfo();
+}
+
+
+/* =====================================================
+   START BUTTON
+===================================================== */
+
+$("startTestBtn")?.addEventListener(
+  "click",
+  ()=>{
+
+    clearInterval(test.timer);
+
+    test.started=false;
+    test.running=false;
+    test.start=0;
+    test.input="";
+    test.wordResults=[];
+
+    test.duration =
+      getDuration();
+
+    setupText();
+
+    $("setupArea")
+      ?.classList.add("hidden");
+
+    $("testArea")
+      ?.classList.remove("hidden");
+
+    $("resultArea")
+      ?.classList.add("hidden");
+
+    if($("time")){
+      $("time").textContent =
+        test.duration;
+    }
+
+    if($("typingInput")){
+
+      $("typingInput").value="";
+
+      $("typingInput").focus();
+    }
+
+    updateLanguage();
+
+  }
+);
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+$("finishBtn")?.addEventListener(
+  "click",
+  finishTest
+);
+
+$("restartBtn")?.addEventListener(
+  "click",
+  resetTest
+);
+
+$("tryAgainBtn")?.addEventListener(
+  "click",
+  resetTest
+);
+
+
+/* =====================================================
+   LANGUAGE / MODE / TIMER
+===================================================== */
+
+$("language")?.addEventListener(
+  "change",
+  ()=>{
+    updateLanguage();
+    updateModeInfo();
+    resetTest();
+  }
+);
+
+$("mode")?.addEventListener(
+  "change",
+  ()=>{
+    updateModeInfo();
+    resetTest();
+  }
+);
+
+$("duration")?.addEventListener(
+  "change",
+  ()=>{
+    updateDurationUI();
+    resetTest();
+  }
+);
+
+$("customTime")?.addEventListener(
+  "input",
+  ()=>{
+    if($("duration")?.value==="custom"){
+      test.duration=getDuration();
+
+      if($("time"))
+        $("time").textContent=test.duration;
+    }
+  }
+);
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+$("themeBtn")?.addEventListener(
+  "click",
+  ()=>{
+    document.body.classList.toggle("light");
+  }
+);
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+const authModal =
+  $("authModal");
+
+let loginMode=false;
+
+
+function openAuth(){
+
+  authModal
+    ?.classList.remove("hidden");
+
+  if($("authMessage"))
+    $("authMessage").textContent="";
+}
+
+
+function closeAuth(){
+
+  authModal
+    ?.classList.add("hidden");
+}
+
+
+$("authBtn")?.addEventListener(
+  "click",
+  async ()=>{
+
+    const {
+      data:{user}
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
+
+    if(user){
+
+      await supabaseClient
+        .auth
+        .signOut();
+
+      await refreshUser();
+
+    }else{
+
+      openAuth();
+    }
+
+  }
+);
+
+
+$("closeAuth")?.addEventListener(
+  "click",
+  closeAuth
+);
+
+
+authModal?.addEventListener(
+  "click",
+  e=>{
+    if(e.target===authModal)
+      closeAuth();
+  }
+);
+
+
+$("switchAuth")?.addEventListener(
+  "click",
+  ()=>{
+
+    loginMode=!loginMode;
+
+    if($("authTitle"))
+      $("authTitle").textContent =
+        loginMode
+          ? "Welcome back"
+          : "Create your account";
+
+    if($("submitAuth"))
+      $("submitAuth").textContent =
+        loginMode
+          ? "Login"
+          : "Sign up";
+
+    if($("displayName"))
+      $("displayName")
+        .classList
+        .toggle("hidden",loginMode);
+
+    if($("switchAuth"))
+      $("switchAuth").textContent =
+        loginMode
+          ? "Need an account? Sign up"
+          : "Already have an account? Login";
+  }
+);
+
+
+$("submitAuth")?.addEventListener(
+  "click",
+  async ()=>{
+
+    const email =
+      $("email")?.value.trim();
+
+    const password =
+      $("password")?.value || "";
+
+    const name =
+      $("displayName")?.value.trim();
+
+    if(
+      !email ||
+      password.length<6
+    ){
+
+      if($("authMessage"))
+        $("authMessage").textContent =
+          "Enter an email and a password with at least 6 characters.";
+
+      return;
+    }
+
+    if($("authMessage"))
+      $("authMessage").textContent =
+        "Please wait...";
+
+    let result;
+
+    if(loginMode){
+
+      result =
+        await supabaseClient
+          .auth
+          .signInWithPassword({
+            email,
+            password
+          });
+
+    }else{
+
+      result =
+        await supabaseClient
+          .auth
+          .signUp({
+
+            email,
+            password,
+
+            options:{
+              data:{
+                display_name:
+                  name || "AbidType User"
+              }
+            }
+
+          });
+    }
+
+    if(result.error){
+
+      if($("authMessage"))
+        $("authMessage").textContent =
+          result.error.message;
+
+      return;
+    }
+
+    if(loginMode){
+
+      closeAuth();
+      await refreshUser();
+
+    }else{
+
+      if($("authMessage"))
+        $("authMessage").textContent =
+          "Account created. Check your email to confirm.";
+    }
+
+  }
+);
+
+
+/* =====================================================
+   USER
+===================================================== */
+
+async function refreshUser(){
+
+  try{
+
+    const {
+      data:{user}
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
+
+    if(user){
+
+      if($("authBtn"))
+        $("authBtn").textContent="Logout";
+
+      if($("welcome"))
+        $("welcome").textContent =
+          "Welcome, "+
+          (
+            user.user_metadata?.display_name ||
+            "AbidType User"
+          );
+
+      if($("accountNote"))
+        $("accountNote").textContent =
+          user.email || "";
+
+    }else{
+
+      if($("authBtn"))
+        $("authBtn").textContent =
+          "Login / Sign up";
+
+      if($("welcome"))
+        $("welcome").textContent =
+          "Practice as a guest";
+
+      if($("accountNote"))
+        $("accountNote").textContent =
+          "Create an account to save your typing results and build your personal record.";
+    }
+
+  }catch(error){
+
+    console.error(error);
+  }
+
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+async function loadHistory(){
+
+  const {
+    data:{user}
+  } =
+    await supabaseClient
+      .auth
+      .getUser();
+
+  if(!user){
+
+    openAuth();
+    return;
+  }
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("typing_results")
+      .select(
+        "language_code,duration_seconds,wpm,accuracy,created_at"
+      )
+      .eq("user_id",user.id)
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(10);
+
+  const box =
+    $("history");
+
+  if(!box) return;
+
+  box.classList.remove("hidden");
+
+  if(error){
+
+    box.textContent =
+      "Could not load history yet.";
+
+    return;
+  }
+
+  if(!data?.length){
+
+    box.textContent =
+      "No typing results yet.";
+
+    return;
+  }
+
+  box.innerHTML =
+    data.map(item=>{
+
+      const language =
+        String(
+          item.language_code || "en"
+        ).toUpperCase();
+
+      const wpm =
+        Number(item.wpm || 0);
+
+      const accuracy =
+        Number(item.accuracy || 0);
+
+      const date =
+        item.created_at
+          ? new Date(
+              item.created_at
+            ).toLocaleDateString()
+          : "";
+
+      return `
+        <div class="history-row">
+          <span>${language}</span>
+          <b>${wpm} WPM</b>
+          <b>${accuracy}%</b>
+          <span>${date}</span>
+        </div>
+      `;
+
+    }).join("");
+}
+
+
+$("historyBtn")?.addEventListener(
+  "click",
+  loadHistory
+);
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+supabaseClient
+  .auth
+  .onAuthStateChange(
+    ()=>{
+      refreshUser();
+    }
+  );
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+window.addEventListener(
+  "resize",
+  ()=>{
+    const result =
+      $("resultArea");
+
+    if(
+      result &&
+      !result.classList.contains("hidden")
+    ){
+      drawGraph();
+    }
+  }
+);
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+updateModeInfo();
+updateDurationUI();
+updateLanguage();
+resetTest();
+refreshUser();
+
+</script>
 
 </body>
 </html>
