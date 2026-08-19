@@ -1033,3 +1033,53 @@ body.light .text-display span.wrong {
 body.light .text-display span.current {
   color: #0f172a !important;
 }
+/* ===== FINAL TYPING TEXT VISIBILITY FIX ===== */
+
+#testArea .typing-container {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#testArea .text-display {
+  position: relative !important;
+  z-index: 20 !important;
+
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  width: 100% !important;
+  min-height: 100px !important;
+  max-height: 185px !important;
+
+  color: #ffffff !important;
+  background: transparent !important;
+
+  font-size: 22px !important;
+  line-height: 1.9 !important;
+}
+
+#testArea .text-display span {
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #ffffff !important;
+}
+
+#testArea .text-display span.correct {
+  color: #22c55e !important;
+}
+
+#testArea .text-display span.wrong {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.15) !important;
+}
+
+#testArea .text-display span.current {
+  color: #ffffff !important;
+}
+
+/* Input stays below the passage */
+#testArea .typing-input {
+  position: relative !important;
+  z-index: 10 !important;
+}
