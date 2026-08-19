@@ -990,4 +990,46 @@ body.light .auth-field input {
   .history-row {
     grid-template-columns: 1fr;
   }
+}     /* ===== ABIDTYPE TYPING TEXT FIX ===== */
+
+.text-display {
+  color: #ffffff !important;
+}
+
+.text-display span {
+  color: #ffffff;
+}
+
+.text-display span.correct {
+  color: #22c55e !important;
+}
+
+.text-display span.wrong {
+  color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.13);
+}
+
+.text-display span.current {
+  color: #ffffff !important;
+}
+
+/* Light mode */
+body.light .text-display {
+  color: #334155 !important;
+}
+
+body.light .text-display span {
+  color: #334155;
+}
+
+body.light .text-display span.correct {
+  color: #16a34a !important;
+}
+
+body.light .text-display span.wrong {
+  color: #dc2626 !important;
+}
+
+body.light .text-display span.current {
+  color: #0f172a !important;
 }
