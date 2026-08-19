@@ -13,10 +13,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* =====================================================
-   ABIDTYPE TYPING AREA
-===================================================== */
-
 .typing-container{
   position:relative;
   min-height:250px;
@@ -30,18 +26,14 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   overflow:hidden;
   position:relative;
   z-index:2;
-
   padding:18px;
   border-radius:14px;
-
   font-size:24px;
   line-height:1.9;
   letter-spacing:.3px;
-
   white-space:pre-wrap;
   word-break:normal;
   overflow-wrap:break-word;
-
   box-sizing:border-box;
 }
 
@@ -66,37 +58,33 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
 #typingInput{
   position:absolute;
-
   left:30px;
   right:30px;
   bottom:18px;
-
   width:calc(100% - 60px);
   height:58px;
-
   padding:14px 16px;
-
   box-sizing:border-box;
-
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.16);
   border-radius:12px;
-
   color:#fff;
   caret-color:#60a5fa;
-
   font-size:20px;
   line-height:1.4;
-
   outline:none;
   resize:none;
-
   z-index:10;
 }
 
 #typingInput:focus{
   border-color:#3b82f6;
   box-shadow:0 0 0 3px rgba(59,130,246,.12);
+}
+
+#typingInput:disabled{
+  opacity:.6;
+  cursor:not-allowed;
 }
 
 .typing-help{
@@ -142,10 +130,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </section>
 
 
-<!-- =====================================================
-     SETUP
-===================================================== -->
-
 <section id="setupArea" class="card">
 
   <div class="section-title">
@@ -184,7 +168,7 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
       <option value="uk">🇺🇦 Українська</option>
       <option value="cs">🇨🇿 Čeština</option>
       <option value="ro">🇷🇴 Română</option>
-      <option value="hu">🇷🇴 Magyar</option>
+      <option value="hu">🇭🇺 Magyar</option>
       <option value="el">🇬🇷 Ελληνικά</option>
       <option value="he">🇮🇱 עברית</option>
       <option value="fa">🇮🇷 فارسی</option>
@@ -288,10 +272,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </section>
 
 
-<!-- =====================================================
-     TEST
-===================================================== -->
-
 <section id="testArea" class="card hidden">
 
   <div class="test-top">
@@ -358,10 +338,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </section>
 
 
-<!-- =====================================================
-     RESULT
-===================================================== -->
-
 <section id="resultArea" class="card hidden">
 
   <div class="section-title">
@@ -425,10 +401,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </section>
 
 
-<!-- =====================================================
-     HISTORY
-===================================================== -->
-
 <section class="card">
 
   <div class="history-header">
@@ -456,10 +428,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
 </main>
 
-
-<!-- =====================================================
-     AUTH MODAL
-===================================================== -->
 
 <div id="authModal" class="modal hidden">
 
@@ -543,8 +511,9 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 <script src="config.js"></script>
 
 <script>
+
 /* =====================================================
-   ABIDTYPE — 10FASTFINGERS STYLE ENGINE
+   ABIDTYPE ENGINE
 ===================================================== */
 
 const supabaseClient =
@@ -627,22 +596,6 @@ nl:
 
 
 /* =====================================================
-   TEST STATE
-===================================================== */
-
-let test = {
-  started:false,
-  running:false,
-  start:0,
-  timer:null,
-  duration:60,
-  text:"",
-  input:"",
-  wordResults:[]
-};
-
-
-/* =====================================================
    PUNCTUATION
 ===================================================== */
 
@@ -668,6 +621,33 @@ hi:
 
 ar:
 "تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!"
+
+};
+
+
+/* =====================================================
+   TEST STATE
+===================================================== */
+
+let test = {
+
+  started:false,
+
+  running:false,
+
+  finished:false,
+
+  start:0,
+
+  timer:null,
+
+  duration:60,
+
+  text:"",
+
+  input:"",
+
+  wordResults:[]
 
 };
 
@@ -748,6 +728,11 @@ function buildText(){
 }
 
 
+/*
+   Repeat complete passages in the SAME order.
+   No random shuffle.
+*/
+
 function createLongText(){
 
   const base =
@@ -756,7 +741,12 @@ function createLongText(){
   let output = "";
 
   for(let i=0;i<100;i++){
-    output += base + " ";
+
+    if(output){
+      output += " ";
+    }
+
+    output += base;
   }
 
   return output.trim();
@@ -779,6 +769,8 @@ function setupText(){
 
   display.innerHTML = "";
 
+  display.scrollTop = 0;
+
   const fragment =
     document.createDocumentFragment();
 
@@ -796,6 +788,7 @@ function setupText(){
       index;
 
     fragment.appendChild(span);
+
   });
 
   display.appendChild(fragment);
@@ -805,7 +798,7 @@ function setupText(){
 
 
 /* =====================================================
-   10FASTFINGERS STYLE DISPLAY
+   DISPLAY UPDATE
 ===================================================== */
 
 function updateDisplay(){
@@ -827,11 +820,16 @@ function updateDisplay(){
 
     if(index < input.length){
 
-      span.classList.add(
-        input[index] === test.text[index]
-          ? "correct"
-          : "wrong"
-      );
+      if(input[index] === test.text[index]){
+
+        span.classList.add("correct");
+
+      }else{
+
+        span.classList.add("wrong");
+
+      }
+
     }
 
   });
@@ -843,11 +841,6 @@ function updateDisplay(){
   if(current){
 
     current.classList.add("current");
-
-    /*
-      Keep the current character/word
-      visible in the typing window.
-    */
 
     const dRect =
       display.getBoundingClientRect();
@@ -861,6 +854,7 @@ function updateDisplay(){
         cRect.bottom -
         dRect.bottom +
         35;
+
     }
 
     if(cRect.top < dRect.top + 15){
@@ -869,6 +863,7 @@ function updateDisplay(){
         dRect.top -
         cRect.top +
         35;
+
     }
 
   }
@@ -905,6 +900,7 @@ function updateModeInfo(){
     $("modeInfo").textContent =
       messages[mode];
   }
+
 }
 
 
@@ -927,34 +923,58 @@ function updateLanguage(){
 
   current.textContent =
     option
-      ? option.textContent.replace(/^[^\p{L}\p{N}]+/u,"")
+      ? option.textContent.replace(
+          /^[^\p{L}\p{N}]+/u,
+          ""
+        )
       : "English";
+
 }
 
 
 /* =====================================================
-   START
+   START TIMER
 ===================================================== */
 
 function beginTest(){
 
-  if(test.started) return;
+  if(test.started || test.finished)
+    return;
 
   test.started = true;
+
   test.running = true;
+
+  test.finished = false;
+
   test.start = Date.now();
 
   test.duration =
     getDuration();
 
+  clearInterval(test.timer);
+
   test.timer =
-    setInterval(updateTimer,100);
+    setInterval(
+      updateTimer,
+      100
+    );
+
 }
 
 
+/* =====================================================
+   TIMER
+===================================================== */
+
 function updateTimer(){
 
-  if(!test.running) return;
+  if(
+    !test.running ||
+    test.finished
+  ){
+    return;
+  }
 
   const elapsed =
     (Date.now() - test.start) / 1000;
@@ -962,37 +982,118 @@ function updateTimer(){
   const left =
     Math.max(
       0,
-      test.duration - Math.floor(elapsed)
+      test.duration -
+      Math.floor(elapsed)
     );
 
   if($("time")){
-    $("time").textContent = left;
+
+    $("time").textContent =
+      left;
+
   }
 
   if(left <= 0){
+
     finishTest();
+
   }
+
 }
 
 
 /* =====================================================
-   TYPING
+   TYPING INPUT
 ===================================================== */
 
 $("typingInput")?.addEventListener(
   "input",
   ()=>{
 
-    if(!test.started){
-      beginTest();
+    /*
+      Timer শেষ হয়ে গেলে আর input
+      process করা হবে না.
+    */
+
+    if(
+      test.finished ||
+      !test.running
+    ){
+      return;
     }
 
     test.input =
       $("typingInput").value;
 
+
+    /*
+      Target text-এর বাইরে
+      extra characters ঢুকতে দেবে না.
+    */
+
+    if(
+      test.input.length >
+      test.text.length
+    ){
+
+      test.input =
+        test.input.slice(
+          0,
+          test.text.length
+        );
+
+      $("typingInput").value =
+        test.input;
+
+    }
+
+
     updateDisplay();
 
     playKeySound();
+
+
+    /*
+      পুরো text শেষ হলে
+      test নিজে থেকে finish হবে.
+    */
+
+    if(
+      test.input.length >=
+      test.text.length
+    ){
+
+      finishTest();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   KEYBOARD CONTROL
+===================================================== */
+
+$("typingInput")?.addEventListener(
+  "keydown",
+  (event)=>{
+
+    if(
+      event.key === "Enter" ||
+      event.key === "Tab"
+    ){
+
+      event.preventDefault();
+
+    }
+
+    if(test.finished){
+
+      event.preventDefault();
+
+    }
+
   }
 );
 
@@ -1014,10 +1115,16 @@ function playKeySound(){
           window.AudioContext ||
           window.webkitAudioContext
         )();
+
     }
 
-    if(audioContext.state === "suspended"){
+    if(
+      audioContext.state ===
+      "suspended"
+    ){
+
       audioContext.resume();
+
     }
 
     const osc =
@@ -1027,7 +1134,8 @@ function playKeySound(){
       audioContext.createGain();
 
     osc.frequency.value =
-      450 + Math.random()*80;
+      450 +
+      Math.random()*80;
 
     gain.gain.setValueAtTime(
       .018,
@@ -1040,7 +1148,10 @@ function playKeySound(){
     );
 
     osc.connect(gain);
-    gain.connect(audioContext.destination);
+
+    gain.connect(
+      audioContext.destination
+    );
 
     osc.start();
 
@@ -1063,35 +1174,53 @@ function calculateStats(){
     $("typingInput")?.value || "";
 
   let correctChars = 0;
+
   let errors = 0;
 
-  [...input].forEach((char,i)=>{
 
-    if(char === test.text[i]){
-      correctChars++;
-    }else{
-      errors++;
+  [...input].forEach(
+    (char,i)=>{
+
+      if(
+        char ===
+        test.text[i]
+      ){
+
+        correctChars++;
+
+      }else{
+
+        errors++;
+
+      }
+
     }
-
-  });
+  );
 
 
   const elapsed =
     test.start
       ? Math.max(
           1,
-          (Date.now()-test.start)/1000
+          (
+            Date.now() -
+            test.start
+          ) / 1000
         )
       : 1;
 
+
   const minutes =
-    elapsed/60;
+    elapsed / 60;
+
 
   const wpm =
     Math.max(
       0,
       Math.round(
-        (correctChars/5)/minutes
+        (
+          correctChars / 5
+        ) / minutes
       )
     );
 
@@ -1099,9 +1228,10 @@ function calculateStats(){
   const accuracy =
     input.length
       ? Math.round(
-          correctChars /
-          input.length *
-          100
+          (
+            correctChars /
+            input.length
+          ) * 100
         )
       : 100;
 
@@ -1111,37 +1241,60 @@ function calculateStats(){
       ? input.trim().split(/\s+/)
       : [];
 
+
   const targetWords =
     test.text.trim().split(/\s+/);
 
+
   let correctWords = 0;
 
-  typedWords.forEach((word,i)=>{
 
-    if(word === targetWords[i]){
-      correctWords++;
+  typedWords.forEach(
+    (word,i)=>{
+
+      if(
+        word ===
+        targetWords[i]
+      ){
+
+        correctWords++;
+
+      }
+
     }
+  );
 
-  });
 
   const totalWords =
     typedWords.length;
 
+
   const wrongWords =
     Math.max(
       0,
-      totalWords-correctWords
+      totalWords -
+      correctWords
     );
 
+
   return {
+
     wpm,
+
     accuracy,
+
     errors,
+
     totalWords,
+
     correctWords,
+
     wrongWords,
+
     correctChars
+
   };
+
 }
 
 
@@ -1159,8 +1312,10 @@ function makeWordResults(){
       ? input.trim().split(/\s+/)
       : [];
 
+
   const target =
     test.text.trim().split(/\s+/);
+
 
   return typed.map(
     (word,i)=>
@@ -1168,61 +1323,138 @@ function makeWordResults(){
         ? "correct"
         : "wrong"
   );
+
 }
 
 
 /* =====================================================
-   FINISH
+   FINISH TEST
 ===================================================== */
 
 async function finishTest(){
 
-  if(!test.started) return;
+  /*
+    Prevent double finish.
+  */
+
+  if(
+    !test.started ||
+    test.finished
+  ){
+
+    return;
+
+  }
+
+
+  test.finished = true;
+
+  test.running = false;
+
 
   clearInterval(test.timer);
 
-  test.running = false;
+  test.timer = null;
+
 
   const stats =
     calculateStats();
 
+
   test.wordResults =
     makeWordResults();
 
-  if($("time"))
-    $("time").textContent = "0";
 
-  if($("resultWpm"))
-    $("resultWpm").textContent = stats.wpm;
+  /*
+    Timer permanently stops at 0.
+  */
 
-  if($("resultAccuracy"))
+  if($("time")){
+
+    $("time").textContent =
+      "0";
+
+  }
+
+
+  /*
+    Typing completely disabled.
+  */
+
+  if($("typingInput")){
+
+    $("typingInput").disabled =
+      true;
+
+    $("typingInput").blur();
+
+  }
+
+
+  if($("resultWpm")){
+
+    $("resultWpm").textContent =
+      stats.wpm;
+
+  }
+
+
+  if($("resultAccuracy")){
+
     $("resultAccuracy").textContent =
-      stats.accuracy+"%";
+      stats.accuracy + "%";
 
-  if($("resultWords"))
+  }
+
+
+  if($("resultWords")){
+
     $("resultWords").textContent =
       stats.totalWords;
 
-  if($("resultErrors"))
+  }
+
+
+  if($("resultErrors")){
+
     $("resultErrors").textContent =
       stats.errors;
 
-  if($("correctWords"))
+  }
+
+
+  if($("correctWords")){
+
     $("correctWords").textContent =
       stats.correctWords;
 
-  if($("wrongWords"))
+  }
+
+
+  if($("wrongWords")){
+
     $("wrongWords").textContent =
       stats.wrongWords;
 
+  }
 
-  $("testArea")?.classList.add("hidden");
 
-  $("resultArea")?.classList.remove("hidden");
+  $("testArea")
+    ?.classList.add("hidden");
 
-  setTimeout(drawGraph,50);
+
+  $("resultArea")
+    ?.classList.remove("hidden");
+
+
+  setTimeout(
+    drawGraph,
+    50
+  );
+
 
   await saveResult(stats);
+
 }
 
 
@@ -1237,38 +1469,60 @@ function drawGraph(){
 
   if(!canvas) return;
 
+
   const ctx =
     canvas.getContext("2d");
+
 
   const width =
     canvas.clientWidth || 800;
 
-  const height = 260;
+
+  const height =
+    260;
+
 
   const ratio =
     window.devicePixelRatio || 1;
 
+
   canvas.width =
-    width*ratio;
+    width * ratio;
+
 
   canvas.height =
-    height*ratio;
+    height * ratio;
+
 
   ctx.setTransform(
-    ratio,0,0,ratio,0,0
+    ratio,
+    0,
+    0,
+    ratio,
+    0,
+    0
   );
 
+
   ctx.clearRect(
-    0,0,width,height
+    0,
+    0,
+    width,
+    height
   );
+
 
   const results =
     test.wordResults;
 
+
   if(!results.length){
 
-    ctx.fillStyle = "#9ba4b5";
-    ctx.font = "14px Arial";
+    ctx.fillStyle =
+      "#9ba4b5";
+
+    ctx.font =
+      "14px Arial";
 
     ctx.fillText(
       "Type some words to see your performance.",
@@ -1277,74 +1531,104 @@ function drawGraph(){
     );
 
     return;
+
   }
 
+
   const usable =
-    width-60;
+    width - 60;
+
 
   const step =
     results.length > 1
-      ? usable/(results.length-1)
+      ? usable /
+        (results.length - 1)
       : 0;
 
-  results.forEach((result,i)=>{
 
-    const x =
-      results.length===1
-        ? width/2
-        : 30+i*step;
+  results.forEach(
+    (result,i)=>{
 
-    const y =
-      result==="correct"
-        ? height-100
-        : height-175;
+      const x =
+        results.length === 1
+          ? width / 2
+          : 30 + i * step;
 
-    ctx.beginPath();
 
-    ctx.arc(
-      x,y,5,0,Math.PI*2
-    );
+      const y =
+        result === "correct"
+          ? height - 100
+          : height - 175;
 
-    ctx.fillStyle =
-      result==="correct"
-        ? "#22c55e"
-        : "#ef4444";
-
-    ctx.fill();
-
-    if(i>0){
-
-      const prev =
-        results[i-1];
-
-      const px =
-        results.length===1
-          ? width/2
-          : 30+(i-1)*step;
-
-      const py =
-        prev==="correct"
-          ? height-100
-          : height-175;
 
       ctx.beginPath();
 
-      ctx.moveTo(px,py);
-      ctx.lineTo(x,y);
 
-      ctx.strokeStyle =
-        "rgba(255,255,255,.18)";
+      ctx.arc(
+        x,
+        y,
+        5,
+        0,
+        Math.PI * 2
+      );
 
-      ctx.stroke();
+
+      ctx.fillStyle =
+        result === "correct"
+          ? "#22c55e"
+          : "#ef4444";
+
+
+      ctx.fill();
+
+
+      if(i > 0){
+
+        const prev =
+          results[i - 1];
+
+
+        const px =
+          results.length === 1
+            ? width / 2
+            : 30 +
+              (i - 1) * step;
+
+
+        const py =
+          prev === "correct"
+            ? height - 100
+            : height - 175;
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+          px,
+          py
+        );
+
+        ctx.lineTo(
+          x,
+          y
+        );
+
+
+        ctx.strokeStyle =
+          "rgba(255,255,255,.18)";
+
+        ctx.stroke();
+
+      }
+
     }
-
-  });
+  );
 
 }
 
 
 /* =====================================================
-   SAVE
+   SAVE RESULT
 ===================================================== */
 
 async function saveResult(stats){
@@ -1358,7 +1642,9 @@ async function saveResult(stats){
         .auth
         .getUser();
 
+
     if(!user) return;
+
 
     await supabaseClient
       .from("typing_results")
@@ -1367,21 +1653,26 @@ async function saveResult(stats){
         user_id:user.id,
 
         language_code:
-          $("language")?.value || "en",
+          $("language")?.value ||
+          "en",
 
         duration_seconds:
           test.duration,
 
-        wpm:stats.wpm,
+        wpm:
+          stats.wpm,
 
-        accuracy:stats.accuracy,
+        accuracy:
+          stats.accuracy,
 
-        errors:stats.errors,
+        errors:
+          stats.errors,
 
         characters_typed:
           test.input.length
 
       });
+
 
   }catch(error){
 
@@ -1389,49 +1680,77 @@ async function saveResult(stats){
       "Save result error:",
       error
     );
+
   }
 
 }
 
 
 /* =====================================================
-   RESET
+   RESET TEST
 ===================================================== */
 
 function resetTest(){
 
-  clearInterval(test.timer);
+  clearInterval(
+    test.timer
+  );
 
-  test.started=false;
-  test.running=false;
-  test.start=0;
-  test.input="";
-  test.wordResults=[];
+  test.timer = null;
+
+  test.started = false;
+
+  test.running = false;
+
+  test.finished = false;
+
+  test.start = 0;
+
+  test.input = "";
+
+  test.wordResults = [];
+
 
   test.duration =
     getDuration();
 
+
   $("setupArea")
     ?.classList.remove("hidden");
+
 
   $("testArea")
     ?.classList.add("hidden");
 
+
   $("resultArea")
     ?.classList.add("hidden");
 
+
   if($("time")){
+
     $("time").textContent =
       test.duration;
+
   }
+
 
   if($("typingInput")){
-    $("typingInput").value="";
+
+    $("typingInput").value = "";
+
+    $("typingInput").disabled =
+      false;
+
   }
 
+
   setupText();
+
   updateLanguage();
+
   updateModeInfo();
+
 }
 
 
@@ -1443,39 +1762,63 @@ $("startTestBtn")?.addEventListener(
   "click",
   ()=>{
 
-    clearInterval(test.timer);
+    clearInterval(
+      test.timer
+    );
 
-    test.started=false;
-    test.running=false;
-    test.start=0;
-    test.input="";
-    test.wordResults=[];
+    test.timer = null;
+
+    test.started = false;
+
+    test.running = false;
+
+    test.finished = false;
+
+    test.start = 0;
+
+    test.input = "";
+
+    test.wordResults = [];
+
 
     test.duration =
       getDuration();
 
+
     setupText();
+
 
     $("setupArea")
       ?.classList.add("hidden");
 
+
     $("testArea")
       ?.classList.remove("hidden");
+
 
     $("resultArea")
       ?.classList.add("hidden");
 
+
     if($("time")){
+
       $("time").textContent =
         test.duration;
+
     }
+
 
     if($("typingInput")){
 
-      $("typingInput").value="";
+      $("typingInput").disabled =
+        false;
+
+      $("typingInput").value = "";
 
       $("typingInput").focus();
+
     }
+
 
     updateLanguage();
 
@@ -1492,10 +1835,12 @@ $("finishBtn")?.addEventListener(
   finishTest
 );
 
+
 $("restartBtn")?.addEventListener(
   "click",
   resetTest
 );
+
 
 $("tryAgainBtn")?.addEventListener(
   "click",
@@ -1504,43 +1849,69 @@ $("tryAgainBtn")?.addEventListener(
 
 
 /* =====================================================
-   LANGUAGE / MODE / TIMER
+   LANGUAGE / MODE / DURATION
 ===================================================== */
 
 $("language")?.addEventListener(
   "change",
   ()=>{
+
     updateLanguage();
+
     updateModeInfo();
+
     resetTest();
+
   }
 );
+
 
 $("mode")?.addEventListener(
   "change",
   ()=>{
+
     updateModeInfo();
+
     resetTest();
+
   }
 );
+
 
 $("duration")?.addEventListener(
   "change",
   ()=>{
+
     updateDurationUI();
+
     resetTest();
+
   }
 );
+
 
 $("customTime")?.addEventListener(
   "input",
   ()=>{
-    if($("duration")?.value==="custom"){
-      test.duration=getDuration();
 
-      if($("time"))
-        $("time").textContent=test.duration;
+    if(
+      $("duration")?.value ===
+      "custom"
+    ){
+
+      test.duration =
+        getDuration();
+
+
+      if($("time")){
+
+        $("time").textContent =
+          test.duration;
+
+      }
+
     }
+
   }
 );
 
@@ -1552,7 +1923,11 @@ $("customTime")?.addEventListener(
 $("themeBtn")?.addEventListener(
   "click",
   ()=>{
-    document.body.classList.toggle("light");
+
+    document.body.classList.toggle(
+      "light"
+    );
+
   }
 );
 
@@ -1564,7 +1939,8 @@ $("themeBtn")?.addEventListener(
 const authModal =
   $("authModal");
 
-let loginMode=false;
+
+let loginMode = false;
 
 
 function openAuth(){
@@ -1572,8 +1948,14 @@ function openAuth(){
   authModal
     ?.classList.remove("hidden");
 
-  if($("authMessage"))
-    $("authMessage").textContent="";
+
+  if($("authMessage")){
+
+    $("authMessage").textContent =
+      "";
+
+  }
+
 }
 
 
@@ -1581,6 +1963,7 @@ function closeAuth(){
 
   authModal
     ?.classList.add("hidden");
+
 }
 
 
@@ -1595,17 +1978,20 @@ $("authBtn")?.addEventListener(
         .auth
         .getUser();
 
+
     if(user){
 
       await supabaseClient
         .auth
         .signOut();
 
+
       await refreshUser();
 
     }else{
 
       openAuth();
+
     }
 
   }
@@ -1621,8 +2007,13 @@ $("closeAuth")?.addEventListener(
 authModal?.addEventListener(
   "click",
   e=>{
-    if(e.target===authModal)
+
+    if(e.target === authModal){
+
       closeAuth();
+
+    }
+
   }
 );
 
@@ -1631,33 +2022,58 @@ $("switchAuth")?.addEventListener(
   "click",
   ()=>{
 
-    loginMode=!loginMode;
+    loginMode =
+      !loginMode;
 
-    if($("authTitle"))
+
+    if($("authTitle")){
+
       $("authTitle").textContent =
         loginMode
           ? "Welcome back"
           : "Create your account";
 
-    if($("submitAuth"))
+    }
+
+
+    if($("submitAuth")){
+
       $("submitAuth").textContent =
         loginMode
           ? "Login"
           : "Sign up";
 
-    if($("displayName"))
+    }
+
+
+    if($("displayName")){
+
       $("displayName")
         .classList
-        .toggle("hidden",loginMode);
+        .toggle(
+          "hidden",
+          loginMode
+        );
 
-    if($("switchAuth"))
+    }
+
+
+    if($("switchAuth")){
+
       $("switchAuth").textContent =
         loginMode
           ? "Need an account? Sign up"
           : "Already have an account? Login";
+
+    }
+
   }
 );
 
+
+/* =====================================================
+   AUTH SUBMIT
+===================================================== */
 
 $("submitAuth")?.addEventListener(
   "click",
@@ -1666,29 +2082,42 @@ $("submitAuth")?.addEventListener(
     const email =
       $("email")?.value.trim();
 
+
     const password =
       $("password")?.value || "";
+
 
     const name =
       $("displayName")?.value.trim();
 
+
     if(
       !email ||
-      password.length<6
+      password.length < 6
     ){
 
-      if($("authMessage"))
+      if($("authMessage")){
+
         $("authMessage").textContent =
           "Enter an email and a password with at least 6 characters.";
 
+      }
+
       return;
+
     }
 
-    if($("authMessage"))
+
+    if($("authMessage")){
+
       $("authMessage").textContent =
         "Please wait...";
 
+    }
+
+
     let result;
+
 
     if(loginMode){
 
@@ -1696,8 +2125,11 @@ $("submitAuth")?.addEventListener(
         await supabaseClient
           .auth
           .signInWithPassword({
+
             email,
+
             password
+
           });
 
     }else{
@@ -1708,37 +2140,55 @@ $("submitAuth")?.addEventListener(
           .signUp({
 
             email,
+
             password,
 
             options:{
+
               data:{
+
                 display_name:
-                  name || "AbidType User"
+                  name ||
+                  "AbidType User"
+
               }
+
             }
 
           });
+
     }
+
 
     if(result.error){
 
-      if($("authMessage"))
+      if($("authMessage")){
+
         $("authMessage").textContent =
           result.error.message;
 
+      }
+
       return;
+
     }
+
 
     if(loginMode){
 
       closeAuth();
+
       await refreshUser();
 
     }else{
 
-      if($("authMessage"))
+      if($("authMessage")){
+
         $("authMessage").textContent =
           "Account created. Check your email to confirm.";
+
+      }
+
     }
 
   }
@@ -1760,41 +2210,67 @@ async function refreshUser(){
         .auth
         .getUser();
 
+
     if(user){
 
-      if($("authBtn"))
-        $("authBtn").textContent="Logout";
+      if($("authBtn")){
 
-      if($("welcome"))
+        $("authBtn").textContent =
+          "Logout";
+
+      }
+
+
+      if($("welcome")){
+
         $("welcome").textContent =
-          "Welcome, "+
+          "Welcome, " +
           (
             user.user_metadata?.display_name ||
             "AbidType User"
           );
 
-      if($("accountNote"))
+      }
+
+
+      if($("accountNote")){
+
         $("accountNote").textContent =
           user.email || "";
 
+      }
+
     }else{
 
-      if($("authBtn"))
+      if($("authBtn")){
+
         $("authBtn").textContent =
           "Login / Sign up";
 
-      if($("welcome"))
+      }
+
+
+      if($("welcome")){
+
         $("welcome").textContent =
           "Practice as a guest";
 
-      if($("accountNote"))
+      }
+
+
+      if($("accountNote")){
+
         $("accountNote").textContent =
           "Create an account to save your typing results and build your personal record.";
+
+      }
+
     }
 
   }catch(error){
 
     console.error(error);
+
   }
 
 }
@@ -1813,11 +2289,15 @@ async function loadHistory(){
       .auth
       .getUser();
 
+
   if(!user){
 
     openAuth();
+
     return;
+
   }
+
 
   const {
     data,
@@ -1828,19 +2308,30 @@ async function loadHistory(){
       .select(
         "language_code,duration_seconds,wpm,accuracy,created_at"
       )
-      .eq("user_id",user.id)
+      .eq(
+        "user_id",
+        user.id
+      )
       .order(
         "created_at",
-        {ascending:false}
+        {
+          ascending:false
+        }
       )
       .limit(10);
+
 
   const box =
     $("history");
 
+
   if(!box) return;
 
-  box.classList.remove("hidden");
+
+  box.classList.remove(
+    "hidden"
+  );
+
 
   if(error){
 
@@ -1848,7 +2339,9 @@ async function loadHistory(){
       "Could not load history yet.";
 
     return;
+
   }
+
 
   if(!data?.length){
 
@@ -1856,39 +2349,53 @@ async function loadHistory(){
       "No typing results yet.";
 
     return;
+
   }
 
+
   box.innerHTML =
-    data.map(item=>{
+    data.map(
+      item=>{
 
-      const language =
-        String(
-          item.language_code || "en"
-        ).toUpperCase();
+        const language =
+          String(
+            item.language_code ||
+            "en"
+          ).toUpperCase();
 
-      const wpm =
-        Number(item.wpm || 0);
 
-      const accuracy =
-        Number(item.accuracy || 0);
+        const wpm =
+          Number(
+            item.wpm || 0
+          );
 
-      const date =
-        item.created_at
-          ? new Date(
-              item.created_at
-            ).toLocaleDateString()
-          : "";
 
-      return `
-        <div class="history-row">
-          <span>${language}</span>
-          <b>${wpm} WPM</b>
-          <b>${accuracy}%</b>
-          <span>${date}</span>
-        </div>
-      `;
+        const accuracy =
+          Number(
+            item.accuracy || 0
+          );
 
-    }).join("");
+
+        const date =
+          item.created_at
+            ? new Date(
+                item.created_at
+              ).toLocaleDateString()
+            : "";
+
+
+        return `
+          <div class="history-row">
+            <span>${language}</span>
+            <b>${wpm} WPM</b>
+            <b>${accuracy}%</b>
+            <span>${date}</span>
+          </div>
+        `;
+
+      }
+    ).join("");
+
 }
 
 
@@ -1918,15 +2425,22 @@ supabaseClient
 window.addEventListener(
   "resize",
   ()=>{
+
     const result =
       $("resultArea");
 
+
     if(
       result &&
-      !result.classList.contains("hidden")
+      !result.classList.contains(
+        "hidden"
+      )
     ){
+
       drawGraph();
+
     }
+
   }
 );
 
@@ -1936,9 +2450,13 @@ window.addEventListener(
 ===================================================== */
 
 updateModeInfo();
+
 updateDurationUI();
+
 updateLanguage();
+
 resetTest();
+
 refreshUser();
 
 </script>
