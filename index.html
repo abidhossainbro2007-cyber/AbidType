@@ -13,6 +13,10 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 <link rel="stylesheet" href="style.css">
 
 <style>
+/* =====================================================
+   ABIDTYPE DARK TYPING TEST
+===================================================== */
+
 #setupArea{
   max-width:980px;
   margin:0 auto 40px;
@@ -89,6 +93,10 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   margin-left:auto;
 }
 
+/* =====================================================
+   TYPING AREA
+===================================================== */
+
 .typing-container{
   position:relative;
   width:100%;
@@ -107,7 +115,8 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   position:relative;
   padding:0 8px 15px!important;
   box-sizing:border-box;
-  overflow:hidden;
+  overflow-y:auto;
+  overflow-x:hidden;
   background:transparent!important;
   font-size:28px;
   line-height:1.52;
@@ -196,6 +205,10 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   border-radius:8px;
   padding:8px 12px;
 }
+
+/* =====================================================
+   BLACK LANDING PAGE
+===================================================== */
 
 body{
   background:#05070b!important;
@@ -453,6 +466,10 @@ body:not(.light) #resultArea{
   margin-top:34px;
 }
 
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media(max-width:900px){
 
   .feature-grid{
@@ -462,6 +479,7 @@ body:not(.light) #resultArea{
   .home-title{
     font-size:40px!important;
   }
+
 }
 
 @media(max-width:700px){
@@ -485,6 +503,7 @@ body:not(.light) #resultArea{
   #testArea .test-top:after{
     display:none!important;
   }
+
 }
 
 @media(max-width:620px){
@@ -504,6 +523,7 @@ body:not(.light) #resultArea{
   .abid-home{
     padding-top:38px;
   }
+
 }
 </style>
 </head>
@@ -525,6 +545,10 @@ body:not(.light) #resultArea{
 </header>
 
 <main class="container">
+
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <section id="homePage" class="abid-home">
 
@@ -554,14 +578,22 @@ body:not(.light) #resultArea{
 
     <div class="feature-grid">
 
-      <article class="feature-card" onclick="startDirectTest()">
+      <article
+        class="feature-card"
+        onclick="startDirectTest()"
+      >
         <span class="feature-icon">🎯</span>
+
         <h3>Typing Test</h3>
+
         <p>
           Take a 15 second to 10 minute typing test
           and measure your WPM and accuracy.
         </p>
-        <button type="button">Start Test</button>
+
+        <button type="button">
+          Start Test
+        </button>
       </article>
 
       <article class="feature-card soon">
@@ -650,6 +682,9 @@ body:not(.light) #resultArea{
 
 </section>
 
+<!-- =====================================================
+     ACCOUNT
+===================================================== -->
 
 <section class="account-card">
 
@@ -668,6 +703,9 @@ body:not(.light) #resultArea{
 
 </section>
 
+<!-- =====================================================
+     SETUP
+===================================================== -->
 
 <section id="setupArea" class="card hidden">
 
@@ -747,7 +785,6 @@ body:not(.light) #resultArea{
 
   </div>
 
-
   <div class="control-group">
 
     <label for="mode">
@@ -756,9 +793,7 @@ body:not(.light) #resultArea{
 
     <select id="mode">
 
-      <option value="normal">
-        Normal
-      </option>
+      <option value="normal">Normal</option>
 
       <option value="punctuation">
         Punctuation
@@ -780,7 +815,6 @@ body:not(.light) #resultArea{
 
   </div>
 
-
   <div class="control-group">
 
     <label for="duration">
@@ -789,38 +823,17 @@ body:not(.light) #resultArea{
 
     <select id="duration">
 
-      <option value="15">
-        15 Seconds
-      </option>
-
-      <option value="30">
-        30 Seconds
-      </option>
-
-      <option value="60" selected>
-        60 Seconds
-      </option>
-
-      <option value="120">
-        2 Minutes
-      </option>
-
-      <option value="300">
-        5 Minutes
-      </option>
-
-      <option value="600">
-        10 Minutes
-      </option>
-
-      <option value="custom">
-        ⚙️ Custom
-      </option>
+      <option value="15">15 Seconds</option>
+      <option value="30">30 Seconds</option>
+      <option value="60" selected>60 Seconds</option>
+      <option value="120">2 Minutes</option>
+      <option value="300">5 Minutes</option>
+      <option value="600">10 Minutes</option>
+      <option value="custom">⚙️ Custom</option>
 
     </select>
 
   </div>
-
 
   <div
     id="customTimeWrap"
@@ -845,7 +858,6 @@ body:not(.light) #resultArea{
 
   </div>
 
-
   <button
     id="startTestBtn"
     class="primary-btn"
@@ -856,6 +868,9 @@ body:not(.light) #resultArea{
 
 </section>
 
+<!-- =====================================================
+     TEST
+===================================================== -->
 
 <section id="testArea" class="card hidden">
 
@@ -865,12 +880,9 @@ body:not(.light) #resultArea{
 
       <span>Time</span>
 
-      <strong id="time">
-        60
-      </strong>
+      <strong id="time">60</strong>
 
     </div>
-
 
     <div class="test-language">
 
@@ -883,7 +895,6 @@ body:not(.light) #resultArea{
     </div>
 
   </div>
-
 
   <div class="typing-container">
 
@@ -908,12 +919,10 @@ body:not(.light) #resultArea{
 
   </div>
 
-
   <div class="typing-help">
     Type the text above.
     The timer starts with your first keystroke.
   </div>
-
 
   <div class="test-actions">
 
@@ -936,21 +945,21 @@ body:not(.light) #resultArea{
 
 </section>
 
+<!-- =====================================================
+     RESULT
+===================================================== -->
 
 <section id="resultArea" class="card hidden">
 
   <div class="section-title">
 
-    <h2>
-      Your Result
-    </h2>
+    <h2>Your Result</h2>
 
     <p>
       Great job! Here is your typing performance.
     </p>
 
   </div>
-
 
   <div class="result-grid">
 
@@ -986,17 +995,13 @@ body:not(.light) #resultArea{
 
   </div>
 
-
   <div class="graph-box">
 
-    <h3>
-      Performance
-    </h3>
+    <h3>Performance</h3>
 
     <canvas id="performanceChart"></canvas>
 
   </div>
-
 
   <button
     id="tryAgainBtn"
@@ -1008,6 +1013,9 @@ body:not(.light) #resultArea{
 
 </section>
 
+<!-- =====================================================
+     HISTORY
+===================================================== -->
 
 <section class="card">
 
@@ -1015,9 +1023,7 @@ body:not(.light) #resultArea{
 
     <div>
 
-      <h2>
-        Typing History
-      </h2>
+      <h2>Typing History</h2>
 
       <p>
         Your latest typing results.
@@ -1034,7 +1040,6 @@ body:not(.light) #resultArea{
 
   </div>
 
-
   <div
     id="history"
     class="history hidden"
@@ -1044,8 +1049,14 @@ body:not(.light) #resultArea{
 
 </main>
 
+<!-- =====================================================
+     AUTH
+===================================================== -->
 
-<div id="authModal" class="modal hidden">
+<div
+  id="authModal"
+  class="modal hidden"
+>
 
   <div class="modal-content">
 
@@ -1062,7 +1073,6 @@ body:not(.light) #resultArea{
     </h2>
 
     <p id="authMessage"></p>
-
 
     <div
       class="auth-field"
@@ -1082,7 +1092,6 @@ body:not(.light) #resultArea{
 
     </div>
 
-
     <div class="auth-field">
 
       <label for="email">
@@ -1097,7 +1106,6 @@ body:not(.light) #resultArea{
       >
 
     </div>
-
 
     <div class="auth-field">
 
@@ -1114,7 +1122,6 @@ body:not(.light) #resultArea{
 
     </div>
 
-
     <button
       id="submitAuth"
       type="button"
@@ -1122,7 +1129,6 @@ body:not(.light) #resultArea{
     >
       Sign up
     </button>
-
 
     <button
       id="switchAuth"
@@ -1136,16 +1142,17 @@ body:not(.light) #resultArea{
 
 </div>
 
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 
 <script>
-
 'use strict';
 
 const $ = id => document.getElementById(id);
-
 
 /* =====================================================
    SUPABASE
@@ -1169,15 +1176,14 @@ try{
 
   }
 
-}catch(error){
+}catch(e){
 
   console.warn(
     'Supabase unavailable',
-    error
+    e
   );
 
 }
-
 
 /* =====================================================
    PASSAGES
@@ -1307,63 +1313,49 @@ nl:[
 'Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen.',
 'Goed typen vraagt om geduld en constante oefening. Begin rustig, maak minder fouten en verhoog je snelheid stap voor stap.',
 'Elke dag oefenen kan je typesnelheid en vertrouwen verbeteren. Houd een comfortabel ritme en let goed op elk woord.'
+],
+
+pl:[
+'Pisanie na klawiaturze to umiejętność, która poprawia się dzięki regularnej praktyce. Najpierw skup się na dokładności, a szybkość przyjdzie naturalnie.',
+'Dobre pisanie wymaga cierpliwości i systematycznego treningu. Zacznij powoli, ograniczaj błędy i stopniowo zwiększaj szybkość.',
+'Codzienna praktyka może poprawić szybkość i pewność siebie. Zachowaj wygodny rytm i zwracaj uwagę na każde słowo.'
+],
+
+uk:[
+'Друк — це навичка, яка покращується завдяки регулярній практиці. Спочатку зосередьтеся на точності, а швидкість прийде природно.',
+'Хороший набір тексту потребує терпіння та постійних тренувань. Починайте повільно, зменшуйте кількість помилок і поступово збільшуйте швидкість.',
+'Щоденна практика допомагає покращити швидкість і впевненість. Підтримуйте комфортний ритм і уважно стежте за кожним словом.'
 ]
 
 };
 
-
 /* =====================================================
-   PUNCTUATION TEXT
+   PUNCTUATION TEXTS
 ===================================================== */
 
 const punctuationTexts = {
 
-en:[
-'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
-'Practice every day, stay calm, and type carefully. Remember: speed is useful, but accuracy is always important!',
-'Good typing takes patience. Keep your rhythm steady, avoid mistakes, and improve your speed step by step.'
-],
+en:'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
 
-bn:[
-'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
-'প্রতিদিন অনুশীলন করুন, শান্ত থাকুন এবং মনোযোগ দিয়ে টাইপ করুন। মনে রাখুন: গতি গুরুত্বপূর্ণ, কিন্তু নির্ভুলতা আরও গুরুত্বপূর্ণ!',
-'ভালো টাইপিংয়ের জন্য ধৈর্য প্রয়োজন। নিজের ছন্দ ঠিক রাখুন, ভুল কমান এবং ধীরে ধীরে গতি বাড়ান।'
-],
+bn:'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
 
-es:[
-'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!',
-'Escribe con calma, reduce los errores y mejora tu velocidad poco a poco. ¡La práctica diaria ayuda mucho!'
-],
+es:'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!',
 
-fr:[
-'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!',
-'Restez concentré, évitez les erreurs et augmentez votre vitesse progressivement.'
-],
+fr:'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!',
 
-de:[
-'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!',
-'Bleibe ruhig, reduziere Fehler und steigere deine Geschwindigkeit Schritt für Schritt.'
-],
+de:'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!',
 
-hi:[
-'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!',
-'शांत रहें, गलतियों को कम करें और धीरे धीरे अपनी टाइपिंग गति बढ़ाएं।'
-],
+hi:'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!',
 
-ar:[
-'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!',
-'حافظ على هدوئك، قلل الأخطاء وزد سرعتك تدريجياً مع التدريب المستمر.'
-]
+ar:'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!'
 
 };
-
 
 /* =====================================================
    TEST STATE
 ===================================================== */
 
 let test = {
-
   started:false,
   running:false,
   start:0,
@@ -1373,9 +1365,7 @@ let test = {
   input:'',
   wordResults:[],
   finished:false
-
 };
-
 
 /* =====================================================
    DURATION
@@ -1387,17 +1377,16 @@ function getDuration(){
 
   if(value === 'custom'){
 
-    let n = Number(
-      $('customTime').value
-    );
+    let n =
+      Number(
+        $('customTime').value
+      );
 
     if(
       !Number.isFinite(n) ||
       n < 10
     ){
-
       n = 60;
-
     }
 
     return Math.min(
@@ -1411,44 +1400,6 @@ function getDuration(){
 
 }
 
-
-/* =====================================================
-   TEXT TRANSFORMATION
-===================================================== */
-
-function transformText(text,mode){
-
-  if(typeof text !== 'string'){
-    return '';
-  }
-
-  if(mode === 'capital'){
-
-    return text.toUpperCase();
-
-  }
-
-  if(mode === 'small'){
-
-    return text
-      .replace(
-        /[.,!?;:'"()[\]{}\-—–]/g,
-        ''
-      )
-      .toLowerCase()
-      .replace(
-        /\s+/g,
-        ' '
-      )
-      .trim();
-
-  }
-
-  return text;
-
-}
-
-
 /* =====================================================
    BUILD TEXT
 ===================================================== */
@@ -1458,72 +1409,58 @@ function buildText(){
   const lang = $('language').value;
   const mode = $('mode').value;
 
-  let text = '';
-
-  if(mode === 'punctuation'){
-
-    const list =
-      Array.isArray(punctuationTexts[lang])
-        ? punctuationTexts[lang]
-        : punctuationTexts.en;
-
-    text =
-      list[
-        Math.floor(
-          Math.random() * list.length
-        )
-      ];
-
-    return text;
-
-  }
-
-
   const list =
     Array.isArray(passages[lang])
       ? passages[lang]
       : passages.en;
 
-
-  const count =
-    Math.min(
-      6,
-      list.length
-    );
-
-
-  const indexes = [];
-
-  while(indexes.length < count){
-
-    const index =
+  let text =
+    list[
       Math.floor(
         Math.random() * list.length
-      );
+      )
+    ] || '';
 
-    if(!indexes.includes(index)){
+  if(mode === 'punctuation'){
 
-      indexes.push(index);
+    if(
+      typeof punctuationTexts[lang] === 'string'
+    ){
+
+      text =
+        punctuationTexts[lang];
 
     }
 
   }
 
+  if(mode === 'capital'){
 
-  text =
-    indexes
-      .map(index => list[index])
-      .join(' ')
-      .trim();
+    text =
+      text.toUpperCase();
 
+  }
 
-  return transformText(
-    text,
-    mode
-  );
+  if(mode === 'small'){
+
+    text =
+      text
+        .replace(
+          /[.,!?;:'"()[\]{}\-—–]/g,
+          ''
+        )
+        .toLowerCase()
+        .replace(
+          /\s+/g,
+          ' '
+        )
+        .trim();
+
+  }
+
+  return text.trim();
 
 }
-
 
 /* =====================================================
    SETUP TEXT
@@ -1531,44 +1468,141 @@ function buildText(){
 
 function setupText(){
 
-  test.text =
-    buildText();
+  const lang =
+    $('language').value;
 
+  const mode =
+    $('mode').value;
+
+  const selectedTexts =
+    Array.isArray(passages[lang])
+      ? passages[lang]
+      : passages.en;
+
+  let texts = [];
+
+  if(
+    mode === 'punctuation' &&
+    typeof punctuationTexts[lang] === 'string'
+  ){
+
+    texts = [
+      punctuationTexts[lang]
+    ];
+
+  }else{
+
+    const usedIndexes = [];
+
+    const wantedCount =
+      Math.min(
+        6,
+        selectedTexts.length
+      );
+
+    while(
+      usedIndexes.length <
+      wantedCount
+    ){
+
+      const randomIndex =
+        Math.floor(
+          Math.random() *
+          selectedTexts.length
+        );
+
+      if(
+        !usedIndexes.includes(
+          randomIndex
+        )
+      ){
+
+        usedIndexes.push(
+          randomIndex
+        );
+
+      }
+
+    }
+
+    texts =
+      usedIndexes.map(
+        index =>
+          selectedTexts[index]
+      );
+
+  }
+
+  let text =
+    texts
+      .join(' ')
+      .trim();
+
+  if(mode === 'capital'){
+
+    text =
+      text.toUpperCase();
+
+  }
+
+  if(mode === 'small'){
+
+    text =
+      text
+        .replace(
+          /[.,!?;:'"()[\]{}\-—–]/g,
+          ''
+        )
+        .toLowerCase()
+        .replace(
+          /\s+/g,
+          ' '
+        )
+        .trim();
+
+  }
+
+  test.text =
+    text;
 
   const display =
     $('textDisplay');
 
   display.innerHTML = '';
 
-
   const fragment =
     document.createDocumentFragment();
-
 
   [...test.text].forEach(
     (char,index)=>{
 
       const span =
-        document.createElement('span');
+        document.createElement(
+          'span'
+        );
 
-      span.textContent = char;
+      span.textContent =
+        char;
 
-      span.dataset.index = index;
+      span.dataset.index =
+        index;
 
-      fragment.appendChild(span);
+      fragment.appendChild(
+        span
+      );
 
     }
   );
 
-
-  display.appendChild(fragment);
+  display.appendChild(
+    fragment
+  );
 
   display.scrollTop = 0;
 
   updateDisplay();
 
 }
-
 
 /* =====================================================
    DISPLAY
@@ -1584,7 +1618,6 @@ function updateDisplay(){
 
   const spans =
     [...display.children];
-
 
   spans.forEach(
     (span,index)=>{
@@ -1604,53 +1637,48 @@ function updateDisplay(){
     }
   );
 
-
   const current =
     spans[input.length];
 
+  if(current){
 
-  if(!current){
-    return;
-  }
+    current.classList.add(
+      'current'
+    );
 
+    const rect =
+      current.getBoundingClientRect();
 
-  current.classList.add('current');
+    const displayRect =
+      display.getBoundingClientRect();
 
+    if(
+      rect.bottom >
+      displayRect.bottom - 35
+    ){
 
-  const rect =
-    current.getBoundingClientRect();
+      display.scrollTop +=
+        rect.bottom -
+        displayRect.bottom +
+        45;
 
-  const displayRect =
-    display.getBoundingClientRect();
+    }
 
+    if(
+      rect.top <
+      displayRect.top + 30
+    ){
 
-  if(
-    rect.bottom >
-    displayRect.bottom - 35
-  ){
+      display.scrollTop -=
+        displayRect.top -
+        rect.top +
+        45;
 
-    display.scrollTop +=
-      rect.bottom -
-      displayRect.bottom +
-      45;
-
-  }
-
-
-  if(
-    rect.top <
-    displayRect.top + 30
-  ){
-
-    display.scrollTop -=
-      displayRect.top -
-      rect.top +
-      45;
+    }
 
   }
 
 }
-
 
 /* =====================================================
    MODE
@@ -1661,7 +1689,7 @@ function updateModeInfo(){
   const mode =
     $('mode').value;
 
-  const messages = {
+  const info = {
 
     normal:
       'Normal typing practice.',
@@ -1677,13 +1705,11 @@ function updateModeInfo(){
 
   };
 
-
   $('modeInfo').textContent =
-    messages[mode] ||
-    messages.normal;
+    info[mode] ||
+    info.normal;
 
 }
-
 
 /* =====================================================
    DURATION UI
@@ -1699,7 +1725,6 @@ function updateDurationUI(){
     );
 
 }
-
 
 /* =====================================================
    LANGUAGE
@@ -1720,7 +1745,6 @@ function updateLanguage(){
 
 }
 
-
 /* =====================================================
    TIMER
 ===================================================== */
@@ -1731,16 +1755,12 @@ function beginTest(){
     test.started ||
     test.finished
   ){
-
     return;
-
   }
-
 
   test.started = true;
   test.running = true;
   test.start = Date.now();
-
 
   test.timer =
     setInterval(
@@ -1748,18 +1768,15 @@ function beginTest(){
       100
     );
 
-
   $('typingInput').focus();
 
 }
-
 
 function updateTimer(){
 
   if(!test.running){
     return;
   }
-
 
   const elapsed =
     Math.floor(
@@ -1769,7 +1786,6 @@ function updateTimer(){
       ) / 1000
     );
 
-
   const left =
     Math.max(
       0,
@@ -1777,9 +1793,8 @@ function updateTimer(){
       elapsed
     );
 
-
-  $('time').textContent = left;
-
+  $('time').textContent =
+    left;
 
   if(
     left <= 10 &&
@@ -1794,7 +1809,6 @@ function updateTimer(){
 
   }
 
-
   if(left <= 0){
 
     finishTest();
@@ -1802,7 +1816,6 @@ function updateTimer(){
   }
 
 }
-
 
 /* =====================================================
    STATS
@@ -1813,10 +1826,8 @@ function calculateStats(){
   const input =
     $('typingInput').value;
 
-
   let correct = 0;
   let errors = 0;
-
 
   [...input].forEach(
     (char,index)=>{
@@ -1837,7 +1848,6 @@ function calculateStats(){
     }
   );
 
-
   const elapsed =
     test.start
       ? Math.max(
@@ -1849,7 +1859,6 @@ function calculateStats(){
         )
       : 1;
 
-
   const wpm =
     Math.max(
       0,
@@ -1860,7 +1869,6 @@ function calculateStats(){
       )
     );
 
-
   const accuracy =
     input.length
       ? Math.round(
@@ -1870,19 +1878,15 @@ function calculateStats(){
         )
       : 100;
 
-
   const typed =
     input.trim()
       ? input.trim().split(/\s+/)
       : [];
 
-
   const target =
     test.text.trim().split(/\s+/);
 
-
   let correctWords = 0;
-
 
   typed.forEach(
     (word,index)=>{
@@ -1899,19 +1903,19 @@ function calculateStats(){
     }
   );
 
-
   return {
 
-    wpm,
+    wpm:wpm,
 
-    accuracy,
+    accuracy:accuracy,
 
-    errors,
+    errors:errors,
 
     totalWords:
       typed.length,
 
-    correctWords,
+    correctWords:
+      correctWords,
 
     wrongWords:
       Math.max(
@@ -1927,28 +1931,22 @@ function calculateStats(){
 
 }
 
-
 /* =====================================================
    WORD RESULTS
 ===================================================== */
 
 function makeWordResults(){
 
-  const raw =
-    $('typingInput').value.trim();
-
+  const inputValue =
+    $('typingInput').value;
 
   const typed =
-    raw
-      ? raw.split(/\s+/)
+    inputValue.trim()
+      ? inputValue.trim().split(/\s+/)
       : [];
 
-
   const target =
-    test.text
-      .trim()
-      .split(/\s+/);
-
+    test.text.trim().split(/\s+/);
 
   return typed.map(
     (word,index)=>
@@ -1958,7 +1956,6 @@ function makeWordResults(){
   );
 
 }
-
 
 /* =====================================================
    FINISH
@@ -1970,15 +1967,11 @@ async function finishTest(){
     test.finished ||
     !test.started
   ){
-
     return;
-
   }
-
 
   test.finished = true;
   test.running = false;
-
 
   clearInterval(
     test.timer
@@ -1986,22 +1979,17 @@ async function finishTest(){
 
   test.timer = null;
 
-
   test.input =
     $('typingInput').value;
-
 
   const stats =
     calculateStats();
 
-
   test.wordResults =
     makeWordResults();
 
-
   $('time').textContent =
     '0';
-
 
   $('resultWpm').textContent =
     stats.wpm;
@@ -2021,33 +2009,29 @@ async function finishTest(){
   $('wrongWords').textContent =
     stats.wrongWords;
 
-
-  $('typingInput').disabled = true;
-
+  $('typingInput').disabled =
+    true;
 
   $('testArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .remove('hidden');
 
-
   playFinishSound();
-
 
   setTimeout(
     drawGraph,
     30
   );
 
-
-  await saveResult(stats);
+  await saveResult(
+    stats
+  );
 
 }
-
 
 /* =====================================================
    GRAPH
@@ -2062,29 +2046,25 @@ function drawGraph(){
     return;
   }
 
-
   const ctx =
     canvas.getContext('2d');
-
 
   const width =
     canvas.clientWidth ||
     800;
 
-  const height = 260;
-
+  const height =
+    260;
 
   const ratio =
     window.devicePixelRatio ||
     1;
-
 
   canvas.width =
     width * ratio;
 
   canvas.height =
     height * ratio;
-
 
   ctx.setTransform(
     ratio,
@@ -2095,7 +2075,6 @@ function drawGraph(){
     0
   );
 
-
   ctx.clearRect(
     0,
     0,
@@ -2103,10 +2082,8 @@ function drawGraph(){
     height
   );
 
-
   const results =
     test.wordResults;
-
 
   if(!results.length){
 
@@ -2126,10 +2103,8 @@ function drawGraph(){
 
   }
 
-
   const usable =
     width - 60;
-
 
   const step =
     results.length > 1
@@ -2137,23 +2112,18 @@ function drawGraph(){
         (results.length - 1)
       : 0;
 
-
   results.forEach(
     (result,index)=>{
 
       const x =
         results.length === 1
           ? width / 2
-          : 30 +
-            index *
-            step;
-
+          : 30 + index * step;
 
       const y =
         result === 'correct'
           ? height - 100
           : height - 175;
-
 
       ctx.beginPath();
 
@@ -2165,7 +2135,6 @@ function drawGraph(){
         Math.PI * 2
       );
 
-
       ctx.fillStyle =
         result === 'correct'
           ? '#22c55e'
@@ -2173,26 +2142,20 @@ function drawGraph(){
 
       ctx.fill();
 
-
       if(index > 0){
 
         const previous =
           results[index - 1];
 
-
         const px =
-          results.length === 1
-            ? width / 2
-            : 30 +
-              (index - 1) *
-              step;
-
+          30 +
+          (index - 1) *
+          step;
 
         const py =
           previous === 'correct'
             ? height - 100
             : height - 175;
-
 
         ctx.beginPath();
 
@@ -2206,7 +2169,6 @@ function drawGraph(){
           y
         );
 
-
         ctx.strokeStyle =
           'rgba(255,255,255,.18)';
 
@@ -2219,7 +2181,6 @@ function drawGraph(){
 
 }
 
-
 /* =====================================================
    SAVE RESULT
 ===================================================== */
@@ -2230,7 +2191,6 @@ async function saveResult(stats){
     return;
   }
 
-
   try{
 
     const {
@@ -2240,11 +2200,9 @@ async function saveResult(stats){
         .auth
         .getUser();
 
-
     if(!user){
       return;
     }
-
 
     await supabaseClient
       .from('typing_results')
@@ -2284,7 +2242,6 @@ async function saveResult(stats){
 
 }
 
-
 /* =====================================================
    RESET
 ===================================================== */
@@ -2294,7 +2251,6 @@ function resetTest(){
   clearInterval(
     test.timer
   );
-
 
   test = {
 
@@ -2310,35 +2266,28 @@ function resetTest(){
 
   };
 
-
   document.body
     .classList
     .remove('typing-mode');
-
 
   $('homePage')
     .classList
     .remove('home-hidden');
 
-
   $('setupArea')
     .classList
     .add('hidden');
-
 
   $('testArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .add('hidden');
 
-
   $('time').textContent =
     test.duration;
-
 
   $('typingInput').value =
     '';
@@ -2346,13 +2295,11 @@ function resetTest(){
   $('typingInput').disabled =
     false;
 
-
   setupText();
 
   updateLanguage();
 
   updateModeInfo();
-
 
   window.scrollTo({
     top:0,
@@ -2360,7 +2307,6 @@ function resetTest(){
   });
 
 }
-
 
 /* =====================================================
    START DIRECT TEST
@@ -2372,26 +2318,21 @@ function startDirectTest(){
     .classList
     .add('typing-mode');
 
-
   $('homePage')
     .classList
     .add('home-hidden');
-
 
   $('setupArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .add('hidden');
 
-
   $('testArea')
     .classList
     .remove('hidden');
-
 
   test = {
 
@@ -2407,13 +2348,10 @@ function startDirectTest(){
 
   };
 
-
   setupText();
-
 
   $('time').textContent =
     test.duration;
-
 
   $('typingInput').value =
     '';
@@ -2421,13 +2359,11 @@ function startDirectTest(){
   $('typingInput').disabled =
     false;
 
-
   updateLanguage();
 
   $('typingInput').focus();
 
   playStartSound();
-
 
   window.scrollTo({
     top:0,
@@ -2435,7 +2371,6 @@ function startDirectTest(){
   });
 
 }
-
 
 /* =====================================================
    CUSTOM SETUP
@@ -2447,26 +2382,21 @@ function showTypingSetup(custom=false){
     .classList
     .remove('typing-mode');
 
-
   $('homePage')
     .classList
     .add('home-hidden');
-
 
   $('setupArea')
     .classList
     .remove('hidden');
 
-
   $('testArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .add('hidden');
-
 
   if(custom){
 
@@ -2477,14 +2407,12 @@ function showTypingSetup(custom=false){
 
   }
 
-
   window.scrollTo({
     top:0,
     behavior:'smooth'
   });
 
 }
-
 
 /* =====================================================
    INPUT
@@ -2495,33 +2423,30 @@ $('typingInput')
     'input',
     ()=>{
 
-      if(!test.started){
+      if(
+        !test.started &&
+        !test.finished
+      ){
 
         beginTest();
 
       }
 
-
       const value =
         $('typingInput').value;
 
-
       const index =
         value.length - 1;
-
 
       const correct =
         index >= 0 &&
         value[index] ===
         test.text[index];
 
-
       test.input =
         value;
 
-
       updateDisplay();
-
 
       if(index >= 0){
 
@@ -2532,9 +2457,21 @@ $('typingInput')
 
       }
 
+      /*
+        Prevent typing beyond the passage.
+      */
+
+      if(
+        value.length >=
+        test.text.length
+      ){
+
+        finishTest();
+
+      }
+
     }
   );
-
 
 $('typingInput')
   .addEventListener(
@@ -2549,7 +2486,6 @@ $('typingInput')
 
     }
   );
-
 
 /* =====================================================
    BUTTONS
@@ -2567,7 +2503,6 @@ $('restartBtn').onclick =
 $('tryAgainBtn').onclick =
   resetTest;
 
-
 /* =====================================================
    LANGUAGE / MODE / TIMER
 ===================================================== */
@@ -2581,7 +2516,6 @@ $('language').onchange =
 
   };
 
-
 $('mode').onchange =
   ()=>{
 
@@ -2591,7 +2525,6 @@ $('mode').onchange =
 
   };
 
-
 $('duration').onchange =
   ()=>{
 
@@ -2600,7 +2533,6 @@ $('duration').onchange =
     resetTest();
 
   };
-
 
 $('customTime').oninput =
   ()=>{
@@ -2623,7 +2555,6 @@ $('customTime').oninput =
 
   };
 
-
 /* =====================================================
    THEME
 ===================================================== */
@@ -2640,14 +2571,12 @@ $('themeBtn').onclick =
 
   };
 
-
 /* =====================================================
    AUDIO
 ===================================================== */
 
 let soundIndex = 0;
 let audioContext = null;
-
 
 function getAudio(){
 
@@ -2661,7 +2590,6 @@ function getAudio(){
 
   }
 
-
   if(
     audioContext.state ===
     'suspended'
@@ -2671,11 +2599,9 @@ function getAudio(){
 
   }
 
-
   return audioContext;
 
 }
-
 
 function tone(
   frequency,
@@ -2694,13 +2620,11 @@ function tone(
       audio.currentTime +
       delay;
 
-
     const oscillator =
       audio.createOscillator();
 
     const gain =
       audio.createGain();
-
 
     oscillator.type =
       type;
@@ -2711,12 +2635,10 @@ function tone(
         now
       );
 
-
     gain.gain.setValueAtTime(
       volume,
       now
     );
-
 
     gain.gain
       .exponentialRampToValueAtTime(
@@ -2724,12 +2646,17 @@ function tone(
         now + duration
       );
 
+    oscillator.connect(
+      gain
+    );
 
-    oscillator.connect(gain);
-    gain.connect(audio.destination);
+    gain.connect(
+      audio.destination
+    );
 
-
-    oscillator.start(now);
+    oscillator.start(
+      now
+    );
 
     oscillator.stop(
       now +
@@ -2740,7 +2667,6 @@ function tone(
   }catch(error){}
 
 }
-
 
 function playTypingSound(
   character,
@@ -2763,13 +2689,11 @@ function playTypingSound(
           180
         ];
 
-
   const frequency =
     frequencies[
       soundIndex++ %
       frequencies.length
     ];
-
 
   tone(
     frequency,
@@ -2781,7 +2705,6 @@ function playTypingSound(
       ? .014
       : .022
   );
-
 
   if(
     character === ' ' &&
@@ -2799,7 +2722,6 @@ function playTypingSound(
   }
 
 }
-
 
 function playStartSound(){
 
@@ -2819,7 +2741,6 @@ function playStartSound(){
   );
 
 }
-
 
 function playFinishSound(){
 
@@ -2848,7 +2769,6 @@ function playFinishSound(){
 
 }
 
-
 function playWarningSound(){
 
   tone(
@@ -2868,13 +2788,11 @@ function playWarningSound(){
 
 }
 
-
 /* =====================================================
    AUTH
 ===================================================== */
 
 let loginMode = false;
-
 
 function openAuth(){
 
@@ -2887,7 +2805,6 @@ function openAuth(){
 
 }
 
-
 function closeAuth(){
 
   $('authModal')
@@ -2895,7 +2812,6 @@ function closeAuth(){
     .add('hidden');
 
 }
-
 
 $('authBtn').onclick =
   async ()=>{
@@ -2908,7 +2824,6 @@ $('authBtn').onclick =
 
     }
 
-
     const {
       data:{user}
     } =
@@ -2916,13 +2831,11 @@ $('authBtn').onclick =
         .auth
         .getUser();
 
-
     if(user){
 
       await supabaseClient
         .auth
         .signOut();
-
 
       await refreshUser();
 
@@ -2934,10 +2847,8 @@ $('authBtn').onclick =
 
   };
 
-
 $('closeAuth').onclick =
   closeAuth;
-
 
 $('authModal').onclick =
   event=>{
@@ -2953,13 +2864,11 @@ $('authModal').onclick =
 
   };
 
-
 $('switchAuth').onclick =
   ()=>{
 
     loginMode =
       !loginMode;
-
 
     $('authTitle')
       .textContent =
@@ -2967,13 +2876,11 @@ $('switchAuth').onclick =
           ? 'Welcome back'
           : 'Create your account';
 
-
     $('submitAuth')
       .textContent =
         loginMode
           ? 'Login'
           : 'Sign up';
-
 
     $('nameField')
       .classList
@@ -2981,7 +2888,6 @@ $('switchAuth').onclick =
         'hidden',
         loginMode
       );
-
 
     $('switchAuth')
       .textContent =
@@ -2991,31 +2897,32 @@ $('switchAuth').onclick =
 
   };
 
-
 $('submitAuth').onclick =
   async ()=>{
 
     if(!supabaseClient){
-      return;
-    }
 
+      $('authMessage')
+        .textContent =
+          'Supabase is not configured yet.';
+
+      return;
+
+    }
 
     const email =
       $('email')
         .value
         .trim();
 
-
     const password =
       $('password')
         .value;
-
 
     const name =
       $('displayName')
         .value
         .trim();
-
 
     if(
       !email ||
@@ -3030,14 +2937,11 @@ $('submitAuth').onclick =
 
     }
 
-
     $('authMessage')
       .textContent =
         'Please wait...';
 
-
     let result;
-
 
     if(loginMode){
 
@@ -3072,7 +2976,6 @@ $('submitAuth').onclick =
 
     }
 
-
     if(result.error){
 
       $('authMessage')
@@ -3083,12 +2986,11 @@ $('submitAuth').onclick =
 
     }
 
-
     if(loginMode){
 
       closeAuth();
 
-      refreshUser();
+      await refreshUser();
 
     }else{
 
@@ -3100,7 +3002,6 @@ $('submitAuth').onclick =
 
   };
 
-
 /* =====================================================
    USER
 ===================================================== */
@@ -3111,7 +3012,6 @@ async function refreshUser(){
     return;
   }
 
-
   try{
 
     const {
@@ -3121,23 +3021,19 @@ async function refreshUser(){
         .auth
         .getUser();
 
-
     if(user){
 
       $('authBtn')
         .textContent =
           'Logout';
 
-
       $('welcome')
         .textContent =
           'Welcome, ' +
           (
-            user.user_metadata
-              ?.display_name ||
+            user.user_metadata?.display_name ||
             'AbidType User'
           );
-
 
       $('accountNote')
         .textContent =
@@ -3149,11 +3045,9 @@ async function refreshUser(){
         .textContent =
           'Login / Sign up';
 
-
       $('welcome')
         .textContent =
           'Practice as a guest';
-
 
       $('accountNote')
         .textContent =
@@ -3161,10 +3055,16 @@ async function refreshUser(){
 
     }
 
-  }catch(error){}
+  }catch(error){
+
+    console.warn(
+      'User refresh error:',
+      error
+    );
+
+  }
 
 }
-
 
 /* =====================================================
    HISTORY
@@ -3180,14 +3080,12 @@ async function loadHistory(){
 
   }
 
-
   const {
     data:{user}
   } =
     await supabaseClient
       .auth
       .getUser();
-
 
   if(!user){
 
@@ -3196,7 +3094,6 @@ async function loadHistory(){
     return;
 
   }
-
 
   const {
     data,
@@ -3219,14 +3116,11 @@ async function loadHistory(){
       )
       .limit(10);
 
-
   const box =
     $('history');
 
-
   box.classList
     .remove('hidden');
-
 
   if(error){
 
@@ -3237,7 +3131,6 @@ async function loadHistory(){
 
   }
 
-
   if(!data?.length){
 
     box.textContent =
@@ -3246,7 +3139,6 @@ async function loadHistory(){
     return;
 
   }
-
 
   box.innerHTML =
     data
@@ -3292,10 +3184,8 @@ async function loadHistory(){
 
 }
 
-
 $('historyBtn').onclick =
   loadHistory;
-
 
 if(supabaseClient){
 
@@ -3306,7 +3196,6 @@ if(supabaseClient){
     );
 
 }
-
 
 /* =====================================================
    RESIZE
@@ -3329,7 +3218,6 @@ window.addEventListener(
   }
 );
 
-
 /* =====================================================
    COMING SOON
 ===================================================== */
@@ -3343,14 +3231,12 @@ function showComingSoon(name){
     .018
   );
 
-
   alert(
     name +
     ' is coming soon. AbidType will add this game later.'
   );
 
 }
-
 
 /* =====================================================
    INITIALIZE
