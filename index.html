@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="google-site-verification" content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
+
+<meta name="google-site-verification"
+content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
+
 <meta name="description" content="AbidType — Global Typing Practice">
 <title>AbidType — Global Typing Practice</title>
 
@@ -90,52 +93,90 @@
   margin-left:auto;
 }
 
+
+/* =====================================================
+   TYPING AREA
+===================================================== */
+
 .typing-container{
   position:relative;
+  width:100%;
   min-height:430px;
   padding:0!important;
   border-radius:0!important;
   background:transparent!important;
   border:0!important;
   overflow:hidden;
+  box-sizing:border-box;
 }
 
+
+/* IMPORTANT TEXT FIX */
+
 #textDisplay{
+  width:100%!important;
   height:340px;
-  overflow:hidden;
+
   position:relative;
-  padding:0 0 15px!important;
-  border-radius:0!important;
+
+  padding:0 8px 15px!important;
+
+  box-sizing:border-box;
+
+  overflow:hidden;
+
   background:transparent!important;
+
   font-size:28px;
   line-height:1.52;
   letter-spacing:.7px;
-  white-space:pre-wrap;
-  overflow-wrap:normal;
-  word-break:normal;
-  box-sizing:border-box;
-  scroll-behavior:auto;
-  direction:ltr;
+
+  white-space:normal!important;
+
+  word-break:normal!important;
+  overflow-wrap:break-word!important;
+
   text-align:left;
+
+  direction:ltr;
+
   color:#dbe3ef!important;
-  font-family:Georgia,"Times New Roman",serif;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  scroll-behavior:auto;
 }
 
+
+/* Each character */
+
 #textDisplay span{
-  display:inline;
+  display:inline!important;
   position:relative;
   color:#dbe3ef;
 }
 
+
+/* Correct */
+
 #textDisplay .correct{
   color:#e6edf7!important;
 }
+
+
+/* Wrong */
 
 #textDisplay .wrong{
   color:#ff6b6b!important;
   text-decoration:underline;
   text-decoration-thickness:2px;
 }
+
+
+/* Current character */
 
 #textDisplay .current{
   background:#f1d94a!important;
@@ -144,21 +185,35 @@
   border-radius:1px;
 }
 
+
+/* Hidden typing input */
+
 #typingInput{
   position:absolute;
+
   left:0;
   top:0;
+
   width:100%;
   height:340px;
+
   opacity:0;
+
   z-index:20;
+
   cursor:text;
+
   resize:none;
+
   border:0;
   outline:0;
+
   background:transparent!important;
+
   color:transparent!important;
+
   caret-color:transparent!important;
+
   padding:0!important;
 }
 
@@ -196,32 +251,9 @@
   padding:8px 12px;
 }
 
-@media(max-width:700px){
-
-  #testArea{
-    padding:20px 14px 30px!important;
-  }
-
-  .typing-container{
-    min-height:360px;
-  }
-
-  #textDisplay,
-  #typingInput{
-    height:300px;
-    font-size:22px;
-    line-height:1.55;
-    letter-spacing:.4px;
-  }
-
-  .test-top:after{
-    display:none!important;
-  }
-}
-
 
 /* =====================================================
-   ABIDTYPE BLACK LANDING PAGE
+   BLACK LANDING PAGE
 ===================================================== */
 
 body{
@@ -257,6 +289,7 @@ small,
   min-height:calc(100vh - 80px);
   padding:58px 0 90px;
   overflow:hidden;
+
   background:
     radial-gradient(
       circle at 78% 70%,
@@ -452,7 +485,6 @@ body:not(.light) textarea{
 
 body:not(.light) .typing-container{
   background:#070a10!important;
-  border:1px solid rgba(255,255,255,.07);
 }
 
 body:not(.light) #textDisplay{
@@ -465,6 +497,27 @@ body:not(.light) #typingInput{
   color:#f3f6fb!important;
 }
 
+body:not(.light) #setupArea{
+  background:#0a0f17!important;
+}
+
+body:not(.light) #resultArea{
+  background:#0a0f17!important;
+}
+
+#homePage.home-hidden~.account-card{
+  display:none;
+}
+
+#homePage.home-hidden~#setupArea{
+  margin-top:34px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media(max-width:900px){
 
   .feature-grid{
@@ -473,6 +526,29 @@ body:not(.light) #typingInput{
 
   .home-title{
     font-size:40px!important;
+  }
+}
+
+@media(max-width:700px){
+
+  #testArea{
+    padding:20px 14px 30px!important;
+  }
+
+  .typing-container{
+    min-height:360px;
+  }
+
+  #textDisplay,
+  #typingInput{
+    height:300px;
+    font-size:22px;
+    line-height:1.55;
+    letter-spacing:.4px;
+  }
+
+  #testArea .test-top:after{
+    display:none!important;
   }
 }
 
@@ -493,27 +569,6 @@ body:not(.light) #typingInput{
   .abid-home{
     padding-top:38px;
   }
-}
-
-
-/* =====================================================
-   DARK INNER TEST + AUDIO FEEDBACK
-===================================================== */
-
-body:not(.light) #setupArea{
-  background:#0a0f17!important;
-}
-
-body:not(.light) #resultArea{
-  background:#0a0f17!important;
-}
-
-#homePage.home-hidden~.account-card{
-  display:none;
-}
-
-#homePage.home-hidden~#setupArea{
-  margin-top:34px;
 }
 </style>
 </head>
@@ -539,7 +594,7 @@ body:not(.light) #resultArea{
 
 
 <!-- =====================================================
-     HOME PAGE
+     HOME
 ===================================================== -->
 
 <section id="homePage" class="abid-home">
@@ -558,8 +613,7 @@ body:not(.light) #resultArea{
     </div>
 
     <h1 class="home-title">
-      Improve your typing speed with
-      <br>
+      Improve your typing speed with<br>
       <span>our free Typing Games</span>
     </h1>
 
@@ -587,7 +641,6 @@ body:not(.light) #resultArea{
         <button type="button">
           Start Test
         </button>
-
       </article>
 
 
@@ -664,8 +717,8 @@ body:not(.light) #resultArea{
         <h3>Custom Mode</h3>
 
         <p>
-          Choose your language, typing mode, and
-          custom duration for your own test.
+          Choose your language, typing mode,
+          and custom duration for your own test.
         </p>
 
         <button type="button">
@@ -897,7 +950,7 @@ body:not(.light) #resultArea{
 
 
 <!-- =====================================================
-     TEST AREA
+     TEST
 ===================================================== -->
 
 <section
@@ -935,10 +988,7 @@ body:not(.light) #resultArea{
   </div>
 
 
-  <div
-    class="typing-container"
-    id="typingContainer"
-  >
+  <div class="typing-container">
 
     <div
       id="textDisplay"
@@ -946,21 +996,26 @@ body:not(.light) #resultArea{
     ></div>
 
 
-    <textarea
-      id="typingInput"
-      class="typing-input"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Start typing..."
-    ></textarea>
+    <div class="typing-input-wrap">
+
+      <textarea
+        id="typingInput"
+        class="typing-input"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="Start typing..."
+      ></textarea>
+
+    </div>
 
   </div>
 
 
   <div class="typing-help">
-    Type the text above. The test starts when you type.
+    Type the text above.
+    The timer starts with your first keystroke.
   </div>
 
 
@@ -1106,7 +1161,7 @@ body:not(.light) #resultArea{
 
 
 <!-- =====================================================
-     AUTH MODAL
+     AUTH
 ===================================================== -->
 
 <div
@@ -1211,8 +1266,14 @@ body:not(.light) #resultArea{
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 
-
 <script>
+
+'use strict';
+
+const $ =
+  id =>
+    document.getElementById(id);
+
 
 /* =====================================================
    SUPABASE
@@ -1236,23 +1297,14 @@ try{
 
   }
 
-}catch(error){
+}catch(e){
 
-  console.error(
-    "Supabase initialization error:",
-    error
+  console.warn(
+    'Supabase unavailable',
+    e
   );
 
 }
-
-
-/* =====================================================
-   SHORT SELECTOR
-===================================================== */
-
-const $ =
-  id =>
-    document.getElementById(id);
 
 
 /* =====================================================
@@ -1262,94 +1314,94 @@ const $ =
 const passages = {
 
 en:
-"Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.",
+'Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.',
 
 bn:
-"নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।",
+'নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।',
 
 hi:
-"नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं। हर दिन सीखने और बेहतर बनने का एक नया अवसर है।",
+'नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं। हर दिन सीखने और बेहतर बनने का एक नया अवसर है।',
 
 ur:
-"باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔ ہر دن بہتر سیکھنے کا ایک نیا موقع ہے۔",
+'باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔',
 
 ar:
-"تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي. كل يوم هو فرصة جديدة لتحسين مهاراتك وثقتك.",
+'تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي. كل يوم هو فرصة جديدة لتحسين مهاراتك وثقتك.',
 
 es:
-"Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará de forma natural. Cada día es una nueva oportunidad para mejorar.",
+'Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará de forma natural.',
 
 fr:
-"La frappe est une compétence qui s'améliore avec une pratique régulière. Concentrez-vous d'abord sur la précision et la vitesse viendra naturellement.",
+'La frappe est une compétence qui s’améliore avec une pratique régulière. Concentrez-vous d’abord sur la précision et la vitesse viendra naturellement.',
 
 de:
-"Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird ganz natürlich folgen.",
+'Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird ganz natürlich folgen.',
 
 it:
-"La digitazione è un'abilità che migliora con la pratica regolare. Concentrati prima sulla precisione e la velocità arriverà naturalmente.",
+'La digitazione è un’abilità che migliora con la pratica regolare. Concentrati prima sulla precisione e la velocità arriverà naturalmente.',
 
 pt:
-"A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.",
+'A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.',
 
 ru:
-"Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности, а скорость придет естественно.",
+'Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности, а скорость придет естественно.',
 
 zh:
-"打字是一项可以通过定期练习不断提高的技能。首先专注于准确性，然后速度会自然提高。每天都是提升打字能力的新机会。",
+'打字是一项可以通过定期练习不断提高的技能。首先专注于准确性，然后速度会自然提高。每天都是提升打字能力的新机会。',
 
 ja:
-"タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。毎日少しずつ練習することで速度と自信を高めることができます。",
+'タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。毎日少しずつ練習することで速度と自信を高めることができます。',
 
 ko:
-"타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.",
+'타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.',
 
 tr:
-"Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.",
+'Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.',
 
 id:
-"Mengetik adalah keterampilan yang meningkat dengan latihan rutin. Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti secara alami.",
+'Mengetik adalah keterampilan yang meningkat dengan latihan rutin. Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti secara alami.',
 
 ms:
-"Kemahiran menaip akan bertambah baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat secara semula jadi.",
+'Kemahiran menaip akan bertambah baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat secara semula jadi.',
 
 vi:
-"Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.",
+'Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.',
 
 th:
-"การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ",
+'การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ',
 
 nl:
-"Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen."
+'Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen.'
 
 };
 
 
 /* =====================================================
-   PUNCTUATION TEXTS
+   PUNCTUATION
 ===================================================== */
 
 const punctuationTexts = {
 
 en:
-"Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?",
+'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
 
 bn:
-"নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?",
+'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
 
 es:
-"Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!",
+'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!',
 
 fr:
-"Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!",
+'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!',
 
 de:
-"Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!",
+'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!',
 
 hi:
-"नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!",
+'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!',
 
 ar:
-"تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!"
+'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!'
 
 };
 
@@ -1361,21 +1413,13 @@ ar:
 let test = {
 
   started:false,
-
   running:false,
-
   start:0,
-
   timer:null,
-
   duration:60,
-
-  text:"",
-
-  input:"",
-
+  text:'',
+  input:'',
   wordResults:[],
-
   finished:false
 
 };
@@ -1388,47 +1432,29 @@ let test = {
 function getDuration(){
 
   const value =
-    $("duration")?.value || "60";
+    $('duration').value;
 
-  if(value === "custom"){
+  if(value === 'custom'){
 
     let n =
       Number(
-        $("customTime")?.value
+        $('customTime').value
       );
 
     if(
       !Number.isFinite(n) ||
       n < 10
     ){
-
       n = 60;
-
     }
 
     return Math.min(
-      n,
-      3600
+      3600,
+      Math.floor(n)
     );
-
   }
 
   return Number(value) || 60;
-
-}
-
-
-function updateDurationUI(){
-
-  const wrap =
-    $("customTimeWrap");
-
-  if(!wrap) return;
-
-  wrap.classList.toggle(
-    "hidden",
-    $("duration")?.value !== "custom"
-  );
 
 }
 
@@ -1440,15 +1466,17 @@ function updateDurationUI(){
 function buildText(){
 
   const lang =
-    $("language")?.value || "en";
+    $('language').value;
 
   const mode =
-    $("mode")?.value || "normal";
+    $('mode').value;
 
   let text =
-    passages[lang] || passages.en;
+    passages[lang] ||
+    passages.en;
 
-  if(mode === "punctuation"){
+
+  if(mode === 'punctuation'){
 
     text =
       punctuationTexts[lang] ||
@@ -1456,29 +1484,32 @@ function buildText(){
 
   }
 
-  if(mode === "capital"){
+
+  if(mode === 'capital'){
 
     text =
       text.toUpperCase();
 
   }
 
-  if(mode === "small"){
+
+  if(mode === 'small'){
 
     text =
       text
         .replace(
           /[.,!?;:'"()[\]{}\-—–]/g,
-          ""
+          ''
         )
         .toLowerCase()
         .replace(
           /\s+/g,
-          " "
+          ' '
         )
         .trim();
 
   }
+
 
   return text;
 
@@ -1486,65 +1517,42 @@ function buildText(){
 
 
 /* =====================================================
-   LONG TEXT
-===================================================== */
-
-function createLongText(){
-
-  const base =
-    buildText();
-
-  let output = "";
-
-  for(
-    let i=0;
-    i<100;
-    i++
-  ){
-
-    output +=
-      base + " ";
-
-  }
-
-  return output.trim();
-
-}
-
-
-/* =====================================================
    SETUP TEXT
+   IMPORTANT: NORMAL SPACE
 ===================================================== */
 
 function setupText(){
 
   test.text =
-    createLongText();
+    Array.from(
+      {length:80},
+      () => buildText()
+    )
+    .join(' ')
+    .trim();
+
 
   const display =
-    $("textDisplay");
+    $('textDisplay');
 
-  if(!display) return;
+  display.innerHTML = '';
 
-  display.innerHTML = "";
-
-  display.scrollTop = 0;
 
   const fragment =
     document.createDocumentFragment();
+
 
   [...test.text].forEach(
     (char,index)=>{
 
       const span =
         document.createElement(
-          "span"
+          'span'
         );
 
+      /* FIXED: normal space */
       span.textContent =
-        char === " "
-          ? "\u00A0"
-          : char;
+        char;
 
       span.dataset.index =
         index;
@@ -1556,9 +1564,12 @@ function setupText(){
     }
   );
 
+
   display.appendChild(
     fragment
   );
+
+  display.scrollTop = 0;
 
   updateDisplay();
 
@@ -1572,20 +1583,19 @@ function setupText(){
 function updateDisplay(){
 
   const input =
-    $("typingInput")?.value || "";
+    $('typingInput').value;
 
   const display =
-    $("textDisplay");
-
-  if(!display) return;
+    $('textDisplay');
 
   const spans =
     [...display.children];
 
+
   spans.forEach(
     (span,index)=>{
 
-      span.className = "";
+      span.className = '';
 
       if(index < input.length){
 
@@ -1593,8 +1603,9 @@ function updateDisplay(){
 
           input[index] ===
           test.text[index]
-            ? "correct"
-            : "wrong"
+
+            ? 'correct'
+            : 'wrong'
 
         );
 
@@ -1607,49 +1618,45 @@ function updateDisplay(){
   const current =
     spans[input.length];
 
-  if(!current) return;
+
+  if(current){
+
+    current.classList.add(
+      'current'
+    );
 
 
-  current.classList.add(
-    "current"
-  );
+    const rect =
+      current.getBoundingClientRect();
+
+    const displayRect =
+      display.getBoundingClientRect();
 
 
-  /*
-    Smoothly keep the current
-    character visible without
-    jumping around randomly.
-  */
+    if(
+      rect.bottom >
+      displayRect.bottom - 35
+    ){
 
-  const dRect =
-    display.getBoundingClientRect();
+      display.scrollTop +=
+        rect.bottom -
+        displayRect.bottom +
+        45;
 
-  const cRect =
-    current.getBoundingClientRect();
-
-
-  if(
-    cRect.bottom >
-    dRect.bottom - 20
-  ){
-
-    display.scrollTop +=
-      cRect.bottom -
-      dRect.bottom +
-      35;
-
-  }
+    }
 
 
-  if(
-    cRect.top <
-    dRect.top + 20
-  ){
+    if(
+      rect.top <
+      displayRect.top + 30
+    ){
 
-    display.scrollTop -=
-      dRect.top -
-      cRect.top +
-      35;
+      display.scrollTop -=
+        displayRect.top -
+        rect.top +
+        45;
+
+    }
 
   }
 
@@ -1657,37 +1664,45 @@ function updateDisplay(){
 
 
 /* =====================================================
-   MODE INFO
+   MODE
 ===================================================== */
 
 function updateModeInfo(){
 
   const mode =
-    $("mode")?.value ||
-    "normal";
+    $('mode').value;
 
-  const messages = {
+  $('modeInfo').textContent = {
 
     normal:
-      "Normal typing practice.",
+      'Normal typing practice.',
 
     punctuation:
-      "Practice typing with punctuation marks.",
+      'Practice typing with punctuation marks.',
 
     capital:
-      "Practice typing CAPITAL letters.",
+      'Practice typing CAPITAL letters.',
 
     small:
-      "Practice lowercase letters without punctuation."
+      'Practice lowercase letters without punctuation.'
 
-  };
+  }[mode];
 
-  if($("mode")){
+}
 
-    $("modeInfo").textContent =
-      messages[mode];
 
-  }
+/* =====================================================
+   DURATION UI
+===================================================== */
+
+function updateDurationUI(){
+
+  $('customTimeWrap')
+    .classList
+    .toggle(
+      'hidden',
+      $('duration').value !== 'custom'
+    );
 
 }
 
@@ -1698,54 +1713,16 @@ function updateModeInfo(){
 
 function updateLanguage(){
 
-  const select =
-    $("language");
-
-  const current =
-    $("currentLanguage");
-
-  if(
-    !select ||
-    !current
-  ) return;
-
   const option =
-    select.options[
-      select.selectedIndex
-    ];
+    $('language').selectedOptions[0];
 
-  current.textContent =
+  $('currentLanguage').textContent =
     option
-      ? option.textContent
-          .replace(
-            /^[^\p{L}\p{N}]+/u,
-            ""
-          )
-      : "English";
-
-}
-
-
-/* =====================================================
-   TIMER START
-===================================================== */
-
-function beginTest(){
-
-  if(test.started) return;
-
-  test.started = true;
-
-  test.running = true;
-
-  test.start =
-    Date.now();
-
-  test.timer =
-    setInterval(
-      updateTimer,
-      100
-    );
+      ? option.textContent.replace(
+          /^[^\p{L}\p{N}]+/u,
+          ''
+        )
+      : 'English';
 
 }
 
@@ -1754,15 +1731,46 @@ function beginTest(){
    TIMER
 ===================================================== */
 
+function beginTest(){
+
+  if(
+    test.started ||
+    test.finished
+  ){
+    return;
+  }
+
+
+  test.started = true;
+  test.running = true;
+  test.start = Date.now();
+
+
+  test.timer =
+    setInterval(
+      updateTimer,
+      100
+    );
+
+
+  $('typingInput').focus();
+
+}
+
+
 function updateTimer(){
 
-  if(!test.running) return;
+  if(!test.running){
+    return;
+  }
+
 
   const elapsed =
     Math.floor(
       (Date.now() -
-       test.start) / 1000
+      test.start) / 1000
     );
+
 
   const left =
     Math.max(
@@ -1771,27 +1779,21 @@ function updateTimer(){
       elapsed
     );
 
-  if($("time")){
 
-    $("time").textContent =
-      left;
-
-  }
+  $('time').textContent =
+    left;
 
 
   if(
     left <= 10 &&
-    left > 0
-  ){
-
-    if(
+    left > 0 &&
+    (
       left === 10 ||
       left <= 5
-    ){
+    )
+  ){
 
-      playWarningSound();
-
-    }
+    playWarningSound();
 
   }
 
@@ -1806,331 +1808,27 @@ function updateTimer(){
 
 
 /* =====================================================
-   AUDIO
-===================================================== */
-
-let audioContext = null;
-
-let soundIndex = 0;
-
-
-function getAudio(){
-
-  try{
-
-    if(!audioContext){
-
-      audioContext =
-        new (
-          window.AudioContext ||
-          window.webkitAudioContext
-        )();
-
-    }
-
-    if(
-      audioContext.state ===
-      "suspended"
-    ){
-
-      audioContext.resume();
-
-    }
-
-    return audioContext;
-
-  }catch(error){
-
-    return null;
-
-  }
-
-}
-
-
-function tone(
-  frequency,
-  duration,
-  type="square",
-  volume=.018,
-  delay=0
-){
-
-  try{
-
-    const audio =
-      getAudio();
-
-    if(!audio) return;
-
-    const now =
-      audio.currentTime +
-      delay;
-
-    const oscillator =
-      audio.createOscillator();
-
-    const gain =
-      audio.createGain();
-
-    oscillator.type =
-      type;
-
-    oscillator.frequency
-      .setValueAtTime(
-        frequency,
-        now
-      );
-
-    gain.gain.setValueAtTime(
-      volume,
-      now
-    );
-
-    gain.gain
-      .exponentialRampToValueAtTime(
-        .0001,
-        now + duration
-      );
-
-    oscillator.connect(gain);
-
-    gain.connect(
-      audio.destination
-    );
-
-    oscillator.start(now);
-
-    oscillator.stop(
-      now +
-      duration +
-      .01
-    );
-
-  }catch(error){}
-
-}
-
-
-function playTypingSound(
-  character,
-  correct
-){
-
-  const correctSounds = [
-    420,
-    470,
-    520,
-    440,
-    490,
-    550
-  ];
-
-  const wrongSounds = [
-    150,
-    120,
-    180
-  ];
-
-  const set =
-    correct
-      ? correctSounds
-      : wrongSounds;
-
-  const frequency =
-    set[
-      soundIndex++ %
-      set.length
-    ];
-
-  tone(
-    frequency,
-    .035,
-    correct
-      ? "square"
-      : "sawtooth",
-    correct
-      ? .014
-      : .022
-  );
-
-
-  if(
-    character === " " &&
-    correct
-  ){
-
-    tone(
-      280,
-      .022,
-      "triangle",
-      .009,
-      .008
-    );
-
-  }
-
-}
-
-
-function playStartSound(){
-
-  tone(
-    520,
-    .08,
-    "sine",
-    .02
-  );
-
-  tone(
-    700,
-    .09,
-    "sine",
-    .018,
-    .07
-  );
-
-}
-
-
-function playFinishSound(){
-
-  tone(
-    660,
-    .08,
-    "sine",
-    .02
-  );
-
-  tone(
-    880,
-    .12,
-    "sine",
-    .02,
-    .09
-  );
-
-  tone(
-    1040,
-    .16,
-    "sine",
-    .018,
-    .19
-  );
-
-}
-
-
-function playWarningSound(){
-
-  tone(
-    300,
-    .09,
-    "triangle",
-    .02
-  );
-
-  tone(
-    220,
-    .11,
-    "triangle",
-    .018,
-    .1
-  );
-
-}
-
-
-/* =====================================================
-   TYPING INPUT
-===================================================== */
-
-$("typingInput")?.addEventListener(
-  "input",
-  ()=>{
-
-    if(
-      !test.started &&
-      !test.finished
-    ){
-
-      beginTest();
-
-    }
-
-    const value =
-      $("typingInput").value;
-
-    const index =
-      value.length - 1;
-
-    const correct =
-      index >= 0 &&
-      value[index] ===
-      test.text[index];
-
-    test.input =
-      value;
-
-    updateDisplay();
-
-    if(index >= 0){
-
-      playTypingSound(
-        value[index],
-        correct
-      );
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   KEYBOARD
-===================================================== */
-
-$("typingInput")?.addEventListener(
-  "keydown",
-  event=>{
-
-    if(
-      event.key === "Tab"
-    ){
-
-      event.preventDefault();
-
-    }
-
-  }
-);
-
-
-/* =====================================================
    STATS
 ===================================================== */
 
 function calculateStats(){
 
   const input =
-    $("typingInput")?.value ||
-    "";
+    $('typingInput').value;
 
-  let correctChars = 0;
-
+  let correct = 0;
   let errors = 0;
 
 
   [...input].forEach(
-    (character,index)=>{
+    (char,index)=>{
 
       if(
-        character ===
+        char ===
         test.text[index]
       ){
 
-        correctChars++;
+        correct++;
 
       }else{
 
@@ -2154,18 +1852,13 @@ function calculateStats(){
       : 1;
 
 
-  const minutes =
-    elapsed / 60;
-
-
   const wpm =
     Math.max(
       0,
       Math.round(
-        (
-          correctChars / 5
-        ) /
-        minutes
+        correct /
+        5 /
+        (elapsed / 60)
       )
     );
 
@@ -2173,37 +1866,32 @@ function calculateStats(){
   const accuracy =
     input.length
       ? Math.round(
-          (
-            correctChars /
-            input.length
-          ) * 100
+          correct /
+          input.length *
+          100
         )
       : 100;
 
 
-  const typedWords =
+  const typed =
     input.trim()
-      ? input
-          .trim()
-          .split(/\s+/)
+      ? input.trim().split(/\s+/)
       : [];
 
 
-  const targetWords =
-    test.text
-      .trim()
-      .split(/\s+/);
+  const target =
+    test.text.trim().split(/\s+/);
 
 
   let correctWords = 0;
 
 
-  typedWords.forEach(
+  typed.forEach(
     (word,index)=>{
 
       if(
         word ===
-        targetWords[index]
+        target[index]
       ){
 
         correctWords++;
@@ -2214,18 +1902,6 @@ function calculateStats(){
   );
 
 
-  const totalWords =
-    typedWords.length;
-
-
-  const wrongWords =
-    Math.max(
-      0,
-      totalWords -
-      correctWords
-    );
-
-
   return {
 
     wpm,
@@ -2234,13 +1910,20 @@ function calculateStats(){
 
     errors,
 
-    totalWords,
+    totalWords:
+      typed.length,
 
     correctWords,
 
-    wrongWords,
+    wrongWords:
+      Math.max(
+        0,
+        typed.length -
+        correctWords
+      ),
 
-    correctChars
+    correctChars:
+      correct
 
   };
 
@@ -2253,13 +1936,12 @@ function calculateStats(){
 
 function makeWordResults(){
 
-  const input =
-    $("typingInput")?.value ||
-    "";
-
   const typed =
-    input.trim()
-      ? input
+    $('typingInput')
+      .value
+      .trim()
+      ? $('typingInput')
+          .value
           .trim()
           .split(/\s+/)
       : [];
@@ -2274,8 +1956,8 @@ function makeWordResults(){
   return typed.map(
     (word,index)=>
       word === target[index]
-        ? "correct"
-        : "wrong"
+        ? 'correct'
+        : 'wrong'
   );
 
 }
@@ -2291,15 +1973,13 @@ async function finishTest(){
     test.finished ||
     !test.started
   ){
-
     return;
-
   }
 
 
   test.finished = true;
-
   test.running = false;
+
 
   clearInterval(
     test.timer
@@ -2307,8 +1987,9 @@ async function finishTest(){
 
   test.timer = null;
 
+
   test.input =
-    $("typingInput").value;
+    $('typingInput').value;
 
 
   const stats =
@@ -2319,55 +2000,41 @@ async function finishTest(){
     makeWordResults();
 
 
-  $("time").textContent =
-    "0";
+  $('time').textContent =
+    '0';
 
 
-  $("resultWpm").textContent =
+  $('resultWpm').textContent =
     stats.wpm;
 
+  $('resultAccuracy').textContent =
+    stats.accuracy + '%';
 
-  $("resultAccuracy").textContent =
-    stats.accuracy + "%";
-
-
-  $("resultWords").textContent =
+  $('resultWords').textContent =
     stats.totalWords;
 
-
-  $("resultErrors").textContent =
+  $('resultErrors').textContent =
     stats.errors;
 
-
-  $("correctWords").textContent =
+  $('correctWords').textContent =
     stats.correctWords;
 
-
-  $("wrongWords").textContent =
+  $('wrongWords').textContent =
     stats.wrongWords;
 
 
-  $("typingInput").disabled =
+  $('typingInput').disabled =
     true;
 
 
-  $("testArea")
-    .classList.add(
-      "hidden"
-    );
-
-
-  $("resultArea")
-    .classList.remove(
-      "hidden"
-    );
-
-
-  document.body
+  $('testArea')
     .classList
-    .remove(
-      "typing-mode"
-    );
+    .add('hidden');
+
+
+  $('resultArea')
+    .classList
+    .remove('hidden');
 
 
   playFinishSound();
@@ -2393,19 +2060,20 @@ async function finishTest(){
 function drawGraph(){
 
   const canvas =
-    $("performanceChart");
+    $('performanceChart');
 
-  if(!canvas) return;
+  if(!canvas){
+    return;
+  }
 
 
   const ctx =
-    canvas.getContext("2d");
+    canvas.getContext('2d');
 
 
   const width =
     canvas.clientWidth ||
     800;
-
 
   const height =
     260;
@@ -2418,7 +2086,6 @@ function drawGraph(){
 
   canvas.width =
     width * ratio;
-
 
   canvas.height =
     height * ratio;
@@ -2449,13 +2116,13 @@ function drawGraph(){
   if(!results.length){
 
     ctx.fillStyle =
-      "#9ba4b5";
+      '#9ba4b5';
 
     ctx.font =
-      "14px Arial";
+      '14px Arial';
 
     ctx.fillText(
-      "Type some words to see your performance.",
+      'Type some words to see your performance.',
       30,
       50
     );
@@ -2465,9 +2132,13 @@ function drawGraph(){
   }
 
 
+  const usable =
+    width - 60;
+
+
   const step =
     results.length > 1
-      ? (width - 60) /
+      ? usable /
         (results.length - 1)
       : 0;
 
@@ -2478,12 +2149,11 @@ function drawGraph(){
       const x =
         results.length === 1
           ? width / 2
-          : 30 +
-            index * step;
+          : 30 + index * step;
 
 
       const y =
-        result === "correct"
+        result === 'correct'
           ? height - 100
           : height - 175;
 
@@ -2500,10 +2170,9 @@ function drawGraph(){
 
 
       ctx.fillStyle =
-        result === "correct"
-          ? "#22c55e"
-          : "#ef4444";
-
+        result === 'correct'
+          ? '#22c55e'
+          : '#ef4444';
 
       ctx.fill();
 
@@ -2523,7 +2192,7 @@ function drawGraph(){
 
 
         const py =
-          previous === "correct"
+          previous === 'correct'
             ? height - 100
             : height - 175;
 
@@ -2542,7 +2211,7 @@ function drawGraph(){
 
 
         ctx.strokeStyle =
-          "rgba(255,255,255,.18)";
+          'rgba(255,255,255,.18)';
 
         ctx.stroke();
 
@@ -2562,37 +2231,35 @@ async function saveResult(
   stats
 ){
 
-  if(!supabaseClient)
+  if(!supabaseClient){
     return;
+  }
 
 
   try{
 
     const {
-      data:{
-        user
-      }
+      data:{user}
     } =
       await supabaseClient
         .auth
         .getUser();
 
 
-    if(!user)
+    if(!user){
       return;
+    }
 
 
     await supabaseClient
-      .from(
-        "typing_results"
-      )
+      .from('typing_results')
       .insert({
 
         user_id:
           user.id,
 
         language_code:
-          $("language").value,
+          $('language').value,
 
         duration_seconds:
           test.duration,
@@ -2615,7 +2282,7 @@ async function saveResult(
   }catch(error){
 
     console.error(
-      "Save result error:",
+      'Save result error:',
       error
     );
 
@@ -2638,22 +2305,13 @@ function resetTest(){
   test = {
 
     started:false,
-
     running:false,
-
     start:0,
-
     timer:null,
-
-    duration:
-      getDuration(),
-
-    text:"",
-
-    input:"",
-
+    duration:getDuration(),
+    text:'',
+    input:'',
     wordResults:[],
-
     finished:false
 
   };
@@ -2661,48 +2319,37 @@ function resetTest(){
 
   document.body
     .classList
-    .remove(
-      "typing-mode"
-    );
+    .remove('typing-mode');
 
 
-  $("homePage")
+  $('homePage')
     .classList
-    .remove(
-      "home-hidden"
-    );
+    .remove('home-hidden');
 
 
-  $("setupArea")
+  $('setupArea')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 
-  $("testArea")
+  $('testArea')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 
-  $("resultArea")
+  $('resultArea')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 
-  $("time").textContent =
+  $('time').textContent =
     test.duration;
 
 
-  $("typingInput").value =
-    "";
+  $('typingInput').value =
+    '';
 
-
-  $("typingInput").disabled =
+  $('typingInput').disabled =
     false;
 
 
@@ -2715,72 +2362,53 @@ function resetTest(){
 
   window.scrollTo({
     top:0,
-    behavior:"smooth"
+    behavior:'smooth'
   });
 
 }
 
 
 /* =====================================================
-   DIRECT TEST
+   START DIRECT TEST
 ===================================================== */
 
 function startDirectTest(){
 
   document.body
     .classList
-    .add(
-      "typing-mode"
-    );
+    .add('typing-mode');
 
 
-  $("homePage")
+  $('homePage')
     .classList
-    .add(
-      "home-hidden"
-    );
+    .add('home-hidden');
 
 
-  $("setupArea")
+  $('setupArea')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 
-  $("resultArea")
+  $('resultArea')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 
-  $("testArea")
+  $('testArea')
     .classList
-    .remove(
-      "hidden"
-    );
+    .remove('hidden');
 
 
   test = {
 
     started:false,
-
     running:false,
-
     start:0,
-
     timer:null,
-
-    duration:
-      getDuration(),
-
-    text:"",
-
-    input:"",
-
+    duration:getDuration(),
+    text:'',
+    input:'',
     wordResults:[],
-
     finished:false
 
   };
@@ -2789,37 +2417,34 @@ function startDirectTest(){
   setupText();
 
 
-  $("time").textContent =
+  $('time').textContent =
     test.duration;
 
 
-  $("typingInput").value =
-    "";
+  $('typingInput').value =
+    '';
 
-
-  $("typingInput").disabled =
+  $('typingInput').disabled =
     false;
 
 
   updateLanguage();
 
-
-  $("typingInput").focus();
-
+  $('typingInput').focus();
 
   playStartSound();
 
 
   window.scrollTo({
     top:0,
-    behavior:"smooth"
+    behavior:'smooth'
   });
 
 }
 
 
 /* =====================================================
-   SHOW SETUP
+   CUSTOM SETUP
 ===================================================== */
 
 function showTypingSetup(
@@ -2828,43 +2453,33 @@ function showTypingSetup(
 
   document.body
     .classList
-    .remove(
-      "typing-mode"
-    );
+    .remove('typing-mode');
 
 
-  $("homePage")
+  $('homePage')
     .classList
-    .add(
-      "home-hidden"
-    );
+    .add('home-hidden');
 
 
-  $("setupArea")
+  $('setupArea')
     .classList
-    .remove(
-      "hidden"
-    );
+    .remove('hidden');
 
 
-  $("testArea")
+  $('testArea')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 
-  $("resultArea")
+  $('resultArea')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 
   if(custom){
 
-    $("duration").value =
-      "custom";
+    $('duration').value =
+      'custom';
 
     updateDurationUI();
 
@@ -2873,117 +2488,70 @@ function showTypingSetup(
 
   window.scrollTo({
     top:0,
-    behavior:"smooth"
+    behavior:'smooth'
   });
 
 }
 
 
 /* =====================================================
-   COMING SOON
+   INPUT
 ===================================================== */
 
-function showComingSoon(
-  name
-){
-
-  tone(
-    260,
-    .12,
-    "sine",
-    .018
-  );
-
-
-  alert(
-    name +
-    " is coming soon. AbidType will add this game later."
-  );
-
-}
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-$("startTestBtn")
-  ?.addEventListener(
-    "click",
-    startDirectTest
-  );
-
-
-$("finishBtn")
-  ?.addEventListener(
-    "click",
-    finishTest
-  );
-
-
-$("restartBtn")
-  ?.addEventListener(
-    "click",
-    resetTest
-  );
-
-
-$("tryAgainBtn")
-  ?.addEventListener(
-    "click",
-    resetTest
-  );
-
-
-/* =====================================================
-   LANGUAGE / MODE / DURATION
-===================================================== */
-
-$("language")
-  ?.addEventListener(
-    "change",
+$('typingInput')
+  .addEventListener(
+    'input',
     ()=>{
-      updateLanguage();
-      resetTest();
+
+      if(!test.started){
+
+        beginTest();
+
+      }
+
+
+      const value =
+        $('typingInput').value;
+
+
+      const index =
+        value.length - 1;
+
+
+      const correct =
+        index >= 0 &&
+        value[index] ===
+        test.text[index];
+
+
+      test.input =
+        value;
+
+
+      updateDisplay();
+
+
+      if(index >= 0){
+
+        playTypingSound(
+          value[index],
+          correct
+        );
+
+      }
+
     }
   );
 
 
-$("mode")
-  ?.addEventListener(
-    "change",
-    ()=>{
-      updateModeInfo();
-      resetTest();
-    }
-  );
+$('typingInput')
+  .addEventListener(
+    'keydown',
+    event=>{
 
+      if(event.key === 'Tab'){
 
-$("duration")
-  ?.addEventListener(
-    "change",
-    ()=>{
-      updateDurationUI();
-      resetTest();
-    }
-  );
-
-
-$("customTime")
-  ?.addEventListener(
-    "input",
-    ()=>{
-
-      if(
-        $("duration").value ===
-        "custom"
-      ){
-
-        $("time").textContent =
-          getDuration();
-
-        test.duration =
-          getDuration();
+        event.preventDefault();
 
       }
 
@@ -2992,31 +2560,321 @@ $("customTime")
 
 
 /* =====================================================
+   BUTTONS
+===================================================== */
+
+$('startTestBtn').onclick =
+  startDirectTest;
+
+$('finishBtn').onclick =
+  finishTest;
+
+$('restartBtn').onclick =
+  resetTest;
+
+$('tryAgainBtn').onclick =
+  resetTest;
+
+
+/* =====================================================
+   LANGUAGE / MODE / TIMER
+===================================================== */
+
+$('language').onchange =
+  ()=>{
+    updateLanguage();
+    resetTest();
+  };
+
+
+$('mode').onchange =
+  ()=>{
+    updateModeInfo();
+    resetTest();
+  };
+
+
+$('duration').onchange =
+  ()=>{
+    updateDurationUI();
+    resetTest();
+  };
+
+
+$('customTime').oninput =
+  ()=>{
+
+    if(
+      $('duration').value ===
+      'custom'
+    ){
+
+      $('time').textContent =
+        getDuration();
+
+      test.duration =
+        getDuration();
+
+    }
+
+  };
+
+
+/* =====================================================
    THEME
 ===================================================== */
 
-$("themeBtn")
-  ?.addEventListener(
-    "click",
-    ()=>{
+$('themeBtn').onclick =
+  ()=>{
 
-      /*
-        AbidType is kept in dark
-        theme as requested.
-      */
+    document.body
+      .classList
+      .remove('light');
 
-      document.body
-        .classList
-        .remove(
-          "light"
-        );
+    $('themeBtn').textContent =
+      '🌙';
 
-      $("themeBtn")
-        .textContent =
-        "🌙";
+  };
 
-    }
+
+/* =====================================================
+   AUDIO
+===================================================== */
+
+let soundIndex = 0;
+
+let audioContext = null;
+
+
+function getAudio(){
+
+  if(!audioContext){
+
+    audioContext =
+      new (
+        window.AudioContext ||
+        window.webkitAudioContext
+      )();
+
+  }
+
+
+  if(
+    audioContext.state ===
+    'suspended'
+  ){
+
+    audioContext.resume();
+
+  }
+
+
+  return audioContext;
+
+}
+
+
+function tone(
+  frequency,
+  duration,
+  type='square',
+  volume=.018,
+  delay=0
+){
+
+  try{
+
+    const audio =
+      getAudio();
+
+    const now =
+      audio.currentTime +
+      delay;
+
+
+    const oscillator =
+      audio.createOscillator();
+
+    const gain =
+      audio.createGain();
+
+
+    oscillator.type =
+      type;
+
+    oscillator.frequency
+      .setValueAtTime(
+        frequency,
+        now
+      );
+
+
+    gain.gain.setValueAtTime(
+      volume,
+      now
+    );
+
+
+    gain.gain
+      .exponentialRampToValueAtTime(
+        .0001,
+        now + duration
+      );
+
+
+    oscillator.connect(
+      gain
+    );
+
+    gain.connect(
+      audio.destination
+    );
+
+
+    oscillator.start(
+      now
+    );
+
+    oscillator.stop(
+      now +
+      duration +
+      .01
+    );
+
+
+  }catch(error){}
+
+}
+
+
+function playTypingSound(
+  character,
+  correct
+){
+
+  const frequencies =
+    correct
+
+      ? [
+          420,
+          470,
+          520,
+          440,
+          490,
+          550
+        ]
+
+      : [
+          150,
+          120,
+          180
+        ];
+
+
+  const frequency =
+    frequencies[
+      soundIndex++
+      %
+      frequencies.length
+    ];
+
+
+  tone(
+    frequency,
+    .035,
+    correct
+      ? 'square'
+      : 'sawtooth',
+    correct
+      ? .014
+      : .022
   );
+
+
+  if(
+    character === ' ' &&
+    correct
+  ){
+
+    tone(
+      280,
+      .022,
+      'triangle',
+      .009,
+      .008
+    );
+
+  }
+
+}
+
+
+function playStartSound(){
+
+  tone(
+    520,
+    .08,
+    'sine',
+    .02
+  );
+
+  tone(
+    700,
+    .09,
+    'sine',
+    .018,
+    .07
+  );
+
+}
+
+
+function playFinishSound(){
+
+  tone(
+    660,
+    .08,
+    'sine',
+    .02
+  );
+
+  tone(
+    880,
+    .12,
+    'sine',
+    .02,
+    .09
+  );
+
+  tone(
+    1040,
+    .16,
+    'sine',
+    .018,
+    .19
+  );
+
+}
+
+
+function playWarningSound(){
+
+  tone(
+    300,
+    .09,
+    'triangle',
+    .02
+  );
+
+  tone(
+    220,
+    .11,
+    'triangle',
+    .018,
+    .1
+  );
+
+}
 
 
 /* =====================================================
@@ -3028,272 +2886,39 @@ let loginMode = false;
 
 function openAuth(){
 
-  $("authModal")
+  $('authModal')
     .classList
-    .remove(
-      "hidden"
-    );
+    .remove('hidden');
 
-  $("authMessage")
-    .textContent =
-    "";
+  $('authMessage')
+    .textContent = '';
 
 }
 
 
 function closeAuth(){
 
-  $("authModal")
+  $('authModal')
     .classList
-    .add(
-      "hidden"
-    );
+    .add('hidden');
 
 }
 
 
-$("authBtn")
-  ?.addEventListener(
-    "click",
-    async ()=>{
+$('authBtn').onclick =
+  async ()=>{
 
-      if(!supabaseClient){
+    if(!supabaseClient){
 
-        openAuth();
+      openAuth();
 
-        return;
-
-      }
-
-
-      const {
-        data:{
-          user
-        }
-      } =
-        await supabaseClient
-          .auth
-          .getUser();
-
-
-      if(user){
-
-        await supabaseClient
-          .auth
-          .signOut();
-
-
-        await refreshUser();
-
-      }else{
-
-        openAuth();
-
-      }
+      return;
 
     }
-  );
 
-
-$("closeAuth")
-  ?.addEventListener(
-    "click",
-    closeAuth
-  );
-
-
-$("authModal")
-  ?.addEventListener(
-    "click",
-    event=>{
-
-      if(
-        event.target ===
-        $("authModal")
-      ){
-
-        closeAuth();
-
-      }
-
-    }
-  );
-
-
-$("switchAuth")
-  ?.addEventListener(
-    "click",
-    ()=>{
-
-      loginMode =
-        !loginMode;
-
-
-      $("authTitle")
-        .textContent =
-        loginMode
-          ? "Welcome back"
-          : "Create your account";
-
-
-      $("submitAuth")
-        .textContent =
-        loginMode
-          ? "Login"
-          : "Sign up";
-
-
-      $("nameField")
-        .classList
-        .toggle(
-          "hidden",
-          loginMode
-        );
-
-
-      $("switchAuth")
-        .textContent =
-        loginMode
-          ? "Need an account? Sign up"
-          : "Already have an account? Login";
-
-    }
-  );
-
-
-$("submitAuth")
-  ?.addEventListener(
-    "click",
-    async ()=>{
-
-      if(!supabaseClient)
-        return;
-
-
-      const email =
-        $("email")
-          .value
-          .trim();
-
-
-      const password =
-        $("password")
-          .value;
-
-
-      const name =
-        $("displayName")
-          .value
-          .trim();
-
-
-      if(
-        !email ||
-        password.length < 6
-      ){
-
-        $("authMessage")
-          .textContent =
-          "Enter an email and a password with at least 6 characters.";
-
-        return;
-
-      }
-
-
-      $("authMessage")
-        .textContent =
-        "Please wait...";
-
-
-      let result;
-
-
-      if(loginMode){
-
-        result =
-          await supabaseClient
-            .auth
-            .signInWithPassword({
-
-              email,
-              password
-
-            });
-
-      }else{
-
-        result =
-          await supabaseClient
-            .auth
-            .signUp({
-
-              email,
-
-              password,
-
-              options:{
-
-                data:{
-
-                  display_name:
-                    name ||
-                    "AbidType User"
-
-                }
-
-              }
-
-            });
-
-      }
-
-
-      if(result.error){
-
-        $("authMessage")
-          .textContent =
-          result.error.message;
-
-        return;
-
-      }
-
-
-      if(loginMode){
-
-        closeAuth();
-
-        await refreshUser();
-
-      }else{
-
-        $("authMessage")
-          .textContent =
-          "Account created. Check your email to confirm.";
-
-      }
-
-    }
-  );
-
-
-/* =====================================================
-   USER
-===================================================== */
-
-async function refreshUser(){
-
-  if(!supabaseClient)
-    return;
-
-
-  try{
 
     const {
-      data:{
-        user
-      }
+      data:{user}
     } =
       await supabaseClient
         .auth
@@ -3302,49 +2927,250 @@ async function refreshUser(){
 
     if(user){
 
-      $("authBtn")
-        .textContent =
-        "Logout";
+      await supabaseClient
+        .auth
+        .signOut();
 
 
-      $("welcome")
-        .textContent =
-        "Welcome, " +
-        (
-          user.user_metadata
-            ?.display_name ||
-          "AbidType User"
-        );
-
-
-      $("accountNote")
-        .textContent =
-        user.email || "";
-
+      await refreshUser();
 
     }else{
 
-      $("authBtn")
-        .textContent =
-        "Login / Sign up";
-
-
-      $("welcome")
-        .textContent =
-        "Practice as a guest";
-
-
-      $("accountNote")
-        .textContent =
-        "Create an account to save your typing results and build your personal record.";
+      openAuth();
 
     }
 
-  }catch(error){
+  };
 
-    console.error(error);
 
+$('closeAuth').onclick =
+  closeAuth;
+
+
+$('authModal').onclick =
+  event=>{
+
+    if(
+      event.target ===
+      $('authModal')
+    ){
+
+      closeAuth();
+
+    }
+
+  };
+
+
+$('switchAuth').onclick =
+  ()=>{
+
+    loginMode =
+      !loginMode;
+
+
+    $('authTitle')
+      .textContent =
+        loginMode
+          ? 'Welcome back'
+          : 'Create your account';
+
+
+    $('submitAuth')
+      .textContent =
+        loginMode
+          ? 'Login'
+          : 'Sign up';
+
+
+    $('nameField')
+      .classList
+      .toggle(
+        'hidden',
+        loginMode
+      );
+
+
+    $('switchAuth')
+      .textContent =
+        loginMode
+          ? 'Need an account? Sign up'
+          : 'Already have an account? Login';
+
+  };
+
+
+$('submitAuth').onclick =
+  async ()=>{
+
+    if(!supabaseClient){
+      return;
+    }
+
+
+    const email =
+      $('email')
+        .value
+        .trim();
+
+
+    const password =
+      $('password')
+        .value;
+
+
+    const name =
+      $('displayName')
+        .value
+        .trim();
+
+
+    if(
+      !email ||
+      password.length < 6
+    ){
+
+      $('authMessage')
+        .textContent =
+          'Enter an email and a password with at least 6 characters.';
+
+      return;
+
+    }
+
+
+    $('authMessage')
+      .textContent =
+        'Please wait...';
+
+
+    let result;
+
+
+    if(loginMode){
+
+      result =
+        await supabaseClient
+          .auth
+          .signInWithPassword({
+            email,
+            password
+          });
+
+    }else{
+
+      result =
+        await supabaseClient
+          .auth
+          .signUp({
+
+            email,
+
+            password,
+
+            options:{
+              data:{
+                display_name:
+                  name ||
+                  'AbidType User'
+              }
+            }
+
+          });
+
+    }
+
+
+    if(result.error){
+
+      $('authMessage')
+        .textContent =
+          result.error.message;
+
+      return;
+
+    }
+
+
+    if(loginMode){
+
+      closeAuth();
+
+      refreshUser();
+
+    }else{
+
+      $('authMessage')
+        .textContent =
+          'Account created. Check your email to confirm.';
+
+    }
+
+  };
+
+
+/* =====================================================
+   USER
+===================================================== */
+
+async function refreshUser(){
+
+  if(!supabaseClient){
+    return;
   }
+
+
+  try{
+
+    const {
+      data:{user}
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
+
+
+    if(user){
+
+      $('authBtn')
+        .textContent =
+          'Logout';
+
+
+      $('welcome')
+        .textContent =
+          'Welcome, ' +
+          (
+            user.user_metadata
+              ?.display_name ||
+            'AbidType User'
+          );
+
+
+      $('accountNote')
+        .textContent =
+          user.email || '';
+
+    }else{
+
+      $('authBtn')
+        .textContent =
+          'Login / Sign up';
+
+
+      $('welcome')
+        .textContent =
+          'Practice as a guest';
+
+
+      $('accountNote')
+        .textContent =
+          'Create an account to save your typing results and build your personal record.';
+
+    }
+
+
+  }catch(error){}
 
 }
 
@@ -3365,9 +3191,7 @@ async function loadHistory(){
 
 
   const {
-    data:{
-      user
-    }
+    data:{user}
   } =
     await supabaseClient
       .auth
@@ -3388,18 +3212,16 @@ async function loadHistory(){
     error
   } =
     await supabaseClient
-      .from(
-        "typing_results"
-      )
+      .from('typing_results')
       .select(
-        "language_code,duration_seconds,wpm,accuracy,created_at"
+        'language_code,duration_seconds,wpm,accuracy,created_at'
       )
       .eq(
-        "user_id",
+        'user_id',
         user.id
       )
       .order(
-        "created_at",
+        'created_at',
         {
           ascending:false
         }
@@ -3408,19 +3230,17 @@ async function loadHistory(){
 
 
   const box =
-    $("history");
+    $('history');
 
 
   box.classList
-    .remove(
-      "hidden"
-    );
+    .remove('hidden');
 
 
   if(error){
 
     box.textContent =
-      "Could not load history yet.";
+      'Could not load history yet.';
 
     return;
 
@@ -3430,7 +3250,7 @@ async function loadHistory(){
   if(!data?.length){
 
     box.textContent =
-      "No typing results yet.";
+      'No typing results yet.';
 
     return;
 
@@ -3440,85 +3260,58 @@ async function loadHistory(){
   box.innerHTML =
     data
       .map(
-        item=>{
+        item=>`
 
-          const language =
-            String(
-              item.language_code ||
-              "en"
-            ).toUpperCase();
+          <div class="history-row">
 
+            <span>
+              ${String(
+                item.language_code ||
+                'en'
+              ).toUpperCase()}
+            </span>
 
-          const wpm =
-            Number(
-              item.wpm || 0
-            );
+            <b>
+              ${Number(
+                item.wpm || 0
+              )} WPM
+            </b>
 
+            <b>
+              ${Number(
+                item.accuracy || 0
+              )}%
+            </b>
 
-          const accuracy =
-            Number(
-              item.accuracy || 0
-            );
+            <span>
+              ${
+                item.created_at
+                  ? new Date(
+                      item.created_at
+                    ).toLocaleDateString()
+                  : ''
+              }
+            </span>
 
+          </div>
 
-          const date =
-            item.created_at
-              ? new Date(
-                  item.created_at
-                ).toLocaleDateString()
-              : "";
-
-
-          return `
-
-            <div class="history-row">
-
-              <span>
-                ${language}
-              </span>
-
-              <b>
-                ${wpm} WPM
-              </b>
-
-              <b>
-                ${accuracy}%
-              </b>
-
-              <span>
-                ${date}
-              </span>
-
-            </div>
-
-          `;
-
-        }
+        `
       )
-      .join("");
+      .join('');
 
 }
 
 
-$("historyBtn")
-  ?.addEventListener(
-    "click",
-    loadHistory
-  );
+$('historyBtn').onclick =
+  loadHistory;
 
-
-/* =====================================================
-   AUTH STATE
-===================================================== */
 
 if(supabaseClient){
 
   supabaseClient
     .auth
     .onAuthStateChange(
-      ()=>{
-        refreshUser();
-      }
+      ()=>refreshUser()
     );
 
 }
@@ -3529,15 +3322,13 @@ if(supabaseClient){
 ===================================================== */
 
 window.addEventListener(
-  "resize",
+  'resize',
   ()=>{
 
     if(
-      !$("resultArea")
+      !$('resultArea')
         .classList
-        .contains(
-          "hidden"
-        )
+        .contains('hidden')
     ){
 
       drawGraph();
@@ -3546,6 +3337,30 @@ window.addEventListener(
 
   }
 );
+
+
+/* =====================================================
+   COMING SOON
+===================================================== */
+
+function showComingSoon(
+  name
+){
+
+  tone(
+    260,
+    .12,
+    'sine',
+    .018
+  );
+
+
+  alert(
+    name +
+    ' is coming soon. AbidType will add this game later.'
+  );
+
+}
 
 
 /* =====================================================
@@ -3560,17 +3375,13 @@ updateLanguage();
 
 resetTest();
 
-$("setupArea")
+$('setupArea')
   .classList
-  .add(
-    "hidden"
-  );
+  .add('hidden');
 
-$("homePage")
+$('homePage')
   .classList
-  .remove(
-    "home-hidden"
-  );
+  .remove('home-hidden');
 
 refreshUser();
 
