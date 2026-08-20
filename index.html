@@ -231,8 +231,16 @@ small,
   padding:58px 0 90px;
   overflow:hidden;
   background:
-    radial-gradient(circle at 78% 70%,rgba(124,92,255,.18),transparent 34%),
-    radial-gradient(circle at 12% 80%,rgba(59,130,246,.12),transparent 30%),
+    radial-gradient(
+      circle at 78% 70%,
+      rgba(124,92,255,.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 12% 80%,
+      rgba(59,130,246,.12),
+      transparent 30%
+    ),
     #05070b!important;
 }
 
@@ -263,7 +271,8 @@ small,
   left:-230px;
   bottom:-120px;
   transform:rotate(8deg);
-  box-shadow:0 0 0 65px rgba(59,130,246,.035);
+  box-shadow:
+    0 0 0 65px rgba(59,130,246,.035);
 }
 
 .home-inner{
@@ -328,7 +337,10 @@ small,
   background:rgba(18,23,33,.78);
   box-shadow:0 18px 45px rgba(0,0,0,.22);
   backdrop-filter:blur(10px);
-  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
 }
 
 .feature-card:hover{
@@ -442,6 +454,7 @@ body:not(.light) #resultArea{
 }
 
 @media(max-width:900px){
+
   .feature-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -452,6 +465,7 @@ body:not(.light) #resultArea{
 }
 
 @media(max-width:700px){
+
   #testArea{
     padding:20px 14px 30px!important;
   }
@@ -474,6 +488,7 @@ body:not(.light) #resultArea{
 }
 
 @media(max-width:620px){
+
   .feature-grid{
     grid-template-columns:1fr;
   }
@@ -496,6 +511,7 @@ body:not(.light) #resultArea{
 <body>
 
 <header class="header">
+
   <div class="brand">
     <div class="logo">AbidType</div>
     <div class="tagline">Global Typing Practice</div>
@@ -505,11 +521,13 @@ body:not(.light) #resultArea{
     <button id="themeBtn" type="button">🌙</button>
     <button id="authBtn" type="button">Login / Sign up</button>
   </div>
+
 </header>
 
 <main class="container">
 
 <section id="homePage" class="abid-home">
+
   <div class="home-inner">
 
     <div class="home-kicker">
@@ -547,76 +565,132 @@ body:not(.light) #resultArea{
       </article>
 
       <article class="feature-card soon">
+
         <span class="feature-icon">🏆</span>
+
         <h3>Competition</h3>
+
         <p>
           Challenge yourself and prepare for
           competitive typing matches.
         </p>
-        <button type="button"
-          onclick="event.stopPropagation();showComingSoon('Competition')">
+
+        <button
+          type="button"
+          onclick="event.stopPropagation();showComingSoon('Competition')"
+        >
           Coming Soon
         </button>
+
       </article>
 
       <article class="feature-card soon">
+
         <span class="feature-icon">🌐</span>
+
         <h3>Multiplayer</h3>
+
         <p>
           Type against other players in realtime
           multiplayer matches.
         </p>
-        <button type="button"
-          onclick="event.stopPropagation();showComingSoon('Multiplayer')">
+
+        <button
+          type="button"
+          onclick="event.stopPropagation();showComingSoon('Multiplayer')"
+        >
           Coming Soon
         </button>
+
       </article>
 
-      <article class="feature-card" onclick="startDirectTest()">
+      <article
+        class="feature-card"
+        onclick="startDirectTest()"
+      >
+
         <span class="feature-icon">📚</span>
+
         <h3>Text Practice</h3>
+
         <p>
           Create focused practice sessions and
           improve your speed with regular typing.
         </p>
-        <button type="button">Practice</button>
+
+        <button type="button">
+          Practice
+        </button>
+
       </article>
 
-      <article class="feature-card" onclick="showTypingSetup(true)">
+      <article
+        class="feature-card"
+        onclick="showTypingSetup(true)"
+      >
+
         <span class="feature-icon">⚙️</span>
+
         <h3>Custom Mode</h3>
+
         <p>
           Choose your language, typing mode,
           and custom duration for your own test.
         </p>
-        <button type="button">Customize</button>
+
+        <button type="button">
+          Customize
+        </button>
+
       </article>
 
     </div>
+
   </div>
+
 </section>
 
+
 <section class="account-card">
+
   <div>
-    <h2 id="welcome">Practice as a guest</h2>
+
+    <h2 id="welcome">
+      Practice as a guest
+    </h2>
+
     <p id="accountNote">
       Create an account to save your typing results
       and build your personal record.
     </p>
+
   </div>
+
 </section>
+
 
 <section id="setupArea" class="card hidden">
 
   <div class="section-title">
-    <h1>Global Typing Test</h1>
-    <p>Choose your language, mode and test duration.</p>
+
+    <h1>
+      Global Typing Test
+    </h1>
+
+    <p>
+      Choose your language, mode and test duration.
+    </p>
+
   </div>
 
   <div class="control-group">
-    <label for="language">Language</label>
+
+    <label for="language">
+      Language
+    </label>
 
     <select id="language">
+
       <option value="en">🇺🇸 English</option>
       <option value="bn">🇧🇩 বাংলা</option>
       <option value="hi">🇮🇳 हिन्दी</option>
@@ -664,71 +738,162 @@ body:not(.light) #resultArea{
       <option value="sv">🇸🇪 Svenska</option>
       <option value="no">🇳🇴 Norsk</option>
       <option value="fi">🇫🇮 Suomi</option>
+
     </select>
 
-    <div class="language-count">🌍 50+ languages available</div>
+    <div class="language-count">
+      🌍 50+ languages available
+    </div>
+
   </div>
 
+
   <div class="control-group">
-    <label for="mode">Typing Mode</label>
+
+    <label for="mode">
+      Typing Mode
+    </label>
 
     <select id="mode">
-      <option value="normal">Normal</option>
-      <option value="punctuation">Punctuation</option>
-      <option value="capital">CAPITAL Letters</option>
-      <option value="small">lowercase</option>
+
+      <option value="normal">
+        Normal
+      </option>
+
+      <option value="punctuation">
+        Punctuation
+      </option>
+
+      <option value="capital">
+        CAPITAL Letters
+      </option>
+
+      <option value="small">
+        lowercase
+      </option>
+
     </select>
 
-    <small id="modeInfo">Normal typing practice.</small>
+    <small id="modeInfo">
+      Normal typing practice.
+    </small>
+
   </div>
+
 
   <div class="control-group">
-    <label for="duration">Test Duration</label>
+
+    <label for="duration">
+      Test Duration
+    </label>
 
     <select id="duration">
-      <option value="15">15 Seconds</option>
-      <option value="30">30 Seconds</option>
-      <option value="60" selected>60 Seconds</option>
-      <option value="120">2 Minutes</option>
-      <option value="300">5 Minutes</option>
-      <option value="600">10 Minutes</option>
-      <option value="custom">⚙️ Custom</option>
+
+      <option value="15">
+        15 Seconds
+      </option>
+
+      <option value="30">
+        30 Seconds
+      </option>
+
+      <option value="60" selected>
+        60 Seconds
+      </option>
+
+      <option value="120">
+        2 Minutes
+      </option>
+
+      <option value="300">
+        5 Minutes
+      </option>
+
+      <option value="600">
+        10 Minutes
+      </option>
+
+      <option value="custom">
+        ⚙️ Custom
+      </option>
+
     </select>
+
   </div>
 
-  <div id="customTimeWrap" class="control-group hidden">
-    <label for="customTime">Custom Time (seconds)</label>
-    <input id="customTime" type="number" min="10" max="3600" value="60">
-    <small>Minimum 10 seconds, maximum 3600 seconds.</small>
+
+  <div
+    id="customTimeWrap"
+    class="control-group hidden"
+  >
+
+    <label for="customTime">
+      Custom Time (seconds)
+    </label>
+
+    <input
+      id="customTime"
+      type="number"
+      min="10"
+      max="3600"
+      value="60"
+    >
+
+    <small>
+      Minimum 10 seconds, maximum 3600 seconds.
+    </small>
+
   </div>
 
-  <button id="startTestBtn" class="primary-btn" type="button">
+
+  <button
+    id="startTestBtn"
+    class="primary-btn"
+    type="button"
+  >
     Start Typing Test
   </button>
 
 </section>
+
 
 <section id="testArea" class="card hidden">
 
   <div class="test-top">
 
     <div class="timer-box">
+
       <span>Time</span>
-      <strong id="time">60</strong>
+
+      <strong id="time">
+        60
+      </strong>
+
     </div>
 
+
     <div class="test-language">
+
       <span>Language</span>
-      <strong id="currentLanguage">English</strong>
+
+      <strong id="currentLanguage">
+        English
+      </strong>
+
     </div>
 
   </div>
 
+
   <div class="typing-container">
 
-    <div id="textDisplay" class="text-display"></div>
+    <div
+      id="textDisplay"
+      class="text-display"
+    ></div>
 
     <div class="typing-input-wrap">
+
       <textarea
         id="typingInput"
         class="typing-input"
@@ -738,33 +903,54 @@ body:not(.light) #resultArea{
         spellcheck="false"
         placeholder="Start typing..."
       ></textarea>
+
     </div>
 
   </div>
+
 
   <div class="typing-help">
     Type the text above.
     The timer starts with your first keystroke.
   </div>
 
+
   <div class="test-actions">
-    <button id="finishBtn" type="button" class="primary-btn">
+
+    <button
+      id="finishBtn"
+      type="button"
+      class="primary-btn"
+    >
       Finish Test
     </button>
 
-    <button id="restartBtn" type="button">
+    <button
+      id="restartBtn"
+      type="button"
+    >
       Restart
     </button>
+
   </div>
 
 </section>
 
+
 <section id="resultArea" class="card hidden">
 
   <div class="section-title">
-    <h2>Your Result</h2>
-    <p>Great job! Here is your typing performance.</p>
+
+    <h2>
+      Your Result
+    </h2>
+
+    <p>
+      Great job! Here is your typing performance.
+    </p>
+
   </div>
+
 
   <div class="result-grid">
 
@@ -800,87 +986,156 @@ body:not(.light) #resultArea{
 
   </div>
 
+
   <div class="graph-box">
-    <h3>Performance</h3>
+
+    <h3>
+      Performance
+    </h3>
+
     <canvas id="performanceChart"></canvas>
+
   </div>
 
-  <button id="tryAgainBtn" type="button" class="primary-btn">
+
+  <button
+    id="tryAgainBtn"
+    type="button"
+    class="primary-btn"
+  >
     Try Again
   </button>
 
 </section>
+
 
 <section class="card">
 
   <div class="history-header">
 
     <div>
-      <h2>Typing History</h2>
-      <p>Your latest typing results.</p>
+
+      <h2>
+        Typing History
+      </h2>
+
+      <p>
+        Your latest typing results.
+      </p>
+
     </div>
 
-    <button id="historyBtn" type="button">
+    <button
+      id="historyBtn"
+      type="button"
+    >
       View History
     </button>
 
   </div>
 
-  <div id="history" class="history hidden"></div>
+
+  <div
+    id="history"
+    class="history hidden"
+  ></div>
 
 </section>
 
 </main>
 
+
 <div id="authModal" class="modal hidden">
 
   <div class="modal-content">
 
-    <button id="closeAuth" type="button" class="close-btn">×</button>
+    <button
+      id="closeAuth"
+      type="button"
+      class="close-btn"
+    >
+      ×
+    </button>
 
-    <h2 id="authTitle">Create your account</h2>
+    <h2 id="authTitle">
+      Create your account
+    </h2>
+
     <p id="authMessage"></p>
 
-    <div class="auth-field" id="nameField">
-      <label for="displayName">Name</label>
+
+    <div
+      class="auth-field"
+      id="nameField"
+    >
+
+      <label for="displayName">
+        Name
+      </label>
+
       <input
         id="displayName"
         type="text"
         placeholder="Your name"
         autocomplete="name"
       >
+
     </div>
 
+
     <div class="auth-field">
-      <label for="email">Email</label>
+
+      <label for="email">
+        Email
+      </label>
+
       <input
         id="email"
         type="email"
         placeholder="you@example.com"
         autocomplete="email"
       >
+
     </div>
 
+
     <div class="auth-field">
-      <label for="password">Password</label>
+
+      <label for="password">
+        Password
+      </label>
+
       <input
         id="password"
         type="password"
         placeholder="Minimum 6 characters"
         autocomplete="current-password"
       >
+
     </div>
 
-    <button id="submitAuth" type="button" class="primary-btn">
+
+    <button
+      id="submitAuth"
+      type="button"
+      class="primary-btn"
+    >
       Sign up
     </button>
 
-    <button id="switchAuth" type="button" class="text-btn">
+
+    <button
+      id="switchAuth"
+      type="button"
+      class="text-btn"
+    >
       Already have an account? Login
     </button>
 
   </div>
+
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
@@ -914,9 +1169,12 @@ try{
 
   }
 
-}catch(e){
+}catch(error){
 
-  console.warn('Supabase unavailable',e);
+  console.warn(
+    'Supabase unavailable',
+    error
+  );
 
 }
 
@@ -1055,24 +1313,47 @@ nl:[
 
 
 /* =====================================================
-   PUNCTUATION
+   PUNCTUATION TEXT
 ===================================================== */
 
 const punctuationTexts = {
 
-en:'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
+en:[
+'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
+'Practice every day, stay calm, and type carefully. Remember: speed is useful, but accuracy is always important!',
+'Good typing takes patience. Keep your rhythm steady, avoid mistakes, and improve your speed step by step.'
+],
 
-bn:'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
+bn:[
+'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
+'প্রতিদিন অনুশীলন করুন, শান্ত থাকুন এবং মনোযোগ দিয়ে টাইপ করুন। মনে রাখুন: গতি গুরুত্বপূর্ণ, কিন্তু নির্ভুলতা আরও গুরুত্বপূর্ণ!',
+'ভালো টাইপিংয়ের জন্য ধৈর্য প্রয়োজন। নিজের ছন্দ ঠিক রাখুন, ভুল কমান এবং ধীরে ধীরে গতি বাড়ান।'
+],
 
-es:'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!',
+es:[
+'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!',
+'Escribe con calma, reduce los errores y mejora tu velocidad poco a poco. ¡La práctica diaria ayuda mucho!'
+],
 
-fr:'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!',
+fr:[
+'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!',
+'Restez concentré, évitez les erreurs et augmentez votre vitesse progressivement.'
+],
 
-de:'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!',
+de:[
+'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!',
+'Bleibe ruhig, reduziere Fehler und steigere deine Geschwindigkeit Schritt für Schritt.'
+],
 
-hi:'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!',
+hi:[
+'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!',
+'शांत रहें, गलतियों को कम करें और धीरे धीरे अपनी टाइपिंग गति बढ़ाएं।'
+],
 
-ar:'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!'
+ar:[
+'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!',
+'حافظ على هدوئك، قلل الأخطاء وزد سرعتك تدريجياً مع التدريب المستمر.'
+]
 
 };
 
@@ -1082,6 +1363,7 @@ ar:'تدرب بانتظام، حافظ على استرخاء أصابعك وتذ
 ===================================================== */
 
 let test = {
+
   started:false,
   running:false,
   start:0,
@@ -1091,6 +1373,7 @@ let test = {
   input:'',
   wordResults:[],
   finished:false
+
 };
 
 
@@ -1104,16 +1387,65 @@ function getDuration(){
 
   if(value === 'custom'){
 
-    let n = Number($('customTime').value);
+    let n = Number(
+      $('customTime').value
+    );
 
-    if(!Number.isFinite(n) || n < 10){
+    if(
+      !Number.isFinite(n) ||
+      n < 10
+    ){
+
       n = 60;
+
     }
 
-    return Math.min(3600,Math.floor(n));
+    return Math.min(
+      3600,
+      Math.floor(n)
+    );
+
   }
 
   return Number(value) || 60;
+
+}
+
+
+/* =====================================================
+   TEXT TRANSFORMATION
+===================================================== */
+
+function transformText(text,mode){
+
+  if(typeof text !== 'string'){
+    return '';
+  }
+
+  if(mode === 'capital'){
+
+    return text.toUpperCase();
+
+  }
+
+  if(mode === 'small'){
+
+    return text
+      .replace(
+        /[.,!?;:'"()[\]{}\-—–]/g,
+        ''
+      )
+      .toLowerCase()
+      .replace(
+        /\s+/g,
+        ' '
+      )
+      .trim();
+
+  }
+
+  return text;
+
 }
 
 
@@ -1126,58 +1458,69 @@ function buildText(){
   const lang = $('language').value;
   const mode = $('mode').value;
 
+  let text = '';
+
+  if(mode === 'punctuation'){
+
+    const list =
+      Array.isArray(punctuationTexts[lang])
+        ? punctuationTexts[lang]
+        : punctuationTexts.en;
+
+    text =
+      list[
+        Math.floor(
+          Math.random() * list.length
+        )
+      ];
+
+    return text;
+
+  }
+
+
   const list =
     Array.isArray(passages[lang])
       ? passages[lang]
       : passages.en;
 
-  let text =
-    list[
+
+  const count =
+    Math.min(
+      6,
+      list.length
+    );
+
+
+  const indexes = [];
+
+  while(indexes.length < count){
+
+    const index =
       Math.floor(
         Math.random() * list.length
-      )
-    ];
+      );
 
-  /* PUNCTUATION MODE */
+    if(!indexes.includes(index)){
 
-  if(mode === 'punctuation'){
+      indexes.push(index);
 
-    text =
-      punctuationTexts[lang] ||
-      punctuationTexts.en ||
-      text;
+    }
 
   }
 
-  /* CAPITAL MODE */
 
-  if(mode === 'capital'){
+  text =
+    indexes
+      .map(index => list[index])
+      .join(' ')
+      .trim();
 
-    text =
-      text.toUpperCase();
 
-  }
-
-  /* SMALL LETTER MODE */
-
-  if(mode === 'small'){
-
-    text =
-      text
-        .replace(
-          /[.,!?;:'"()[\]{}\-—–]/g,
-          ''
-        )
-        .toLowerCase()
-        .replace(
-          /\s+/g,
-          ' '
-        )
-        .trim();
-
-  }
-
-  return text;
+  return transformText(
+    text,
+    mode
+  );
 
 }
 
@@ -1188,117 +1531,37 @@ function buildText(){
 
 function setupText(){
 
-  /*
-    Use buildText() so that
-    Normal / Punctuation / Capital / Small
-    modes all work correctly.
-  */
+  test.text =
+    buildText();
 
-  test.text = '';
-
-  const selectedTexts =
-    Array.isArray(
-      passages[$('language').value]
-    )
-      ? passages[$('language').value]
-      : passages.en;
-
-  /*
-    Normal mode can use several passages.
-    Other modes use the proper transformed text.
-  */
-
-  if($('mode').value === 'normal'){
-
-    const usedIndexes = [];
-
-    const wantedCount =
-      Math.min(
-        6,
-        selectedTexts.length
-      );
-
-    while(
-      usedIndexes.length <
-      wantedCount
-    ){
-
-      const randomIndex =
-        Math.floor(
-          Math.random() *
-          selectedTexts.length
-        );
-
-      if(
-        !usedIndexes.includes(
-          randomIndex
-        )
-      ){
-
-        usedIndexes.push(
-          randomIndex
-        );
-
-      }
-
-    }
-
-    const texts =
-      usedIndexes.map(
-        index =>
-          selectedTexts[index]
-      );
-
-    test.text =
-      texts
-        .join(' ')
-        .trim();
-
-  }else{
-
-    /*
-      For punctuation/capital/small,
-      use buildText() so the selected
-      mode is actually applied.
-    */
-
-    test.text =
-      buildText();
-
-  }
 
   const display =
     $('textDisplay');
 
   display.innerHTML = '';
 
+
   const fragment =
     document.createDocumentFragment();
+
 
   [...test.text].forEach(
     (char,index)=>{
 
       const span =
-        document.createElement(
-          'span'
-        );
+        document.createElement('span');
 
-      span.textContent =
-        char;
+      span.textContent = char;
 
-      span.dataset.index =
-        index;
+      span.dataset.index = index;
 
-      fragment.appendChild(
-        span
-      );
+      fragment.appendChild(span);
 
     }
   );
 
-  display.appendChild(
-    fragment
-  );
+
+  display.appendChild(fragment);
 
   display.scrollTop = 0;
 
@@ -1322,6 +1585,7 @@ function updateDisplay(){
   const spans =
     [...display.children];
 
+
   spans.forEach(
     (span,index)=>{
 
@@ -1330,12 +1594,9 @@ function updateDisplay(){
       if(index < input.length){
 
         span.classList.add(
-
-          input[index] ===
-          test.text[index]
+          input[index] === test.text[index]
             ? 'correct'
             : 'wrong'
-
         );
 
       }
@@ -1343,44 +1604,48 @@ function updateDisplay(){
     }
   );
 
+
   const current =
     spans[input.length];
 
-  if(current){
 
-    current.classList.add(
-      'current'
-    );
+  if(!current){
+    return;
+  }
 
-    const rect =
-      current.getBoundingClientRect();
 
-    const displayRect =
-      display.getBoundingClientRect();
+  current.classList.add('current');
 
-    if(
-      rect.bottom >
-      displayRect.bottom - 35
-    ){
 
-      display.scrollTop +=
-        rect.bottom -
-        displayRect.bottom +
-        45;
+  const rect =
+    current.getBoundingClientRect();
 
-    }
+  const displayRect =
+    display.getBoundingClientRect();
 
-    if(
-      rect.top <
-      displayRect.top + 30
-    ){
 
-      display.scrollTop -=
-        displayRect.top -
-        rect.top +
-        45;
+  if(
+    rect.bottom >
+    displayRect.bottom - 35
+  ){
 
-    }
+    display.scrollTop +=
+      rect.bottom -
+      displayRect.bottom +
+      45;
+
+  }
+
+
+  if(
+    rect.top <
+    displayRect.top + 30
+  ){
+
+    display.scrollTop -=
+      displayRect.top -
+      rect.top +
+      45;
 
   }
 
@@ -1396,7 +1661,7 @@ function updateModeInfo(){
   const mode =
     $('mode').value;
 
-  $('modeInfo').textContent = {
+  const messages = {
 
     normal:
       'Normal typing practice.',
@@ -1410,7 +1675,12 @@ function updateModeInfo(){
     small:
       'Practice lowercase letters without punctuation.'
 
-  }[mode];
+  };
+
+
+  $('modeInfo').textContent =
+    messages[mode] ||
+    messages.normal;
 
 }
 
@@ -1461,18 +1731,23 @@ function beginTest(){
     test.started ||
     test.finished
   ){
+
     return;
+
   }
+
 
   test.started = true;
   test.running = true;
   test.start = Date.now();
+
 
   test.timer =
     setInterval(
       updateTimer,
       100
     );
+
 
   $('typingInput').focus();
 
@@ -1485,6 +1760,7 @@ function updateTimer(){
     return;
   }
 
+
   const elapsed =
     Math.floor(
       (
@@ -1493,6 +1769,7 @@ function updateTimer(){
       ) / 1000
     );
 
+
   const left =
     Math.max(
       0,
@@ -1500,8 +1777,9 @@ function updateTimer(){
       elapsed
     );
 
-  $('time').textContent =
-    left;
+
+  $('time').textContent = left;
+
 
   if(
     left <= 10 &&
@@ -1515,6 +1793,7 @@ function updateTimer(){
     playWarningSound();
 
   }
+
 
   if(left <= 0){
 
@@ -1534,8 +1813,10 @@ function calculateStats(){
   const input =
     $('typingInput').value;
 
+
   let correct = 0;
   let errors = 0;
+
 
   [...input].forEach(
     (char,index)=>{
@@ -1556,6 +1837,7 @@ function calculateStats(){
     }
   );
 
+
   const elapsed =
     test.start
       ? Math.max(
@@ -1567,6 +1849,7 @@ function calculateStats(){
         )
       : 1;
 
+
   const wpm =
     Math.max(
       0,
@@ -1577,6 +1860,7 @@ function calculateStats(){
       )
     );
 
+
   const accuracy =
     input.length
       ? Math.round(
@@ -1586,15 +1870,19 @@ function calculateStats(){
         )
       : 100;
 
+
   const typed =
     input.trim()
       ? input.trim().split(/\s+/)
       : [];
 
+
   const target =
     test.text.trim().split(/\s+/);
 
+
   let correctWords = 0;
+
 
   typed.forEach(
     (word,index)=>{
@@ -1611,10 +1899,13 @@ function calculateStats(){
     }
   );
 
+
   return {
 
     wpm,
+
     accuracy,
+
     errors,
 
     totalWords:
@@ -1643,18 +1934,21 @@ function calculateStats(){
 
 function makeWordResults(){
 
-  const value =
+  const raw =
     $('typingInput').value.trim();
 
+
   const typed =
-    value
-      ? value.split(/\s+/)
+    raw
+      ? raw.split(/\s+/)
       : [];
+
 
   const target =
     test.text
       .trim()
       .split(/\s+/);
+
 
   return typed.map(
     (word,index)=>
@@ -1676,11 +1970,15 @@ async function finishTest(){
     test.finished ||
     !test.started
   ){
+
     return;
+
   }
+
 
   test.finished = true;
   test.running = false;
+
 
   clearInterval(
     test.timer
@@ -1688,17 +1986,22 @@ async function finishTest(){
 
   test.timer = null;
 
+
   test.input =
     $('typingInput').value;
+
 
   const stats =
     calculateStats();
 
+
   test.wordResults =
     makeWordResults();
 
+
   $('time').textContent =
     '0';
+
 
   $('resultWpm').textContent =
     stats.wpm;
@@ -1718,27 +2021,30 @@ async function finishTest(){
   $('wrongWords').textContent =
     stats.wrongWords;
 
-  $('typingInput').disabled =
-    true;
+
+  $('typingInput').disabled = true;
+
 
   $('testArea')
     .classList
     .add('hidden');
 
+
   $('resultArea')
     .classList
     .remove('hidden');
 
+
   playFinishSound();
+
 
   setTimeout(
     drawGraph,
     30
   );
 
-  await saveResult(
-    stats
-  );
+
+  await saveResult(stats);
 
 }
 
@@ -1756,25 +2062,29 @@ function drawGraph(){
     return;
   }
 
+
   const ctx =
     canvas.getContext('2d');
+
 
   const width =
     canvas.clientWidth ||
     800;
 
-  const height =
-    260;
+  const height = 260;
+
 
   const ratio =
     window.devicePixelRatio ||
     1;
+
 
   canvas.width =
     width * ratio;
 
   canvas.height =
     height * ratio;
+
 
   ctx.setTransform(
     ratio,
@@ -1785,6 +2095,7 @@ function drawGraph(){
     0
   );
 
+
   ctx.clearRect(
     0,
     0,
@@ -1792,8 +2103,10 @@ function drawGraph(){
     height
   );
 
+
   const results =
     test.wordResults;
+
 
   if(!results.length){
 
@@ -1813,8 +2126,10 @@ function drawGraph(){
 
   }
 
+
   const usable =
     width - 60;
+
 
   const step =
     results.length > 1
@@ -1822,18 +2137,23 @@ function drawGraph(){
         (results.length - 1)
       : 0;
 
+
   results.forEach(
     (result,index)=>{
 
       const x =
         results.length === 1
           ? width / 2
-          : 30 + index * step;
+          : 30 +
+            index *
+            step;
+
 
       const y =
         result === 'correct'
           ? height - 100
           : height - 175;
+
 
       ctx.beginPath();
 
@@ -1845,6 +2165,7 @@ function drawGraph(){
         Math.PI * 2
       );
 
+
       ctx.fillStyle =
         result === 'correct'
           ? '#22c55e'
@@ -1852,20 +2173,26 @@ function drawGraph(){
 
       ctx.fill();
 
+
       if(index > 0){
 
         const previous =
           results[index - 1];
 
+
         const px =
-          30 +
-          (index - 1) *
-          step;
+          results.length === 1
+            ? width / 2
+            : 30 +
+              (index - 1) *
+              step;
+
 
         const py =
           previous === 'correct'
             ? height - 100
             : height - 175;
+
 
         ctx.beginPath();
 
@@ -1878,6 +2205,7 @@ function drawGraph(){
           x,
           y
         );
+
 
         ctx.strokeStyle =
           'rgba(255,255,255,.18)';
@@ -1902,6 +2230,7 @@ async function saveResult(stats){
     return;
   }
 
+
   try{
 
     const {
@@ -1911,9 +2240,11 @@ async function saveResult(stats){
         .auth
         .getUser();
 
+
     if(!user){
       return;
     }
+
 
     await supabaseClient
       .from('typing_results')
@@ -1964,6 +2295,7 @@ function resetTest(){
     test.timer
   );
 
+
   test = {
 
     started:false,
@@ -1978,28 +2310,35 @@ function resetTest(){
 
   };
 
+
   document.body
     .classList
     .remove('typing-mode');
+
 
   $('homePage')
     .classList
     .remove('home-hidden');
 
+
   $('setupArea')
     .classList
     .add('hidden');
+
 
   $('testArea')
     .classList
     .add('hidden');
 
+
   $('resultArea')
     .classList
     .add('hidden');
 
+
   $('time').textContent =
     test.duration;
+
 
   $('typingInput').value =
     '';
@@ -2007,11 +2346,13 @@ function resetTest(){
   $('typingInput').disabled =
     false;
 
+
   setupText();
 
   updateLanguage();
 
   updateModeInfo();
+
 
   window.scrollTo({
     top:0,
@@ -2031,21 +2372,26 @@ function startDirectTest(){
     .classList
     .add('typing-mode');
 
+
   $('homePage')
     .classList
     .add('home-hidden');
+
 
   $('setupArea')
     .classList
     .add('hidden');
 
+
   $('resultArea')
     .classList
     .add('hidden');
 
+
   $('testArea')
     .classList
     .remove('hidden');
+
 
   test = {
 
@@ -2061,10 +2407,13 @@ function startDirectTest(){
 
   };
 
+
   setupText();
+
 
   $('time').textContent =
     test.duration;
+
 
   $('typingInput').value =
     '';
@@ -2072,11 +2421,13 @@ function startDirectTest(){
   $('typingInput').disabled =
     false;
 
+
   updateLanguage();
 
   $('typingInput').focus();
 
   playStartSound();
+
 
   window.scrollTo({
     top:0,
@@ -2096,21 +2447,26 @@ function showTypingSetup(custom=false){
     .classList
     .remove('typing-mode');
 
+
   $('homePage')
     .classList
     .add('home-hidden');
+
 
   $('setupArea')
     .classList
     .remove('hidden');
 
+
   $('testArea')
     .classList
     .add('hidden');
 
+
   $('resultArea')
     .classList
     .add('hidden');
+
 
   if(custom){
 
@@ -2120,6 +2476,7 @@ function showTypingSetup(custom=false){
     updateDurationUI();
 
   }
+
 
   window.scrollTo({
     top:0,
@@ -2144,21 +2501,27 @@ $('typingInput')
 
       }
 
+
       const value =
         $('typingInput').value;
 
+
       const index =
         value.length - 1;
+
 
       const correct =
         index >= 0 &&
         value[index] ===
         test.text[index];
 
+
       test.input =
         value;
 
+
       updateDisplay();
+
 
       if(index >= 0){
 
@@ -2171,6 +2534,7 @@ $('typingInput')
 
     }
   );
+
 
 $('typingInput')
   .addEventListener(
@@ -2212,25 +2576,31 @@ $('language').onchange =
   ()=>{
 
     updateLanguage();
+
     resetTest();
 
   };
+
 
 $('mode').onchange =
   ()=>{
 
     updateModeInfo();
+
     resetTest();
 
   };
+
 
 $('duration').onchange =
   ()=>{
 
     updateDurationUI();
+
     resetTest();
 
   };
+
 
 $('customTime').oninput =
   ()=>{
@@ -2240,11 +2610,14 @@ $('customTime').oninput =
       'custom'
     ){
 
-      $('time').textContent =
+      const duration =
         getDuration();
 
+      $('time').textContent =
+        duration;
+
       test.duration =
-        getDuration();
+        duration;
 
     }
 
@@ -2275,6 +2648,7 @@ $('themeBtn').onclick =
 let soundIndex = 0;
 let audioContext = null;
 
+
 function getAudio(){
 
   if(!audioContext){
@@ -2287,6 +2661,7 @@ function getAudio(){
 
   }
 
+
   if(
     audioContext.state ===
     'suspended'
@@ -2296,9 +2671,11 @@ function getAudio(){
 
   }
 
+
   return audioContext;
 
 }
+
 
 function tone(
   frequency,
@@ -2317,11 +2694,13 @@ function tone(
       audio.currentTime +
       delay;
 
+
     const oscillator =
       audio.createOscillator();
 
     const gain =
       audio.createGain();
+
 
     oscillator.type =
       type;
@@ -2332,10 +2711,12 @@ function tone(
         now
       );
 
+
     gain.gain.setValueAtTime(
       volume,
       now
     );
+
 
     gain.gain
       .exponentialRampToValueAtTime(
@@ -2343,17 +2724,12 @@ function tone(
         now + duration
       );
 
-    oscillator.connect(
-      gain
-    );
 
-    gain.connect(
-      audio.destination
-    );
+    oscillator.connect(gain);
+    gain.connect(audio.destination);
 
-    oscillator.start(
-      now
-    );
+
+    oscillator.start(now);
 
     oscillator.stop(
       now +
@@ -2364,6 +2740,7 @@ function tone(
   }catch(error){}
 
 }
+
 
 function playTypingSound(
   character,
@@ -2386,11 +2763,13 @@ function playTypingSound(
           180
         ];
 
+
   const frequency =
     frequencies[
       soundIndex++ %
       frequencies.length
     ];
+
 
   tone(
     frequency,
@@ -2402,6 +2781,7 @@ function playTypingSound(
       ? .014
       : .022
   );
+
 
   if(
     character === ' ' &&
@@ -2419,6 +2799,7 @@ function playTypingSound(
   }
 
 }
+
 
 function playStartSound(){
 
@@ -2438,6 +2819,7 @@ function playStartSound(){
   );
 
 }
+
 
 function playFinishSound(){
 
@@ -2466,6 +2848,7 @@ function playFinishSound(){
 
 }
 
+
 function playWarningSound(){
 
   tone(
@@ -2492,6 +2875,7 @@ function playWarningSound(){
 
 let loginMode = false;
 
+
 function openAuth(){
 
   $('authModal')
@@ -2503,6 +2887,7 @@ function openAuth(){
 
 }
 
+
 function closeAuth(){
 
   $('authModal')
@@ -2510,6 +2895,7 @@ function closeAuth(){
     .add('hidden');
 
 }
+
 
 $('authBtn').onclick =
   async ()=>{
@@ -2522,6 +2908,7 @@ $('authBtn').onclick =
 
     }
 
+
     const {
       data:{user}
     } =
@@ -2529,11 +2916,13 @@ $('authBtn').onclick =
         .auth
         .getUser();
 
+
     if(user){
 
       await supabaseClient
         .auth
         .signOut();
+
 
       await refreshUser();
 
@@ -2545,8 +2934,10 @@ $('authBtn').onclick =
 
   };
 
+
 $('closeAuth').onclick =
   closeAuth;
+
 
 $('authModal').onclick =
   event=>{
@@ -2562,11 +2953,13 @@ $('authModal').onclick =
 
   };
 
+
 $('switchAuth').onclick =
   ()=>{
 
     loginMode =
       !loginMode;
+
 
     $('authTitle')
       .textContent =
@@ -2574,11 +2967,13 @@ $('switchAuth').onclick =
           ? 'Welcome back'
           : 'Create your account';
 
+
     $('submitAuth')
       .textContent =
         loginMode
           ? 'Login'
           : 'Sign up';
+
 
     $('nameField')
       .classList
@@ -2586,6 +2981,7 @@ $('switchAuth').onclick =
         'hidden',
         loginMode
       );
+
 
     $('switchAuth')
       .textContent =
@@ -2595,6 +2991,7 @@ $('switchAuth').onclick =
 
   };
 
+
 $('submitAuth').onclick =
   async ()=>{
 
@@ -2602,19 +2999,23 @@ $('submitAuth').onclick =
       return;
     }
 
+
     const email =
       $('email')
         .value
         .trim();
 
+
     const password =
       $('password')
         .value;
+
 
     const name =
       $('displayName')
         .value
         .trim();
+
 
     if(
       !email ||
@@ -2629,11 +3030,14 @@ $('submitAuth').onclick =
 
     }
 
+
     $('authMessage')
       .textContent =
         'Please wait...';
 
+
     let result;
+
 
     if(loginMode){
 
@@ -2653,6 +3057,7 @@ $('submitAuth').onclick =
           .signUp({
 
             email,
+
             password,
 
             options:{
@@ -2667,6 +3072,7 @@ $('submitAuth').onclick =
 
     }
 
+
     if(result.error){
 
       $('authMessage')
@@ -2676,6 +3082,7 @@ $('submitAuth').onclick =
       return;
 
     }
+
 
     if(loginMode){
 
@@ -2704,6 +3111,7 @@ async function refreshUser(){
     return;
   }
 
+
   try{
 
     const {
@@ -2713,11 +3121,13 @@ async function refreshUser(){
         .auth
         .getUser();
 
+
     if(user){
 
       $('authBtn')
         .textContent =
           'Logout';
+
 
       $('welcome')
         .textContent =
@@ -2727,6 +3137,7 @@ async function refreshUser(){
               ?.display_name ||
             'AbidType User'
           );
+
 
       $('accountNote')
         .textContent =
@@ -2738,9 +3149,11 @@ async function refreshUser(){
         .textContent =
           'Login / Sign up';
 
+
       $('welcome')
         .textContent =
           'Practice as a guest';
+
 
       $('accountNote')
         .textContent =
@@ -2767,12 +3180,14 @@ async function loadHistory(){
 
   }
 
+
   const {
     data:{user}
   } =
     await supabaseClient
       .auth
       .getUser();
+
 
   if(!user){
 
@@ -2781,6 +3196,7 @@ async function loadHistory(){
     return;
 
   }
+
 
   const {
     data,
@@ -2803,11 +3219,14 @@ async function loadHistory(){
       )
       .limit(10);
 
+
   const box =
     $('history');
 
+
   box.classList
     .remove('hidden');
+
 
   if(error){
 
@@ -2818,6 +3237,7 @@ async function loadHistory(){
 
   }
 
+
   if(!data?.length){
 
     box.textContent =
@@ -2826,6 +3246,7 @@ async function loadHistory(){
     return;
 
   }
+
 
   box.innerHTML =
     data
@@ -2871,8 +3292,10 @@ async function loadHistory(){
 
 }
 
+
 $('historyBtn').onclick =
   loadHistory;
+
 
 if(supabaseClient){
 
@@ -2920,6 +3343,7 @@ function showComingSoon(name){
     .018
   );
 
+
   alert(
     name +
     ' is coming soon. AbidType will add this game later.'
@@ -2933,7 +3357,9 @@ function showComingSoon(name){
 ===================================================== */
 
 updateDurationUI();
+
 updateModeInfo();
+
 updateLanguage();
 
 resetTest();
