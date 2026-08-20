@@ -7,257 +7,374 @@
 <meta name="google-site-verification"
 content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
-<!-- ================================
-     ABIDTYPE GOOGLE SEO
-================================ -->
+<meta name="description"
+content="AbidType — Global Typing Practice. Improve typing speed, accuracy and confidence with free typing tests, multiple languages and typing modes.">
 
-<title>AbidType — Free Global Typing Practice & Typing Test</title>
+<meta name="keywords"
+content="AbidType, typing test, typing practice, WPM test, typing speed, keyboard practice, global typing">
 
-<meta
-  name="description"
-  content="AbidType is a free global typing practice website. Test your typing speed, improve WPM and accuracy, practice in 50+ languages, and choose Normal, Punctuation, CAPITAL and lowercase typing modes."
->
-
-<meta
-  name="keywords"
-  content="AbidType, Abid Type, typing test, typing practice, free typing test, typing speed test, WPM test, typing practice online, global typing practice"
->
-
-<meta
-  name="author"
-  content="AbidType"
->
-
-<meta
-  name="robots"
-  content="index, follow, max-image-preview:large"
->
-
-<link
-  rel="canonical"
-  href="https://abidhossainbro2007-cyber.github.io/AbidType/"
->
-
-
-<!-- Google Search / Social Preview -->
-
-<meta
-  property="og:type"
-  content="website"
->
-
-<meta
-  property="og:title"
-  content="AbidType — Free Global Typing Practice"
->
-
-<meta
-  property="og:description"
-  content="Practice typing, test your WPM and accuracy, and improve your typing speed in 50+ languages with AbidType."
->
-
-<meta
-  property="og:url"
-  content="https://abidhossainbro2007-cyber.github.io/AbidType/"
->
-
-<meta
-  property="og:site_name"
-  content="AbidType"
->
-
-<meta
-  name="twitter:card"
-  content="summary"
->
-
-<meta
-  name="twitter:title"
-  content="AbidType — Free Global Typing Practice"
->
-
-<meta
-  name="twitter:description"
-  content="Free typing practice and typing speed tests in 50+ languages."
->
+<title>AbidType — Global Typing Practice</title>
 
 <link rel="stylesheet" href="style.css">
 
 <style>
-*{box-sizing:border-box}
+/* =========================================================
+   ABIDTYPE PREMIUM AESTHETIC UI
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  background:#05070b!important;
-  color:#e8edf5!important;
-  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  color:#eef2ff;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(90,60,255,.18),transparent 28%),
+    radial-gradient(circle at 85% 20%,rgba(0,180,255,.13),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(220,0,255,.09),transparent 30%),
+    #03050b;
 }
 
-button,select,input,textarea{font:inherit}
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
 
-button{cursor:pointer}
+button{
+  cursor:pointer;
+}
 
-.hidden{display:none!important}
+.hidden{
+  display:none!important;
+}
+
+/* ===== HEADER ===== */
 
 .header{
-  min-height:72px;
-  padding:0 28px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  min-height:74px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:#090d14!important;
-  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  padding:12px 30px;
+  background:rgba(3,5,12,.78);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  box-shadow:0 10px 40px rgba(0,0,0,.25);
 }
 
-.brand{display:flex;align-items:center;gap:12px}
-.logo{font-size:22px;font-weight:700;color:#fff!important}
-.tagline{font-size:12px;color:#8e9aac!important}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-.header-actions{display:flex;gap:8px}
+.logo-mark{
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  font-size:23px;
+  background:linear-gradient(135deg,#5b5cff,#b52cff,#00d9ff);
+  box-shadow:
+    0 0 22px rgba(100,70,255,.5),
+    inset 0 0 15px rgba(255,255,255,.15);
+}
 
-.header-actions button,
-.top-btn{
-  border:1px solid rgba(255,255,255,.1);
-  background:#101722;
-  color:#dbe3ef;
-  border-radius:8px;
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
+  background:linear-gradient(90deg,#fff,#b9a7ff,#35d7ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.tagline{
+  color:#8d96ab;
+  font-size:11px;
+  margin-top:2px;
+}
+
+.header-nav{
+  display:flex;
+  gap:7px;
+  align-items:center;
+}
+
+.header-nav button,
+.header-actions button{
+  color:#cbd3e6;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;
   padding:9px 13px;
+  transition:.2s;
 }
+
+.header-nav button:hover,
+.header-actions button:hover{
+  color:#fff;
+  border-color:#765cff;
+  background:rgba(118,92,255,.12);
+  transform:translateY(-1px);
+}
+
+.header-nav .active{
+  color:#fff;
+  border-color:#5965ff;
+  background:linear-gradient(135deg,rgba(80,80,255,.3),rgba(170,40,255,.18));
+}
+
+.header-actions{
+  display:flex;
+  gap:9px;
+}
+
+#authBtn{
+  border-color:rgba(122,92,255,.45);
+}
+
+/* ===== CONTAINER ===== */
 
 .container{
-  width:min(1160px,calc(100% - 32px));
+  width:min(1240px,calc(100% - 30px));
   margin:auto;
+  padding:26px 0 70px;
 }
 
-/* HOME */
+/* ===== HERO ===== */
 
 .abid-home{
-  min-height:calc(100vh - 72px);
-  padding:55px 0 80px;
-  text-align:center;
+  position:relative;
+  overflow:hidden;
+  padding:60px 30px 55px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:30px;
   background:
-    radial-gradient(circle at 80% 70%,rgba(124,92,255,.16),transparent 32%),
-    radial-gradient(circle at 10% 80%,rgba(59,130,246,.10),transparent 30%),
-    #05070b;
+    linear-gradient(135deg,rgba(18,18,45,.82),rgba(5,9,20,.78)),
+    radial-gradient(circle at 80% 20%,rgba(52,118,255,.18),transparent 35%);
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.35),
+    inset 0 0 80px rgba(83,65,255,.05);
+}
+
+.abid-home:before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-150px;
+  top:-180px;
+  border-radius:50%;
+  background:rgba(81,70,255,.18);
+  filter:blur(70px);
+}
+
+.home-inner{
+  position:relative;
+  z-index:2;
 }
 
 .home-kicker{
-  display:inline-block;
-  padding:8px 14px;
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(255,255,255,.035);
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 15px;
+  border:1px solid rgba(116,101,255,.35);
   border-radius:999px;
-  color:#aeb8c9;
+  color:#bdb8ff;
+  background:rgba(94,77,255,.08);
   font-size:13px;
 }
 
 .home-nav{
   display:flex;
   justify-content:center;
-  gap:8px;
-  margin:25px 0 30px;
   flex-wrap:wrap;
+  gap:8px;
+  margin:22px 0 26px;
 }
 
-.home-nav button{
-  border:0;
-  background:transparent;
-  color:#8f9aad;
-  padding:8px 13px;
-  border-radius:7px;
+.home-nav span{
+  padding:7px 13px;
+  color:#8993a9;
+  border-radius:9px;
+  font-size:13px;
 }
 
-.home-nav button:hover,
-.home-nav button.active{
-  background:#7651d8;
+.home-nav .active{
   color:#fff;
+  background:linear-gradient(135deg,#635bff,#9c3cff);
+  box-shadow:0 5px 22px rgba(100,80,255,.3);
 }
 
 .home-title{
-  margin:0 auto 15px;
-  max-width:850px;
-  font-size:48px;
-  line-height:1.12;
-  font-weight:500;
-  letter-spacing:-1.5px;
+  margin:0;
+  text-align:center;
+  font-size:clamp(38px,6vw,67px);
+  line-height:1.04;
+  letter-spacing:-3px;
+  font-weight:900;
 }
 
-.home-title span{color:#a78bfa}
+.home-title span{
+  background:linear-gradient(90deg,#8c7cff,#d850ff,#32d9ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
 .home-subtitle{
-  max-width:720px;
-  margin:0 auto 42px;
-  color:#9da8ba;
-  line-height:1.8;
+  max-width:760px;
+  margin:22px auto 30px;
+  text-align:center;
+  color:#9da8be;
+  line-height:1.75;
+  font-size:15px;
 }
 
-.feature-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  text-align:left;
+/* ===== HERO BUTTONS ===== */
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:32px;
 }
 
-.feature-card{
-  padding:25px;
-  min-height:180px;
-  border:1px solid rgba(255,255,255,.08);
+.primary-btn,
+.hero-primary{
+  color:white;
+  border:0;
   border-radius:13px;
-  background:rgba(18,23,33,.78);
-  box-shadow:0 18px 45px rgba(0,0,0,.22);
+  padding:13px 22px;
+  background:linear-gradient(135deg,#5865ff,#9c32ff);
+  box-shadow:0 10px 30px rgba(101,72,255,.28);
   transition:.2s;
 }
 
+.primary-btn:hover,
+.hero-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 38px rgba(101,72,255,.4);
+}
+
+.hero-secondary{
+  color:#dbe2f3;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:13px;
+  padding:13px 22px;
+  background:rgba(255,255,255,.035);
+}
+
+.hero-secondary:hover{
+  border-color:#635bff;
+  background:rgba(99,91,255,.1);
+}
+
+/* ===== FEATURE CARDS ===== */
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.feature-card{
+  position:relative;
+  min-height:190px;
+  padding:21px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(18,24,39,.9),rgba(8,12,23,.9));
+  transition:.25s;
+  overflow:hidden;
+}
+
+.feature-card:after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-40px;
+  bottom:-50px;
+  border-radius:50%;
+  background:rgba(103,75,255,.12);
+  filter:blur(15px);
+}
+
 .feature-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(167,139,250,.4);
+  transform:translateY(-5px);
+  border-color:rgba(126,104,255,.5);
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .feature-icon{
-  font-size:28px;
-  display:block;
-  margin-bottom:12px;
+  font-size:29px;
 }
 
 .feature-card h3{
-  margin:0 0 9px;
-  color:#edf1f7;
+  margin:13px 0 7px;
+  font-size:17px;
 }
 
 .feature-card p{
-  color:#9ca8bb;
-  font-size:14px;
-  line-height:1.65;
-  min-height:48px;
+  color:#8994aa;
+  line-height:1.55;
+  font-size:12px;
+  min-height:57px;
 }
 
 .feature-card button{
-  border:0;
-  background:#7651d8;
   color:#fff;
-  padding:9px 14px;
-  border-radius:8px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:9px;
+  padding:8px 12px;
+  background:rgba(111,86,255,.18);
 }
 
-/* SECTIONS */
+/* ===== ACCOUNT ===== */
 
-.page-section{
-  padding:45px 0 70px;
-}
-
-.panel{
-  background:#0a0f17;
+.account-card,
+.card{
   border:1px solid rgba(255,255,255,.08);
-  border-radius:14px;
-  padding:28px;
-  margin-bottom:25px;
+  border-radius:22px;
+  padding:27px;
+  margin-top:22px;
+  background:
+    linear-gradient(145deg,rgba(12,17,29,.94),rgba(5,8,16,.94));
+  box-shadow:0 15px 50px rgba(0,0,0,.18);
 }
 
-.panel h2{margin-top:0}
-.muted{color:#9da8ba;line-height:1.7}
+.account-card h2{
+  margin:0 0 7px;
+}
+
+.account-card p,
+.section-title p{
+  color:#8994aa;
+}
+
+/* ===== SETUP ===== */
 
 .section-title{
-  margin-bottom:25px;
+  text-align:center;
+  margin-bottom:27px;
 }
 
 .section-title h1,
@@ -265,140 +382,138 @@ button{cursor:pointer}
   margin:0 0 8px;
 }
 
-.section-title p{color:#9da8ba}
-
-/* SETUP */
-
-.setup-grid{
+.control-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:15px;
 }
 
 .control-group{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+  margin-bottom:18px;
 }
 
 .control-group label{
-  color:#cdd6e4;
+  display:block;
+  color:#d8deed;
   font-size:13px;
+  font-weight:700;
+  margin-bottom:8px;
 }
 
-.control-group select,
-.control-group input{
+select,
+input,
+textarea{
   width:100%;
+  color:#edf2ff;
+  background:#080d17;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:11px;
   padding:12px;
-  background:#090d14;
-  color:#eef2f8;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:8px;
+  outline:none;
 }
 
-.control-group small{
-  color:#8792a5;
+select:focus,
+input:focus,
+textarea:focus{
+  border-color:#6f63ff;
+  box-shadow:0 0 0 3px rgba(111,99,255,.1);
 }
 
-.primary-btn{
-  border:0;
-  background:#7651d8;
-  color:#fff;
-  padding:11px 17px;
-  border-radius:8px;
+small,
+.language-count{
+  display:block;
+  color:#717d94;
+  margin-top:7px;
+  font-size:11px;
 }
 
-.setup-start{
-  margin-top:22px;
-}
-
-/* TEST */
-
-#testArea{
-  background:#05080d;
-  border:0;
-  padding:25px 0 50px;
-}
+/* ===== TEST ===== */
 
 .test-top{
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
   align-items:center;
   gap:12px;
-  padding-bottom:15px;
-  border-bottom:1px solid rgba(167,139,250,.2);
-  margin-bottom:25px;
+  padding-bottom:18px;
+  margin-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.test-tools{
-  display:flex;
-  align-items:center;
-  gap:7px;
+.test-language{
+  color:#8d98ac;
 }
 
-.test-tool{
-  border:1px solid rgba(255,255,255,.08);
-  background:#0b1018;
-  color:#aeb8c9;
-  border-radius:7px;
-  padding:7px 10px;
+.test-language strong{
+  color:#e7ecf8;
 }
 
-.test-tool:hover,
-.test-tool.active{
-  background:#7651d8;
-  color:#fff;
-}
-
-.timer{
-  font-size:14px;
-  color:#c5cfdd;
-  font-variant-numeric:tabular-nums;
-}
-
-.language-label{
-  color:#9da8ba;
-  font-size:13px;
+.timer-box{
+  justify-self:end;
+  min-width:80px;
+  text-align:center;
+  padding:10px 15px;
+  border:1px solid rgba(97,91,255,.3);
+  border-radius:12px;
+  background:rgba(89,77,255,.08);
+  color:#bdb6ff;
 }
 
 .typing-container{
   position:relative;
-  width:100%;
-  min-height:440px;
-  background:#0a0f17;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.05);
+  min-height:390px;
   overflow:hidden;
+  padding:25px;
+  border:1px solid rgba(98,91,255,.2);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(79,70,229,.1),transparent 40%),
+    #050913;
+  box-shadow:inset 0 0 50px rgba(0,0,0,.35);
 }
 
 #textDisplay{
   width:100%;
-  height:380px;
-  padding:28px;
-  overflow:hidden;
-  background:#0a0f17;
-  color:#dbe3ef;
+  height:100%;
+  min-height:330px;
+  overflow-y:auto;
+  padding:5px;
+  font-size:25px;
+  line-height:1.8;
+  letter-spacing:.4px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  color:#dce4f3;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:28px;
-  line-height:1.55;
-  letter-spacing:.5px;
-  white-space:normal;
-  word-break:normal;
-  overflow-wrap:break-word;
-  direction:ltr;
+  scroll-behavior:auto;
 }
 
-#textDisplay span{position:relative}
+#textDisplay::-webkit-scrollbar{
+  width:7px;
+}
 
-#textDisplay .correct{color:#f0f3f8}
+#textDisplay::-webkit-scrollbar-thumb{
+  background:#333b55;
+  border-radius:10px;
+}
+
+#textDisplay span{
+  display:inline;
+}
+
+#textDisplay .correct{
+  color:#e8eef8;
+}
+
 #textDisplay .wrong{
-  color:#ff6b6b;
+  color:#ff6378;
   text-decoration:underline;
 }
+
 #textDisplay .current{
-  background:#f1d94a;
   color:#111;
-  border-radius:2px;
+  background:#ffe45c;
+  border-radius:3px;
+  box-shadow:0 0 15px rgba(255,228,92,.18);
 }
 
 #typingInput{
@@ -407,233 +522,241 @@ button{cursor:pointer}
   width:100%;
   height:100%;
   opacity:0;
-  z-index:5;
-  resize:none;
+  z-index:20;
   border:0;
   outline:0;
+  resize:none;
+  cursor:text;
+}
+
+.typing-help{
+  text-align:center;
+  color:#68748c;
+  font-size:12px;
+  margin:12px;
 }
 
 .test-actions{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-top:15px;
+  text-align:center;
 }
 
-.restart-btn{
-  border:1px solid rgba(255,255,255,.12);
-  background:transparent;
-  color:#9da8ba;
-  padding:9px 14px;
-  border-radius:8px;
+.test-actions button{
+  margin:5px;
 }
 
-/* RESULT */
+/* ===== RESULT ===== */
 
 .result-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(6,1fr);
   gap:12px;
 }
 
 .result-card{
-  padding:20px;
-  background:#101722;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:10px;
+  padding:19px 10px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;
+  background:#0a101c;
 }
 
 .result-card span{
   display:block;
-  color:#8f9aad;
-  font-size:13px;
-  margin-bottom:8px;
+  color:#7d899f;
+  font-size:12px;
+  margin-bottom:7px;
 }
 
 .result-card strong{
-  font-size:27px;
+  font-size:25px;
 }
 
 .graph-box{
   margin-top:22px;
-  padding:20px;
-  background:#090e16;
-  border-radius:10px;
+  padding:18px;
+  border-radius:16px;
+  background:#060a12;
 }
 
-#performanceChart{
+.graph-box canvas{
   width:100%;
   height:260px;
 }
 
-.result-buttons{
-  display:flex;
-  gap:10px;
-  margin-top:20px;
-}
-
-/* HISTORY */
+/* ===== HISTORY ===== */
 
 .history-row{
   display:grid;
   grid-template-columns:1fr 1fr 1fr 1fr;
-  padding:13px 0;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  color:#cbd4e1;
+  padding:13px 8px;
+  gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  color:#b9c2d4;
 }
 
-/* FEATURE PAGES */
-
-.feature-page{
-  min-height:calc(100vh - 72px);
-  padding:55px 0;
-}
-
-.feature-page .panel{
-  max-width:850px;
-  margin:0 auto;
-}
-
-.feature-list{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  margin-top:25px;
-}
-
-.feature-item{
-  padding:18px;
-  border-radius:10px;
-  background:#101722;
-  border:1px solid rgba(255,255,255,.07);
-}
-
-.feature-item h3{margin:0 0 8px}
-.feature-item p{color:#929daf;line-height:1.6}
-
-/* ACCOUNT */
-
-.account-card{
-  padding:20px;
-  margin:25px 0;
-  background:#0b1018;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;
-}
-
-/* MODAL */
+/* ===== MODAL ===== */
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.72);
+  z-index:100;
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:100;
   padding:20px;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
 }
 
 .modal-content{
-  width:min(420px,100%);
-  background:#0c121c;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:14px;
-  padding:25px;
   position:relative;
+  width:min(430px,100%);
+  padding:27px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;
+  background:#080d17;
+  box-shadow:0 30px 100px rgba(0,0,0,.5);
 }
 
 .close-btn{
   position:absolute;
+  right:15px;
   top:10px;
-  right:12px;
+  color:#9aa4b8;
   background:none;
   border:0;
-  color:#aaa;
-  font-size:25px;
+  font-size:27px;
 }
 
 .auth-field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-  margin:15px 0;
-}
-
-.auth-field input{
-  padding:11px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,.12);
-  background:#090e16;
-  color:#fff;
+  margin:14px 0;
 }
 
 .text-btn{
   display:block;
-  border:0;
-  background:none;
-  color:#a78bfa;
   margin:15px auto 0;
+  color:#9f8cff;
+  background:none;
+  border:0;
 }
 
-/* MOBILE */
+/* ===== LIGHT MODE ===== */
 
-@media(max-width:850px){
-  .feature-grid,
-  .setup-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .result-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .home-title{font-size:40px}
+body.light{
+  color:#182033;
+  background:#f5f7fb;
 }
 
-@media(max-width:600px){
+body.light .header{
+  background:rgba(255,255,255,.85);
+  border-color:#e3e7ef;
+}
+
+body.light .abid-home,
+body.light .card,
+body.light .account-card{
+  background:#fff;
+  border-color:#e2e6ef;
+}
+
+body.light .feature-card{
+  background:#f8f9fc;
+  border-color:#e3e6ef;
+}
+
+body.light select,
+body.light input,
+body.light textarea{
+  background:#fff;
+  color:#182033;
+  border-color:#dce1ea;
+}
+
+body.light .typing-container{
+  background:#f8f9fc;
+}
+
+body.light #textDisplay{
+  color:#273044;
+}
+
+body.light .hero-secondary,
+body.light .header-nav button,
+body.light .header-actions button{
+  color:#273044;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1050px){
+  .header-nav{
+    display:none;
+  }
+
+  .feature-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .control-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:700px){
   .header{
-    padding:0 14px;
+    padding:10px 15px;
   }
 
-  .tagline{display:none}
+  .logo{
+    font-size:21px;
+  }
+
+  .tagline{
+    display:none;
+  }
 
   .container{
-    width:min(100% - 20px,1160px);
+    width:min(100% - 18px,1240px);
   }
 
-  .feature-grid,
-  .setup-grid,
-  .feature-list{
+  .abid-home{
+    padding:40px 14px;
+    border-radius:20px;
+  }
+
+  .home-title{
+    letter-spacing:-1.8px;
+  }
+
+  .feature-grid{
     grid-template-columns:1fr;
   }
 
-  .home-title{font-size:32px}
+  .test-top{
+    grid-template-columns:1fr auto;
+  }
+
+  .test-top>div:nth-child(2){
+    display:none;
+  }
+
+  .typing-container{
+    min-height:340px;
+    padding:18px;
+  }
 
   #textDisplay{
-    height:320px;
-    font-size:22px;
-    padding:20px;
-  }
-
-  .typing-container{min-height:360px}
-
-  .test-tools{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  .test-top{
-    flex-wrap:wrap;
+    min-height:290px;
+    font-size:21px;
+    line-height:1.75;
   }
 
   .result-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
   }
 
   .history-row{
     grid-template-columns:1fr 1fr;
-    gap:8px;
   }
 }
 </style>
@@ -644,9 +767,21 @@ button{cursor:pointer}
 <header class="header">
 
   <div class="brand">
-    <div class="logo">AbidType</div>
-    <div class="tagline">Global Typing Practice</div>
+    <div class="logo-mark">⌨</div>
+    <div>
+      <div class="logo">AbidType</div>
+      <div class="tagline">Type Better. Go Further.</div>
+    </div>
   </div>
+
+  <nav class="header-nav">
+    <button class="active" type="button" onclick="goHome()">⌂ Home</button>
+    <button type="button" onclick="showTypingSetup()">Practice</button>
+    <button type="button" onclick="showTypingSetup()">Tests</button>
+    <button type="button" onclick="showComingSoon('Stats')">Stats</button>
+    <button type="button" onclick="showComingSoon('Leaderboard')">🏆 Leaderboard</button>
+    <button type="button" onclick="showComingSoon('About')">About</button>
+  </nav>
 
   <div class="header-actions">
     <button id="themeBtn" type="button">🌙</button>
@@ -657,158 +792,117 @@ button{cursor:pointer}
 
 <main class="container">
 
-<!-- ================= HOME ================= -->
+<!-- =====================================================
+     HOME
+===================================================== -->
 
 <section id="homePage" class="abid-home">
 
-  <div class="home-kicker">
-    ⌨️ AbidType • Global Typing Practice
-  </div>
+  <div class="home-inner">
 
-  <nav class="home-nav">
+    <div style="text-align:center">
+      <div class="home-kicker">
+        ⌨️ AbidType • Global Typing Practice 🌍
+      </div>
+    </div>
 
-    <button class="active" onclick="showHome()">Test</button>
+    <div class="home-nav">
+      <span class="active">Test</span>
+      <span>Games</span>
+      <span>Practice</span>
+      <span>Competition</span>
+      <span>Multiplayer</span>
+    </div>
 
-    <button onclick="showGames()">Games</button>
+    <h1 class="home-title">
+      Type Faster.<br>
+      <span>Become Better.</span>
+    </h1>
 
-    <button onclick="showPractice()">Practice</button>
+    <p class="home-subtitle">
+      Improve your typing speed, accuracy and confidence with
+      AbidType. Practice in multiple languages, choose your
+      preferred typing mode and track your performance.
+    </p>
 
-    <button onclick="showMultiplayer()">Multiplayer</button>
-
-  </nav>
-
-  <h1 class="home-title">
-    Improve your typing speed with<br>
-    <span>our free Typing Games</span>
-  </h1>
-
-  <p class="home-subtitle">
-    Test your typing speed, practice in many languages,
-    choose different typing modes and track your performance
-    with AbidType.
-  </p>
-
-  <div class="feature-grid">
-
-    <article class="feature-card">
-
-      <span class="feature-icon">🎯</span>
-
-      <h3>Typing Test</h3>
-
-      <p>
-        Take a typing test and measure your WPM,
-        accuracy and errors.
-      </p>
-
-      <button onclick="startDirectTest()">
-        Start Test
+    <div class="hero-buttons">
+      <button class="hero-primary" onclick="startDirectTest()">
+        🚀 Start Typing
       </button>
 
-    </article>
-
-
-    <article class="feature-card">
-
-      <span class="feature-icon">🏆</span>
-
-      <h3>Competition</h3>
-
-      <p>
-        Practice competitive typing and prepare
-        for future typing competitions.
-      </p>
-
-      <button onclick="showCompetition()">
-        Open Competition
+      <button class="hero-secondary" onclick="showTypingSetup()">
+        ⚙ Customize Test
       </button>
+    </div>
 
-    </article>
+    <div class="feature-grid">
 
+      <article class="feature-card" onclick="startDirectTest()">
+        <span class="feature-icon">🎯</span>
+        <h3>Typing Test</h3>
+        <p>
+          Test your typing speed and accuracy with a real-time
+          typing challenge.
+        </p>
+        <button type="button">Start Test →</button>
+      </article>
 
-    <article class="feature-card">
+      <article class="feature-card"
+               onclick="showComingSoon('Competition')">
+        <span class="feature-icon">🏆</span>
+        <h3>Competition</h3>
+        <p>
+          Prepare yourself for competitive typing challenges.
+        </p>
+        <button type="button">Explore →</button>
+      </article>
 
-      <span class="feature-icon">🌐</span>
+      <article class="feature-card"
+               onclick="showComingSoon('Multiplayer')">
+        <span class="feature-icon">🌐</span>
+        <h3>Multiplayer</h3>
+        <p>
+          Compete with other typists in future realtime matches.
+        </p>
+        <button type="button">Explore →</button>
+      </article>
 
-      <h3>Multiplayer</h3>
+      <article class="feature-card" onclick="startDirectTest()">
+        <span class="feature-icon">📚</span>
+        <h3>Text Practice</h3>
+        <p>
+          Practice sentences and paragraphs to build consistency.
+        </p>
+        <button type="button">Practice →</button>
+      </article>
 
-      <p>
-        Open the multiplayer area and prepare for
-        realtime typing matches.
-      </p>
+      <article class="feature-card" onclick="showTypingSetup()">
+        <span class="feature-icon">⚡</span>
+        <h3>Custom Mode</h3>
+        <p>
+          Choose language, mode and test duration yourself.
+        </p>
+        <button type="button">Customize →</button>
+      </article>
 
-      <button onclick="showMultiplayer()">
-        Open Multiplayer
-      </button>
-
-    </article>
-
-
-    <article class="feature-card">
-
-      <span class="feature-icon">📚</span>
-
-      <h3>Text Practice</h3>
-
-      <p>
-        Practice typing regularly with different
-        languages and typing modes.
-      </p>
-
-      <button onclick="startDirectTest()">
-        Practice
-      </button>
-
-    </article>
-
-
-    <article class="feature-card">
-
-      <span class="feature-icon">🎮</span>
-
-      <h3>Typing Games</h3>
-
-      <p>
-        Explore typing games and improve your
-        speed while having fun.
-      </p>
-
-      <button onclick="showGames()">
-        Open Games
-      </button>
-
-    </article>
-
-
-    <article class="feature-card">
-
-      <span class="feature-icon">⚙️</span>
-
-      <h3>Custom Mode</h3>
-
-      <p>
-        Choose language, mode and duration for
-        your own typing session.
-      </p>
-
-      <button onclick="showTypingSetup()">
-        Customize
-      </button>
-
-    </article>
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- ================= ACCOUNT ================= -->
+<!-- =====================================================
+     ACCOUNT
+===================================================== -->
 
 <section class="account-card">
 
-  <h2 id="welcome">Practice as a guest</h2>
+  <h2 id="welcome">
+    Practice as a guest
+  </h2>
 
-  <p id="accountNote" class="muted">
+  <p id="accountNote">
     Create an account to save your typing results
     and build your personal record.
   </p>
@@ -816,25 +910,31 @@ button{cursor:pointer}
 </section>
 
 
-<!-- ================= SETUP ================= -->
+<!-- =====================================================
+     SETUP
+===================================================== -->
 
-<section id="setupArea" class="panel hidden">
+<section id="setupArea" class="card hidden">
 
   <div class="section-title">
 
-    <h1>Global Typing Test</h1>
+    <h1>
+      ⚡ Global Typing Test
+    </h1>
 
     <p>
-      Choose your language, mode and test duration.
+      Choose your language, typing mode and test duration.
     </p>
 
   </div>
 
-  <div class="setup-grid">
+  <div class="control-grid">
 
     <div class="control-group">
 
-      <label for="language">Language</label>
+      <label>
+        🌍 Language
+      </label>
 
       <select id="language">
 
@@ -872,7 +972,7 @@ button{cursor:pointer}
         <option value="kn">🇮🇳 ಕನ್ನಡ</option>
         <option value="gu">🇮🇳 ગુજરાતી</option>
         <option value="mr">🇮🇳 मराठी</option>
-        <option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+        <option value="pa">🇮🇳 ਪੰਜਾਬী</option>
         <option value="ne">🇳🇵 नेपाली</option>
         <option value="si">🇱🇰 සිංහල</option>
         <option value="my">🇲🇲 မြန်မာ</option>
@@ -888,28 +988,25 @@ button{cursor:pointer}
 
       </select>
 
+      <div class="language-count">
+        🌍 50+ languages available
+      </div>
+
     </div>
 
 
     <div class="control-group">
 
-      <label for="mode">Typing Mode</label>
+      <label>
+        ⚡ Typing Mode
+      </label>
 
       <select id="mode">
 
         <option value="normal">Normal</option>
-
-        <option value="punctuation">
-          Punctuation
-        </option>
-
-        <option value="capital">
-          CAPITAL Letters
-        </option>
-
-        <option value="small">
-          lowercase
-        </option>
+        <option value="punctuation">Punctuation</option>
+        <option value="capital">CAPITAL Letters</option>
+        <option value="small">lowercase</option>
 
       </select>
 
@@ -922,7 +1019,9 @@ button{cursor:pointer}
 
     <div class="control-group">
 
-      <label for="duration">Test Duration</label>
+      <label>
+        ⏱ Test Duration
+      </label>
 
       <select id="duration">
 
@@ -941,13 +1040,10 @@ button{cursor:pointer}
   </div>
 
 
-  <div
-    id="customTimeWrap"
-    class="control-group hidden"
-    style="max-width:300px;margin-top:18px"
-  >
+  <div id="customTimeWrap"
+       class="control-group hidden">
 
-    <label for="customTime">
+    <label>
       Custom Time (seconds)
     </label>
 
@@ -959,24 +1055,22 @@ button{cursor:pointer}
       value="60"
     >
 
+    <small>
+      Minimum 10 seconds, maximum 3600 seconds.
+    </small>
+
   </div>
 
 
-  <div class="setup-start">
+  <div style="text-align:center">
 
     <button
       id="startTestBtn"
       class="primary-btn"
-      type="button"
-    >
-      Start Typing Test
-    </button>
+      type="button">
 
-    <button
-      class="restart-btn"
-      onclick="showHome()"
-    >
-      Back
+      🚀 Start Typing Test
+
     </button>
 
   </div>
@@ -984,60 +1078,39 @@ button{cursor:pointer}
 </section>
 
 
-<!-- ================= TEST ================= -->
+<!-- =====================================================
+     TEST
+===================================================== -->
 
-<section id="testArea" class="hidden">
+<section id="testArea" class="card hidden">
 
   <div class="test-top">
 
-    <div class="language-label">
-      🌐 <span id="currentLanguage">English</span>
+    <div class="test-language">
+      <span>Language</span>
+      <strong id="currentLanguage">
+        English
+      </strong>
     </div>
 
-    <div class="test-tools">
-
-      <button
-        id="normalBtn"
-        class="test-tool active"
-        onclick="setQuickMode('normal')"
-      >
-        Normal
-      </button>
-
-      <button
-        id="advancedBtn"
-        class="test-tool"
-        onclick="setQuickMode('advanced')"
-      >
-        Advanced
-      </button>
-
-      <button
-        class="test-tool"
-        onclick="restartCurrentTest()"
-        title="New passage"
-      >
-        ↻
-      </button>
-
-      <button
-        class="test-tool"
-        onclick="showTypingSetup()"
-        title="Settings"
-      >
-        ⚙️
-      </button>
-
+    <div>
+      <strong>Normal</strong>
+      &nbsp;•&nbsp;
+      <span style="color:#7f8aa0">
+        Sound ON
+      </span>
     </div>
 
-    <div class="timer">
-      <span id="time">60</span>s
+    <div class="timer-box">
+      ⏱ <strong id="time">60</strong>
     </div>
 
   </div>
 
 
-  <div class="typing-container">
+  <div
+    class="typing-container"
+    id="typingContainer">
 
     <div id="textDisplay"></div>
 
@@ -1046,9 +1119,15 @@ button{cursor:pointer}
       autocomplete="off"
       autocorrect="off"
       autocapitalize="off"
-      spellcheck="false"
-    ></textarea>
+      spellcheck="false">
+    </textarea>
 
+  </div>
+
+
+  <div class="typing-help">
+    Click inside the typing area and start typing.
+    Key sound is enabled.
   </div>
 
 
@@ -1057,15 +1136,18 @@ button{cursor:pointer}
     <button
       id="finishBtn"
       class="primary-btn"
-    >
+      type="button">
+
       Finish Test
+
     </button>
 
     <button
-      class="restart-btn"
-      onclick="restartCurrentTest()"
-    >
-      Restart
+      id="restartBtn"
+      type="button">
+
+      ↻ Restart
+
     </button>
 
   </div>
@@ -1073,16 +1155,20 @@ button{cursor:pointer}
 </section>
 
 
-<!-- ================= RESULT ================= -->
+<!-- =====================================================
+     RESULT
+===================================================== -->
 
-<section id="resultArea" class="panel hidden">
+<section id="resultArea" class="card hidden">
 
   <div class="section-title">
 
-    <h2>Your Result</h2>
+    <h2>
+      🎉 Your Result
+    </h2>
 
     <p>
-      Here is your typing performance.
+      Great job! Here is your typing performance.
     </p>
 
   </div>
@@ -1125,27 +1211,24 @@ button{cursor:pointer}
 
   <div class="graph-box">
 
-    <h3>Performance</h3>
+    <h3>
+      Performance
+    </h3>
 
     <canvas id="performanceChart"></canvas>
 
   </div>
 
 
-  <div class="result-buttons">
+  <div style="text-align:center;margin-top:20px">
 
     <button
+      id="tryAgainBtn"
       class="primary-btn"
-      onclick="startDirectTest()"
-    >
-      Try Again
-    </button>
+      type="button">
 
-    <button
-      class="restart-btn"
-      onclick="showHome()"
-    >
-      Home
+      🚀 Try Again
+
     </button>
 
   </div>
@@ -1153,198 +1236,46 @@ button{cursor:pointer}
 </section>
 
 
-<!-- ================= HISTORY ================= -->
+<!-- =====================================================
+     HISTORY
+===================================================== -->
 
-<section class="panel">
+<section class="card">
 
-  <div class="section-title">
+  <div
+    style="
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+      flex-wrap:wrap;
+    ">
 
-    <h2>Typing History</h2>
+    <div>
 
-    <p>Your latest typing results.</p>
+      <h2>
+        📊 Typing History
+      </h2>
+
+      <p style="color:#7d899f">
+        Your latest typing results.
+      </p>
+
+    </div>
+
+    <button
+      id="historyBtn"
+      type="button">
+
+      View History
+
+    </button>
 
   </div>
-
-  <button
-    id="historyBtn"
-    class="primary-btn"
-  >
-    View History
-  </button>
 
   <div
     id="history"
-    class="hidden"
-    style="margin-top:20px"
-  ></div>
-
-</section>
-
-
-<!-- ================= GAMES ================= -->
-
-<section id="gamesPage" class="feature-page hidden">
-
-  <div class="panel">
-
-    <h2>🎮 Typing Games</h2>
-
-    <p class="muted">
-      Improve your typing speed through fun practice modes.
-    </p>
-
-    <div class="feature-list">
-
-      <div class="feature-item">
-        <h3>⚡ Speed Challenge</h3>
-        <p>
-          Start a fast typing test and try to beat your
-          previous WPM.
-        </p>
-        <button class="primary-btn" onclick="startDirectTest()">
-          Start
-        </button>
-      </div>
-
-      <div class="feature-item">
-        <h3>🎯 Accuracy Challenge</h3>
-        <p>
-          Focus on accuracy and reduce typing mistakes.
-        </p>
-        <button class="primary-btn" onclick="startAccuracyMode()">
-          Start
-        </button>
-      </div>
-
-      <div class="feature-item">
-        <h3>🔥 60 Second Challenge</h3>
-        <p>
-          Test yourself for exactly one minute.
-        </p>
-        <button class="primary-btn" onclick="start60Second()">
-          Start
-        </button>
-      </div>
-
-      <div class="feature-item">
-        <h3>📖 Text Practice</h3>
-        <p>
-          Practice with longer passages.
-        </p>
-        <button class="primary-btn" onclick="startDirectTest()">
-          Practice
-        </button>
-      </div>
-
-    </div>
-
-    <br>
-
-    <button class="restart-btn" onclick="showHome()">
-      ← Back Home
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ================= COMPETITION ================= -->
-
-<section id="competitionPage" class="feature-page hidden">
-
-  <div class="panel">
-
-    <h2>🏆 Competition</h2>
-
-    <p class="muted">
-      Welcome to the AbidType Competition area.
-      You can practice competitive typing now.
-      Online ranking and live competitions can be added
-      as the platform grows.
-    </p>
-
-    <div class="feature-list">
-
-      <div class="feature-item">
-        <h3>🥇 Personal Best</h3>
-        <p>
-          Try to beat your highest WPM score.
-        </p>
-        <button class="primary-btn" onclick="startDirectTest()">
-          Challenge
-        </button>
-      </div>
-
-      <div class="feature-item">
-        <h3>⏱️ Timed Challenge</h3>
-        <p>
-          Take a timed typing challenge.
-        </p>
-        <button class="primary-btn" onclick="start60Second()">
-          Start
-        </button>
-      </div>
-
-    </div>
-
-    <br>
-
-    <button class="restart-btn" onclick="showHome()">
-      ← Back Home
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ================= MULTIPLAYER ================= -->
-
-<section id="multiplayerPage" class="feature-page hidden">
-
-  <div class="panel">
-
-    <h2>🌐 Multiplayer</h2>
-
-    <p class="muted">
-      Multiplayer mode is prepared here for realtime
-      typing matches. The local practice challenge works
-      now; realtime player matching will be connected later.
-    </p>
-
-    <div class="feature-list">
-
-      <div class="feature-item">
-        <h3>👤 Practice Match</h3>
-        <p>
-          Practice as if you are preparing for a multiplayer
-          typing race.
-        </p>
-        <button class="primary-btn" onclick="startDirectTest()">
-          Practice Match
-        </button>
-      </div>
-
-      <div class="feature-item">
-        <h3>⚔️ Race Preparation</h3>
-        <p>
-          Improve speed and accuracy before playing against
-          other users.
-        </p>
-        <button class="primary-btn" onclick="start60Second()">
-          Start Training
-        </button>
-      </div>
-
-    </div>
-
-    <br>
-
-    <button class="restart-btn" onclick="showHome()">
-      ← Back Home
-    </button>
-
+    class="hidden">
   </div>
 
 </section>
@@ -1352,27 +1283,42 @@ button{cursor:pointer}
 </main>
 
 
-<!-- ================= AUTH ================= -->
+<!-- =====================================================
+     AUTH MODAL
+===================================================== -->
 
-<div id="authModal" class="modal hidden">
+<div
+  id="authModal"
+  class="modal hidden">
 
   <div class="modal-content">
 
-    <button id="closeAuth" class="close-btn">×</button>
+    <button
+      id="closeAuth"
+      class="close-btn">
+      ×
+    </button>
 
-    <h2 id="authTitle">Create your account</h2>
+    <h2 id="authTitle">
+      Create your account
+    </h2>
 
-    <p id="authMessage" class="muted"></p>
+    <p
+      id="authMessage"
+      style="color:#8792a7">
+    </p>
 
-    <div id="nameField" class="auth-field">
+
+    <div
+      id="displayNameWrap"
+      class="auth-field">
 
       <label>Name</label>
 
       <input
         id="displayName"
         type="text"
-        placeholder="Your name"
-      >
+        placeholder="Your name">
 
     </div>
 
@@ -1384,8 +1330,7 @@ button{cursor:pointer}
       <input
         id="email"
         type="email"
-        placeholder="you@example.com"
-      >
+        placeholder="you@example.com">
 
     </div>
 
@@ -1397,8 +1342,7 @@ button{cursor:pointer}
       <input
         id="password"
         type="password"
-        placeholder="Minimum 6 characters"
-      >
+        placeholder="Minimum 6 characters">
 
     </div>
 
@@ -1406,17 +1350,20 @@ button{cursor:pointer}
     <button
       id="submitAuth"
       class="primary-btn"
-      style="width:100%"
-    >
+      type="button">
+
       Sign up
+
     </button>
 
 
     <button
       id="switchAuth"
       class="text-btn"
-    >
+      type="button">
+
       Already have an account? Login
+
     </button>
 
   </div>
@@ -1424,429 +1371,291 @@ button{cursor:pointer}
 </div>
 
 
-<!-- ================= SUPABASE ================= -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 
 <script>
-'use strict';
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
+const supabaseClient =
+  window.supabase?.createClient(
+    window.ABIDTYPE_SUPABASE_URL,
+    window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
+  );
 
 const $ = id => document.getElementById(id);
 
 
-/* =====================================================
-   SUPABASE
-===================================================== */
-
-let supabaseClient = null;
-
-try{
-
-  if(
-    window.supabase &&
-    window.ABIDTYPE_SUPABASE_URL &&
-    window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
-  ){
-
-    supabaseClient =
-      window.supabase.createClient(
-        window.ABIDTYPE_SUPABASE_URL,
-        window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
-      );
-
-  }
-
-}catch(error){
-  console.warn(error);
-}
-
-
-/* =====================================================
-   PASSAGES
-   IMPORTANT: PASSAGES ARE NEVER SHUFFLED
-===================================================== */
+/* =========================================================
+   TEXT
+========================================================= */
 
 const passages = {
 
-en:[
-'Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.',
-'Good typing comes from steady practice and careful attention. Keep your hands relaxed, watch the text closely, and try to maintain a comfortable rhythm while you type.',
-'Learning to type faster takes time, patience, and consistency. Do not rush at the beginning. Build accurate habits first, and your speed will gradually become better.',
-'A calm and focused mind can make typing much easier. Practice a little every day, learn from your mistakes, and keep working toward a faster and more accurate result.',
-'Typing practice becomes more useful when you stay consistent. Try to keep the same rhythm, avoid unnecessary mistakes, and slowly increase your speed as your accuracy improves.',
-'Strong typing skills come from repetition and patience. Keep your eyes on the text, keep your hands relaxed, and focus on making every keystroke accurate.',
-'Daily practice can turn slow typing into confident typing. Start comfortably, avoid rushing, and allow your speed to improve naturally over time.'
-],
+en:"Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.",
 
-bn:[
-'নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।',
-'ভালো টাইপিংয়ের জন্য ধৈর্য এবং নিয়মিত অনুশীলন প্রয়োজন। দ্রুত টাইপ করার আগে সঠিকভাবে টাইপ করার অভ্যাস তৈরি করুন। সময়ের সঙ্গে আপনার গতি এবং আত্মবিশ্বাস দুটোই বাড়বে।',
-'টাইপিং শেখার সময় ভুল হওয়া স্বাভাবিক। ভুল থেকে শেখার চেষ্টা করুন এবং প্রতিদিন কিছু সময় অনুশীলন করুন। নিয়মিত চেষ্টা করলে আপনার টাইপিং দক্ষতা অনেক উন্নত হবে।',
-'শান্তভাবে এবং মনোযোগ দিয়ে টাইপ করলে ভুল কম হয়। প্রতিদিন নতুন কিছু অনুশীলন করুন এবং নিজের আগের ফলাফলকে ধীরে ধীরে উন্নত করার চেষ্টা করুন।',
-'টাইপিংয়ে ভালো করতে হলে নিয়মিত অনুশীলনের পাশাপাশি সঠিকতার দিকে নজর দেওয়া জরুরি। ধীরে শুরু করুন, ভুল কমান এবং সময়ের সঙ্গে নিজের গতি বাড়ান.',
-'প্রতিদিন টাইপিং অনুশীলন করলে আপনার হাতের গতি এবং লেখার আত্মবিশ্বাস বাড়তে পারে। ভুলকে ভয় না পেয়ে ধীরে ধীরে নিজের দক্ষতা উন্নত করুন।'
-],
+bn:"নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।",
 
-hi:[
-'नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं। हर दिन सीखने और बेहतर बनने का एक नया अवसर है।',
-'अच्छी टाइपिंग के लिए धैर्य और नियमित अभ्यास जरूरी है। शुरुआत में तेज टाइप करने की कोशिश न करें। पहले सही टाइप करने की आदत बनाएं और फिर धीरे धीरे गति बढ़ाएं।',
-'टाइपिंग सीखते समय गलतियां होना सामान्य है। अपनी गलतियों से सीखें और हर दिन कुछ समय अभ्यास करें। लगातार अभ्यास करने से आपकी गति और आत्मविश्वास दोनों बढ़ेंगे।'
-],
+hi:"नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं। हर दिन सीखने और बेहतर बनने का एक नया अवसर है।",
 
-ur:[
-'باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔',
-'اچھی ٹائپنگ کے لیے صبر اور مسلسل مشق ضروری ہے۔ شروع میں رفتار کے بجائے درست الفاظ لکھنے پر توجہ دیں۔',
-'ٹائپنگ سیکھنے میں غلطیاں ہونا عام بات ہے۔ اپنی غلطیوں سے سیکھیں اور روزانہ کچھ وقت مشق کے لیے ضرور نکالیں۔'
-],
+ur:"باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔",
 
-ar:[
-'تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي.',
-'تحتاج الكتابة السريعة إلى الصبر والممارسة المستمرة. ابدأ ببطء وحافظ على الدقة ثم حاول زيادة سرعتك تدريجياً.',
-'من الطبيعي أن ترتكب بعض الأخطاء أثناء تعلم الكتابة. تعلم من أخطائك وتدرب كل يوم حتى تصبح أكثر سرعة وثقة.'
-],
+ar:"تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي. كل يوم هو فرصة جديدة لتحسين مهاراتك.",
 
-es:[
-'Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará de forma natural.',
-'Una buena escritura requiere paciencia y práctica constante. Empieza despacio, reduce los errores y aumenta tu velocidad poco a poco.',
-'Practicar todos los días puede mejorar tu velocidad y confianza. Mantén un ritmo cómodo y presta atención a cada palabra que escribes.'
-],
+es:"Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará de forma natural. Cada día es una nueva oportunidad para mejorar.",
 
-fr:[
-'La frappe est une compétence qui s’améliore avec une pratique régulière. Concentrez-vous d’abord sur la précision et la vitesse viendra naturellement.',
-'Une bonne frappe demande de la patience et une pratique constante. Commencez lentement, évitez les erreurs et augmentez progressivement votre vitesse.',
-'Pratiquer chaque jour peut améliorer votre vitesse et votre confiance. Gardez un rythme confortable et concentrez-vous sur chaque mot.'
-],
+fr:"La frappe est une compétence qui s'améliore avec une pratique régulière. Concentrez-vous d'abord sur la précision et la vitesse viendra naturellement.",
 
-de:[
-'Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird ganz natürlich folgen.',
-'Gutes Tippen braucht Geduld und regelmäßiges Training. Beginne langsam, vermeide Fehler und steigere deine Geschwindigkeit Schritt für Schritt.',
-'Tägliches Üben kann deine Geschwindigkeit und dein Selbstvertrauen verbessern. Halte einen angenehmen Rhythmus und achte auf jedes Wort.'
-],
+de:"Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird ganz natürlich folgen.",
 
-it:[
-'La digitazione è un’abilità che migliora con la pratica regolare. Concentrati prima sulla precisione e la velocità arriverà naturalmente.',
-'Una buona digitazione richiede pazienza e pratica costante. Inizia lentamente, riduci gli errori e aumenta gradualmente la velocità.',
-'Allenarsi ogni giorno può migliorare la velocità e la sicurezza. Mantieni un ritmo comodo e presta attenzione a ogni parola.'
-],
+it:"La digitazione è un'abilità che migliora con la pratica regolare. Concentrati prima sulla precisione e la velocità arriverà naturalmente.",
 
-pt:[
-'A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.',
-'Uma boa digitação exige paciência e prática constante. Comece devagar, evite erros e aumente sua velocidade aos poucos.',
-'Praticar todos os dias pode melhorar sua velocidade e confiança. Mantenha um ritmo confortável e preste atenção em cada palavra.'
-],
+pt:"A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.",
 
-ru:[
-'Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности, а скорость придет естественно.',
-'Хорошая скорость печати требует терпения и постоянной практики. Начинайте медленно, избегайте ошибок и постепенно увеличивайте скорость.',
-'Ежедневная практика помогает улучшить скорость и уверенность. Сохраняйте удобный ритм и внимательно следите за каждым словом.'
-],
+ru:"Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности, а скорость придет естественно.",
 
-zh:[
-'打字是一项可以通过定期练习不断提高的技能。首先专注于准确性，然后速度会自然提高。每天都是提升打字能力的新机会。',
-'良好的打字能力需要耐心和持续练习。开始时不要追求速度，先保持准确，然后逐渐提高自己的打字速度。',
-'每天练习打字可以提高速度和信心。保持舒适的节奏，认真阅读每一个词，并不断减少错误。'
-],
+zh:"打字是一项可以通过定期练习不断提高的技能。首先专注于准确性，然后速度会自然提高。每天都是提升打字能力的新机会。",
 
-ja:[
-'タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。毎日少しずつ練習することで速度と自信を高めることができます。',
-'上手なタイピングには継続的な練習が必要です。最初は速度よりも正確さを大切にして、少しずつ速く入力できるようにしましょう。',
-'毎日タイピングを練習すると、速度と自信を高めることができます。無理をせず、落ち着いたリズムで一つ一つの言葉を確認しましょう。'
-],
+ja:"タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。毎日少しずつ練習することで速度と自信を高めることができます。",
 
-ko:[
-'타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.',
-'좋은 타이핑 실력을 만들기 위해서는 인내심과 꾸준한 연습이 필요합니다. 처음에는 속도보다 정확성을 먼저 생각하세요.',
-'매일 조금씩 타이핑을 연습하면 속도와 자신감을 높일 수 있습니다. 편안한 리듬을 유지하면서 실수를 줄여 보세요.'
-],
+ko:"타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.",
 
-tr:[
-'Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.',
-'İyi bir yazma becerisi sabır ve düzenli çalışma gerektirir. Yavaş başlayın, hataları azaltın ve hızınızı zamanla artırın.',
-'Her gün pratik yapmak hızınızı ve özgüveninizi geliştirebilir. Rahat bir ritim tutturun ve yazdığınız kelimelere dikkat edin.'
-],
+tr:"Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.",
 
-id:[
-'Mengetik adalah keterampilan yang meningkat dengan latihan rutin. Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti secara alami.',
-'Kemampuan mengetik yang baik membutuhkan kesabaran dan latihan yang konsisten. Mulailah perlahan, kurangi kesalahan, lalu tingkatkan kecepatan secara bertahap.',
-'Berlatih mengetik setiap hari dapat meningkatkan kecepatan dan kepercayaan diri. Pertahankan ritme yang nyaman dan perhatikan setiap kata.'
-],
+id:"Mengetik adalah keterampilan yang meningkat dengan latihan rutin. Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti secara alami.",
 
-ms:[
-'Kemahiran menaip akan bertambah baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat secara semula jadi.',
-'Kemahiran menaip yang baik memerlukan kesabaran dan latihan berterusan. Mulakan dengan perlahan dan tingkatkan kelajuan secara beransur-ansur.',
-'Latihan menaip setiap hari boleh meningkatkan kelajuan dan keyakinan anda. Kekalkan rentak yang selesa dan kurangkan kesilapan.'
-],
+ms:"Kemahiran menaip akan bertambah baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat secara semula jadi.",
 
-vi:[
-'Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.',
-'Để gõ tốt cần có sự kiên nhẫn và luyện tập đều đặn. Hãy bắt đầu chậm, giảm lỗi và tăng tốc độ từng bước.',
-'Luyện tập mỗi ngày có thể giúp bạn cải thiện tốc độ và sự tự tin. Giữ nhịp độ thoải mái và chú ý đến từng từ.'
-],
+vi:"Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.",
 
-th:[
-'การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ',
-'การพิมพ์ที่ดีต้องอาศัยความอดทนและการฝึกฝนอย่างต่อเนื่อง เริ่มต้นอย่างช้า ๆ ลดข้อผิดพลาด และเพิ่มความเร็วทีละน้อย',
-'การฝึกพิมพ์ทุกวันช่วยเพิ่มความเร็วและความมั่นใจ รักษาจังหวะที่สบายและใส่ใจกับทุกคำที่พิมพ์'
-],
+th:"การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ",
 
-nl:[
-'Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen.',
-'Goed typen vraagt om geduld en constante oefening. Begin rustig, maak minder fouten en verhoog je snelheid stap voor stap.',
-'Elke dag oefenen kan je typesnelheid en vertrouwen verbeteren. Houd een comfortabel ritme en let goed op elk woord.'
-]
+nl:"Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen."
 
 };
 
 
-/* =====================================================
-   PUNCTUATION
-===================================================== */
+const punctuationTexts = {
 
-const punctuationTexts={
+en:"Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?",
 
-en:[
-'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
-'Practice every day, stay calm, and type carefully. Speed matters, but accuracy matters even more!'
-],
+bn:"নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?",
 
-bn:[
-'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
-'মনোযোগ দিয়ে টাইপ করুন, ভুল কমান এবং ধীরে ধীরে গতি বাড়ান। নিয়মিত অনুশীলনই সাফল্যের চাবিকাঠি!'
-],
+es:"Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!",
 
-es:[
-'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!'
-],
+fr:"Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!",
 
-fr:[
-'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!'
-],
+de:"Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!",
 
-de:[
-'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!'
-],
+hi:"नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!",
 
-hi:[
-'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!'
-],
-
-ar:[
-'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!'
-]
+ar:"تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!"
 
 };
 
 
-/* =====================================================
-   STATE
-===================================================== */
+/* =========================================================
+   TEST STATE
+========================================================= */
 
-let test={
+let test = {
+
   started:false,
   running:false,
-  finished:false,
   start:0,
   timer:null,
   duration:60,
-  text:'',
-  input:'',
+  text:"",
+  input:"",
   wordResults:[]
+
 };
 
 
-/*
-  Used passage indexes.
-  This prevents the same passage from appearing repeatedly.
-*/
-const passageMemory={};
-
-
-/* =====================================================
+/* =========================================================
    DURATION
-===================================================== */
+========================================================= */
 
 function getDuration(){
 
-  const value=$('duration').value;
+  let v = $("duration").value;
 
-  if(value==='custom'){
+  if(v === "custom"){
 
-    let n=Number($('customTime').value);
+    let n = Number($("customTime").value);
 
-    if(!Number.isFinite(n)||n<10)n=60;
+    return Math.min(
+      3600,
+      Math.max(
+        10,
+        Number.isFinite(n) ? n : 60
+      )
+    );
 
-    return Math.min(3600,Math.floor(n));
   }
 
-  return Number(value)||60;
+  return Number(v) || 60;
+
 }
 
 
-/* =====================================================
-   GET NEW PASSAGE
-===================================================== */
+/* =========================================================
+   BUILD TEXT
+========================================================= */
 
-function getNewPassage(lang,mode){
+function buildText(){
 
-  const list=
-    Array.isArray(passages[lang])
-      ? passages[lang]
-      : passages.en;
+  let lang = $("language").value;
+  let mode = $("mode").value;
 
-  const key=lang+'_'+mode;
+  let text =
+    passages[lang] ||
+    passages.en;
 
-  if(!passageMemory[key]){
-    passageMemory[key]=[];
-  }
+  if(mode === "punctuation")
+    text =
+      punctuationTexts[lang] ||
+      text;
 
-  let available=[];
+  if(mode === "capital")
+    text =
+      text.toUpperCase();
 
-  for(let i=0;i<list.length;i++){
+  if(mode === "small"){
 
-    if(!passageMemory[key].includes(i)){
-      available.push(i);
-    }
-
-  }
-
-  /*
-    When every passage has been used,
-    reset the memory and start a new cycle.
-  */
-  if(!available.length){
-
-    passageMemory[key]=[];
-
-    for(let i=0;i<list.length;i++){
-      available.push(i);
-    }
-
-  }
-
-  const index=
-    available[
-      Math.floor(
-        Math.random()*available.length
-      )
-    ];
-
-  passageMemory[key].push(index);
-
-  let text=list[index];
-
-  if(mode==='punctuation'){
-
-    const p=punctuationTexts[lang];
-
-    if(Array.isArray(p)&&p.length){
-
-      text=
-        p[
-          Math.floor(
-            Math.random()*p.length
-          )
-        ];
-
-    }
-
-  }
-
-  if(mode==='capital'){
-    text=text.toUpperCase();
-  }
-
-  if(mode==='small'){
-
-    text=
+    text =
       text
-        .replace(/[.,!?;:'"()[\]{}\-—–]/g,'')
-        .toLowerCase()
-        .replace(/\s+/g,' ')
-        .trim();
+      .replace(/[.,!?;:'"()[\]{}\-—–]/g,"")
+      .toLowerCase()
+      .replace(/\s+/g," ")
+      .trim();
 
   }
 
   return text;
+
 }
 
 
-/* =====================================================
-   BUILD DISPLAY
-===================================================== */
+/* =========================================================
+   LONG TEXT
+========================================================= */
+
+function createLongText(){
+
+  let b = buildText();
+
+  let out = "";
+
+  for(let i=0;i<100;i++){
+
+    out += b + " ";
+
+  }
+
+  return out.trim();
+
+}
+
+
+/* =========================================================
+   SETUP TEXT
+========================================================= */
 
 function setupText(){
 
-  test.text=
-    getNewPassage(
-      $('language').value,
-      $('mode').value
-    );
+  test.text =
+    createLongText();
 
-  const display=$('textDisplay');
+  const display =
+    $("textDisplay");
 
-  display.innerHTML='';
+  display.innerHTML = "";
 
-  const fragment=
+  const fragment =
     document.createDocumentFragment();
 
-  [...test.text].forEach((char,index)=>{
+  [...test.text].forEach(
+    (char,index)=>{
 
-    const span=document.createElement('span');
+      const span =
+        document.createElement("span");
 
-    span.textContent=char;
-    span.dataset.index=index;
+      span.textContent = char;
+      span.dataset.index = index;
 
-    fragment.appendChild(span);
+      fragment.appendChild(span);
 
-  });
+    }
+  );
 
   display.appendChild(fragment);
 
   updateDisplay();
+
 }
 
 
-/* =====================================================
+/* =========================================================
    DISPLAY
-===================================================== */
+========================================================= */
 
 function updateDisplay(){
 
-  const input=$('typingInput').value;
+  const input =
+    $("typingInput").value;
 
-  const spans=[...$('textDisplay').children];
+  const display =
+    $("textDisplay");
 
-  spans.forEach((span,index)=>{
+  const spans =
+    [...display.children];
 
-    span.className='';
+  spans.forEach(
+    (span,index)=>{
 
-    if(index<input.length){
+      span.className = "";
 
-      span.classList.add(
-        input[index]===test.text[index]
-          ?'correct'
-          :'wrong'
-      );
+      if(index < input.length){
+
+        span.classList.add(
+          input[index] === test.text[index]
+            ? "correct"
+            : "wrong"
+        );
+
+      }
 
     }
+  );
 
-  });
-
-  const current=spans[input.length];
+  const current =
+    spans[input.length];
 
   if(current){
 
-    current.classList.add('current');
+    current.classList.add("current");
 
-    const rect=current.getBoundingClientRect();
+    const d =
+      display.getBoundingClientRect();
 
-    const box=$('textDisplay').getBoundingClientRect();
+    const c =
+      current.getBoundingClientRect();
 
-    if(rect.bottom>box.bottom-40){
+    if(c.bottom > d.bottom - 15){
 
-      $('textDisplay').scrollTop+=
-        rect.bottom-box.bottom+45;
+      display.scrollTop +=
+        c.bottom - d.bottom + 35;
+
+    }
+
+    if(c.top < d.top + 15){
+
+      display.scrollTop -=
+        d.top - c.top + 35;
 
     }
 
@@ -1855,252 +1664,261 @@ function updateDisplay(){
 }
 
 
-/* =====================================================
-   MODE INFO
-===================================================== */
+/* =========================================================
+   MODE
+========================================================= */
 
 function updateModeInfo(){
 
-  const mode=$('mode').value;
+  const m =
+    $("mode").value;
 
-  const text={
+  $("modeInfo").textContent = {
 
-    normal:'Normal typing practice.',
+    normal:
+      "Normal typing practice.",
 
-    punctuation:'Practice typing with punctuation marks.',
+    punctuation:
+      "Practice typing with punctuation marks.",
 
-    capital:'Practice typing CAPITAL letters.',
+    capital:
+      "Practice typing CAPITAL letters.",
 
-    small:'Practice lowercase letters without punctuation.'
+    small:
+      "Practice lowercase letters without punctuation."
 
-  };
+  }[m];
 
-  $('modeInfo').textContent=text[mode]||text.normal;
 }
 
 
-/* =====================================================
+/* =========================================================
    LANGUAGE
-===================================================== */
+========================================================= */
 
 function updateLanguage(){
 
-  const option=$('language').selectedOptions[0];
+  const s =
+    $("language");
 
-  $('currentLanguage').textContent=
-    option
-      ? option.textContent.replace(
+  const o =
+    s.options[s.selectedIndex];
+
+  $("currentLanguage").textContent =
+    o
+      ? o.textContent.replace(
           /^[^\p{L}\p{N}]+/u,
-          ''
+          ""
         )
-      :'English';
+      : "English";
 
 }
 
 
-/* =====================================================
-   START
-===================================================== */
-
-function startDirectTest(){
-
-  hideAllPages();
-
-  $('testArea').classList.remove('hidden');
-
-  test={
-    started:false,
-    running:false,
-    finished:false,
-    start:0,
-    timer:null,
-    duration:getDuration(),
-    text:'',
-    input:'',
-    wordResults:[]
-  };
-
-  $('typingInput').disabled=false;
-  $('typingInput').value='';
-  $('time').textContent=test.duration;
-
-  setupText();
-  updateLanguage();
-
-  setTimeout(()=>{
-    $('typingInput').focus();
-  },50);
-
-}
-
-
-/* =====================================================
-   QUICK NORMAL / ADVANCED
-===================================================== */
-
-function setQuickMode(mode){
-
-  if(mode==='normal'){
-
-    $('mode').value='normal';
-
-    $('normalBtn').classList.add('active');
-    $('advancedBtn').classList.remove('active');
-
-  }else{
-
-    $('mode').value='punctuation';
-
-    $('advancedBtn').classList.add('active');
-    $('normalBtn').classList.remove('active');
-
-  }
-
-  updateModeInfo();
-
-  restartCurrentTest();
-
-}
-
-
-/* =====================================================
-   RESTART / NEW PASSAGE
-===================================================== */
-
-function restartCurrentTest(){
-
-  clearInterval(test.timer);
-
-  test={
-    started:false,
-    running:false,
-    finished:false,
-    start:0,
-    timer:null,
-    duration:getDuration(),
-    text:'',
-    input:'',
-    wordResults:[]
-  };
-
-  $('typingInput').disabled=false;
-  $('typingInput').value='';
-  $('time').textContent=test.duration;
-
-  setupText();
-
-  setTimeout(()=>{
-    $('typingInput').focus();
-  },50);
-
-}
-
-
-/* =====================================================
+/* =========================================================
    TIMER
-===================================================== */
+========================================================= */
 
 function beginTest(){
 
-  if(test.started||test.finished)return;
+  if(test.started)
+    return;
 
-  test.started=true;
-  test.running=true;
-  test.start=Date.now();
+  test.started = true;
+  test.running = true;
+  test.start = Date.now();
 
-  test.timer=
-    setInterval(updateTimer,100);
+  test.timer =
+    setInterval(
+      updateTimer,
+      100
+    );
 
 }
 
 
 function updateTimer(){
 
-  if(!test.running)return;
+  if(!test.running)
+    return;
 
-  const elapsed=
-    Math.floor(
-      (Date.now()-test.start)/1000
-    );
-
-  const left=
+  let left =
     Math.max(
       0,
-      test.duration-elapsed
+      test.duration -
+      Math.floor(
+        (Date.now()-test.start)/1000
+      )
     );
 
-  $('time').textContent=left;
+  $("time").textContent =
+    left;
 
-  if(left<=0){
+  if(left <= 0)
     finishTest();
-  }
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   KEY SOUND
+========================================================= */
+
+let audioContext = null;
+
+function playKeySound(){
+
+  try{
+
+    audioContext ||=
+      new (
+        window.AudioContext ||
+        window.webkitAudioContext
+      )();
+
+    if(
+      audioContext.state ===
+      "suspended"
+    ){
+
+      audioContext.resume();
+
+    }
+
+    let o =
+      audioContext.createOscillator();
+
+    let g =
+      audioContext.createGain();
+
+    o.frequency.value =
+      450 + Math.random()*80;
+
+    g.gain.setValueAtTime(
+      .018,
+      audioContext.currentTime
+    );
+
+    g.gain.exponentialRampToValueAtTime(
+      .001,
+      audioContext.currentTime + .04
+    );
+
+    o.connect(g);
+    g.connect(audioContext.destination);
+
+    o.start();
+
+    o.stop(
+      audioContext.currentTime+.045
+    );
+
+  }catch(e){}
+
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+$("typingInput")
+.addEventListener(
+  "input",
+  ()=>{
+
+    if(!test.started)
+      beginTest();
+
+    test.input =
+      $("typingInput").value;
+
+    updateDisplay();
+
+    playKeySound();
+
+  }
+);
+
+
+$("typingContainer")
+.addEventListener(
+  "click",
+  ()=>{
+    $("typingInput").focus();
+  }
+);
+
+
+/* =========================================================
    STATS
-===================================================== */
+========================================================= */
 
 function calculateStats(){
 
-  const input=$('typingInput').value;
+  const input =
+    $("typingInput").value;
 
-  let correct=0;
-  let errors=0;
+  let correctChars = 0;
+  let errors = 0;
 
-  [...input].forEach((char,index)=>{
+  [...input].forEach(
+    (c,i)=>{
 
-    if(char===test.text[index]){
-      correct++;
-    }else{
-      errors++;
+      if(c === test.text[i])
+        correctChars++;
+      else
+        errors++;
+
     }
+  );
 
-  });
-
-  const elapsed=
+  const elapsed =
     test.start
-      ?Math.max(
-        1,
-        (Date.now()-test.start)/1000
-      )
-      :1;
+      ? Math.max(
+          1,
+          (Date.now()-test.start)/1000
+        )
+      : 1;
 
-  const wpm=
+  const wpm =
     Math.max(
       0,
       Math.round(
-        correct/5/(elapsed/60)
+        (correctChars/5) /
+        (elapsed/60)
       )
     );
 
-  const accuracy=
+  const accuracy =
     input.length
-      ?Math.round(
-        correct/input.length*100
-      )
-      :100;
+      ? Math.round(
+          correctChars /
+          input.length *
+          100
+        )
+      : 100;
 
-  const typed=
+  const typed =
     input.trim()
-      ?input.trim().split(/\s+/)
-      :[];
+      ? input.trim().split(/\s+/)
+      : [];
 
-  const target=
+  const target =
     test.text.trim().split(/\s+/);
 
-  let correctWords=0;
+  let correctWords = 0;
 
-  typed.forEach((word,index)=>{
+  typed.forEach(
+    (w,i)=>{
 
-    if(word===target[index]){
-      correctWords++;
+      if(w === target[i])
+        correctWords++;
+
     }
+  );
 
-  });
-
-  return{
+  return {
 
     wpm,
     accuracy,
@@ -2114,690 +1932,813 @@ function calculateStats(){
     wrongWords:
       Math.max(
         0,
-        typed.length-correctWords
-      )
+        typed.length -
+        correctWords
+      ),
+
+    correctChars
 
   };
 
 }
 
 
-/* =====================================================
+/* =========================================================
    WORD RESULTS
-===================================================== */
+========================================================= */
 
 function makeWordResults(){
 
-  const typed=
-    $('typingInput').value.trim()
-      ?$('typingInput')
-        .value
-        .trim()
-        .split(/\s+/)
-      :[];
+  const a =
+    $("typingInput")
+      .value
+      .trim()
+      ? $("typingInput")
+          .value
+          .trim()
+          .split(/\s+/)
+      : [];
 
-  const target=
+  const b =
     test.text
       .trim()
       .split(/\s+/);
 
-  return typed.map(
-    (word,index)=>
-      word===target[index]
-        ?'correct'
-        :'wrong'
+  return a.map(
+    (w,i)=>
+      w === b[i]
+        ? "correct"
+        : "wrong"
   );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    FINISH
-===================================================== */
+========================================================= */
 
 async function finishTest(){
 
-  if(test.finished||!test.started)return;
-
-  test.finished=true;
-  test.running=false;
+  if(!test.started)
+    return;
 
   clearInterval(test.timer);
 
-  test.input=$('typingInput').value;
+  test.running = false;
 
-  const stats=calculateStats();
+  const s =
+    calculateStats();
 
-  test.wordResults=makeWordResults();
+  test.wordResults =
+    makeWordResults();
 
-  $('resultWpm').textContent=stats.wpm;
-  $('resultAccuracy').textContent=stats.accuracy+'%';
-  $('resultWords').textContent=stats.totalWords;
-  $('resultErrors').textContent=stats.errors;
-  $('correctWords').textContent=stats.correctWords;
-  $('wrongWords').textContent=stats.wrongWords;
+  $("time").textContent = "0";
 
-  $('typingInput').disabled=true;
+  $("resultWpm").textContent =
+    s.wpm;
 
-  $('testArea').classList.add('hidden');
-  $('resultArea').classList.remove('hidden');
+  $("resultAccuracy").textContent =
+    s.accuracy + "%";
+
+  $("resultWords").textContent =
+    s.totalWords;
+
+  $("resultErrors").textContent =
+    s.errors;
+
+  $("correctWords").textContent =
+    s.correctWords;
+
+  $("wrongWords").textContent =
+    s.wrongWords;
+
+  $("testArea")
+    .classList
+    .add("hidden");
+
+  $("resultArea")
+    .classList
+    .remove("hidden");
 
   drawGraph();
 
-  await saveResult(stats);
+  await saveResult(s);
 
 }
 
 
-/* =====================================================
+/* =========================================================
    GRAPH
-===================================================== */
+========================================================= */
 
 function drawGraph(){
 
-  const canvas=$('performanceChart');
+  const c =
+    $("performanceChart");
 
-  if(!canvas)return;
+  const ctx =
+    c.getContext("2d");
 
-  const ctx=canvas.getContext('2d');
+  const w =
+    c.clientWidth || 800;
 
-  const width=
-    canvas.clientWidth||800;
+  const h = 260;
 
-  const height=260;
+  const r =
+    devicePixelRatio || 1;
 
-  const ratio=
-    window.devicePixelRatio||1;
-
-  canvas.width=width*ratio;
-  canvas.height=height*ratio;
+  c.width = w*r;
+  c.height = h*r;
 
   ctx.setTransform(
-    ratio,0,0,ratio,0,0
+    r,0,0,r,0,0
   );
 
-  ctx.clearRect(0,0,width,height);
+  ctx.clearRect(
+    0,0,w,h
+  );
 
-  const results=test.wordResults;
+  const a =
+    test.wordResults;
 
-  if(!results.length){
+  if(!a.length){
 
-    ctx.fillStyle='#9ba4b5';
-    ctx.font='14px Arial';
+    ctx.fillStyle =
+      "#9ba4b5";
 
     ctx.fillText(
-      'Type some words to see your performance.',
-      30,50
+      "Type some words to see your performance.",
+      30,
+      50
     );
 
     return;
-  }
-
-  const usable=width-60;
-
-  const step=
-    results.length>1
-      ?usable/(results.length-1)
-      :0;
-
-  results.forEach((result,index)=>{
-
-    const x=
-      results.length===1
-        ?width/2
-        :30+index*step;
-
-    const y=
-      result==='correct'
-        ?height-90
-        :height-170;
-
-    if(index>0){
-
-      const previous=results[index-1];
-
-      const px=
-        results.length===1
-          ?width/2
-          :30+(index-1)*step;
-
-      const py=
-        previous==='correct'
-          ?height-90
-          :height-170;
-
-      ctx.beginPath();
-      ctx.moveTo(px,py);
-      ctx.lineTo(x,y);
-      ctx.strokeStyle='rgba(255,255,255,.18)';
-      ctx.stroke();
-
-    }
-
-    ctx.beginPath();
-    ctx.arc(x,y,5,0,Math.PI*2);
-
-    ctx.fillStyle=
-      result==='correct'
-        ?'#22c55e'
-        :'#ef4444';
-
-    ctx.fill();
-
-  });
-
-}
-
-
-/* =====================================================
-   SETUP
-===================================================== */
-
-function showTypingSetup(){
-
-  hideAllPages();
-
-  $('setupArea').classList.remove('hidden');
-
-  updateDurationUI();
-  updateModeInfo();
-
-}
-
-
-function updateDurationUI(){
-
-  $('customTimeWrap')
-    .classList
-    .toggle(
-      'hidden',
-      $('duration').value!=='custom'
-    );
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function hideAllPages(){
-
-  $('homePage').classList.add('hidden');
-  $('setupArea').classList.add('hidden');
-  $('testArea').classList.add('hidden');
-  $('resultArea').classList.add('hidden');
-  $('gamesPage').classList.add('hidden');
-  $('competitionPage').classList.add('hidden');
-  $('multiplayerPage').classList.add('hidden');
-
-}
-
-
-function showHome(){
-
-  hideAllPages();
-
-  $('homePage').classList.remove('hidden');
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-
-}
-
-
-function showGames(){
-
-  hideAllPages();
-
-  $('gamesPage').classList.remove('hidden');
-
-}
-
-
-function showCompetition(){
-
-  hideAllPages();
-
-  $('competitionPage').classList.remove('hidden');
-
-}
-
-
-function showMultiplayer(){
-
-  hideAllPages();
-
-}
-
-
-function showPractice(){
-
-  showTypingSetup();
-
-}
-
-
-/* =====================================================
-   GAME SHORTCUTS
-===================================================== */
-
-function start60Second(){
-
-  $('duration').value='60';
-
-  startDirectTest();
-
-}
-
-
-function startAccuracyMode(){
-
-  $('mode').value='normal';
-
-  $('duration').value='60';
-
-  startDirectTest();
-
-}
-
-
-/* =====================================================
-   INPUT
-===================================================== */
-
-$('typingInput').addEventListener(
-  'input',
-  ()=>{
-
-    if(!test.started){
-      beginTest();
-    }
-
-    const value=$('typingInput').value;
-
-    test.input=value;
-
-    updateDisplay();
-
-  }
-);
-
-
-$('typingInput').addEventListener(
-  'keydown',
-  event=>{
-
-    if(event.key==='Tab'){
-      event.preventDefault();
-    }
-
-  }
-);
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-$('startTestBtn').onclick=
-  startDirectTest;
-
-$('finishBtn').onclick=
-  finishTest;
-
-
-$('language').onchange=()=>{
-
-  updateLanguage();
-
-  if(!$('testArea').classList.contains('hidden')){
-    restartCurrentTest();
-  }
-
-};
-
-
-$('mode').onchange=()=>{
-
-  updateModeInfo();
-
-  if(!$('testArea').classList.contains('hidden')){
-    restartCurrentTest();
-  }
-
-};
-
-
-$('duration').onchange=()=>{
-
-  updateDurationUI();
-
-  if(!$('testArea').classList.contains('hidden')){
-    restartCurrentTest();
-  }
-
-};
-
-
-$('customTime').oninput=()=>{
-
-  if($('duration').value==='custom'){
-
-    test.duration=getDuration();
-
-    $('time').textContent=test.duration;
 
   }
 
-};
-
-
-/* =====================================================
-   THEME
-===================================================== */
-
-$('themeBtn').onclick=()=>{
-
-  document.body.classList.remove('light');
-
-  $('themeBtn').textContent='🌙';
-
-};
-
-
-/* =====================================================
-   AUTH
-===================================================== */
-
-let loginMode=false;
-
-
-function openAuth(){
-
-  $('authModal').classList.remove('hidden');
-
-  $('authMessage').textContent='';
-
-}
-
-
-function closeAuth(){
-
-  $('authModal').classList.add('hidden');
-
-}
-
-
-$('authBtn').onclick=async()=>{
-
-  if(!supabaseClient){
-
-    openAuth();
-
-    return;
-
-  }
-
-  const{
-    data:{user}
-  }=
-    await supabaseClient
-      .auth
-      .getUser();
-
-  if(user){
-
-    await supabaseClient.auth.signOut();
-
-    refreshUser();
-
-  }else{
-
-    openAuth();
-
-  }
-
-};
-
-
-$('closeAuth').onclick=closeAuth;
-
-
-$('authModal').onclick=
-  event=>{
-
-    if(event.target===$('authModal')){
-      closeAuth();
-    }
-
-  };
-
-
-$('switchAuth').onclick=()=>{
-
-  loginMode=!loginMode;
-
-  $('authTitle').textContent=
-    loginMode
-      ?'Welcome back'
-      :'Create your account';
-
-  $('submitAuth').textContent=
-    loginMode
-      ?'Login'
-      :'Sign up';
-
-  $('nameField')
-    .classList
-    .toggle(
-      'hidden',
-      loginMode
-    );
-
-  $('switchAuth').textContent=
-    loginMode
-      ?'Need an account? Sign up'
-      :'Already have an account? Login';
-
-};
-
-
-$('submitAuth').onclick=async()=>{
-
-  if(!supabaseClient){
-
-    $('authMessage').textContent=
-      'Supabase is not configured yet.';
-
-    return;
-
-  }
-
-  const email=
-    $('email').value.trim();
-
-  const password=
-    $('password').value;
-
-  const name=
-    $('displayName').value.trim();
-
-  if(!email||password.length<6){
-
-    $('authMessage').textContent=
-      'Enter an email and a password with at least 6 characters.';
-
-    return;
-
-  }
-
-  $('authMessage').textContent='Please wait...';
-
-  let result;
-
-  if(loginMode){
-
-    result=
-      await supabaseClient.auth
-        .signInWithPassword({
-          email,
-          password
-        });
-
-  }else{
-
-    result=
-      await supabaseClient.auth
-        .signUp({
-
-          email,
-          password,
-
-          options:{
-            data:{
-              display_name:
-                name||'AbidType User'
-            }
-          }
-
-        });
-
-  }
-
-  if(result.error){
-
-    $('authMessage').textContent=
-      result.error.message;
-
-    return;
-
-  }
-
-  if(loginMode){
-
-    closeAuth();
-
-    refreshUser();
-
-  }else{
-
-    $('authMessage').textContent=
-      'Account created. Check your email to confirm.';
-
-  }
-
-};
-
-
-/* =====================================================
-   USER
-===================================================== */
-
-async function refreshUser(){
-
-  if(!supabaseClient)return;
-
-  try{
-
-    const{
-      data:{user}
-    }=
-      await supabaseClient
-        .auth
-        .getUser();
-
-    if(user){
-
-      $('authBtn').textContent='Logout';
-
-      $('welcome').textContent=
-        'Welcome, '+
-        (
-          user.user_metadata?.display_name||
-          'AbidType User'
+  const step =
+    a.length > 1
+      ? (w-60)/(a.length-1)
+      : 0;
+
+  a.forEach(
+    (v,i)=>{
+
+      let x =
+        a.length === 1
+          ? w/2
+          : 30+i*step;
+
+      let y =
+        v === "correct"
+          ? h-100
+          : h-175;
+
+      if(i){
+
+        let p =
+          a[i-1];
+
+        let px =
+          a.length === 1
+            ? w/2
+            : 30+(i-1)*step;
+
+        let py =
+          p === "correct"
+            ? h-100
+            : h-175;
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+          px,
+          py
         );
 
-      $('accountNote').textContent=
-        user.email||'';
+        ctx.lineTo(
+          x,
+          y
+        );
 
-    }else{
+        ctx.strokeStyle =
+          "rgba(255,255,255,.18)";
 
-      $('authBtn').textContent=
-        'Login / Sign up';
+        ctx.stroke();
 
-      $('welcome').textContent=
-        'Practice as a guest';
+      }
 
-      $('accountNote').textContent=
-        'Create an account to save your typing results and build your personal record.';
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        y,
+        5,
+        0,
+        Math.PI*2
+      );
+
+      ctx.fillStyle =
+        v === "correct"
+          ? "#22c55e"
+          : "#ef4444";
+
+      ctx.fill();
 
     }
-
-  }catch(error){}
+  );
 
 }
 
 
-/* =====================================================
-   SAVE RESULT
-===================================================== */
+/* =========================================================
+   SUPABASE SAVE
+========================================================= */
 
-async function saveResult(stats){
-
-  if(!supabaseClient)return;
+async function saveResult(s){
 
   try{
 
-    const{
+    if(!supabaseClient)
+      return;
+
+    const {
       data:{user}
-    }=
+    } =
       await supabaseClient
         .auth
         .getUser();
 
-    if(!user)return;
+    if(!user)
+      return;
 
     await supabaseClient
-      .from('typing_results')
+      .from("typing_results")
       .insert({
 
         user_id:user.id,
 
         language_code:
-          $('language').value,
+          $("language").value,
 
         duration_seconds:
           test.duration,
 
-        wpm:stats.wpm,
+        wpm:s.wpm,
 
-        accuracy:stats.accuracy,
+        accuracy:s.accuracy,
 
-        errors:stats.errors,
+        errors:s.errors,
 
         characters_typed:
           test.input.length
 
       });
 
-  }catch(error){
+  }catch(e){
 
-    console.warn(
-      'Could not save result',
-      error
-    );
+    console.error(e);
 
   }
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetTest(){
+
+  clearInterval(
+    test.timer
+  );
+
+  test = {
+
+    started:false,
+    running:false,
+    start:0,
+    timer:null,
+    duration:getDuration(),
+    text:"",
+    input:"",
+    wordResults:[]
+
+  };
+
+  $("setupArea")
+    .classList
+    .remove("hidden");
+
+  $("testArea")
+    .classList
+    .add("hidden");
+
+  $("resultArea")
+    .classList
+    .add("hidden");
+
+  $("time").textContent =
+    test.duration;
+
+  $("typingInput").value = "";
+
+  setupText();
+
+  updateLanguage();
+
+  updateModeInfo();
+
+}
+
+
+/* =========================================================
+   DIRECT TEST
+========================================================= */
+
+function startDirectTest(){
+
+  test.duration = 60;
+
+  $("homePage")
+    .classList
+    .add("hidden");
+
+  $("setupArea")
+    .classList
+    .add("hidden");
+
+  $("testArea")
+    .classList
+    .remove("hidden");
+
+  $("resultArea")
+    .classList
+    .add("hidden");
+
+  setupText();
+
+  $("time").textContent =
+    60;
+
+  $("typingInput").value = "";
+
+  updateLanguage();
+
+  setTimeout(
+    ()=>{
+      $("typingInput").focus();
+    },
+    100
+  );
+
+}
+
+
+/* =========================================================
+   SETUP PAGE
+========================================================= */
+
+function showTypingSetup(){
+
+  $("homePage")
+    .classList
+    .add("hidden");
+
+  $("setupArea")
+    .classList
+    .remove("hidden");
+
+  $("testArea")
+    .classList
+    .add("hidden");
+
+  $("resultArea")
+    .classList
+    .add("hidden");
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function goHome(){
+
+  $("homePage")
+    .classList
+    .remove("hidden");
+
+  $("setupArea")
+    .classList
+    .add("hidden");
+
+  $("testArea")
+    .classList
+    .add("hidden");
+
+  $("resultArea")
+    .classList
+    .add("hidden");
+
+}
+
+
+/* =========================================================
+   COMING SOON
+========================================================= */
+
+function showComingSoon(name){
+
+  alert(
+    name +
+    " is being prepared for a future AbidType update."
+  );
+
+}
+
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+$("startTestBtn").onclick = ()=>{
+
+  test.duration =
+    getDuration();
+
+  test.started = false;
+  test.running = false;
+  test.start = 0;
+  test.input = "";
+
+  setupText();
+
+  $("setupArea")
+    .classList
+    .add("hidden");
+
+  $("testArea")
+    .classList
+    .remove("hidden");
+
+  $("resultArea")
+    .classList
+    .add("hidden");
+
+  $("time").textContent =
+    test.duration;
+
+  $("typingInput").value = "";
+
+  updateLanguage();
+
+  setTimeout(
+    ()=>{
+      $("typingInput").focus();
+    },
+    100
+  );
+
+};
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+$("finishBtn")
+  .onclick =
+  finishTest;
+
+$("restartBtn")
+  .onclick =
+  resetTest;
+
+$("tryAgainBtn")
+  .onclick =
+  resetTest;
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+$("language").onchange = ()=>{
+
+  updateLanguage();
+
+  resetTest();
+
+};
+
+$("mode").onchange = ()=>{
+
+  updateModeInfo();
+
+  resetTest();
+
+};
+
+$("duration").onchange = ()=>{
+
+  $("customTimeWrap")
+    .classList
+    .toggle(
+      "hidden",
+      $("duration").value !== "custom"
+    );
+
+  resetTest();
+
+};
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+$("themeBtn").onclick = ()=>{
+
+  document.body
+    .classList
+    .toggle("light");
+
+  $("themeBtn").textContent =
+    document.body.classList.contains("light")
+      ? "☀️"
+      : "🌙";
+
+};
+
+
+/* =========================================================
+   AUTH
+========================================================= */
+
+let loginMode = false;
+
+
+function openAuth(){
+
+  $("authModal")
+    .classList
+    .remove("hidden");
+
+  $("authMessage")
+    .textContent = "";
+
+}
+
+
+function closeAuth(){
+
+  $("authModal")
+    .classList
+    .add("hidden");
+
+}
+
+
+$("authBtn").onclick =
+  async ()=>{
+
+    if(!supabaseClient){
+
+      openAuth();
+
+      return;
+
+    }
+
+    const {
+      data:{user}
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
+
+    if(user){
+
+      await supabaseClient
+        .auth
+        .signOut();
+
+      refreshUser();
+
+    }else{
+
+      openAuth();
+
+    }
+
+  };
+
+
+$("closeAuth")
+  .onclick =
+  closeAuth;
+
+
+$("authModal").onclick =
+  e=>{
+
+    if(
+      e.target ===
+      $("authModal")
+    ){
+
+      closeAuth();
+
+    }
+
+  };
+
+
+$("switchAuth").onclick = ()=>{
+
+  loginMode =
+    !loginMode;
+
+  $("authTitle").textContent =
+    loginMode
+      ? "Welcome back"
+      : "Create your account";
+
+  $("submitAuth").textContent =
+    loginMode
+      ? "Login"
+      : "Sign up";
+
+  $("displayNameWrap")
+    .classList
+    .toggle(
+      "hidden",
+      loginMode
+    );
+
+  $("switchAuth").textContent =
+    loginMode
+      ? "Need an account? Sign up"
+      : "Already have an account? Login";
+
+};
+
+
+/* =========================================================
+   AUTH SUBMIT
+========================================================= */
+
+$("submitAuth").onclick =
+  async ()=>{
+
+    if(!supabaseClient)
+      return;
+
+    const email =
+      $("email").value.trim();
+
+    const password =
+      $("password").value;
+
+    const name =
+      $("displayName")
+        .value
+        .trim();
+
+    if(
+      !email ||
+      password.length < 6
+    ){
+
+      $("authMessage").textContent =
+        "Enter an email and a password with at least 6 characters.";
+
+      return;
+
+    }
+
+    $("authMessage")
+      .textContent =
+      "Please wait...";
+
+
+    const result =
+      loginMode
+
+        ? await supabaseClient
+            .auth
+            .signInWithPassword({
+              email,
+              password
+            })
+
+        : await supabaseClient
+            .auth
+            .signUp({
+              email,
+              password,
+              options:{
+                data:{
+                  display_name:
+                    name ||
+                    "AbidType User"
+                }
+              }
+            });
+
+
+    if(result.error){
+
+      $("authMessage")
+        .textContent =
+        result.error.message;
+
+      return;
+
+    }
+
+
+    if(loginMode){
+
+      closeAuth();
+
+      refreshUser();
+
+    }else{
+
+      $("authMessage")
+        .textContent =
+        "Account created. Check your email to confirm.";
+
+    }
+
+  };
+
+
+/* =========================================================
+   USER
+========================================================= */
+
+async function refreshUser(){
+
+  if(!supabaseClient)
+    return;
+
+  try{
+
+    const {
+      data:{user}
+    } =
+      await supabaseClient
+        .auth
+        .getUser();
+
+    if(user){
+
+      $("authBtn")
+        .textContent =
+        "Logout";
+
+      $("welcome")
+        .textContent =
+        "Welcome, " +
+        (
+          user.user_metadata?.display_name ||
+          "AbidType User"
+        );
+
+      $("accountNote")
+        .textContent =
+        user.email || "";
+
+    }else{
+
+      $("authBtn")
+        .textContent =
+        "Login / Sign up";
+
+      $("welcome")
+        .textContent =
+        "Practice as a guest";
+
+      $("accountNote")
+        .textContent =
+        "Create an account to save your typing results and build your personal record.";
+
+    }
+
+  }catch(e){}
+
+}
+
+
+/* =========================================================
    HISTORY
-===================================================== */
+========================================================= */
 
 async function loadHistory(){
 
@@ -2809,9 +2750,9 @@ async function loadHistory(){
 
   }
 
-  const{
+  const {
     data:{user}
-  }=
+  } =
     await supabaseClient
       .auth
       .getUser();
@@ -2824,135 +2765,141 @@ async function loadHistory(){
 
   }
 
-  const{
+
+  const {
     data,
     error
-  }=
+  } =
     await supabaseClient
-      .from('typing_results')
+      .from("typing_results")
       .select(
-        'language_code,duration_seconds,wpm,accuracy,created_at'
+        "language_code,duration_seconds,wpm,accuracy,created_at"
       )
       .eq(
-        'user_id',
+        "user_id",
         user.id
       )
       .order(
-        'created_at',
+        "created_at",
         {ascending:false}
       )
       .limit(10);
 
-  const box=$('history');
 
-  box.classList.remove('hidden');
+  const box =
+    $("history");
+
+  box.classList
+    .remove("hidden");
+
 
   if(error){
 
-    box.textContent=
-      'Could not load history yet.';
+    box.textContent =
+      "Could not load history yet.";
 
     return;
 
   }
 
-  if(!data||!data.length){
 
-    box.textContent=
-      'No typing results yet.';
+  if(!data?.length){
+
+    box.textContent =
+      "No typing results yet.";
 
     return;
 
   }
 
-  box.innerHTML=
-    data.map(item=>`
 
-      <div class="history-row">
+  box.innerHTML =
+    data.map(
+      x=>`
 
-        <span>
-          ${String(
-            item.language_code||'en'
-          ).toUpperCase()}
-        </span>
+        <div class="history-row">
 
-        <b>
-          ${Number(item.wpm||0)} WPM
-        </b>
+          <span>
+            ${String(
+              x.language_code || "en"
+            ).toUpperCase()}
+          </span>
 
-        <b>
-          ${Number(item.accuracy||0)}%
-        </b>
+          <b>
+            ${Number(
+              x.wpm || 0
+            )} WPM
+          </b>
 
-        <span>
-          ${
-            item.created_at
-              ?new Date(
-                item.created_at
-              ).toLocaleDateString()
-              :''
-          }
-        </span>
+          <b>
+            ${Number(
+              x.accuracy || 0
+            )}%
+          </b>
 
-      </div>
+          <span>
+            ${
+              x.created_at
+              ? new Date(
+                  x.created_at
+                ).toLocaleDateString()
+              : ""
+            }
+          </span>
 
-    `).join('');
+        </div>
+
+      `
+    ).join("");
 
 }
 
 
-$('historyBtn').onclick=
+$("historyBtn")
+  .onclick =
   loadHistory;
 
 
-/* =====================================================
-   SUPABASE AUTH LISTENER
-===================================================== */
+/* =========================================================
+   STARTUP
+========================================================= */
 
 if(supabaseClient){
 
-  supabaseClient.auth.onAuthStateChange(
-    ()=>{
-      refreshUser();
-    }
-  );
+  supabaseClient
+    .auth
+    .onAuthStateChange(
+      ()=>{
+        refreshUser();
+      }
+    );
 
 }
 
+window.onresize = ()=>{
 
-/* =====================================================
-   RESIZE
-===================================================== */
+  if(
+    !$("resultArea")
+      .classList
+      .contains("hidden")
+  ){
 
-window.addEventListener(
-  'resize',
-  ()=>{
-
-    if(
-      !$('resultArea')
-        .classList
-        .contains('hidden')
-    ){
-
-      drawGraph();
-
-    }
+    drawGraph();
 
   }
-);
+
+};
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+$("customTimeWrap")
+  .classList
+  .add("hidden");
 
-updateDurationUI();
 updateModeInfo();
+
 updateLanguage();
 
-hideAllPages();
-
-$('homePage').classList.remove('hidden');
+setupText();
 
 refreshUser();
 
