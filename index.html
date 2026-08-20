@@ -2,119 +2,518 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="google-site-verification"
-content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="google-site-verification" content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 <meta name="description" content="AbidType — Global Typing Practice">
 <title>AbidType — Global Typing Practice</title>
 
 <link rel="stylesheet" href="style.css">
 
 <style>
+/* =====================================================
+   ABIDTYPE DARK TYPING TEST
+===================================================== */
+
+#setupArea{
+  max-width:980px;
+  margin:0 auto 40px;
+}
+
+#testArea{
+  max-width:980px;
+  margin:0 auto 40px;
+  background:#05080d!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:28px 0 40px!important;
+}
+
+#testArea .test-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:0 2px 14px;
+  border-bottom:1px solid rgba(167,139,250,.22);
+  margin-bottom:28px;
+}
+
+#testArea .timer-box{
+  order:3;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:transparent!important;
+  border:0!important;
+  padding:0!important;
+}
+
+#testArea .timer-box span{
+  display:none;
+}
+
+#testArea .timer-box strong{
+  font-size:14px;
+  font-weight:500;
+  color:#b8c0ce!important;
+  font-variant-numeric:tabular-nums;
+}
+
+#testArea .test-language{
+  order:1;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  background:transparent!important;
+  border:0!important;
+  padding:0!important;
+}
+
+#testArea .test-language span{
+  font-size:13px;
+  color:#9da8ba!important;
+}
+
+#testArea .test-language strong{
+  font-size:13px;
+  color:#dbe3ef!important;
+  font-weight:500;
+}
+
+#testArea .test-top:after{
+  content:'Normal   Advanced   ↻   ⚙';
+  order:2;
+  white-space:pre;
+  color:#9da8ba;
+  font-size:13px;
+  letter-spacing:.1px;
+  margin-left:auto;
+}
+
 .typing-container{
   position:relative;
-  min-height:340px;
-  padding:30px;
-  border-radius:18px;
+  min-height:430px;
+  padding:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  border:0!important;
   overflow:hidden;
 }
+
 #textDisplay{
-  height:230px;
+  height:340px;
   overflow:hidden;
   position:relative;
-  z-index:2;
-  padding:18px;
-  border-radius:14px;
-  font-size:24px;
-  line-height:1.9;
-  letter-spacing:.3px;
+  padding:0 0 15px!important;
+  border-radius:0!important;
+  background:transparent!important;
+  font-size:28px;
+  line-height:1.52;
+  letter-spacing:.7px;
   white-space:pre-wrap;
+  overflow-wrap:normal;
   word-break:normal;
-  overflow-wrap:break-word;
   box-sizing:border-box;
+  scroll-behavior:auto;
+  direction:ltr;
+  text-align:left;
+  color:#dbe3ef!important;
+  font-family:Georgia,"Times New Roman",serif;
 }
 
 #textDisplay span{
   display:inline;
+  position:relative;
+  color:#dbe3ef;
 }
 
 #textDisplay .correct{
-  color:#22c55e;
+  color:#e6edf7!important;
 }
 
 #textDisplay .wrong{
-  color:#ef4444;
+  color:#ff6b6b!important;
   text-decoration:underline;
+  text-decoration-thickness:2px;
 }
 
 #textDisplay .current{
-  background:rgba(59,130,246,.28);
-  box-shadow:0 0 0 2px rgba(59,130,246,.25);
-  border-radius:3px;
+  background:#f1d94a!important;
+  color:#111!important;
+  box-shadow:none!important;
+  border-radius:1px;
 }
 
 #typingInput{
   position:absolute;
-  left:30px;
-  right:30px;
-  bottom:20px;
-  width:calc(100% - 60px);
-  height:58px;
-  padding:14px 16px;
-  box-sizing:border-box;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:12px;
-  color:#fff;
-  caret-color:#60a5fa;
-  font-size:20px;
-  line-height:1.4;
-  outline:none;
+  left:0;
+  top:0;
+  width:100%;
+  height:340px;
+  opacity:0;
+  z-index:20;
+  cursor:text;
   resize:none;
-  z-index:10;
+  border:0;
+  outline:0;
+  background:transparent!important;
+  color:transparent!important;
+  caret-color:transparent!important;
+  padding:0!important;
 }
 
 #typingInput:focus{
-  border-color:#3b82f6;
-  box-shadow:0 0 0 3px rgba(59,130,246,.12);
-}
-
-#typingInput:disabled{
-  opacity:.6;
-  cursor:not-allowed;
+  outline:none;
+  box-shadow:none!important;
+  border:0!important;
 }
 
 .typing-help{
+  display:none!important;
+}
+
+#testArea .test-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:12px;
+  opacity:.55;
+}
+
+#testArea .test-actions button{
+  font-size:12px;
+}
+
+#testArea .test-actions .primary-btn{
+  display:none;
+}
+
+#testArea .test-actions #restartBtn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.12);
+  color:#9da8ba;
+  border-radius:8px;
+  padding:8px 12px;
+}
+
+@media(max-width:700px){
+
+  #testArea{
+    padding:20px 14px 30px!important;
+  }
+
+  .typing-container{
+    min-height:360px;
+  }
+
+  #textDisplay,
+  #typingInput{
+    height:300px;
+    font-size:22px;
+    line-height:1.55;
+    letter-spacing:.4px;
+  }
+
+  .test-top:after{
+    display:none!important;
+  }
+}
+
+
+/* =====================================================
+   ABIDTYPE BLACK LANDING PAGE
+===================================================== */
+
+body{
+  background:#05070b!important;
+  color:#e8edf5!important;
+}
+
+.header{
+  background:#090d14!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  box-shadow:0 8px 30px rgba(0,0,0,.28);
+}
+
+.logo,
+.tagline,
+h1,
+h2,
+h3,
+p,
+label,
+small,
+.section-title,
+.account-card,
+.test-top,
+.history-header{
+  color:#e8edf5!important;
+}
+
+.abid-home{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  position:relative;
+  min-height:calc(100vh - 80px);
+  padding:58px 0 90px;
+  overflow:hidden;
+  background:
+    radial-gradient(
+      circle at 78% 70%,
+      rgba(124,92,255,.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 12% 80%,
+      rgba(59,130,246,.12),
+      transparent 30%
+    ),
+    #05070b!important;
+}
+
+.abid-home:before,
+.abid-home:after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  filter:blur(.2px);
+  border-radius:50%;
+  border:1px solid rgba(139,92,246,.18);
+}
+
+.abid-home:before{
+  width:760px;
+  height:420px;
+  right:-120px;
+  bottom:-130px;
+  transform:rotate(17deg);
+  box-shadow:
+    0 0 0 85px rgba(139,92,246,.035),
+    0 0 0 170px rgba(139,92,246,.025);
+}
+
+.abid-home:after{
+  width:520px;
+  height:260px;
+  left:-230px;
+  bottom:-120px;
+  transform:rotate(8deg);
+  box-shadow:
+    0 0 0 65px rgba(59,130,246,.035);
+}
+
+.home-inner{
+  position:relative;
+  z-index:2;
+  max-width:1160px;
+  margin:auto;
+  padding:0 24px;
   text-align:center;
-  margin-top:10px;
-  opacity:.65;
+}
+
+.home-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 13px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.035);
+  border-radius:999px;
+  font-size:13px;
+  color:#aeb8c9!important;
+  margin-bottom:22px;
+}
+
+.home-title{
+  margin:0 auto 14px;
+  max-width:850px;
+  font-size:48px!important;
+  line-height:1.12;
+  font-weight:500;
+  letter-spacing:-1.5px;
+  color:#f5f7fb!important;
+}
+
+.home-title span{
+  color:#a78bfa;
+}
+
+.home-subtitle{
+  max-width:720px;
+  margin:0 auto 42px;
+  font-size:16px;
+  line-height:1.8;
+  color:#9da8ba!important;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+  text-align:left;
+  max-width:1160px;
+  margin:auto;
+}
+
+.feature-card{
+  position:relative;
+  min-height:142px;
+  padding:25px 25px 22px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  background:rgba(18,23,33,.78);
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+  backdrop-filter:blur(10px);
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.feature-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(167,139,250,.34);
+  background:rgba(24,29,41,.92);
+}
+
+.feature-icon{
+  font-size:28px;
+  margin-bottom:10px;
+  display:block;
+}
+
+.feature-card h3{
+  font-size:20px!important;
+  font-weight:500;
+  margin:0 0 10px;
+  color:#edf1f7!important;
+}
+
+.feature-card p{
+  font-size:14px;
+  line-height:1.7;
+  margin:0;
+  color:#9ca8bb!important;
+}
+
+.feature-card button{
+  margin-top:16px;
+  border:0;
+  border-radius:8px;
+  padding:8px 13px;
+  background:#7c55df;
+  color:white;
+  cursor:pointer;
   font-size:13px;
 }
 
-.hidden{
-  display:none !important;
+.feature-card.soon{
+  opacity:.92;
 }
-  #textDisplay{
-  height:230px !important;
-  overflow-y:auto !important;
-  overflow-x:hidden !important;
-  position:relative;
-  z-index:2;
-  padding:18px;
-  border-radius:14px;
-  font-size:24px;
-  line-height:1.9;
-  letter-spacing:.3px;
-  white-space:pre-wrap;
-  word-break:normal;
-  overflow-wrap:break-word;
-  box-sizing:border-box;
-  direction:ltr;
-  unicode-bidi:plaintext;
-  text-align:left;
-  scrollbar-width:thin;
+
+.home-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin:0 auto 28px;
+  color:#929caf;
+  font-size:13px;
+}
+
+.home-nav span{
+  padding:5px 10px;
+}
+
+.home-nav .active{
+  color:#fff;
+  background:#7c55df;
+  border-radius:7px;
+}
+
+.home-hidden{
+  display:none!important;
+}
+
+body:not(.light) .card,
+body:not(.light) .account-card{
+  background:#0b1018!important;
+  border-color:rgba(255,255,255,.08)!important;
+  color:#e8edf5!important;
+}
+
+body:not(.light) select,
+body:not(.light) input,
+body:not(.light) textarea{
+  background:#090d14!important;
+  color:#eef2f8!important;
+  border-color:rgba(255,255,255,.12)!important;
+}
+
+body:not(.light) .typing-container{
+  background:#070a10!important;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+body:not(.light) #textDisplay{
+  background:#0a0f17!important;
+  color:#dbe3ef!important;
+}
+
+body:not(.light) #typingInput{
+  background:#06090e!important;
+  color:#f3f6fb!important;
+}
+
+@media(max-width:900px){
+
+  .feature-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .home-title{
+    font-size:40px!important;
+  }
+}
+
+@media(max-width:620px){
+
+  .feature-grid{
+    grid-template-columns:1fr;
+  }
+
+  .home-title{
+    font-size:32px!important;
+  }
+
+  .home-subtitle{
+    font-size:14px;
+  }
+
+  .abid-home{
+    padding-top:38px;
+  }
+}
+
+
+/* =====================================================
+   DARK INNER TEST + AUDIO FEEDBACK
+===================================================== */
+
+body:not(.light) #setupArea{
+  background:#0a0f17!important;
+}
+
+body:not(.light) #resultArea{
+  background:#0a0f17!important;
+}
+
+#homePage.home-hidden~.account-card{
+  display:none;
+}
+
+#homePage.home-hidden~#setupArea{
+  margin-top:34px;
 }
 </style>
 </head>
@@ -138,28 +537,196 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
 <main class="container">
 
+
+<!-- =====================================================
+     HOME PAGE
+===================================================== -->
+
+<section id="homePage" class="abid-home">
+
+  <div class="home-inner">
+
+    <div class="home-kicker">
+      ⌨️ AbidType &nbsp;•&nbsp; Global Typing Practice
+    </div>
+
+    <div class="home-nav">
+      <span class="active">Test</span>
+      <span>Games</span>
+      <span>Practice</span>
+      <span>Multiplayer</span>
+    </div>
+
+    <h1 class="home-title">
+      Improve your typing speed with
+      <br>
+      <span>our free Typing Games</span>
+    </h1>
+
+    <p class="home-subtitle">
+      Test your typing speed, practice in 50+ languages,
+      choose different typing modes, and track your
+      performance with AbidType.
+    </p>
+
+    <div class="feature-grid">
+
+      <article
+        class="feature-card"
+        onclick="startDirectTest()"
+      >
+        <span class="feature-icon">🎯</span>
+
+        <h3>Typing Test</h3>
+
+        <p>
+          Take a 15 second to 10 minute typing test
+          and measure your WPM and accuracy.
+        </p>
+
+        <button type="button">
+          Start Test
+        </button>
+
+      </article>
+
+
+      <article class="feature-card soon">
+
+        <span class="feature-icon">🏆</span>
+
+        <h3>Competition</h3>
+
+        <p>
+          Challenge yourself and prepare for
+          competitive typing matches.
+        </p>
+
+        <button
+          type="button"
+          onclick="event.stopPropagation();showComingSoon('Competition')"
+        >
+          Coming Soon
+        </button>
+
+      </article>
+
+
+      <article class="feature-card soon">
+
+        <span class="feature-icon">🌐</span>
+
+        <h3>Multiplayer</h3>
+
+        <p>
+          Type against other players in realtime
+          multiplayer matches.
+        </p>
+
+        <button
+          type="button"
+          onclick="event.stopPropagation();showComingSoon('Multiplayer')"
+        >
+          Coming Soon
+        </button>
+
+      </article>
+
+
+      <article
+        class="feature-card"
+        onclick="startDirectTest()"
+      >
+
+        <span class="feature-icon">📚</span>
+
+        <h3>Text Practice</h3>
+
+        <p>
+          Create focused practice sessions and
+          improve your speed with regular typing.
+        </p>
+
+        <button type="button">
+          Practice
+        </button>
+
+      </article>
+
+
+      <article
+        class="feature-card"
+        onclick="showTypingSetup(true)"
+      >
+
+        <span class="feature-icon">⚙️</span>
+
+        <h3>Custom Mode</h3>
+
+        <p>
+          Choose your language, typing mode, and
+          custom duration for your own test.
+        </p>
+
+        <button type="button">
+          Customize
+        </button>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ACCOUNT
+===================================================== -->
+
 <section class="account-card">
+
   <div>
-    <h2 id="welcome">Practice as a guest</h2>
+
+    <h2 id="welcome">
+      Practice as a guest
+    </h2>
+
     <p id="accountNote">
       Create an account to save your typing results
       and build your personal record.
     </p>
+
   </div>
+
 </section>
 
 
-<section id="setupArea" class="card">
+<!-- =====================================================
+     SETUP
+===================================================== -->
+
+<section id="setupArea" class="card hidden">
 
   <div class="section-title">
-    <h1>Global Typing Test</h1>
-    <p>Choose your language, mode and test duration.</p>
+
+    <h1>
+      Global Typing Test
+    </h1>
+
+    <p>
+      Choose your language, mode and test duration.
+    </p>
+
   </div>
 
 
   <div class="control-group">
 
-    <label for="language">Language</label>
+    <label for="language">
+      Language
+    </label>
 
     <select id="language">
 
@@ -222,14 +789,27 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
   <div class="control-group">
 
-    <label for="mode">Typing Mode</label>
+    <label for="mode">
+      Typing Mode
+    </label>
 
     <select id="mode">
 
-      <option value="normal">Normal</option>
-      <option value="punctuation">Punctuation</option>
-      <option value="capital">CAPITAL Letters</option>
-      <option value="small">lowercase</option>
+      <option value="normal">
+        Normal
+      </option>
+
+      <option value="punctuation">
+        Punctuation
+      </option>
+
+      <option value="capital">
+        CAPITAL Letters
+      </option>
+
+      <option value="small">
+        lowercase
+      </option>
 
     </select>
 
@@ -242,24 +822,49 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
   <div class="control-group">
 
-    <label for="duration">Test Duration</label>
+    <label for="duration">
+      Test Duration
+    </label>
 
     <select id="duration">
 
-      <option value="15">15 Seconds</option>
-      <option value="30">30 Seconds</option>
-      <option value="60" selected>60 Seconds</option>
-      <option value="120">2 Minutes</option>
-      <option value="300">5 Minutes</option>
-      <option value="600">10 Minutes</option>
-      <option value="custom">⚙️ Custom</option>
+      <option value="15">
+        15 Seconds
+      </option>
+
+      <option value="30">
+        30 Seconds
+      </option>
+
+      <option value="60" selected>
+        60 Seconds
+      </option>
+
+      <option value="120">
+        2 Minutes
+      </option>
+
+      <option value="300">
+        5 Minutes
+      </option>
+
+      <option value="600">
+        10 Minutes
+      </option>
+
+      <option value="custom">
+        ⚙️ Custom
+      </option>
 
     </select>
 
   </div>
 
 
-  <div id="customTimeWrap" class="control-group hidden">
+  <div
+    id="customTimeWrap"
+    class="control-group hidden"
+  >
 
     <label for="customTime">
       Custom Time (seconds)
@@ -291,18 +896,40 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </section>
 
 
-<section id="testArea" class="card hidden">
+<!-- =====================================================
+     TEST AREA
+===================================================== -->
+
+<section
+  id="testArea"
+  class="card hidden"
+>
 
   <div class="test-top">
 
     <div class="timer-box">
-      <span>Time</span>
-      <strong id="time">60</strong>
+
+      <span>
+        Time
+      </span>
+
+      <strong id="time">
+        60
+      </strong>
+
     </div>
 
+
     <div class="test-language">
-      <span>Language</span>
-      <strong id="currentLanguage">English</strong>
+
+      <span>
+        Language
+      </span>
+
+      <strong id="currentLanguage">
+        English
+      </strong>
+
     </div>
 
   </div>
@@ -318,6 +945,7 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
       class="text-display"
     ></div>
 
+
     <textarea
       id="typingInput"
       class="typing-input"
@@ -329,6 +957,7 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
     ></textarea>
 
   </div>
+
 
   <div class="typing-help">
     Type the text above. The test starts when you type.
@@ -357,11 +986,25 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </section>
 
 
-<section id="resultArea" class="card hidden">
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<section
+  id="resultArea"
+  class="card hidden"
+>
 
   <div class="section-title">
-    <h2>Your Result</h2>
-    <p>Great job! Here is your typing performance.</p>
+
+    <h2>
+      Your Result
+    </h2>
+
+    <p>
+      Great job! Here is your typing performance.
+    </p>
+
   </div>
 
 
@@ -402,7 +1045,9 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
   <div class="graph-box">
 
-    <h3>Performance</h3>
+    <h3>
+      Performance
+    </h3>
 
     <canvas id="performanceChart"></canvas>
 
@@ -420,13 +1065,24 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </section>
 
 
+<!-- =====================================================
+     HISTORY
+===================================================== -->
+
 <section class="card">
 
   <div class="history-header">
 
     <div>
-      <h2>Typing History</h2>
-      <p>Your latest typing results.</p>
+
+      <h2>
+        Typing History
+      </h2>
+
+      <p>
+        Your latest typing results.
+      </p>
+
     </div>
 
     <button
@@ -438,6 +1094,7 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
   </div>
 
+
   <div
     id="history"
     class="history hidden"
@@ -448,7 +1105,14 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </main>
 
 
-<div id="authModal" class="modal hidden">
+<!-- =====================================================
+     AUTH MODAL
+===================================================== -->
+
+<div
+  id="authModal"
+  class="modal hidden"
+>
 
   <div class="modal-content">
 
@@ -466,9 +1130,15 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
     <p id="authMessage"></p>
 
-    <div class="auth-field">
 
-      <label for="displayName">Name</label>
+    <div
+      class="auth-field"
+      id="nameField"
+    >
+
+      <label for="displayName">
+        Name
+      </label>
 
       <input
         id="displayName"
@@ -479,9 +1149,12 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
     </div>
 
+
     <div class="auth-field">
 
-      <label for="email">Email</label>
+      <label for="email">
+        Email
+      </label>
 
       <input
         id="email"
@@ -492,9 +1165,12 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
     </div>
 
+
     <div class="auth-field">
 
-      <label for="password">Password</label>
+      <label for="password">
+        Password
+      </label>
 
       <input
         id="password"
@@ -505,6 +1181,7 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 
     </div>
 
+
     <button
       id="submitAuth"
       type="button"
@@ -512,6 +1189,7 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
     >
       Sign up
     </button>
+
 
     <button
       id="switchAuth"
@@ -526,23 +1204,55 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 </div>
 
 
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
+
 
 <script>
 
 /* =====================================================
-   ABIDTYPE ENGINE
+   SUPABASE
 ===================================================== */
 
-const supabaseClient =
-  window.supabase.createClient(
-    window.ABIDTYPE_SUPABASE_URL,
+let supabaseClient = null;
+
+try{
+
+  if(
+    window.supabase &&
+    window.ABIDTYPE_SUPABASE_URL &&
     window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
+  ){
+
+    supabaseClient =
+      window.supabase.createClient(
+        window.ABIDTYPE_SUPABASE_URL,
+        window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
+      );
+
+  }
+
+}catch(error){
+
+  console.error(
+    "Supabase initialization error:",
+    error
   );
 
-const $ = id =>
-  document.getElementById(id);
+}
+
+
+/* =====================================================
+   SHORT SELECTOR
+===================================================== */
+
+const $ =
+  id =>
+    document.getElementById(id);
 
 
 /* =====================================================
@@ -615,7 +1325,7 @@ nl:
 
 
 /* =====================================================
-   PUNCTUATION
+   PUNCTUATION TEXTS
 ===================================================== */
 
 const punctuationTexts = {
@@ -654,8 +1364,6 @@ let test = {
 
   running:false,
 
-  finished:false,
-
   start:0,
 
   timer:null,
@@ -666,7 +1374,9 @@ let test = {
 
   input:"",
 
-  wordResults:[]
+  wordResults:[],
+
+  finished:false
 
 };
 
@@ -683,15 +1393,28 @@ function getDuration(){
   if(value === "custom"){
 
     let n =
-      Number($("customTime")?.value);
+      Number(
+        $("customTime")?.value
+      );
 
-    if(!Number.isFinite(n) || n < 10)
+    if(
+      !Number.isFinite(n) ||
+      n < 10
+    ){
+
       n = 60;
 
-    return Math.min(n,3600);
+    }
+
+    return Math.min(
+      n,
+      3600
+    );
+
   }
 
   return Number(value) || 60;
+
 }
 
 
@@ -706,6 +1429,7 @@ function updateDurationUI(){
     "hidden",
     $("duration")?.value !== "custom"
   );
+
 }
 
 
@@ -725,32 +1449,45 @@ function buildText(){
     passages[lang] || passages.en;
 
   if(mode === "punctuation"){
+
     text =
-      punctuationTexts[lang] || text;
+      punctuationTexts[lang] ||
+      text;
+
   }
 
   if(mode === "capital"){
-    text = text.toUpperCase();
+
+    text =
+      text.toUpperCase();
+
   }
 
   if(mode === "small"){
 
     text =
       text
-        .replace(/[.,!?;:'"()[\]{}\-—–]/g,"")
+        .replace(
+          /[.,!?;:'"()[\]{}\-—–]/g,
+          ""
+        )
         .toLowerCase()
-        .replace(/\s+/g," ")
+        .replace(
+          /\s+/g,
+          " "
+        )
         .trim();
+
   }
 
   return text;
+
 }
 
 
-/*
-   Repeat complete passages in the SAME order.
-   No random shuffle.
-*/
+/* =====================================================
+   LONG TEXT
+===================================================== */
 
 function createLongText(){
 
@@ -759,21 +1496,24 @@ function createLongText(){
 
   let output = "";
 
-  for(let i=0;i<100;i++){
+  for(
+    let i=0;
+    i<100;
+    i++
+  ){
 
-    if(output){
-      output += " ";
-    }
+    output +=
+      base + " ";
 
-    output += base;
   }
 
   return output.trim();
+
 }
 
 
 /* =====================================================
-   DISPLAY
+   SETUP TEXT
 ===================================================== */
 
 function setupText(){
@@ -793,31 +1533,40 @@ function setupText(){
   const fragment =
     document.createDocumentFragment();
 
-  [...test.text].forEach((char,index)=>{
+  [...test.text].forEach(
+    (char,index)=>{
 
-    const span =
-      document.createElement("span");
+      const span =
+        document.createElement(
+          "span"
+        );
 
-    span.textContent =
-      char === " "
-        ? "\u00A0"
-        : char;
+      span.textContent =
+        char === " "
+          ? "\u00A0"
+          : char;
 
-    span.dataset.index =
-      index;
+      span.dataset.index =
+        index;
 
-    fragment.appendChild(span);
+      fragment.appendChild(
+        span
+      );
 
-  });
+    }
+  );
 
-  display.appendChild(fragment);
+  display.appendChild(
+    fragment
+  );
 
   updateDisplay();
+
 }
 
 
 /* =====================================================
-   DISPLAY UPDATE
+   DISPLAY
 ===================================================== */
 
 function updateDisplay(){
@@ -833,57 +1582,74 @@ function updateDisplay(){
   const spans =
     [...display.children];
 
-  spans.forEach((span,index)=>{
+  spans.forEach(
+    (span,index)=>{
 
-    span.className = "";
+      span.className = "";
 
-    if(index < input.length){
+      if(index < input.length){
 
-      if(input[index] === test.text[index]){
+        span.classList.add(
 
-        span.classList.add("correct");
+          input[index] ===
+          test.text[index]
+            ? "correct"
+            : "wrong"
 
-      }else{
-
-        span.classList.add("wrong");
+        );
 
       }
 
     }
-
-  });
+  );
 
 
   const current =
     spans[input.length];
 
-  if(current){
+  if(!current) return;
 
-    current.classList.add("current");
 
-    const dRect =
-      display.getBoundingClientRect();
+  current.classList.add(
+    "current"
+  );
 
-    const cRect =
-      current.getBoundingClientRect();
 
-    if(cRect.bottom > dRect.bottom - 15){
+  /*
+    Smoothly keep the current
+    character visible without
+    jumping around randomly.
+  */
 
-      display.scrollTop +=
-        cRect.bottom -
-        dRect.bottom +
-        35;
+  const dRect =
+    display.getBoundingClientRect();
 
-    }
+  const cRect =
+    current.getBoundingClientRect();
 
-    if(cRect.top < dRect.top + 15){
 
-      display.scrollTop -=
-        dRect.top -
-        cRect.top +
-        35;
+  if(
+    cRect.bottom >
+    dRect.bottom - 20
+  ){
 
-    }
+    display.scrollTop +=
+      cRect.bottom -
+      dRect.bottom +
+      35;
+
+  }
+
+
+  if(
+    cRect.top <
+    dRect.top + 20
+  ){
+
+    display.scrollTop -=
+      dRect.top -
+      cRect.top +
+      35;
 
   }
 
@@ -897,7 +1663,8 @@ function updateDisplay(){
 function updateModeInfo(){
 
   const mode =
-    $("mode")?.value || "normal";
+    $("mode")?.value ||
+    "normal";
 
   const messages = {
 
@@ -915,9 +1682,11 @@ function updateModeInfo(){
 
   };
 
-  if($("modeInfo")){
+  if($("mode")){
+
     $("modeInfo").textContent =
       messages[mode];
+
   }
 
 }
@@ -935,43 +1704,42 @@ function updateLanguage(){
   const current =
     $("currentLanguage");
 
-  if(!select || !current) return;
+  if(
+    !select ||
+    !current
+  ) return;
 
   const option =
-    select.options[select.selectedIndex];
+    select.options[
+      select.selectedIndex
+    ];
 
   current.textContent =
     option
-      ? option.textContent.replace(
-          /^[^\p{L}\p{N}]+/u,
-          ""
-        )
+      ? option.textContent
+          .replace(
+            /^[^\p{L}\p{N}]+/u,
+            ""
+          )
       : "English";
 
 }
 
 
 /* =====================================================
-   START TIMER
+   TIMER START
 ===================================================== */
 
 function beginTest(){
 
-  if(test.started || test.finished)
-    return;
+  if(test.started) return;
 
   test.started = true;
 
   test.running = true;
 
-  test.finished = false;
-
-  test.start = Date.now();
-
-  test.duration =
-    getDuration();
-
-  clearInterval(test.timer);
+  test.start =
+    Date.now();
 
   test.timer =
     setInterval(
@@ -988,21 +1756,19 @@ function beginTest(){
 
 function updateTimer(){
 
-  if(
-    !test.running ||
-    test.finished
-  ){
-    return;
-  }
+  if(!test.running) return;
 
   const elapsed =
-    (Date.now() - test.start) / 1000;
+    Math.floor(
+      (Date.now() -
+       test.start) / 1000
+    );
 
   const left =
     Math.max(
       0,
       test.duration -
-      Math.floor(elapsed)
+      elapsed
     );
 
   if($("time")){
@@ -1011,6 +1777,24 @@ function updateTimer(){
       left;
 
   }
+
+
+  if(
+    left <= 10 &&
+    left > 0
+  ){
+
+    if(
+      left === 10 ||
+      left <= 5
+    ){
+
+      playWarningSound();
+
+    }
+
+  }
+
 
   if(left <= 0){
 
@@ -1022,108 +1806,15 @@ function updateTimer(){
 
 
 /* =====================================================
-   TYPING INPUT
-===================================================== */
-
-$("typingInput")?.addEventListener(
-  "input",
-  ()=>{
-
-    /*
-      Timer শেষ হয়ে গেলে আর input
-      process করা হবে না.
-    */
-
-    if(
-      test.finished ||
-      !test.running
-    ){
-      return;
-    }
-
-    test.input =
-      $("typingInput").value;
-
-
-    /*
-      Target text-এর বাইরে
-      extra characters ঢুকতে দেবে না.
-    */
-
-    if(
-      test.input.length >
-      test.text.length
-    ){
-
-      test.input =
-        test.input.slice(
-          0,
-          test.text.length
-        );
-
-      $("typingInput").value =
-        test.input;
-
-    }
-
-
-    updateDisplay();
-
-    playKeySound();
-
-
-    /*
-      পুরো text শেষ হলে
-      test নিজে থেকে finish হবে.
-    */
-
-    if(
-      test.input.length >=
-      test.text.length
-    ){
-
-      finishTest();
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   KEYBOARD CONTROL
-===================================================== */
-
-$("typingInput")?.addEventListener(
-  "keydown",
-  (event)=>{
-
-    if(
-      event.key === "Enter" ||
-      event.key === "Tab"
-    ){
-
-      event.preventDefault();
-
-    }
-
-    if(test.finished){
-
-      event.preventDefault();
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   KEY SOUND
+   AUDIO
 ===================================================== */
 
 let audioContext = null;
 
-function playKeySound(){
+let soundIndex = 0;
+
+
+function getAudio(){
 
   try{
 
@@ -1146,41 +1837,274 @@ function playKeySound(){
 
     }
 
-    const osc =
-      audioContext.createOscillator();
+    return audioContext;
 
-    const gain =
-      audioContext.createGain();
+  }catch(error){
 
-    osc.frequency.value =
-      450 +
-      Math.random()*80;
+    return null;
 
-    gain.gain.setValueAtTime(
-      .018,
-      audioContext.currentTime
-    );
-
-    gain.gain.exponentialRampToValueAtTime(
-      .001,
-      audioContext.currentTime+.04
-    );
-
-    osc.connect(gain);
-
-    gain.connect(
-      audioContext.destination
-    );
-
-    osc.start();
-
-    osc.stop(
-      audioContext.currentTime+.045
-    );
-
-  }catch(e){}
+  }
 
 }
+
+
+function tone(
+  frequency,
+  duration,
+  type="square",
+  volume=.018,
+  delay=0
+){
+
+  try{
+
+    const audio =
+      getAudio();
+
+    if(!audio) return;
+
+    const now =
+      audio.currentTime +
+      delay;
+
+    const oscillator =
+      audio.createOscillator();
+
+    const gain =
+      audio.createGain();
+
+    oscillator.type =
+      type;
+
+    oscillator.frequency
+      .setValueAtTime(
+        frequency,
+        now
+      );
+
+    gain.gain.setValueAtTime(
+      volume,
+      now
+    );
+
+    gain.gain
+      .exponentialRampToValueAtTime(
+        .0001,
+        now + duration
+      );
+
+    oscillator.connect(gain);
+
+    gain.connect(
+      audio.destination
+    );
+
+    oscillator.start(now);
+
+    oscillator.stop(
+      now +
+      duration +
+      .01
+    );
+
+  }catch(error){}
+
+}
+
+
+function playTypingSound(
+  character,
+  correct
+){
+
+  const correctSounds = [
+    420,
+    470,
+    520,
+    440,
+    490,
+    550
+  ];
+
+  const wrongSounds = [
+    150,
+    120,
+    180
+  ];
+
+  const set =
+    correct
+      ? correctSounds
+      : wrongSounds;
+
+  const frequency =
+    set[
+      soundIndex++ %
+      set.length
+    ];
+
+  tone(
+    frequency,
+    .035,
+    correct
+      ? "square"
+      : "sawtooth",
+    correct
+      ? .014
+      : .022
+  );
+
+
+  if(
+    character === " " &&
+    correct
+  ){
+
+    tone(
+      280,
+      .022,
+      "triangle",
+      .009,
+      .008
+    );
+
+  }
+
+}
+
+
+function playStartSound(){
+
+  tone(
+    520,
+    .08,
+    "sine",
+    .02
+  );
+
+  tone(
+    700,
+    .09,
+    "sine",
+    .018,
+    .07
+  );
+
+}
+
+
+function playFinishSound(){
+
+  tone(
+    660,
+    .08,
+    "sine",
+    .02
+  );
+
+  tone(
+    880,
+    .12,
+    "sine",
+    .02,
+    .09
+  );
+
+  tone(
+    1040,
+    .16,
+    "sine",
+    .018,
+    .19
+  );
+
+}
+
+
+function playWarningSound(){
+
+  tone(
+    300,
+    .09,
+    "triangle",
+    .02
+  );
+
+  tone(
+    220,
+    .11,
+    "triangle",
+    .018,
+    .1
+  );
+
+}
+
+
+/* =====================================================
+   TYPING INPUT
+===================================================== */
+
+$("typingInput")?.addEventListener(
+  "input",
+  ()=>{
+
+    if(
+      !test.started &&
+      !test.finished
+    ){
+
+      beginTest();
+
+    }
+
+    const value =
+      $("typingInput").value;
+
+    const index =
+      value.length - 1;
+
+    const correct =
+      index >= 0 &&
+      value[index] ===
+      test.text[index];
+
+    test.input =
+      value;
+
+    updateDisplay();
+
+    if(index >= 0){
+
+      playTypingSound(
+        value[index],
+        correct
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+$("typingInput")?.addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      event.key === "Tab"
+    ){
+
+      event.preventDefault();
+
+    }
+
+  }
+);
 
 
 /* =====================================================
@@ -1190,7 +2114,8 @@ function playKeySound(){
 function calculateStats(){
 
   const input =
-    $("typingInput")?.value || "";
+    $("typingInput")?.value ||
+    "";
 
   let correctChars = 0;
 
@@ -1198,11 +2123,11 @@ function calculateStats(){
 
 
   [...input].forEach(
-    (char,i)=>{
+    (character,index)=>{
 
       if(
-        char ===
-        test.text[i]
+        character ===
+        test.text[index]
       ){
 
         correctChars++;
@@ -1239,7 +2164,8 @@ function calculateStats(){
       Math.round(
         (
           correctChars / 5
-        ) / minutes
+        ) /
+        minutes
       )
     );
 
@@ -1257,23 +2183,27 @@ function calculateStats(){
 
   const typedWords =
     input.trim()
-      ? input.trim().split(/\s+/)
+      ? input
+          .trim()
+          .split(/\s+/)
       : [];
 
 
   const targetWords =
-    test.text.trim().split(/\s+/);
+    test.text
+      .trim()
+      .split(/\s+/);
 
 
   let correctWords = 0;
 
 
   typedWords.forEach(
-    (word,i)=>{
+    (word,index)=>{
 
       if(
         word ===
-        targetWords[i]
+        targetWords[index]
       ){
 
         correctWords++;
@@ -1324,21 +2254,26 @@ function calculateStats(){
 function makeWordResults(){
 
   const input =
-    $("typingInput")?.value || "";
+    $("typingInput")?.value ||
+    "";
 
   const typed =
     input.trim()
-      ? input.trim().split(/\s+/)
+      ? input
+          .trim()
+          .split(/\s+/)
       : [];
 
 
   const target =
-    test.text.trim().split(/\s+/);
+    test.text
+      .trim()
+      .split(/\s+/);
 
 
   return typed.map(
-    (word,i)=>
-      word === target[i]
+    (word,index)=>
+      word === target[index]
         ? "correct"
         : "wrong"
   );
@@ -1347,18 +2282,14 @@ function makeWordResults(){
 
 
 /* =====================================================
-   FINISH TEST
+   FINISH
 ===================================================== */
 
 async function finishTest(){
 
-  /*
-    Prevent double finish.
-  */
-
   if(
-    !test.started ||
-    test.finished
+    test.finished ||
+    !test.started
   ){
 
     return;
@@ -1370,10 +2301,14 @@ async function finishTest(){
 
   test.running = false;
 
-
-  clearInterval(test.timer);
+  clearInterval(
+    test.timer
+  );
 
   test.timer = null;
+
+  test.input =
+    $("typingInput").value;
 
 
   const stats =
@@ -1384,95 +2319,69 @@ async function finishTest(){
     makeWordResults();
 
 
-  /*
-    Timer permanently stops at 0.
-  */
-
-  if($("time")){
-
-    $("time").textContent =
-      "0";
-
-  }
+  $("time").textContent =
+    "0";
 
 
-  /*
-    Typing completely disabled.
-  */
-
-  if($("typingInput")){
-
-    $("typingInput").disabled =
-      true;
-
-    $("typingInput").blur();
-
-  }
+  $("resultWpm").textContent =
+    stats.wpm;
 
 
-  if($("resultWpm")){
-
-    $("resultWpm").textContent =
-      stats.wpm;
-
-  }
+  $("resultAccuracy").textContent =
+    stats.accuracy + "%";
 
 
-  if($("resultAccuracy")){
-
-    $("resultAccuracy").textContent =
-      stats.accuracy + "%";
-
-  }
+  $("resultWords").textContent =
+    stats.totalWords;
 
 
-  if($("resultWords")){
-
-    $("resultWords").textContent =
-      stats.totalWords;
-
-  }
+  $("resultErrors").textContent =
+    stats.errors;
 
 
-  if($("resultErrors")){
-
-    $("resultErrors").textContent =
-      stats.errors;
-
-  }
+  $("correctWords").textContent =
+    stats.correctWords;
 
 
-  if($("correctWords")){
-
-    $("correctWords").textContent =
-      stats.correctWords;
-
-  }
+  $("wrongWords").textContent =
+    stats.wrongWords;
 
 
-  if($("wrongWords")){
-
-    $("wrongWords").textContent =
-      stats.wrongWords;
-
-  }
+  $("typingInput").disabled =
+    true;
 
 
   $("testArea")
-    ?.classList.add("hidden");
+    .classList.add(
+      "hidden"
+    );
 
 
   $("resultArea")
-    ?.classList.remove("hidden");
+    .classList.remove(
+      "hidden"
+    );
+
+
+  document.body
+    .classList
+    .remove(
+      "typing-mode"
+    );
+
+
+  playFinishSound();
 
 
   setTimeout(
     drawGraph,
-    50
+    30
   );
 
 
-  await saveResult(stats);
+  await saveResult(
+    stats
+  );
 
 }
 
@@ -1494,7 +2403,8 @@ function drawGraph(){
 
 
   const width =
-    canvas.clientWidth || 800;
+    canvas.clientWidth ||
+    800;
 
 
   const height =
@@ -1502,7 +2412,8 @@ function drawGraph(){
 
 
   const ratio =
-    window.devicePixelRatio || 1;
+    window.devicePixelRatio ||
+    1;
 
 
   canvas.width =
@@ -1554,24 +2465,21 @@ function drawGraph(){
   }
 
 
-  const usable =
-    width - 60;
-
-
   const step =
     results.length > 1
-      ? usable /
+      ? (width - 60) /
         (results.length - 1)
       : 0;
 
 
   results.forEach(
-    (result,i)=>{
+    (result,index)=>{
 
       const x =
         results.length === 1
           ? width / 2
-          : 30 + i * step;
+          : 30 +
+            index * step;
 
 
       const y =
@@ -1581,7 +2489,6 @@ function drawGraph(){
 
 
       ctx.beginPath();
-
 
       ctx.arc(
         x,
@@ -1601,21 +2508,22 @@ function drawGraph(){
       ctx.fill();
 
 
-      if(i > 0){
+      if(index > 0){
 
-        const prev =
-          results[i - 1];
+        const previous =
+          results[index - 1];
 
 
         const px =
           results.length === 1
             ? width / 2
             : 30 +
-              (i - 1) * step;
+              (index - 1) *
+              step;
 
 
         const py =
-          prev === "correct"
+          previous === "correct"
             ? height - 100
             : height - 175;
 
@@ -1650,30 +2558,41 @@ function drawGraph(){
    SAVE RESULT
 ===================================================== */
 
-async function saveResult(stats){
+async function saveResult(
+  stats
+){
+
+  if(!supabaseClient)
+    return;
+
 
   try{
 
     const {
-      data:{user}
+      data:{
+        user
+      }
     } =
       await supabaseClient
         .auth
         .getUser();
 
 
-    if(!user) return;
+    if(!user)
+      return;
 
 
     await supabaseClient
-      .from("typing_results")
+      .from(
+        "typing_results"
+      )
       .insert({
 
-        user_id:user.id,
+        user_id:
+          user.id,
 
         language_code:
-          $("language")?.value ||
-          "en",
+          $("language").value,
 
         duration_seconds:
           test.duration,
@@ -1706,7 +2625,7 @@ async function saveResult(stats){
 
 
 /* =====================================================
-   RESET TEST
+   RESET
 ===================================================== */
 
 function resetTest(){
@@ -1715,53 +2634,76 @@ function resetTest(){
     test.timer
   );
 
-  test.timer = null;
 
-  test.started = false;
+  test = {
 
-  test.running = false;
+    started:false,
 
-  test.finished = false;
+    running:false,
 
-  test.start = 0;
+    start:0,
 
-  test.input = "";
+    timer:null,
 
-  test.wordResults = [];
+    duration:
+      getDuration(),
+
+    text:"",
+
+    input:"",
+
+    wordResults:[],
+
+    finished:false
+
+  };
 
 
-  test.duration =
-    getDuration();
+  document.body
+    .classList
+    .remove(
+      "typing-mode"
+    );
+
+
+  $("homePage")
+    .classList
+    .remove(
+      "home-hidden"
+    );
 
 
   $("setupArea")
-    ?.classList.remove("hidden");
+    .classList
+    .add(
+      "hidden"
+    );
 
 
   $("testArea")
-    ?.classList.add("hidden");
+    .classList
+    .add(
+      "hidden"
+    );
 
 
   $("resultArea")
-    ?.classList.add("hidden");
+    .classList
+    .add(
+      "hidden"
+    );
 
 
-  if($("time")){
-
-    $("time").textContent =
-      test.duration;
-
-  }
+  $("time").textContent =
+    test.duration;
 
 
-  if($("typingInput")){
+  $("typingInput").value =
+    "";
 
-    $("typingInput").value = "";
 
-    $("typingInput").disabled =
-      false;
-
-  }
+  $("typingInput").disabled =
+    false;
 
 
   setupText();
@@ -1770,448 +2712,570 @@ function resetTest(){
 
   updateModeInfo();
 
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
 }
 
 
 /* =====================================================
-   START BUTTON
+   DIRECT TEST
 ===================================================== */
 
-$("startTestBtn")?.addEventListener(
-  "click",
-  ()=>{
+function startDirectTest(){
 
-    clearInterval(
-      test.timer
+  document.body
+    .classList
+    .add(
+      "typing-mode"
     );
 
-    test.timer = null;
 
-    test.started = false;
-
-    test.running = false;
-
-    test.finished = false;
-
-    test.start = 0;
-
-    test.input = "";
-
-    test.wordResults = [];
+  $("homePage")
+    .classList
+    .add(
+      "home-hidden"
+    );
 
 
-    test.duration =
-      getDuration();
+  $("setupArea")
+    .classList
+    .add(
+      "hidden"
+    );
 
 
-    setupText();
+  $("resultArea")
+    .classList
+    .add(
+      "hidden"
+    );
 
 
-    $("setupArea")
-      ?.classList.add("hidden");
+  $("testArea")
+    .classList
+    .remove(
+      "hidden"
+    );
 
 
-    $("testArea")
-      ?.classList.remove("hidden");
+  test = {
+
+    started:false,
+
+    running:false,
+
+    start:0,
+
+    timer:null,
+
+    duration:
+      getDuration(),
+
+    text:"",
+
+    input:"",
+
+    wordResults:[],
+
+    finished:false
+
+  };
 
 
-    $("resultArea")
-      ?.classList.add("hidden");
+  setupText();
 
 
-    if($("time")){
-
-      $("time").textContent =
-        test.duration;
-
-    }
+  $("time").textContent =
+    test.duration;
 
 
-    if($("typingInput")){
-
-      $("typingInput").disabled =
-        false;
-
-      $("typingInput").value = "";
-
-      $("typingInput").focus();
-
-    }
+  $("typingInput").value =
+    "";
 
 
-    updateLanguage();
+  $("typingInput").disabled =
+    false;
+
+
+  updateLanguage();
+
+
+  $("typingInput").focus();
+
+
+  playStartSound();
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   SHOW SETUP
+===================================================== */
+
+function showTypingSetup(
+  custom=false
+){
+
+  document.body
+    .classList
+    .remove(
+      "typing-mode"
+    );
+
+
+  $("homePage")
+    .classList
+    .add(
+      "home-hidden"
+    );
+
+
+  $("setupArea")
+    .classList
+    .remove(
+      "hidden"
+    );
+
+
+  $("testArea")
+    .classList
+    .add(
+      "hidden"
+    );
+
+
+  $("resultArea")
+    .classList
+    .add(
+      "hidden"
+    );
+
+
+  if(custom){
+
+    $("duration").value =
+      "custom";
+
+    updateDurationUI();
 
   }
-);
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   COMING SOON
+===================================================== */
+
+function showComingSoon(
+  name
+){
+
+  tone(
+    260,
+    .12,
+    "sine",
+    .018
+  );
+
+
+  alert(
+    name +
+    " is coming soon. AbidType will add this game later."
+  );
+
+}
 
 
 /* =====================================================
    BUTTONS
 ===================================================== */
 
-$("finishBtn")?.addEventListener(
-  "click",
-  finishTest
-);
+$("startTestBtn")
+  ?.addEventListener(
+    "click",
+    startDirectTest
+  );
 
 
-$("restartBtn")?.addEventListener(
-  "click",
-  resetTest
-);
+$("finishBtn")
+  ?.addEventListener(
+    "click",
+    finishTest
+  );
 
 
-$("tryAgainBtn")?.addEventListener(
-  "click",
-  resetTest
-);
+$("restartBtn")
+  ?.addEventListener(
+    "click",
+    resetTest
+  );
+
+
+$("tryAgainBtn")
+  ?.addEventListener(
+    "click",
+    resetTest
+  );
 
 
 /* =====================================================
    LANGUAGE / MODE / DURATION
 ===================================================== */
 
-$("language")?.addEventListener(
-  "change",
-  ()=>{
-
-    updateLanguage();
-
-    updateModeInfo();
-
-    resetTest();
-
-  }
-);
+$("language")
+  ?.addEventListener(
+    "change",
+    ()=>{
+      updateLanguage();
+      resetTest();
+    }
+  );
 
 
-$("mode")?.addEventListener(
-  "change",
-  ()=>{
-
-    updateModeInfo();
-
-    resetTest();
-
-  }
-);
+$("mode")
+  ?.addEventListener(
+    "change",
+    ()=>{
+      updateModeInfo();
+      resetTest();
+    }
+  );
 
 
-$("duration")?.addEventListener(
-  "change",
-  ()=>{
-
-    updateDurationUI();
-
-    resetTest();
-
-  }
-);
+$("duration")
+  ?.addEventListener(
+    "change",
+    ()=>{
+      updateDurationUI();
+      resetTest();
+    }
+  );
 
 
-$("customTime")?.addEventListener(
-  "input",
-  ()=>{
+$("customTime")
+  ?.addEventListener(
+    "input",
+    ()=>{
 
-    if(
-      $("duration")?.value ===
-      "custom"
-    ){
-
-      test.duration =
-        getDuration();
-
-
-      if($("time")){
+      if(
+        $("duration").value ===
+        "custom"
+      ){
 
         $("time").textContent =
-          test.duration;
+          getDuration();
+
+        test.duration =
+          getDuration();
 
       }
 
     }
-
-  }
-);
+  );
 
 
 /* =====================================================
    THEME
 ===================================================== */
 
-$("themeBtn")?.addEventListener(
-  "click",
-  ()=>{
+$("themeBtn")
+  ?.addEventListener(
+    "click",
+    ()=>{
 
-    document.body.classList.toggle(
-      "light"
-    );
+      /*
+        AbidType is kept in dark
+        theme as requested.
+      */
 
-  }
-);
+      document.body
+        .classList
+        .remove(
+          "light"
+        );
+
+      $("themeBtn")
+        .textContent =
+        "🌙";
+
+    }
+  );
 
 
 /* =====================================================
    AUTH
 ===================================================== */
 
-const authModal =
-  $("authModal");
-
-
 let loginMode = false;
 
 
 function openAuth(){
 
-  authModal
-    ?.classList.remove("hidden");
+  $("authModal")
+    .classList
+    .remove(
+      "hidden"
+    );
 
-
-  if($("authMessage")){
-
-    $("authMessage").textContent =
-      "";
-
-  }
+  $("authMessage")
+    .textContent =
+    "";
 
 }
 
 
 function closeAuth(){
 
-  authModal
-    ?.classList.add("hidden");
+  $("authModal")
+    .classList
+    .add(
+      "hidden"
+    );
 
 }
 
 
-$("authBtn")?.addEventListener(
-  "click",
-  async ()=>{
+$("authBtn")
+  ?.addEventListener(
+    "click",
+    async ()=>{
 
-    const {
-      data:{user}
-    } =
-      await supabaseClient
-        .auth
-        .getUser();
+      if(!supabaseClient){
 
+        openAuth();
 
-    if(user){
+        return;
 
-      await supabaseClient
-        .auth
-        .signOut();
+      }
 
 
-      await refreshUser();
-
-    }else{
-
-      openAuth();
-
-    }
-
-  }
-);
+      const {
+        data:{
+          user
+        }
+      } =
+        await supabaseClient
+          .auth
+          .getUser();
 
 
-$("closeAuth")?.addEventListener(
-  "click",
-  closeAuth
-);
+      if(user){
+
+        await supabaseClient
+          .auth
+          .signOut();
 
 
-authModal?.addEventListener(
-  "click",
-  e=>{
+        await refreshUser();
 
-    if(e.target === authModal){
+      }else{
 
-      closeAuth();
+        openAuth();
+
+      }
 
     }
-
-  }
-);
+  );
 
 
-$("switchAuth")?.addEventListener(
-  "click",
-  ()=>{
+$("closeAuth")
+  ?.addEventListener(
+    "click",
+    closeAuth
+  );
 
-    loginMode =
-      !loginMode;
+
+$("authModal")
+  ?.addEventListener(
+    "click",
+    event=>{
+
+      if(
+        event.target ===
+        $("authModal")
+      ){
+
+        closeAuth();
+
+      }
+
+    }
+  );
 
 
-    if($("authTitle")){
+$("switchAuth")
+  ?.addEventListener(
+    "click",
+    ()=>{
 
-      $("authTitle").textContent =
+      loginMode =
+        !loginMode;
+
+
+      $("authTitle")
+        .textContent =
         loginMode
           ? "Welcome back"
           : "Create your account";
 
-    }
 
-
-    if($("submitAuth")){
-
-      $("submitAuth").textContent =
+      $("submitAuth")
+        .textContent =
         loginMode
           ? "Login"
           : "Sign up";
 
-    }
 
-
-    if($("displayName")){
-
-      $("displayName")
+      $("nameField")
         .classList
         .toggle(
           "hidden",
           loginMode
         );
 
-    }
 
-
-    if($("switchAuth")){
-
-      $("switchAuth").textContent =
+      $("switchAuth")
+        .textContent =
         loginMode
           ? "Need an account? Sign up"
           : "Already have an account? Login";
 
     }
-
-  }
-);
+  );
 
 
-/* =====================================================
-   AUTH SUBMIT
-===================================================== */
+$("submitAuth")
+  ?.addEventListener(
+    "click",
+    async ()=>{
 
-$("submitAuth")?.addEventListener(
-  "click",
-  async ()=>{
-
-    const email =
-      $("email")?.value.trim();
+      if(!supabaseClient)
+        return;
 
 
-    const password =
-      $("password")?.value || "";
+      const email =
+        $("email")
+          .value
+          .trim();
 
 
-    const name =
-      $("displayName")?.value.trim();
+      const password =
+        $("password")
+          .value;
 
 
-    if(
-      !email ||
-      password.length < 6
-    ){
+      const name =
+        $("displayName")
+          .value
+          .trim();
 
-      if($("authMessage")){
 
-        $("authMessage").textContent =
+      if(
+        !email ||
+        password.length < 6
+      ){
+
+        $("authMessage")
+          .textContent =
           "Enter an email and a password with at least 6 characters.";
+
+        return;
 
       }
 
-      return;
 
-    }
-
-
-    if($("authMessage")){
-
-      $("authMessage").textContent =
+      $("authMessage")
+        .textContent =
         "Please wait...";
 
-    }
+
+      let result;
 
 
-    let result;
+      if(loginMode){
 
+        result =
+          await supabaseClient
+            .auth
+            .signInWithPassword({
 
-    if(loginMode){
+              email,
+              password
 
-      result =
-        await supabaseClient
-          .auth
-          .signInWithPassword({
+            });
 
-            email,
+      }else{
 
-            password
+        result =
+          await supabaseClient
+            .auth
+            .signUp({
 
-          });
+              email,
 
-    }else{
+              password,
 
-      result =
-        await supabaseClient
-          .auth
-          .signUp({
+              options:{
 
-            email,
+                data:{
 
-            password,
+                  display_name:
+                    name ||
+                    "AbidType User"
 
-            options:{
-
-              data:{
-
-                display_name:
-                  name ||
-                  "AbidType User"
+                }
 
               }
 
-            }
-
-          });
-
-    }
-
-
-    if(result.error){
-
-      if($("authMessage")){
-
-        $("authMessage").textContent =
-          result.error.message;
+            });
 
       }
 
-      return;
 
-    }
+      if(result.error){
+
+        $("authMessage")
+          .textContent =
+          result.error.message;
+
+        return;
+
+      }
 
 
-    if(loginMode){
+      if(loginMode){
 
-      closeAuth();
+        closeAuth();
 
-      await refreshUser();
+        await refreshUser();
 
-    }else{
+      }else{
 
-      if($("authMessage")){
-
-        $("authMessage").textContent =
+        $("authMessage")
+          .textContent =
           "Account created. Check your email to confirm.";
 
       }
 
     }
-
-  }
-);
+  );
 
 
 /* =====================================================
@@ -2220,10 +3284,16 @@ $("submitAuth")?.addEventListener(
 
 async function refreshUser(){
 
+  if(!supabaseClient)
+    return;
+
+
   try{
 
     const {
-      data:{user}
+      data:{
+        user
+      }
     } =
       await supabaseClient
         .auth
@@ -2232,57 +3302,41 @@ async function refreshUser(){
 
     if(user){
 
-      if($("authBtn")){
-
-        $("authBtn").textContent =
-          "Logout";
-
-      }
+      $("authBtn")
+        .textContent =
+        "Logout";
 
 
-      if($("welcome")){
-
-        $("welcome").textContent =
-          "Welcome, " +
-          (
-            user.user_metadata?.display_name ||
-            "AbidType User"
-          );
-
-      }
+      $("welcome")
+        .textContent =
+        "Welcome, " +
+        (
+          user.user_metadata
+            ?.display_name ||
+          "AbidType User"
+        );
 
 
-      if($("accountNote")){
+      $("accountNote")
+        .textContent =
+        user.email || "";
 
-        $("accountNote").textContent =
-          user.email || "";
-
-      }
 
     }else{
 
-      if($("authBtn")){
-
-        $("authBtn").textContent =
-          "Login / Sign up";
-
-      }
+      $("authBtn")
+        .textContent =
+        "Login / Sign up";
 
 
-      if($("welcome")){
-
-        $("welcome").textContent =
-          "Practice as a guest";
-
-      }
+      $("welcome")
+        .textContent =
+        "Practice as a guest";
 
 
-      if($("accountNote")){
-
-        $("accountNote").textContent =
-          "Create an account to save your typing results and build your personal record.";
-
-      }
+      $("accountNote")
+        .textContent =
+        "Create an account to save your typing results and build your personal record.";
 
     }
 
@@ -2301,8 +3355,19 @@ async function refreshUser(){
 
 async function loadHistory(){
 
+  if(!supabaseClient){
+
+    openAuth();
+
+    return;
+
+  }
+
+
   const {
-    data:{user}
+    data:{
+      user
+    }
   } =
     await supabaseClient
       .auth
@@ -2323,7 +3388,9 @@ async function loadHistory(){
     error
   } =
     await supabaseClient
-      .from("typing_results")
+      .from(
+        "typing_results"
+      )
       .select(
         "language_code,duration_seconds,wpm,accuracy,created_at"
       )
@@ -2344,12 +3411,10 @@ async function loadHistory(){
     $("history");
 
 
-  if(!box) return;
-
-
-  box.classList.remove(
-    "hidden"
-  );
+  box.classList
+    .remove(
+      "hidden"
+    );
 
 
   if(error){
@@ -2373,68 +3438,90 @@ async function loadHistory(){
 
 
   box.innerHTML =
-    data.map(
-      item=>{
+    data
+      .map(
+        item=>{
 
-        const language =
-          String(
-            item.language_code ||
-            "en"
-          ).toUpperCase();
-
-
-        const wpm =
-          Number(
-            item.wpm || 0
-          );
+          const language =
+            String(
+              item.language_code ||
+              "en"
+            ).toUpperCase();
 
 
-        const accuracy =
-          Number(
-            item.accuracy || 0
-          );
+          const wpm =
+            Number(
+              item.wpm || 0
+            );
 
 
-        const date =
-          item.created_at
-            ? new Date(
-                item.created_at
-              ).toLocaleDateString()
-            : "";
+          const accuracy =
+            Number(
+              item.accuracy || 0
+            );
 
 
-        return `
-          <div class="history-row">
-            <span>${language}</span>
-            <b>${wpm} WPM</b>
-            <b>${accuracy}%</b>
-            <span>${date}</span>
-          </div>
-        `;
+          const date =
+            item.created_at
+              ? new Date(
+                  item.created_at
+                ).toLocaleDateString()
+              : "";
 
-      }
-    ).join("");
+
+          return `
+
+            <div class="history-row">
+
+              <span>
+                ${language}
+              </span>
+
+              <b>
+                ${wpm} WPM
+              </b>
+
+              <b>
+                ${accuracy}%
+              </b>
+
+              <span>
+                ${date}
+              </span>
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
 
 }
 
 
-$("historyBtn")?.addEventListener(
-  "click",
-  loadHistory
-);
+$("historyBtn")
+  ?.addEventListener(
+    "click",
+    loadHistory
+  );
 
 
 /* =====================================================
    AUTH STATE
 ===================================================== */
 
-supabaseClient
-  .auth
-  .onAuthStateChange(
-    ()=>{
-      refreshUser();
-    }
-  );
+if(supabaseClient){
+
+  supabaseClient
+    .auth
+    .onAuthStateChange(
+      ()=>{
+        refreshUser();
+      }
+    );
+
+}
 
 
 /* =====================================================
@@ -2445,15 +3532,12 @@ window.addEventListener(
   "resize",
   ()=>{
 
-    const result =
-      $("resultArea");
-
-
     if(
-      result &&
-      !result.classList.contains(
-        "hidden"
-      )
+      !$("resultArea")
+        .classList
+        .contains(
+          "hidden"
+        )
     ){
 
       drawGraph();
@@ -2468,13 +3552,25 @@ window.addEventListener(
    INITIALIZE
 ===================================================== */
 
-updateModeInfo();
-
 updateDurationUI();
+
+updateModeInfo();
 
 updateLanguage();
 
 resetTest();
+
+$("setupArea")
+  .classList
+  .add(
+    "hidden"
+  );
+
+$("homePage")
+  .classList
+  .remove(
+    "home-hidden"
+  );
 
 refreshUser();
 
