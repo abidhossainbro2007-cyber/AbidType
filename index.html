@@ -13,10 +13,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* =====================================================
-   ABIDTYPE DARK TYPING TEST
-===================================================== */
-
 #setupArea{
   max-width:980px;
   margin:0 auto 40px;
@@ -93,11 +89,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   margin-left:auto;
 }
 
-
-/* =====================================================
-   TYPING AREA
-===================================================== */
-
 .typing-container{
   position:relative;
   width:100%;
@@ -110,48 +101,26 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   box-sizing:border-box;
 }
 
-
-/* IMPORTANT TEXT FIX */
-
 #textDisplay{
   width:100%!important;
   height:340px;
-
   position:relative;
-
   padding:0 8px 15px!important;
-
   box-sizing:border-box;
-
   overflow:hidden;
-
   background:transparent!important;
-
   font-size:28px;
   line-height:1.52;
   letter-spacing:.7px;
-
   white-space:normal!important;
-
   word-break:normal!important;
   overflow-wrap:break-word!important;
-
   text-align:left;
-
   direction:ltr;
-
   color:#dbe3ef!important;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  font-family:Georgia,"Times New Roman",serif;
   scroll-behavior:auto;
 }
-
-
-/* Each character */
 
 #textDisplay span{
   display:inline!important;
@@ -159,24 +128,15 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   color:#dbe3ef;
 }
 
-
-/* Correct */
-
 #textDisplay .correct{
   color:#e6edf7!important;
 }
-
-
-/* Wrong */
 
 #textDisplay .wrong{
   color:#ff6b6b!important;
   text-decoration:underline;
   text-decoration-thickness:2px;
 }
-
-
-/* Current character */
 
 #textDisplay .current{
   background:#f1d94a!important;
@@ -185,35 +145,21 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   border-radius:1px;
 }
 
-
-/* Hidden typing input */
-
 #typingInput{
   position:absolute;
-
   left:0;
   top:0;
-
   width:100%;
   height:340px;
-
   opacity:0;
-
   z-index:20;
-
   cursor:text;
-
   resize:none;
-
   border:0;
   outline:0;
-
   background:transparent!important;
-
   color:transparent!important;
-
   caret-color:transparent!important;
-
   padding:0!important;
 }
 
@@ -251,11 +197,6 @@ content="Y01ZA1lSUBktSekrR5D8K3cD3IWmlslvORvFGjvCTpY">
   padding:8px 12px;
 }
 
-
-/* =====================================================
-   BLACK LANDING PAGE
-===================================================== */
-
 body{
   background:#05070b!important;
   color:#e8edf5!important;
@@ -289,18 +230,9 @@ small,
   min-height:calc(100vh - 80px);
   padding:58px 0 90px;
   overflow:hidden;
-
   background:
-    radial-gradient(
-      circle at 78% 70%,
-      rgba(124,92,255,.18),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 12% 80%,
-      rgba(59,130,246,.12),
-      transparent 30%
-    ),
+    radial-gradient(circle at 78% 70%,rgba(124,92,255,.18),transparent 34%),
+    radial-gradient(circle at 12% 80%,rgba(59,130,246,.12),transparent 30%),
     #05070b!important;
 }
 
@@ -331,8 +263,7 @@ small,
   left:-230px;
   bottom:-120px;
   transform:rotate(8deg);
-  box-shadow:
-    0 0 0 65px rgba(59,130,246,.035);
+  box-shadow:0 0 0 65px rgba(59,130,246,.035);
 }
 
 .home-inner{
@@ -397,10 +328,7 @@ small,
   background:rgba(18,23,33,.78);
   box-shadow:0 18px 45px rgba(0,0,0,.22);
   backdrop-filter:blur(10px);
-  transition:
-    transform .2s ease,
-    border-color .2s ease,
-    background .2s ease;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
 }
 
 .feature-card:hover{
@@ -513,13 +441,7 @@ body:not(.light) #resultArea{
   margin-top:34px;
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
 @media(max-width:900px){
-
   .feature-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -530,7 +452,6 @@ body:not(.light) #resultArea{
 }
 
 @media(max-width:700px){
-
   #testArea{
     padding:20px 14px 30px!important;
   }
@@ -553,7 +474,6 @@ body:not(.light) #resultArea{
 }
 
 @media(max-width:620px){
-
   .feature-grid{
     grid-template-columns:1fr;
   }
@@ -576,7 +496,6 @@ body:not(.light) #resultArea{
 <body>
 
 <header class="header">
-
   <div class="brand">
     <div class="logo">AbidType</div>
     <div class="tagline">Global Typing Practice</div>
@@ -586,19 +505,11 @@ body:not(.light) #resultArea{
     <button id="themeBtn" type="button">🌙</button>
     <button id="authBtn" type="button">Login / Sign up</button>
   </div>
-
 </header>
-
 
 <main class="container">
 
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
 <section id="homePage" class="abid-home">
-
   <div class="home-inner">
 
     <div class="home-kicker">
@@ -625,164 +536,87 @@ body:not(.light) #resultArea{
 
     <div class="feature-grid">
 
-      <article
-        class="feature-card"
-        onclick="startDirectTest()"
-      >
+      <article class="feature-card" onclick="startDirectTest()">
         <span class="feature-icon">🎯</span>
-
         <h3>Typing Test</h3>
-
         <p>
           Take a 15 second to 10 minute typing test
           and measure your WPM and accuracy.
         </p>
-
-        <button type="button">
-          Start Test
-        </button>
+        <button type="button">Start Test</button>
       </article>
 
-
       <article class="feature-card soon">
-
         <span class="feature-icon">🏆</span>
-
         <h3>Competition</h3>
-
         <p>
           Challenge yourself and prepare for
           competitive typing matches.
         </p>
-
-        <button
-          type="button"
-          onclick="event.stopPropagation();showComingSoon('Competition')"
-        >
+        <button type="button"
+          onclick="event.stopPropagation();showComingSoon('Competition')">
           Coming Soon
         </button>
-
       </article>
 
-
       <article class="feature-card soon">
-
         <span class="feature-icon">🌐</span>
-
         <h3>Multiplayer</h3>
-
         <p>
           Type against other players in realtime
           multiplayer matches.
         </p>
-
-        <button
-          type="button"
-          onclick="event.stopPropagation();showComingSoon('Multiplayer')"
-        >
+        <button type="button"
+          onclick="event.stopPropagation();showComingSoon('Multiplayer')">
           Coming Soon
         </button>
-
       </article>
 
-
-      <article
-        class="feature-card"
-        onclick="startDirectTest()"
-      >
-
+      <article class="feature-card" onclick="startDirectTest()">
         <span class="feature-icon">📚</span>
-
         <h3>Text Practice</h3>
-
         <p>
           Create focused practice sessions and
           improve your speed with regular typing.
         </p>
-
-        <button type="button">
-          Practice
-        </button>
-
+        <button type="button">Practice</button>
       </article>
 
-
-      <article
-        class="feature-card"
-        onclick="showTypingSetup(true)"
-      >
-
+      <article class="feature-card" onclick="showTypingSetup(true)">
         <span class="feature-icon">⚙️</span>
-
         <h3>Custom Mode</h3>
-
         <p>
           Choose your language, typing mode,
           and custom duration for your own test.
         </p>
-
-        <button type="button">
-          Customize
-        </button>
-
+        <button type="button">Customize</button>
       </article>
 
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =====================================================
-     ACCOUNT
-===================================================== -->
-
 <section class="account-card">
-
   <div>
-
-    <h2 id="welcome">
-      Practice as a guest
-    </h2>
-
+    <h2 id="welcome">Practice as a guest</h2>
     <p id="accountNote">
       Create an account to save your typing results
       and build your personal record.
     </p>
-
   </div>
-
 </section>
-
-
-<!-- =====================================================
-     SETUP
-===================================================== -->
 
 <section id="setupArea" class="card hidden">
 
   <div class="section-title">
-
-    <h1>
-      Global Typing Test
-    </h1>
-
-    <p>
-      Choose your language, mode and test duration.
-    </p>
-
+    <h1>Global Typing Test</h1>
+    <p>Choose your language, mode and test duration.</p>
   </div>
 
-
   <div class="control-group">
-
-    <label for="language">
-      Language
-    </label>
+    <label for="language">Language</label>
 
     <select id="language">
-
       <option value="en">🇺🇸 English</option>
       <option value="bn">🇧🇩 বাংলা</option>
       <option value="hi">🇮🇳 हिन्दी</option>
@@ -830,174 +664,71 @@ body:not(.light) #resultArea{
       <option value="sv">🇸🇪 Svenska</option>
       <option value="no">🇳🇴 Norsk</option>
       <option value="fi">🇫🇮 Suomi</option>
-
     </select>
 
-    <div class="language-count">
-      🌍 50+ languages available
-    </div>
-
+    <div class="language-count">🌍 50+ languages available</div>
   </div>
 
-
   <div class="control-group">
-
-    <label for="mode">
-      Typing Mode
-    </label>
+    <label for="mode">Typing Mode</label>
 
     <select id="mode">
-
-      <option value="normal">
-        Normal
-      </option>
-
-      <option value="punctuation">
-        Punctuation
-      </option>
-
-      <option value="capital">
-        CAPITAL Letters
-      </option>
-
-      <option value="small">
-        lowercase
-      </option>
-
+      <option value="normal">Normal</option>
+      <option value="punctuation">Punctuation</option>
+      <option value="capital">CAPITAL Letters</option>
+      <option value="small">lowercase</option>
     </select>
 
-    <small id="modeInfo">
-      Normal typing practice.
-    </small>
-
+    <small id="modeInfo">Normal typing practice.</small>
   </div>
-
 
   <div class="control-group">
-
-    <label for="duration">
-      Test Duration
-    </label>
+    <label for="duration">Test Duration</label>
 
     <select id="duration">
-
-      <option value="15">
-        15 Seconds
-      </option>
-
-      <option value="30">
-        30 Seconds
-      </option>
-
-      <option value="60" selected>
-        60 Seconds
-      </option>
-
-      <option value="120">
-        2 Minutes
-      </option>
-
-      <option value="300">
-        5 Minutes
-      </option>
-
-      <option value="600">
-        10 Minutes
-      </option>
-
-      <option value="custom">
-        ⚙️ Custom
-      </option>
-
+      <option value="15">15 Seconds</option>
+      <option value="30">30 Seconds</option>
+      <option value="60" selected>60 Seconds</option>
+      <option value="120">2 Minutes</option>
+      <option value="300">5 Minutes</option>
+      <option value="600">10 Minutes</option>
+      <option value="custom">⚙️ Custom</option>
     </select>
-
   </div>
 
-
-  <div
-    id="customTimeWrap"
-    class="control-group hidden"
-  >
-
-    <label for="customTime">
-      Custom Time (seconds)
-    </label>
-
-    <input
-      id="customTime"
-      type="number"
-      min="10"
-      max="3600"
-      value="60"
-    >
-
-    <small>
-      Minimum 10 seconds, maximum 3600 seconds.
-    </small>
-
+  <div id="customTimeWrap" class="control-group hidden">
+    <label for="customTime">Custom Time (seconds)</label>
+    <input id="customTime" type="number" min="10" max="3600" value="60">
+    <small>Minimum 10 seconds, maximum 3600 seconds.</small>
   </div>
 
-
-  <button
-    id="startTestBtn"
-    class="primary-btn"
-    type="button"
-  >
+  <button id="startTestBtn" class="primary-btn" type="button">
     Start Typing Test
   </button>
 
 </section>
 
-
-<!-- =====================================================
-     TEST
-===================================================== -->
-
-<section
-  id="testArea"
-  class="card hidden"
->
+<section id="testArea" class="card hidden">
 
   <div class="test-top">
 
     <div class="timer-box">
-
-      <span>
-        Time
-      </span>
-
-      <strong id="time">
-        60
-      </strong>
-
+      <span>Time</span>
+      <strong id="time">60</strong>
     </div>
 
-
     <div class="test-language">
-
-      <span>
-        Language
-      </span>
-
-      <strong id="currentLanguage">
-        English
-      </strong>
-
+      <span>Language</span>
+      <strong id="currentLanguage">English</strong>
     </div>
 
   </div>
 
-
   <div class="typing-container">
 
-    <div
-      id="textDisplay"
-      class="text-display"
-    ></div>
-
+    <div id="textDisplay" class="text-display"></div>
 
     <div class="typing-input-wrap">
-
       <textarea
         id="typingInput"
         class="typing-input"
@@ -1007,61 +738,33 @@ body:not(.light) #resultArea{
         spellcheck="false"
         placeholder="Start typing..."
       ></textarea>
-
     </div>
 
   </div>
-
 
   <div class="typing-help">
     Type the text above.
     The timer starts with your first keystroke.
   </div>
 
-
   <div class="test-actions">
-
-    <button
-      id="finishBtn"
-      type="button"
-      class="primary-btn"
-    >
+    <button id="finishBtn" type="button" class="primary-btn">
       Finish Test
     </button>
 
-    <button
-      id="restartBtn"
-      type="button"
-    >
+    <button id="restartBtn" type="button">
       Restart
     </button>
-
   </div>
 
 </section>
 
-
-<!-- =====================================================
-     RESULT
-===================================================== -->
-
-<section
-  id="resultArea"
-  class="card hidden"
->
+<section id="resultArea" class="card hidden">
 
   <div class="section-title">
-
-    <h2>
-      Your Result
-    </h2>
-
-    <p>
-      Great job! Here is your typing performance.
-    </p>
-
+    <h2>Your Result</h2>
+    <p>Great job! Here is your typing performance.</p>
   </div>
-
 
   <div class="result-grid">
 
@@ -1097,171 +800,87 @@ body:not(.light) #resultArea{
 
   </div>
 
-
   <div class="graph-box">
-
-    <h3>
-      Performance
-    </h3>
-
+    <h3>Performance</h3>
     <canvas id="performanceChart"></canvas>
-
   </div>
 
-
-  <button
-    id="tryAgainBtn"
-    type="button"
-    class="primary-btn"
-  >
+  <button id="tryAgainBtn" type="button" class="primary-btn">
     Try Again
   </button>
 
 </section>
-
-
-<!-- =====================================================
-     HISTORY
-===================================================== -->
 
 <section class="card">
 
   <div class="history-header">
 
     <div>
-
-      <h2>
-        Typing History
-      </h2>
-
-      <p>
-        Your latest typing results.
-      </p>
-
+      <h2>Typing History</h2>
+      <p>Your latest typing results.</p>
     </div>
 
-    <button
-      id="historyBtn"
-      type="button"
-    >
+    <button id="historyBtn" type="button">
       View History
     </button>
 
   </div>
 
-
-  <div
-    id="history"
-    class="history hidden"
-  ></div>
+  <div id="history" class="history hidden"></div>
 
 </section>
 
 </main>
 
-
-<!-- =====================================================
-     AUTH
-===================================================== -->
-
-<div
-  id="authModal"
-  class="modal hidden"
->
+<div id="authModal" class="modal hidden">
 
   <div class="modal-content">
 
-    <button
-      id="closeAuth"
-      type="button"
-      class="close-btn"
-    >
-      ×
-    </button>
+    <button id="closeAuth" type="button" class="close-btn">×</button>
 
-    <h2 id="authTitle">
-      Create your account
-    </h2>
-
+    <h2 id="authTitle">Create your account</h2>
     <p id="authMessage"></p>
 
-
-    <div
-      class="auth-field"
-      id="nameField"
-    >
-
-      <label for="displayName">
-        Name
-      </label>
-
+    <div class="auth-field" id="nameField">
+      <label for="displayName">Name</label>
       <input
         id="displayName"
         type="text"
         placeholder="Your name"
         autocomplete="name"
       >
-
     </div>
 
-
     <div class="auth-field">
-
-      <label for="email">
-        Email
-      </label>
-
+      <label for="email">Email</label>
       <input
         id="email"
         type="email"
         placeholder="you@example.com"
         autocomplete="email"
       >
-
     </div>
 
-
     <div class="auth-field">
-
-      <label for="password">
-        Password
-      </label>
-
+      <label for="password">Password</label>
       <input
         id="password"
         type="password"
         placeholder="Minimum 6 characters"
         autocomplete="current-password"
       >
-
     </div>
 
-
-    <button
-      id="submitAuth"
-      type="button"
-      class="primary-btn"
-    >
+    <button id="submitAuth" type="button" class="primary-btn">
       Sign up
     </button>
 
-
-    <button
-      id="switchAuth"
-      type="button"
-      class="text-btn"
-    >
+    <button id="switchAuth" type="button" class="text-btn">
       Already have an account? Login
     </button>
 
   </div>
-
 </div>
-
-
-<!-- =====================================================
-     SUPABASE
-===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
@@ -1270,9 +889,7 @@ body:not(.light) #resultArea{
 
 'use strict';
 
-const $ =
-  id =>
-    document.getElementById(id);
+const $ = id => document.getElementById(id);
 
 
 /* =====================================================
@@ -1299,10 +916,7 @@ try{
 
 }catch(e){
 
-  console.warn(
-    'Supabase unavailable',
-    e
-  );
+  console.warn('Supabase unavailable',e);
 
 }
 
@@ -1310,130 +924,131 @@ try{
 /* =====================================================
    PASSAGES
 ===================================================== */
+
 const passages = {
 
-en: [
-  'Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.',
-  'Good typing comes from steady practice and careful attention. Keep your hands relaxed, watch the text closely, and try to maintain a comfortable rhythm while you type.',
-  'Learning to type faster takes time, patience, and consistency. Do not rush at the beginning. Build accurate habits first, and your speed will gradually become better.',
-  'A calm and focused mind can make typing much easier. Practice a little every day, learn from your mistakes, and keep working toward a faster and more accurate result.',
-  'Typing practice becomes more useful when you stay consistent. Try to keep the same rhythm, avoid unnecessary mistakes, and slowly increase your speed as your accuracy improves.'
+en:[
+'Typing is a skill that improves with regular practice. Focus on accuracy first and speed will follow naturally. Every day is a new opportunity to improve your typing speed, confidence, and consistency.',
+'Good typing comes from steady practice and careful attention. Keep your hands relaxed, watch the text closely, and try to maintain a comfortable rhythm while you type.',
+'Learning to type faster takes time, patience, and consistency. Do not rush at the beginning. Build accurate habits first, and your speed will gradually become better.',
+'A calm and focused mind can make typing much easier. Practice a little every day, learn from your mistakes, and keep working toward a faster and more accurate result.',
+'Typing practice becomes more useful when you stay consistent. Try to keep the same rhythm, avoid unnecessary mistakes, and slowly increase your speed as your accuracy improves.'
 ],
 
-bn: [
-  'নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।',
-  'ভালো টাইপিংয়ের জন্য ধৈর্য এবং নিয়মিত অনুশীলন প্রয়োজন। দ্রুত টাইপ করার আগে সঠিকভাবে টাইপ করার অভ্যাস তৈরি করুন। সময়ের সঙ্গে আপনার গতি এবং আত্মবিশ্বাস দুটোই বাড়বে।',
-  'টাইপিং শেখার সময় ভুল হওয়া স্বাভাবিক। ভুল থেকে শেখার চেষ্টা করুন এবং প্রতিদিন কিছু সময় অনুশীলন করুন। নিয়মিত চেষ্টা করলে আপনার টাইপিং দক্ষতা অনেক উন্নত হবে।',
-  'শান্তভাবে এবং মনোযোগ দিয়ে টাইপ করলে ভুল কম হয়। প্রতিদিন নতুন কিছু অনুশীলন করুন এবং নিজের আগের ফলাফলকে ধীরে ধীরে উন্নত করার চেষ্টা করুন।',
-  'টাইপিংয়ে ভালো করতে হলে নিয়মিত অনুশীলনের পাশাপাশি সঠিকতার দিকে নজর দেওয়া জরুরি। ধীরে শুরু করুন, ভুল কমান এবং সময়ের সঙ্গে নিজের গতি বাড়ান।'
+bn:[
+'নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন। প্রতিদিন একটু একটু করে অনুশীলন করলে আপনার আত্মবিশ্বাস এবং টাইপিং দক্ষতা আরও ভালো হবে।',
+'ভালো টাইপিংয়ের জন্য ধৈর্য এবং নিয়মিত অনুশীলন প্রয়োজন। দ্রুত টাইপ করার আগে সঠিকভাবে টাইপ করার অভ্যাস তৈরি করুন। সময়ের সঙ্গে আপনার গতি এবং আত্মবিশ্বাস দুটোই বাড়বে।',
+'টাইপিং শেখার সময় ভুল হওয়া স্বাভাবিক। ভুল থেকে শেখার চেষ্টা করুন এবং প্রতিদিন কিছু সময় অনুশীলন করুন। নিয়মিত চেষ্টা করলে আপনার টাইপিং দক্ষতা অনেক উন্নত হবে।',
+'শান্তভাবে এবং মনোযোগ দিয়ে টাইপ করলে ভুল কম হয়। প্রতিদিন নতুন কিছু অনুশীলন করুন এবং নিজের আগের ফলাফলকে ধীরে ধীরে উন্নত করার চেষ্টা করুন।',
+'টাইপিংয়ে ভালো করতে হলে নিয়মিত অনুশীলনের পাশাপাশি সঠিকতার দিকে নজর দেওয়া জরুরি। ধীরে শুরু করুন, ভুল কমান এবং সময়ের সঙ্গে নিজের গতি বাড়ান।'
 ],
 
-hi: [
-  'नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं। हर दिन सीखने और बेहतर बनने का एक नया अवसर है।',
-  'अच्छी टाइपिंग के लिए धैर्य और नियमित अभ्यास जरूरी है। शुरुआत में तेज टाइप करने की कोशिश न करें। पहले सही टाइप करने की आदत बनाएं और फिर धीरे धीरे गति बढ़ाएं।',
-  'टाइपिंग सीखते समय गलतियां होना सामान्य है। अपनी गलतियों से सीखें और हर दिन कुछ समय अभ्यास करें। लगातार अभ्यास करने से आपकी गति और आत्मविश्वास दोनों बढ़ेंगे।'
+hi:[
+'नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें और फिर अपनी गति बढ़ाएं। हर दिन सीखने और बेहतर बनने का एक नया अवसर है।',
+'अच्छी टाइपिंग के लिए धैर्य और नियमित अभ्यास जरूरी है। शुरुआत में तेज टाइप करने की कोशिश न करें। पहले सही टाइप करने की आदत बनाएं और फिर धीरे धीरे गति बढ़ाएं।',
+'टाइपिंग सीखते समय गलतियां होना सामान्य है। अपनी गलतियों से सीखें और हर दिन कुछ समय अभ्यास करें। लगातार अभ्यास करने से आपकी गति और आत्मविश्वास दोनों बढ़ेंगे।'
 ],
 
-ur: [
-  'باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔',
-  'اچھی ٹائپنگ کے لیے صبر اور مسلسل مشق ضروری ہے۔ شروع میں رفتار کے بجائے درست الفاظ لکھنے پر توجہ دیں۔',
-  'ٹائپنگ سیکھنے میں غلطیاں ہونا عام بات ہے۔ اپنی غلطیوں سے سیکھیں اور روزانہ کچھ وقت مشق کے لیے ضرور نکالیں۔'
+ur:[
+'باقاعدگی سے مشق کرنے سے ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں اور پھر اپنی رفتار بڑھائیں۔',
+'اچھی ٹائپنگ کے لیے صبر اور مسلسل مشق ضروری ہے۔ شروع میں رفتار کے بجائے درست الفاظ لکھنے پر توجہ دیں۔',
+'ٹائپنگ سیکھنے میں غلطیاں ہونا عام بات ہے۔ اپنی غلطیوں سے سیکھیں اور روزانہ کچھ وقت مشق کے لیے ضرور نکالیں۔'
 ],
 
-ar: [
-  'تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي. كل يوم هو فرصة جديدة لتحسين مهاراتك وثقتك.',
-  'تحتاج الكتابة السريعة إلى الصبر والممارسة المستمرة. ابدأ ببطء وحافظ على الدقة ثم حاول زيادة سرعتك تدريجياً مع مرور الوقت.',
-  'من الطبيعي أن ترتكب بعض الأخطاء أثناء تعلم الكتابة. تعلم من أخطائك وتدرب كل يوم حتى تصبح أكثر سرعة وثقة.'
+ar:[
+'تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي. كل يوم هو فرصة جديدة لتحسين مهاراتك وثقتك.',
+'تحتاج الكتابة السريعة إلى الصبر والممارسة المستمرة. ابدأ ببطء وحافظ على الدقة ثم حاول زيادة سرعتك تدريجياً مع مرور الوقت.',
+'من الطبيعي أن ترتكب بعض الأخطاء أثناء تعلم الكتابة. تعلم من أخطائك وتدرب كل يوم حتى تصبح أكثر سرعة وثقة.'
 ],
 
-es: [
-  'Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará de forma natural.',
-  'Una buena escritura requiere paciencia y práctica constante. Empieza despacio, reduce los errores y aumenta tu velocidad poco a poco.',
-  'Practicar todos los días puede mejorar tu velocidad y confianza. Mantén un ritmo cómodo y presta atención a cada palabra que escribes.'
+es:[
+'Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará de forma natural.',
+'Una buena escritura requiere paciencia y práctica constante. Empieza despacio, reduce los errores y aumenta tu velocidad poco a poco.',
+'Practicar todos los días puede mejorar tu velocidad y confianza. Mantén un ritmo cómodo y presta atención a cada palabra que escribes.'
 ],
 
-fr: [
-  'La frappe est une compétence qui s’améliore avec une pratique régulière. Concentrez-vous d’abord sur la précision et la vitesse viendra naturellement.',
-  'Une bonne frappe demande de la patience et une pratique constante. Commencez lentement, évitez les erreurs et augmentez progressivement votre vitesse.',
-  'Pratiquer chaque jour peut améliorer votre vitesse et votre confiance. Gardez un rythme confortable et concentrez-vous sur chaque mot.'
+fr:[
+'La frappe est une compétence qui s’améliore avec une pratique régulière. Concentrez-vous d’abord sur la précision et la vitesse viendra naturellement.',
+'Une bonne frappe demande de la patience et une pratique constante. Commencez lentement, évitez les erreurs et augmentez progressivement votre vitesse.',
+'Pratiquer chaque jour peut améliorer votre vitesse et votre confiance. Gardez un rythme confortable et concentrez-vous sur chaque mot.'
 ],
 
-de: [
-  'Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird ganz natürlich folgen.',
-  'Gutes Tippen braucht Geduld und regelmäßiges Training. Beginne langsam, vermeide Fehler und steigere deine Geschwindigkeit Schritt für Schritt.',
-  'Tägliches Üben kann deine Geschwindigkeit und dein Selbstvertrauen verbessern. Halte einen angenehmen Rhythmus und achte auf jedes Wort.'
+de:[
+'Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit und die Geschwindigkeit wird ganz natürlich folgen.',
+'Gutes Tippen braucht Geduld und regelmäßiges Training. Beginne langsam, vermeide Fehler und steigere deine Geschwindigkeit Schritt für Schritt.',
+'Tägliches Üben kann deine Geschwindigkeit und dein Selbstvertrauen verbessern. Halte einen angenehmen Rhythmus und achte auf jedes Wort.'
 ],
 
-it: [
-  'La digitazione è un’abilità che migliora con la pratica regolare. Concentrati prima sulla precisione e la velocità arriverà naturalmente.',
-  'Una buona digitazione richiede pazienza e pratica costante. Inizia lentamente, riduci gli errori e aumenta gradualmente la velocità.',
-  'Allenarsi ogni giorno può migliorare la velocità e la sicurezza. Mantieni un ritmo comodo e presta attenzione a ogni parola.'
+it:[
+'La digitazione è un’abilità che migliora con la pratica regolare. Concentrati prima sulla precisione e la velocità arriverà naturalmente.',
+'Una buona digitazione richiede pazienza e pratica costante. Inizia lentamente, riduci gli errori e aumenta gradualmente la velocità.',
+'Allenarsi ogni giorno può migliorare la velocità e la sicurezza. Mantieni un ritmo comodo e presta attenzione a ogni parola.'
 ],
 
-pt: [
-  'A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.',
-  'Uma boa digitação exige paciência e prática constante. Comece devagar, evite erros e aumente sua velocidade aos poucos.',
-  'Praticar todos os dias pode melhorar sua velocidade e confiança. Mantenha um ritmo confortável e preste atenção em cada palavra.'
+pt:[
+'A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.',
+'Uma boa digitação exige paciência e prática constante. Comece devagar, evite erros e aumente sua velocidade aos poucos.',
+'Praticar todos os dias pode melhorar sua velocidade e confiança. Mantenha um ritmo confortável e preste atenção em cada palavra.'
 ],
 
-ru: [
-  'Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности, а скорость придет естественно.',
-  'Хорошая скорость печати требует терпения и постоянной практики. Начинайте медленно, избегайте ошибок и постепенно увеличивайте скорость.',
-  'Ежедневная практика помогает улучшить скорость и уверенность. Сохраняйте удобный ритм и внимательно следите за каждым словом.'
+ru:[
+'Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности, а скорость придет естественно.',
+'Хорошая скорость печати требует терпения и постоянной практики. Начинайте медленно, избегайте ошибок и постепенно увеличивайте скорость.',
+'Ежедневная практика помогает улучшить скорость и уверенность. Сохраняйте удобный ритм и внимательно следите за каждым словом.'
 ],
 
-zh: [
-  '打字是一项可以通过定期练习不断提高的技能。首先专注于准确性，然后速度会自然提高。每天都是提升打字能力的新机会。',
-  '良好的打字能力需要耐心和持续练习。开始时不要追求速度，先保持准确，然后逐渐提高自己的打字速度。',
-  '每天练习打字可以提高速度和信心。保持舒适的节奏，认真阅读每一个词，并不断减少错误。'
+zh:[
+'打字是一项可以通过定期练习不断提高的技能。首先专注于准确性，然后速度会自然提高。每天都是提升打字能力的新机会。',
+'良好的打字能力需要耐心和持续练习。开始时不要追求速度，先保持准确，然后逐渐提高自己的打字速度。',
+'每天练习打字可以提高速度和信心。保持舒适的节奏，认真阅读每一个词，并不断减少错误。'
 ],
 
-ja: [
-  'タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。毎日少しずつ練習することで速度と自信を高めることができます。',
-  '上手なタイピングには patience と継続的な練習が必要です。最初は速度よりも正確さを大切にして、少しずつ速く入力できるようにしましょう。',
-  '毎日タイピングを練習すると、速度と自信を高めることができます。無理をせず、落ち着いたリズムで一つ一つの言葉を確認しましょう。'
+ja:[
+'タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。毎日少しずつ練習することで速度と自信を高めることができます。',
+'上手なタイピングには patience と継続的な練習が必要です。最初は速度よりも正確さを大切にして、少しずつ速く入力できるようにしましょう。',
+'毎日タイピングを練習すると、速度と自信を高めることができます。無理をせず、落ち着いたリズムで一つ一つの言葉を確認しましょう。'
 ],
 
-ko: [
-  '타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.',
-  '좋은 타이핑 실력을 만들기 위해서는 인내심과 꾸준한 연습이 필요합니다. 처음에는 속도보다 정확성을 먼저 생각하세요.',
-  '매일 조금씩 타이핑을 연습하면 속도와 자신감을 높일 수 있습니다. 편안한 리듬을 유지하면서 실수를 줄여 보세요.'
+ko:[
+'타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하면 속도는 자연스럽게 따라옵니다.',
+'좋은 타이핑 실력을 만들기 위해서는 인내심과 꾸준한 연습이 필요합니다. 처음에는 속도보다 정확성을 먼저 생각하세요.',
+'매일 조금씩 타이핑을 연습하면 속도와 자신감을 높일 수 있습니다. 편안한 리듬을 유지하면서 실수를 줄여 보세요.'
 ],
 
-tr: [
-  'Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.',
-  'İyi bir yazma becerisi sabır ve düzenli çalışma gerektirir. Yavaş başlayın, hataları azaltın ve hızınızı zamanla artırın.',
-  'Her gün pratik yapmak hızınızı ve özgüveninizi geliştirebilir. Rahat bir ritim tutturun ve yazdığınız kelimelere dikkat edin.'
+tr:[
+'Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.',
+'İyi bir yazma becerisi sabır ve düzenli çalışma gerektirir. Yavaş başlayın, hataları azaltın ve hızınızı zamanla artırın.',
+'Her gün pratik yapmak hızınızı ve özgüveninizi geliştirebilir. Rahat bir ritim tutturun ve yazdığınız kelimelere dikkat edin.'
 ],
 
-id: [
-  'Mengetik adalah keterampilan yang meningkat dengan latihan rutin. Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti secara alami.',
-  'Kemampuan mengetik yang baik membutuhkan kesabaran dan latihan yang konsisten. Mulailah perlahan, kurangi kesalahan, lalu tingkatkan kecepatan secara bertahap.',
-  'Berlatih mengetik setiap hari dapat meningkatkan kecepatan dan kepercayaan diri. Pertahankan ritme yang nyaman dan perhatikan setiap kata.'
+id:[
+'Mengetik adalah keterampilan yang meningkat dengan latihan rutin. Fokuslah pada ketepatan terlebih dahulu dan kecepatan akan mengikuti secara alami.',
+'Kemampuan mengetik yang baik membutuhkan kesabaran dan latihan yang konsisten. Mulailah perlahan, kurangi kesalahan, lalu tingkatkan kecepatan secara bertahap.',
+'Berlatih mengetik setiap hari dapat meningkatkan kecepatan dan kepercayaan diri. Pertahankan ritme yang nyaman dan perhatikan setiap kata.'
 ],
 
-ms: [
-  'Kemahiran menaip akan bertambah baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat secara semula jadi.',
-  'Kemahiran menaip yang baik memerlukan kesabaran dan latihan berterusan. Mulakan dengan perlahan dan tingkatkan kelajuan secara beransur-ansur.',
-  'Latihan menaip setiap hari boleh meningkatkan kelajuan dan keyakinan anda. Kekalkan rentak yang selesa dan kurangkan kesilapan.'
+ms:[
+'Kemahiran menaip akan bertambah baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu dan kelajuan akan meningkat secara semula jadi.',
+'Kemahiran menaip yang baik memerlukan kesabaran dan latihan berterusan. Mulakan dengan perlahan dan tingkatkan kelajuan secara beransur-ansur.',
+'Latihan menaip setiap hari boleh meningkatkan kelajuan dan keyakinan anda. Kekalkan rentak yang selesa dan kurangkan kesilapan.'
 ],
 
-vi: [
-  'Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.',
-  'Để gõ tốt cần có sự kiên nhẫn và luyện tập đều đặn. Hãy bắt đầu chậm, giảm lỗi và tăng tốc độ từng bước.',
-  'Luyện tập mỗi ngày có thể giúp bạn cải thiện tốc độ và sự tự tin. Giữ nhịp độ thoải mái và chú ý đến từng từ.'
+vi:[
+'Gõ bàn phím là một kỹ năng được cải thiện thông qua việc luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước và tốc độ sẽ tự nhiên tăng lên.',
+'Để gõ tốt cần có sự kiên nhẫn và luyện tập đều đặn. Hãy bắt đầu chậm, giảm lỗi và tăng tốc độ từng bước.',
+'Luyện tập mỗi ngày có thể giúp bạn cải thiện tốc độ và sự tự tin. Giữ nhịp độ thoải mái và chú ý đến từng từ.'
 ],
 
-th: [
-  'การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ',
-  'การพิมพ์ที่ดีต้องอาศัยความอดทนและการฝึกฝนอย่างต่อเนื่อง เริ่มต้นอย่างช้า ๆ ลดข้อผิดพลาด และเพิ่มความเร็วทีละน้อย',
-  'การฝึกพิมพ์ทุกวันช่วยเพิ่มความเร็วและความมั่นใจ รักษาจังหวะที่สบายและใส่ใจกับทุกคำที่พิมพ์'
+th:[
+'การพิมพ์เป็นทักษะที่สามารถพัฒนาได้ด้วยการฝึกฝนอย่างสม่ำเสมอ ควรให้ความสำคัญกับความถูกต้องก่อน แล้วความเร็วจะเพิ่มขึ้นตามธรรมชาติ',
+'การพิมพ์ที่ดีต้องอาศัยความอดทนและการฝึกฝนอย่างต่อเนื่อง เริ่มต้นอย่างช้า ๆ ลดข้อผิดพลาด และเพิ่มความเร็วทีละน้อย',
+'การฝึกพิมพ์ทุกวันช่วยเพิ่มความเร็วและความมั่นใจ รักษาจังหวะที่สบายและใส่ใจกับทุกคำที่พิมพ์'
 ],
 
-nl: [
-  'Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen.',
-  'Goed typen vraagt om geduld en constante oefening. Begin rustig, maak minder fouten en verhoog je snelheid stap voor stap.',
-  'Elke dag oefenen kan je typesnelheid en vertrouwen verbeteren. Houd een comfortabel ritme en let goed op elk woord.'
+nl:[
+'Typen is een vaardigheid die beter wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid en snelheid zal vanzelf volgen.',
+'Goed typen vraagt om geduld en constante oefening. Begin rustig, maak minder fouten en verhoog je snelheid stap voor stap.',
+'Elke dag oefenen kan je typesnelheid en vertrouwen verbeteren. Houd een comfortabel ritme en let goed op elk woord.'
 ]
 
 };
@@ -1445,26 +1060,19 @@ nl: [
 
 const punctuationTexts = {
 
-en:
-'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
+en:'Typing well requires practice. Stay focused, keep your fingers relaxed, and remember: accuracy comes first! Can you improve your speed today?',
 
-bn:
-'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
+bn:'নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আপনার টাইপিং আরও ভালো করতে পারবেন?',
 
-es:
-'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!',
+es:'Practica con atención, mantén los dedos relajados y recuerda: ¡la precisión es lo primero!',
 
-fr:
-'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!',
+fr:'Entraînez-vous régulièrement, gardez les doigts détendus et souvenez-vous : la précision passe avant la vitesse!',
 
-de:
-'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!',
+de:'Übe regelmäßig, halte deine Finger entspannt und denke daran: Genauigkeit kommt zuerst!',
 
-hi:
-'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!',
+hi:'नियमित अभ्यास करें, अपनी उंगलियों को आराम दें और याद रखें: सटीकता सबसे पहले आती है!',
 
-ar:
-'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!'
+ar:'تدرب بانتظام، حافظ على استرخاء أصابعك وتذكر: الدقة تأتي أولاً!'
 
 };
 
@@ -1474,7 +1082,6 @@ ar:
 ===================================================== */
 
 let test = {
-
   started:false,
   running:false,
   start:0,
@@ -1484,7 +1091,6 @@ let test = {
   input:'',
   wordResults:[],
   finished:false
-
 };
 
 
@@ -1494,31 +1100,20 @@ let test = {
 
 function getDuration(){
 
-  const value =
-    $('duration').value;
+  const value = $('duration').value;
 
   if(value === 'custom'){
 
-    let n =
-      Number(
-        $('customTime').value
-      );
+    let n = Number($('customTime').value);
 
-    if(
-      !Number.isFinite(n) ||
-      n < 10
-    ){
+    if(!Number.isFinite(n) || n < 10){
       n = 60;
     }
 
-    return Math.min(
-      3600,
-      Math.floor(n)
-    );
+    return Math.min(3600,Math.floor(n));
   }
 
   return Number(value) || 60;
-
 }
 
 
@@ -1528,11 +1123,8 @@ function getDuration(){
 
 function buildText(){
 
-  const lang =
-    $('language').value;
-
-  const mode =
-    $('mode').value;
+  const lang = $('language').value;
+  const mode = $('mode').value;
 
   const list =
     Array.isArray(passages[lang])
@@ -1546,28 +1138,18 @@ function buildText(){
       )
     ];
 
+  /* PUNCTUATION MODE */
 
   if(mode === 'punctuation'){
 
-    const punctuationList =
-      Array.isArray(punctuationTexts[lang])
-        ? punctuationTexts[lang]
-        : null;
-
-    if(punctuationList){
-
-      text =
-        punctuationList[
-          Math.floor(
-            Math.random() *
-            punctuationList.length
-          )
-        ];
-
-    }
+    text =
+      punctuationTexts[lang] ||
+      punctuationTexts.en ||
+      text;
 
   }
 
+  /* CAPITAL MODE */
 
   if(mode === 'capital'){
 
@@ -1576,6 +1158,7 @@ function buildText(){
 
   }
 
+  /* SMALL LETTER MODE */
 
   if(mode === 'small'){
 
@@ -1593,37 +1176,6 @@ function buildText(){
         .trim();
 
   }
-
-
-  return text;
-
-}
-
-  if(mode === 'capital'){
-
-    text =
-      text.toUpperCase();
-
-  }
-
-
-  if(mode === 'small'){
-
-    text =
-      text
-        .replace(
-          /[.,!?;:'"()[\]{}\-—–]/g,
-          ''
-        )
-        .toLowerCase()
-        .replace(
-          /\s+/g,
-          ' '
-        )
-        .trim();
-
-  }
-
 
   return text;
 
@@ -1632,10 +1184,17 @@ function buildText(){
 
 /* =====================================================
    SETUP TEXT
-   IMPORTANT: NORMAL SPACE
 ===================================================== */
 
 function setupText(){
+
+  /*
+    Use buildText() so that
+    Normal / Punctuation / Capital / Small
+    modes all work correctly.
+  */
+
+  test.text = '';
 
   const selectedTexts =
     Array.isArray(
@@ -1644,70 +1203,77 @@ function setupText(){
       ? passages[$('language').value]
       : passages.en;
 
+  /*
+    Normal mode can use several passages.
+    Other modes use the proper transformed text.
+  */
 
-  const usedIndexes = [];
+  if($('mode').value === 'normal'){
 
-  const wantedCount =
-    Math.min(
-      6,
-      selectedTexts.length
-    );
+    const usedIndexes = [];
 
-
-  while(
-    usedIndexes.length <
-    wantedCount
-  ){
-
-    const randomIndex =
-      Math.floor(
-        Math.random() *
+    const wantedCount =
+      Math.min(
+        6,
         selectedTexts.length
       );
 
-    if(
-      !usedIndexes.includes(
-        randomIndex
-      )
+    while(
+      usedIndexes.length <
+      wantedCount
     ){
 
-      usedIndexes.push(
-        randomIndex
-      );
+      const randomIndex =
+        Math.floor(
+          Math.random() *
+          selectedTexts.length
+        );
+
+      if(
+        !usedIndexes.includes(
+          randomIndex
+        )
+      ){
+
+        usedIndexes.push(
+          randomIndex
+        );
+
+      }
 
     }
 
+    const texts =
+      usedIndexes.map(
+        index =>
+          selectedTexts[index]
+      );
+
+    test.text =
+      texts
+        .join(' ')
+        .trim();
+
+  }else{
+
+    /*
+      For punctuation/capital/small,
+      use buildText() so the selected
+      mode is actually applied.
+    */
+
+    test.text =
+      buildText();
+
   }
-
-
-  let texts =
-    usedIndexes.map(
-      index =>
-        selectedTexts[index]
-    );
-
-
-  /*
-    IMPORTANT:
-    Passage সম্পূর্ণ অবস্থায় থাকবে।
-    কোনো word বা letter shuffle হবে না।
-  */
-
-  test.text =
-    texts
-      .join(' ')
-      .trim();
-
 
   const display =
     $('textDisplay');
 
   display.innerHTML = '';
 
-
   const fragment =
     document.createDocumentFragment();
-
 
   [...test.text].forEach(
     (char,index)=>{
@@ -1729,19 +1295,6 @@ function setupText(){
 
     }
   );
-
-
-  display.appendChild(
-    fragment
-  );
-
-  display.scrollTop = 0;
-
-  updateDisplay();
-
-}
-  );
-
 
   display.appendChild(
     fragment
@@ -1769,7 +1322,6 @@ function updateDisplay(){
   const spans =
     [...display.children];
 
-
   spans.forEach(
     (span,index)=>{
 
@@ -1781,7 +1333,6 @@ function updateDisplay(){
 
           input[index] ===
           test.text[index]
-
             ? 'correct'
             : 'wrong'
 
@@ -1792,10 +1343,8 @@ function updateDisplay(){
     }
   );
 
-
   const current =
     spans[input.length];
-
 
   if(current){
 
@@ -1803,13 +1352,11 @@ function updateDisplay(){
       'current'
     );
 
-
     const rect =
       current.getBoundingClientRect();
 
     const displayRect =
       display.getBoundingClientRect();
-
 
     if(
       rect.bottom >
@@ -1822,7 +1369,6 @@ function updateDisplay(){
         45;
 
     }
-
 
     if(
       rect.top <
@@ -1918,18 +1464,15 @@ function beginTest(){
     return;
   }
 
-
   test.started = true;
   test.running = true;
   test.start = Date.now();
-
 
   test.timer =
     setInterval(
       updateTimer,
       100
     );
-
 
   $('typingInput').focus();
 
@@ -1942,13 +1485,13 @@ function updateTimer(){
     return;
   }
 
-
   const elapsed =
     Math.floor(
-      (Date.now() -
-      test.start) / 1000
+      (
+        Date.now() -
+        test.start
+      ) / 1000
     );
-
 
   const left =
     Math.max(
@@ -1957,10 +1500,8 @@ function updateTimer(){
       elapsed
     );
 
-
   $('time').textContent =
     left;
-
 
   if(
     left <= 10 &&
@@ -1974,7 +1515,6 @@ function updateTimer(){
     playWarningSound();
 
   }
-
 
   if(left <= 0){
 
@@ -1997,7 +1537,6 @@ function calculateStats(){
   let correct = 0;
   let errors = 0;
 
-
   [...input].forEach(
     (char,index)=>{
 
@@ -2017,7 +1556,6 @@ function calculateStats(){
     }
   );
 
-
   const elapsed =
     test.start
       ? Math.max(
@@ -2029,7 +1567,6 @@ function calculateStats(){
         )
       : 1;
 
-
   const wpm =
     Math.max(
       0,
@@ -2040,7 +1577,6 @@ function calculateStats(){
       )
     );
 
-
   const accuracy =
     input.length
       ? Math.round(
@@ -2050,19 +1586,15 @@ function calculateStats(){
         )
       : 100;
 
-
   const typed =
     input.trim()
       ? input.trim().split(/\s+/)
       : [];
 
-
   const target =
     test.text.trim().split(/\s+/);
 
-
   let correctWords = 0;
-
 
   typed.forEach(
     (word,index)=>{
@@ -2079,13 +1611,10 @@ function calculateStats(){
     }
   );
 
-
   return {
 
     wpm,
-
     accuracy,
-
     errors,
 
     totalWords:
@@ -2114,22 +1643,18 @@ function calculateStats(){
 
 function makeWordResults(){
 
-  const typed =
-    $('typingInput')
-      .value
-      .trim()
-      ? $('typingInput')
-          .value
-          .trim()
-          .split(/\s+/)
-      : [];
+  const value =
+    $('typingInput').value.trim();
 
+  const typed =
+    value
+      ? value.split(/\s+/)
+      : [];
 
   const target =
     test.text
       .trim()
       .split(/\s+/);
-
 
   return typed.map(
     (word,index)=>
@@ -2154,10 +1679,8 @@ async function finishTest(){
     return;
   }
 
-
   test.finished = true;
   test.running = false;
-
 
   clearInterval(
     test.timer
@@ -2165,22 +1688,17 @@ async function finishTest(){
 
   test.timer = null;
 
-
   test.input =
     $('typingInput').value;
-
 
   const stats =
     calculateStats();
 
-
   test.wordResults =
     makeWordResults();
 
-
   $('time').textContent =
     '0';
-
 
   $('resultWpm').textContent =
     stats.wpm;
@@ -2200,29 +1718,23 @@ async function finishTest(){
   $('wrongWords').textContent =
     stats.wrongWords;
 
-
   $('typingInput').disabled =
     true;
-
 
   $('testArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .remove('hidden');
 
-
   playFinishSound();
-
 
   setTimeout(
     drawGraph,
     30
   );
-
 
   await saveResult(
     stats
@@ -2244,10 +1756,8 @@ function drawGraph(){
     return;
   }
 
-
   const ctx =
     canvas.getContext('2d');
-
 
   const width =
     canvas.clientWidth ||
@@ -2256,18 +1766,15 @@ function drawGraph(){
   const height =
     260;
 
-
   const ratio =
     window.devicePixelRatio ||
     1;
-
 
   canvas.width =
     width * ratio;
 
   canvas.height =
     height * ratio;
-
 
   ctx.setTransform(
     ratio,
@@ -2278,7 +1785,6 @@ function drawGraph(){
     0
   );
 
-
   ctx.clearRect(
     0,
     0,
@@ -2286,10 +1792,8 @@ function drawGraph(){
     height
   );
 
-
   const results =
     test.wordResults;
-
 
   if(!results.length){
 
@@ -2309,17 +1813,14 @@ function drawGraph(){
 
   }
 
-
   const usable =
     width - 60;
-
 
   const step =
     results.length > 1
       ? usable /
         (results.length - 1)
       : 0;
-
 
   results.forEach(
     (result,index)=>{
@@ -2329,12 +1830,10 @@ function drawGraph(){
           ? width / 2
           : 30 + index * step;
 
-
       const y =
         result === 'correct'
           ? height - 100
           : height - 175;
-
 
       ctx.beginPath();
 
@@ -2346,7 +1845,6 @@ function drawGraph(){
         Math.PI * 2
       );
 
-
       ctx.fillStyle =
         result === 'correct'
           ? '#22c55e'
@@ -2354,26 +1852,20 @@ function drawGraph(){
 
       ctx.fill();
 
-
       if(index > 0){
 
         const previous =
           results[index - 1];
 
-
         const px =
-          results.length === 1
-            ? width / 2
-            : 30 +
-              (index - 1) *
-              step;
-
+          30 +
+          (index - 1) *
+          step;
 
         const py =
           previous === 'correct'
             ? height - 100
             : height - 175;
-
 
         ctx.beginPath();
 
@@ -2386,7 +1878,6 @@ function drawGraph(){
           x,
           y
         );
-
 
         ctx.strokeStyle =
           'rgba(255,255,255,.18)';
@@ -2405,14 +1896,11 @@ function drawGraph(){
    SAVE RESULT
 ===================================================== */
 
-async function saveResult(
-  stats
-){
+async function saveResult(stats){
 
   if(!supabaseClient){
     return;
   }
-
 
   try{
 
@@ -2423,11 +1911,9 @@ async function saveResult(
         .auth
         .getUser();
 
-
     if(!user){
       return;
     }
-
 
     await supabaseClient
       .from('typing_results')
@@ -2456,7 +1942,6 @@ async function saveResult(
 
       });
 
-
   }catch(error){
 
     console.error(
@@ -2479,7 +1964,6 @@ function resetTest(){
     test.timer
   );
 
-
   test = {
 
     started:false,
@@ -2494,35 +1978,28 @@ function resetTest(){
 
   };
 
-
   document.body
     .classList
     .remove('typing-mode');
-
 
   $('homePage')
     .classList
     .remove('home-hidden');
 
-
   $('setupArea')
     .classList
     .add('hidden');
-
 
   $('testArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .add('hidden');
 
-
   $('time').textContent =
     test.duration;
-
 
   $('typingInput').value =
     '';
@@ -2530,13 +2007,11 @@ function resetTest(){
   $('typingInput').disabled =
     false;
 
-
   setupText();
 
   updateLanguage();
 
   updateModeInfo();
-
 
   window.scrollTo({
     top:0,
@@ -2556,26 +2031,21 @@ function startDirectTest(){
     .classList
     .add('typing-mode');
 
-
   $('homePage')
     .classList
     .add('home-hidden');
-
 
   $('setupArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .add('hidden');
 
-
   $('testArea')
     .classList
     .remove('hidden');
-
 
   test = {
 
@@ -2591,13 +2061,10 @@ function startDirectTest(){
 
   };
 
-
   setupText();
-
 
   $('time').textContent =
     test.duration;
-
 
   $('typingInput').value =
     '';
@@ -2605,13 +2072,11 @@ function startDirectTest(){
   $('typingInput').disabled =
     false;
 
-
   updateLanguage();
 
   $('typingInput').focus();
 
   playStartSound();
-
 
   window.scrollTo({
     top:0,
@@ -2625,34 +2090,27 @@ function startDirectTest(){
    CUSTOM SETUP
 ===================================================== */
 
-function showTypingSetup(
-  custom=false
-){
+function showTypingSetup(custom=false){
 
   document.body
     .classList
     .remove('typing-mode');
 
-
   $('homePage')
     .classList
     .add('home-hidden');
-
 
   $('setupArea')
     .classList
     .remove('hidden');
 
-
   $('testArea')
     .classList
     .add('hidden');
 
-
   $('resultArea')
     .classList
     .add('hidden');
-
 
   if(custom){
 
@@ -2662,7 +2120,6 @@ function showTypingSetup(
     updateDurationUI();
 
   }
-
 
   window.scrollTo({
     top:0,
@@ -2687,27 +2144,21 @@ $('typingInput')
 
       }
 
-
       const value =
         $('typingInput').value;
 
-
       const index =
         value.length - 1;
-
 
       const correct =
         index >= 0 &&
         value[index] ===
         test.text[index];
 
-
       test.input =
         value;
 
-
       updateDisplay();
-
 
       if(index >= 0){
 
@@ -2720,7 +2171,6 @@ $('typingInput')
 
     }
   );
-
 
 $('typingInput')
   .addEventListener(
@@ -2760,24 +2210,27 @@ $('tryAgainBtn').onclick =
 
 $('language').onchange =
   ()=>{
+
     updateLanguage();
     resetTest();
-  };
 
+  };
 
 $('mode').onchange =
   ()=>{
+
     updateModeInfo();
     resetTest();
-  };
 
+  };
 
 $('duration').onchange =
   ()=>{
+
     updateDurationUI();
     resetTest();
-  };
 
+  };
 
 $('customTime').oninput =
   ()=>{
@@ -2820,9 +2273,7 @@ $('themeBtn').onclick =
 ===================================================== */
 
 let soundIndex = 0;
-
 let audioContext = null;
-
 
 function getAudio(){
 
@@ -2836,7 +2287,6 @@ function getAudio(){
 
   }
 
-
   if(
     audioContext.state ===
     'suspended'
@@ -2846,11 +2296,9 @@ function getAudio(){
 
   }
 
-
   return audioContext;
 
 }
-
 
 function tone(
   frequency,
@@ -2869,13 +2317,11 @@ function tone(
       audio.currentTime +
       delay;
 
-
     const oscillator =
       audio.createOscillator();
 
     const gain =
       audio.createGain();
-
 
     oscillator.type =
       type;
@@ -2886,19 +2332,16 @@ function tone(
         now
       );
 
-
     gain.gain.setValueAtTime(
       volume,
       now
     );
-
 
     gain.gain
       .exponentialRampToValueAtTime(
         .0001,
         now + duration
       );
-
 
     oscillator.connect(
       gain
@@ -2907,7 +2350,6 @@ function tone(
     gain.connect(
       audio.destination
     );
-
 
     oscillator.start(
       now
@@ -2919,11 +2361,9 @@ function tone(
       .01
     );
 
-
   }catch(error){}
 
 }
-
 
 function playTypingSound(
   character,
@@ -2932,7 +2372,6 @@ function playTypingSound(
 
   const frequencies =
     correct
-
       ? [
           420,
           470,
@@ -2941,21 +2380,17 @@ function playTypingSound(
           490,
           550
         ]
-
       : [
           150,
           120,
           180
         ];
 
-
   const frequency =
     frequencies[
-      soundIndex++
-      %
+      soundIndex++ %
       frequencies.length
     ];
-
 
   tone(
     frequency,
@@ -2967,7 +2402,6 @@ function playTypingSound(
       ? .014
       : .022
   );
-
 
   if(
     character === ' ' &&
@@ -2985,7 +2419,6 @@ function playTypingSound(
   }
 
 }
-
 
 function playStartSound(){
 
@@ -3005,7 +2438,6 @@ function playStartSound(){
   );
 
 }
-
 
 function playFinishSound(){
 
@@ -3034,7 +2466,6 @@ function playFinishSound(){
 
 }
 
-
 function playWarningSound(){
 
   tone(
@@ -3061,7 +2492,6 @@ function playWarningSound(){
 
 let loginMode = false;
 
-
 function openAuth(){
 
   $('authModal')
@@ -3073,7 +2503,6 @@ function openAuth(){
 
 }
 
-
 function closeAuth(){
 
   $('authModal')
@@ -3081,7 +2510,6 @@ function closeAuth(){
     .add('hidden');
 
 }
-
 
 $('authBtn').onclick =
   async ()=>{
@@ -3094,7 +2522,6 @@ $('authBtn').onclick =
 
     }
 
-
     const {
       data:{user}
     } =
@@ -3102,13 +2529,11 @@ $('authBtn').onclick =
         .auth
         .getUser();
 
-
     if(user){
 
       await supabaseClient
         .auth
         .signOut();
-
 
       await refreshUser();
 
@@ -3120,10 +2545,8 @@ $('authBtn').onclick =
 
   };
 
-
 $('closeAuth').onclick =
   closeAuth;
-
 
 $('authModal').onclick =
   event=>{
@@ -3139,13 +2562,11 @@ $('authModal').onclick =
 
   };
 
-
 $('switchAuth').onclick =
   ()=>{
 
     loginMode =
       !loginMode;
-
 
     $('authTitle')
       .textContent =
@@ -3153,13 +2574,11 @@ $('switchAuth').onclick =
           ? 'Welcome back'
           : 'Create your account';
 
-
     $('submitAuth')
       .textContent =
         loginMode
           ? 'Login'
           : 'Sign up';
-
 
     $('nameField')
       .classList
@@ -3167,7 +2586,6 @@ $('switchAuth').onclick =
         'hidden',
         loginMode
       );
-
 
     $('switchAuth')
       .textContent =
@@ -3177,7 +2595,6 @@ $('switchAuth').onclick =
 
   };
 
-
 $('submitAuth').onclick =
   async ()=>{
 
@@ -3185,23 +2602,19 @@ $('submitAuth').onclick =
       return;
     }
 
-
     const email =
       $('email')
         .value
         .trim();
 
-
     const password =
       $('password')
         .value;
-
 
     const name =
       $('displayName')
         .value
         .trim();
-
 
     if(
       !email ||
@@ -3216,14 +2629,11 @@ $('submitAuth').onclick =
 
     }
 
-
     $('authMessage')
       .textContent =
         'Please wait...';
 
-
     let result;
-
 
     if(loginMode){
 
@@ -3243,7 +2653,6 @@ $('submitAuth').onclick =
           .signUp({
 
             email,
-
             password,
 
             options:{
@@ -3258,7 +2667,6 @@ $('submitAuth').onclick =
 
     }
 
-
     if(result.error){
 
       $('authMessage')
@@ -3268,7 +2676,6 @@ $('submitAuth').onclick =
       return;
 
     }
-
 
     if(loginMode){
 
@@ -3297,7 +2704,6 @@ async function refreshUser(){
     return;
   }
 
-
   try{
 
     const {
@@ -3307,13 +2713,11 @@ async function refreshUser(){
         .auth
         .getUser();
 
-
     if(user){
 
       $('authBtn')
         .textContent =
           'Logout';
-
 
       $('welcome')
         .textContent =
@@ -3324,10 +2728,9 @@ async function refreshUser(){
             'AbidType User'
           );
 
-
       $('accountNote')
         .textContent =
-          user.email || '';
+        user.email || '';
 
     }else{
 
@@ -3335,18 +2738,15 @@ async function refreshUser(){
         .textContent =
           'Login / Sign up';
 
-
       $('welcome')
         .textContent =
           'Practice as a guest';
-
 
       $('accountNote')
         .textContent =
           'Create an account to save your typing results and build your personal record.';
 
     }
-
 
   }catch(error){}
 
@@ -3367,14 +2767,12 @@ async function loadHistory(){
 
   }
 
-
   const {
     data:{user}
   } =
     await supabaseClient
       .auth
       .getUser();
-
 
   if(!user){
 
@@ -3383,7 +2781,6 @@ async function loadHistory(){
     return;
 
   }
-
 
   const {
     data,
@@ -3406,14 +2803,11 @@ async function loadHistory(){
       )
       .limit(10);
 
-
   const box =
     $('history');
 
-
   box.classList
     .remove('hidden');
-
 
   if(error){
 
@@ -3424,7 +2818,6 @@ async function loadHistory(){
 
   }
 
-
   if(!data?.length){
 
     box.textContent =
@@ -3433,7 +2826,6 @@ async function loadHistory(){
     return;
 
   }
-
 
   box.innerHTML =
     data
@@ -3479,10 +2871,8 @@ async function loadHistory(){
 
 }
 
-
 $('historyBtn').onclick =
   loadHistory;
-
 
 if(supabaseClient){
 
@@ -3521,9 +2911,7 @@ window.addEventListener(
    COMING SOON
 ===================================================== */
 
-function showComingSoon(
-  name
-){
+function showComingSoon(name){
 
   tone(
     260,
@@ -3531,7 +2919,6 @@ function showComingSoon(
     'sine',
     .018
   );
-
 
   alert(
     name +
@@ -3546,9 +2933,7 @@ function showComingSoon(
 ===================================================== */
 
 updateDurationUI();
-
 updateModeInfo();
-
 updateLanguage();
 
 resetTest();
