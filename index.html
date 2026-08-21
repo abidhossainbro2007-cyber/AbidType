@@ -37,6 +37,133 @@ button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
 
+
+/* =========================================================
+   FOUNDER CARD + REVIEWS
+========================================================= */
+
+.home-main-grid{
+position:relative;
+z-index:2;
+display:grid;
+grid-template-columns:minmax(0,1fr) 250px;
+align-items:center;
+gap:28px;
+}
+
+.founder-card{
+width:100%;
+max-width:250px;
+margin-left:auto;
+padding:14px;
+border:1px solid rgba(255,255,255,.10);
+border-radius:22px;
+background:rgba(255,255,255,.045);
+box-shadow:0 20px 60px rgba(0,0,0,.28);
+text-align:center;
+}
+
+.founder-card img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+object-position:center top;
+border-radius:17px;
+display:block;
+}
+
+.founder-card h3{
+margin:12px 0 3px;
+font-size:18px;
+}
+
+.founder-card p{
+margin:0;
+color:#8d96ab;
+font-size:12px;
+}
+
+.review-section{
+margin-top:22px;
+}
+
+.review-form{
+margin-top:16px;
+padding:18px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+background:rgba(255,255,255,.025);
+}
+
+.review-form textarea{
+width:100%;
+min-height:82px;
+resize:vertical;
+}
+
+.review-actions{
+display:flex;
+align-items:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:10px;
+}
+
+.review-list{
+display:grid;
+gap:10px;
+margin-top:16px;
+}
+
+.review-item{
+padding:14px 16px;
+border:1px solid rgba(255,255,255,.07);
+border-radius:15px;
+background:rgba(255,255,255,.025);
+}
+
+.review-item strong{
+font-size:14px;
+}
+
+.review-item p{
+margin:7px 0 0;
+color:#b9c2d4;
+line-height:1.55;
+}
+
+.google-btn{
+width:100%;
+margin-top:10px;
+padding:11px 14px;
+border-radius:11px;
+border:1px solid rgba(255,255,255,.12);
+background:#fff;
+color:#111827;
+font-weight:800;
+}
+
+.google-btn:hover{
+transform:translateY(-1px);
+box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+
+@media(max-width:850px){
+.home-main-grid{
+grid-template-columns:1fr;
+}
+
+.founder-card{
+margin:0 auto;
+max-width:210px;
+}
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 .header{
 position:sticky;
 top:0;
@@ -125,11 +252,21 @@ display:flex;
 gap:8px;
 }
 
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
 .container{
 width:min(1240px,calc(100% - 30px));
 margin:auto;
 padding:26px 0 70px;
 }
+
+
+/* =========================================================
+   HOME
+========================================================= */
 
 .abid-home{
 position:relative;
@@ -155,7 +292,10 @@ background:rgba(81,70,255,.18);
 filter:blur(70px);
 }
 
-.home-inner{position:relative;z-index:2}
+.home-inner{
+position:relative;
+z-index:2;
+}
 
 .home-kicker{
 display:inline-flex;
@@ -283,7 +423,9 @@ border-color:rgba(126,104,255,.5);
 box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
-.feature-icon{font-size:29px}
+.feature-icon{
+font-size:29px;
+}
 
 .feature-card h3{
 margin:13px 0 7px;
@@ -305,6 +447,11 @@ padding:8px 12px;
 background:rgba(111,86,255,.18);
 }
 
+
+/* =========================================================
+   CARDS
+========================================================= */
+
 .account-card,
 .card{
 border:1px solid rgba(255,255,255,.08);
@@ -315,8 +462,14 @@ background:linear-gradient(145deg,rgba(12,17,29,.94),rgba(5,8,16,.94));
 box-shadow:0 15px 50px rgba(0,0,0,.18);
 }
 
-.account-card h2{margin:0 0 7px}
-.account-card p,.section-title p{color:#8994aa}
+.account-card h2{
+margin:0 0 7px;
+}
+
+.account-card p,
+.section-title p{
+color:#8994aa;
+}
 
 .section-title{
 text-align:center;
@@ -328,13 +481,20 @@ margin-bottom:27px;
 margin:0 0 8px;
 }
 
+
+/* =========================================================
+   SETUP
+========================================================= */
+
 .control-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:15px;
 }
 
-.control-group{margin-bottom:18px}
+.control-group{
+margin-bottom:18px;
+}
 
 .control-group label{
 display:block;
@@ -363,12 +523,18 @@ border-color:#6f63ff;
 box-shadow:0 0 0 3px rgba(111,99,255,.1);
 }
 
-small,.language-count{
+small,
+.language-count{
 display:block;
 color:#717d94;
 margin-top:7px;
 font-size:11px;
 }
+
+
+/* =========================================================
+   TEST
+========================================================= */
 
 .test-top{
 display:grid;
@@ -380,8 +546,13 @@ margin-bottom:18px;
 border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.test-language{color:#8d98ac}
-.test-language strong{color:#e7ecf8}
+.test-language{
+color:#8d98ac;
+}
+
+.test-language strong{
+color:#e7ecf8;
+}
 
 .timer-box{
 justify-self:end;
@@ -454,8 +625,18 @@ font-size:12px;
 margin:12px;
 }
 
-.test-actions{text-align:center}
-.test-actions button{margin:5px}
+.test-actions{
+text-align:center;
+}
+
+.test-actions button{
+margin:5px;
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
 
 .result-grid{
 display:grid;
@@ -466,104 +647,143 @@ gap:12px;
 .result-card{
 padding:19px 10px;
 text-align:center;
-border:1px solid rgba(255,255,255,.06);
-border-radius:14px;
-background:#0a101c;
+border:1px solid rgba(255,255,255,.07);
+border-radius:16px;
+background:rgba(255,255,255,.025);
 }
 
 .result-card span{
 display:block;
-color:#7d899f;
-font-size:12px;
+color:#78849b;
+font-size:11px;
 margin-bottom:7px;
 }
 
-.result-card strong{font-size:25px}
+.result-card strong{
+font-size:25px;
+}
 
 .graph-box{
-margin-top:22px;
-padding:18px;
-border-radius:16px;
-background:#060a12;
+margin-top:20px;
+padding:20px;
+border:1px solid rgba(255,255,255,.07);
+border-radius:18px;
+background:rgba(255,255,255,.025);
 }
 
-.graph-box canvas{
+#performanceChart{
 width:100%;
-height:260px;
+height:240px;
+display:block;
 }
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
 
 .history-row{
 display:grid;
 grid-template-columns:1fr 1fr 1fr 1fr;
-padding:13px 8px;
 gap:10px;
+align-items:center;
+padding:13px 0;
 border-bottom:1px solid rgba(255,255,255,.06);
-color:#b9c2d4;
+color:#c4ccdc;
 }
+
+.history-row:last-child{
+border-bottom:0;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
 
 .modal{
 position:fixed;
 inset:0;
 z-index:100;
-display:flex;
-align-items:center;
-justify-content:center;
+display:grid;
+place-items:center;
 padding:20px;
-background:rgba(0,0,0,.75);
+background:rgba(0,0,0,.72);
 backdrop-filter:blur(10px);
 }
 
 .modal-content{
 position:relative;
-width:min(430px,100%);
-padding:27px;
-border:1px solid rgba(255,255,255,.12);
-border-radius:20px;
-background:#080d17;
+width:min(480px,100%);
+max-height:90vh;
+overflow:auto;
+padding:28px;
+border:1px solid rgba(255,255,255,.1);
+border-radius:22px;
+background:linear-gradient(145deg,#101727,#070b14);
 box-shadow:0 30px 100px rgba(0,0,0,.5);
-}
-
-.close-btn{
-position:absolute;
-right:15px;
-top:10px;
-color:#9aa4b8;
-background:none;
-border:0;
-font-size:27px;
-}
-
-.auth-field{margin:14px 0}
-
-.text-btn{
-display:block;
-margin:15px auto 0;
-color:#9f8cff;
-background:none;
-border:0;
 }
 
 .info-modal{
 width:min(650px,100%);
 }
 
-.info-modal h2{
-margin-top:0;
+.close-btn{
+position:absolute;
+top:12px;
+right:14px;
+width:34px;
+height:34px;
+border:1px solid rgba(255,255,255,.1);
+border-radius:10px;
+background:rgba(255,255,255,.04);
+color:#fff;
+font-size:22px;
 }
 
-.info-modal p{
-color:#929db2;
-line-height:1.7;
+.auth-field{
+margin:14px 0;
 }
+
+.auth-field label{
+display:block;
+font-size:13px;
+font-weight:700;
+margin-bottom:7px;
+color:#dce3f1;
+}
+
+.text-btn{
+display:block;
+margin:13px auto 0;
+border:0;
+background:none;
+color:#8f83ff;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
 
 body.light{
 color:#182033;
-background:#f5f7fb;
+background:
+radial-gradient(circle at 15% 10%,rgba(90,60,255,.10),transparent 28%),
+radial-gradient(circle at 85% 20%,rgba(0,180,255,.08),transparent 28%),
+#f3f6fb;
 }
 
 body.light .header{
-background:rgba(255,255,255,.88);
+background:rgba(255,255,255,.86);
 border-color:#e3e7ef;
+}
+
+body.light .header-nav button,
+body.light .header-actions button{
+color:#35405a;
+background:rgba(0,0,0,.025);
+border-color:#dce1ea;
 }
 
 body.light .abid-home,
@@ -590,28 +810,89 @@ body.light .typing-container{
 background:#f8f9fc;
 }
 
-body.light #textDisplay{color:#273044}
+body.light #textDisplay{
+color:#273044;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:1100px){
-.header-nav{display:none}
-.feature-grid{grid-template-columns:repeat(3,1fr)}
-.control-grid{grid-template-columns:1fr}
+
+.header-nav{
+display:none;
+}
+
+.feature-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.control-grid{
+grid-template-columns:1fr;
+}
+
 }
 
 @media(max-width:700px){
-.header{padding:10px 15px}
-.logo{font-size:21px}
-.tagline{display:none}
-.container{width:min(100% - 18px,1240px)}
-.abid-home{padding:40px 14px;border-radius:20px}
-.home-title{letter-spacing:-1.8px}
-.feature-grid{grid-template-columns:1fr}
-.test-top{grid-template-columns:1fr auto}
-.test-top>div:nth-child(2){display:none}
-.typing-container{min-height:340px;padding:18px}
-#textDisplay{min-height:290px;font-size:21px;line-height:1.75}
-.result-grid{grid-template-columns:repeat(2,1fr)}
-.history-row{grid-template-columns:1fr 1fr}
+
+.header{
+padding:10px 15px;
+}
+
+.logo{
+font-size:21px;
+}
+
+.tagline{
+display:none;
+}
+
+.container{
+width:min(100% - 18px,1240px);
+}
+
+.abid-home{
+padding:40px 14px;
+border-radius:20px;
+}
+
+.home-title{
+letter-spacing:-1.8px;
+}
+
+.feature-grid{
+grid-template-columns:1fr;
+}
+
+.test-top{
+grid-template-columns:1fr auto;
+}
+
+.test-top>div:nth-child(2){
+display:none;
+}
+
+.typing-container{
+min-height:340px;
+padding:18px;
+}
+
+#textDisplay{
+min-height:290px;
+font-size:21px;
+line-height:1.75;
+}
+
+.result-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.history-row{
+grid-template-columns:1fr 1fr;
+}
+
 }
 </style>
 </head>
@@ -621,411 +902,1132 @@ body.light #textDisplay{color:#273044}
 <header class="header">
 
 <div class="brand">
+
 <div class="logo-mark">⌨</div>
+
 <div>
 <div class="logo">AbidType</div>
 <div class="tagline">Type Better. Go Further.</div>
 </div>
+
 </div>
 
+
 <nav class="header-nav">
-<button type="button" class="active" onclick="goHome()">⌂ Home</button>
-<button type="button" onclick="showTypingSetup()">Practice</button>
-<button type="button" onclick="showTypingSetup()">Tests</button>
-<button type="button" onclick="showStats()">📊 Stats</button>
-<button type="button" onclick="showCompetition()">🏆 Competition</button>
-<button type="button" onclick="showMultiplayer()">🌐 Multiplayer</button>
-<button type="button" onclick="showAbout()">About</button>
+
+<button type="button" class="active" onclick="goHome()">
+⌂ Home
+</button>
+
+<button type="button" onclick="showTypingSetup()">
+Practice
+</button>
+
+<button type="button" onclick="showTypingSetup()">
+Tests
+</button>
+
+<button type="button" onclick="showStats()">
+📊 Stats
+</button>
+
+<button type="button" onclick="showCompetition()">
+🏆 Competition
+</button>
+
+<button type="button" onclick="showMultiplayer()">
+🌐 Multiplayer
+</button>
+
+<button type="button" onclick="showAbout()">
+About
+</button>
+
 </nav>
 
+
 <div class="header-actions">
-<button id="themeBtn" type="button">🌙</button>
-<button id="authBtn" type="button">Login / Sign up</button>
+
+<button id="themeBtn" type="button">
+🌙
+</button>
+
+<button id="authBtn" type="button">
+Login / Sign up
+</button>
+
 </div>
 
 </header>
 
+
 <main class="container">
+
 
 <section id="homePage" class="abid-home">
 
 <div class="home-inner">
 
+<div class="home-main-grid">
+
+<div>
+
 <div style="text-align:center">
+
 <div class="home-kicker">
 ⌨️ AbidType • Global Typing Practice 🌍
 </div>
+
 </div>
+
 
 <div class="home-nav">
 
-<button class="active" onclick="startDirectTest()">Test</button>
-<button onclick="showTypingSetup()">Practice</button>
-<button onclick="showCompetition()">Competition</button>
-<button onclick="showMultiplayer()">Multiplayer</button>
-<button onclick="showStats()">Stats</button>
+<button class="active"
+onclick="startDirectTest()">
+Test
+</button>
+
+<button onclick="showTypingSetup()">
+Practice
+</button>
+
+<button onclick="showCompetition()">
+Competition
+</button>
+
+<button onclick="showMultiplayer()">
+Multiplayer
+</button>
+
+<button onclick="showStats()">
+Stats
+</button>
 
 </div>
 
+
 <h1 class="home-title">
+
 Type Faster.<br>
-<span>Become Better.</span>
+
+<span>
+Become Better.
+</span>
+
 </h1>
 
+
 <p class="home-subtitle">
+
 Improve your typing speed, accuracy and confidence with
 AbidType. Practice in multiple languages, choose your
 preferred typing mode and track your performance.
+
 </p>
+
 
 <div class="hero-buttons">
 
-<button class="hero-primary" onclick="startDirectTest()">
+<button class="hero-primary"
+onclick="startDirectTest()">
+
 🚀 Start Typing
+
 </button>
 
-<button class="hero-secondary" onclick="showTypingSetup()">
+
+<button class="hero-secondary"
+onclick="showTypingSetup()">
+
 ⚙ Customize Test
+
 </button>
 
 </div>
+
 
 <div class="feature-grid">
 
-<article class="feature-card" onclick="startDirectTest()">
-<span class="feature-icon">🎯</span>
-<h3>Typing Test</h3>
-<p>Test your typing speed and accuracy in real time.</p>
-<button type="button">Start Test →</button>
+
+<article class="feature-card"
+onclick="startDirectTest()">
+
+<span class="feature-icon">
+🎯
+</span>
+
+<h3>
+Typing Test
+</h3>
+
+<p>
+Test your typing speed and accuracy in real time.
+</p>
+
+<button type="button">
+Start Test →
+</button>
+
 </article>
 
-<article class="feature-card" onclick="showCompetition()">
-<span class="feature-icon">🏆</span>
-<h3>Competition</h3>
-<p>Practice competitive typing and prepare for challenges.</p>
-<button type="button">Explore →</button>
+
+<article class="feature-card"
+onclick="showCompetition()">
+
+<span class="feature-icon">
+🏆
+</span>
+
+<h3>
+Competition
+</h3>
+
+<p>
+Practice competitive typing and prepare for challenges.
+</p>
+
+<button type="button">
+Explore →
+</button>
+
 </article>
 
-<article class="feature-card" onclick="showMultiplayer()">
-<span class="feature-icon">🌐</span>
-<h3>Multiplayer</h3>
-<p>Get ready for realtime typing matches with other users.</p>
-<button type="button">Explore →</button>
+
+<article class="feature-card"
+onclick="showMultiplayer()">
+
+<span class="feature-icon">
+🌐
+</span>
+
+<h3>
+Multiplayer
+</h3>
+
+<p>
+Get ready for realtime typing matches with other users.
+</p>
+
+<button type="button">
+Explore →
+</button>
+
 </article>
 
-<article class="feature-card" onclick="showTypingSetup()">
-<span class="feature-icon">📚</span>
-<h3>Text Practice</h3>
-<p>Practice different texts and improve consistency.</p>
-<button type="button">Practice →</button>
+
+<article class="feature-card"
+onclick="showTypingSetup()">
+
+<span class="feature-icon">
+📚
+</span>
+
+<h3>
+Text Practice
+</h3>
+
+<p>
+Practice different texts and improve consistency.
+</p>
+
+<button type="button">
+Practice →
+</button>
+
 </article>
 
-<article class="feature-card" onclick="showTypingSetup()">
-<span class="feature-icon">⚡</span>
-<h3>Custom Mode</h3>
-<p>Choose language, mode and test duration yourself.</p>
-<button type="button">Customize →</button>
+
+<article class="feature-card"
+onclick="showTypingSetup()">
+
+<span class="feature-icon">
+⚡
+</span>
+
+<h3>
+Custom Mode
+</h3>
+
+<p>
+Choose language, mode and test duration yourself.
+</p>
+
+<button type="button">
+Customize →
+</button>
+
 </article>
+
 
 </div>
 
 </div>
+
+
+<aside class="founder-card">
+
+<img
+src="abidtype-founder.png"
+alt="AbidType Founder">
+
+<h3>
+AbidType Founder
+</h3>
+
+<p>
+Building AbidType for better typing.
+</p>
+
+</aside>
+
+</div>
+
+</div>
+
 </section>
 
+
+<section class="account-card review-section">
+
+<h2>
+💬 Quick Review
+</h2>
+
+<p style="color:#7d899f">
+If you enjoyed AbidType, leave a small review. It is optional.
+</p>
+
+
+<div class="review-form">
+
+<input
+id="reviewName"
+type="text"
+placeholder="Your name (optional)">
+
+
+<textarea
+id="reviewText"
+maxlength="300"
+placeholder="Write a short review...">
+</textarea>
+
+
+<div class="review-actions">
+
+<button
+id="submitReview"
+class="primary-btn"
+type="button">
+
+⭐ Submit Review
+
+</button>
+
+<span
+id="reviewMessage"
+style="color:#7d899f;font-size:13px">
+</span>
+
+</div>
+
+</div>
+
+
+<div
+id="reviewList"
+class="review-list">
+</div>
+
+</section>
+
+
 <section class="account-card">
-<h2 id="welcome">Practice as a guest</h2>
+
+<h2 id="welcome">
+Practice as a guest
+</h2>
+
 <p id="accountNote">
 Create an account to save your typing results and build your personal record.
 </p>
+
 </section>
 
-<section id="setupArea" class="card hidden">
+
+<section id="setupArea"
+class="card hidden">
+
 
 <div class="section-title">
-<h1>⚡ Global Typing Test</h1>
-<p>Choose your language, typing mode and test duration.</p>
+
+<h1>
+⚡ Global Typing Test
+</h1>
+
+<p>
+Choose your language, typing mode and test duration.
+</p>
+
 </div>
+
 
 <div class="control-grid">
 
+
 <div class="control-group">
-<label>🌍 Language</label>
+
+<label>
+🌍 Language
+</label>
+
 
 <select id="language">
 
-<option value="en">🇺🇸 English</option>
-<option value="bn">🇧🇩 বাংলা</option>
-<option value="hi">🇮🇳 हिन्दी</option>
-<option value="ur">🇵🇰 اردو</option>
-<option value="ar">🇸🇦 العربية</option>
-<option value="es">🇪🇸 Español</option>
-<option value="fr">🇫🇷 Français</option>
-<option value="de">🇩🇪 Deutsch</option>
-<option value="it">🇮🇹 Italiano</option>
-<option value="pt">🇵🇹 Português</option>
-<option value="ru">🇷🇺 Русский</option>
-<option value="zh">🇨🇳 中文</option>
-<option value="ja">🇯🇵 日本語</option>
-<option value="ko">🇰🇷 한국어</option>
-<option value="tr">🇹🇷 Türkçe</option>
-<option value="id">🇮🇩 Bahasa Indonesia</option>
-<option value="ms">🇲🇾 Bahasa Melayu</option>
-<option value="vi">🇻🇳 Tiếng Việt</option>
-<option value="th">🇹🇭 ไทย</option>
-<option value="nl">🇳🇱 Nederlands</option>
-<option value="pl">🇵🇱 Polski</option>
-<option value="uk">🇺🇦 Українська</option>
-<option value="cs">🇨🇿 Čeština</option>
-<option value="ro">🇷🇴 Română</option>
-<option value="hu">🇭🇺 Magyar</option>
-<option value="el">🇬🇷 Ελληνικά</option>
-<option value="he">🇮🇱 עברית</option>
-<option value="fa">🇮🇷 فارسی</option>
-<option value="ta">🇮🇳 தமிழ்</option>
-<option value="te">🇮🇳 తెలుగు</option>
-<option value="ml">🇮🇳 മലയാളം</option>
-<option value="kn">🇮🇳 ಕನ್ನಡ</option>
-<option value="gu">🇮🇳 ગુજરાતી</option>
-<option value="mr">🇮🇳 मराठी</option>
-<option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
-<option value="ne">🇳🇵 नेपाली</option>
-<option value="si">🇱🇰 සිංහල</option>
-<option value="my">🇲🇲 မြန်မာ</option>
-<option value="km">🇰🇭 ខ្មែរ</option>
-<option value="lo">🇱🇦 ລາວ</option>
-<option value="sw">🌍 Kiswahili</option>
-<option value="af">🇿🇦 Afrikaans</option>
-<option value="fil">🇵🇭 Filipino</option>
-<option value="da">🇩🇰 Dansk</option>
-<option value="sv">🇸🇪 Svenska</option>
-<option value="no">🇳🇴 Norsk</option>
-<option value="fi">🇫🇮 Suomi</option>
+<option value="en">
+🇺🇸 English
+</option>
+
+<option value="bn">
+🇧🇩 বাংলা
+</option>
+
+<option value="hi">
+🇮🇳 हिन्दी
+</option>
+
+<option value="ur">
+🇵🇰 اردو
+</option>
+
+<option value="ar">
+🇸🇦 العربية
+</option>
+
+<option value="es">
+🇪🇸 Español
+</option>
+
+<option value="fr">
+🇫🇷 Français
+</option>
+
+<option value="de">
+🇩🇪 Deutsch
+</option>
+
+<option value="it">
+🇮🇹 Italiano
+</option>
+
+<option value="pt">
+🇵🇹 Português
+</option>
+
+<option value="ru">
+🇷🇺 Русский
+</option>
+
+<option value="zh">
+🇨🇳 中文
+</option>
+
+<option value="ja">
+🇯🇵 日本語
+</option>
+
+<option value="ko">
+🇰🇷 한국어
+</option>
+
+<option value="tr">
+🇹🇷 Türkçe
+</option>
+
+<option value="id">
+🇮🇩 Bahasa Indonesia
+</option>
+
+<option value="ms">
+🇲🇾 Bahasa Melayu
+</option>
+
+<option value="vi">
+🇻🇳 Tiếng Việt
+</option>
+
+<option value="th">
+🇹🇭 ไทย
+</option>
+
+<option value="nl">
+🇳🇱 Nederlands
+</option>
+
+<option value="pl">
+🇵🇱 Polski
+</option>
+
+<option value="uk">
+🇺🇦 Українська
+</option>
+
+<option value="cs">
+🇨🇿 Čeština
+</option>
+
+<option value="ro">
+🇷🇴 Română
+</option>
+
+<option value="hu">
+🇭🇺 Magyar
+</option>
+
+<option value="el">
+🇬🇷 Ελληνικά
+</option>
+
+<option value="he">
+🇮🇱 עברית
+</option>
+
+<option value="fa">
+🇮🇷 فارسی
+</option>
+
+<option value="ta">
+🇮🇳 தமிழ்
+</option>
+
+<option value="te">
+🇮🇳 తెలుగు
+</option>
+
+<option value="ml">
+🇮🇳 മലയാളം
+</option>
+
+<option value="kn">
+🇮🇳 ಕನ್ನಡ
+</option>
+
+<option value="gu">
+🇮🇳 ગુજરાતી
+</option>
+
+<option value="mr">
+🇮🇳 मराठी
+</option>
+
+<option value="pa">
+🇮🇳 ਪੰਜਾਬੀ
+</option>
+
+<option value="ne">
+🇳🇵 नेपाली
+</option>
+
+<option value="si">
+🇱🇰 සිංහල
+</option>
+
+<option value="my">
+🇲🇲 မြန်မာ
+</option>
+
+<option value="km">
+🇰🇭 ខ្មែរ
+</option>
+
+<option value="lo">
+🇱🇦 ລາວ
+</option>
+
+<option value="sw">
+🌍 Kiswahili
+</option>
+
+<option value="af">
+🇿🇦 Afrikaans
+</option>
+
+<option value="fil">
+🇵🇭 Filipino
+</option>
+
+<option value="da">
+🇩🇰 Dansk
+</option>
+
+<option value="sv">
+🇸🇪 Svenska
+</option>
+
+<option value="no">
+🇳🇴 Norsk
+</option>
+
+<option value="fi">
+🇫🇮 Suomi
+</option>
 
 </select>
 
-<div class="language-count">🌍 50+ languages available</div>
+
+<div class="language-count">
+🌍 50+ languages available
 </div>
 
+</div>
+
+
 <div class="control-group">
-<label>⚡ Typing Mode</label>
+
+<label>
+⚡ Typing Mode
+</label>
+
 
 <select id="mode">
-<option value="normal">Normal</option>
-<option value="advanced">Advanced</option>
-<option value="punctuation">Punctuation</option>
-<option value="capital">CAPITAL Letters</option>
-<option value="small">lowercase</option>
+
+<option value="normal">
+Normal
+</option>
+
+<option value="advanced">
+Advanced
+</option>
+
+<option value="punctuation">
+Punctuation
+</option>
+
+<option value="capital">
+CAPITAL Letters
+</option>
+
+<option value="small">
+lowercase
+</option>
+
 </select>
 
-<small id="modeInfo">Normal typing practice.</small>
+
+<small id="modeInfo">
+Normal typing practice.
+</small>
+
 </div>
+
 
 <div class="control-group">
-<label>⏱ Test Duration</label>
+
+<label>
+⏱ Test Duration
+</label>
+
 
 <select id="duration">
-<option value="15">15 Seconds</option>
-<option value="30">30 Seconds</option>
-<option value="60" selected>60 Seconds</option>
-<option value="120">2 Minutes</option>
-<option value="300">5 Minutes</option>
-<option value="600">10 Minutes</option>
-<option value="custom">⚙️ Custom</option>
+
+<option value="15">
+15 Seconds
+</option>
+
+<option value="30">
+30 Seconds
+</option>
+
+<option value="60" selected>
+60 Seconds
+</option>
+
+<option value="120">
+2 Minutes
+</option>
+
+<option value="300">
+5 Minutes
+</option>
+
+<option value="600">
+10 Minutes
+</option>
+
+<option value="custom">
+⚙️ Custom
+</option>
+
 </select>
-</div>
 
 </div>
 
-<div id="customTimeWrap" class="control-group hidden">
-<label>Custom Time (seconds)</label>
-<input id="customTime" type="number" min="10" max="3600" value="60">
-<small>Minimum 10 seconds, maximum 3600 seconds.</small>
 </div>
+
+
+<div
+id="customTimeWrap"
+class="control-group hidden">
+
+<label>
+Custom Time (seconds)
+</label>
+
+<input
+id="customTime"
+type="number"
+min="10"
+max="3600"
+value="60">
+
+<small>
+Minimum 10 seconds, maximum 3600 seconds.
+</small>
+
+</div>
+
 
 <div style="text-align:center">
-<button id="startTestBtn" class="primary-btn" type="button">
+
+<button
+id="startTestBtn"
+class="primary-btn"
+type="button">
+
 🚀 Start Typing Test
+
 </button>
+
 </div>
 
 </section>
 
-<section id="testArea" class="card hidden">
+
+<section
+id="testArea"
+class="card hidden">
+
 
 <div class="test-top">
 
+
 <div class="test-language">
-<span>Language</span>
-<strong id="currentLanguage">English</strong>
+
+<span>
+Language
+</span>
+
+<strong id="currentLanguage">
+English
+</strong>
+
 </div>
+
 
 <div>
-<strong id="currentMode">Normal</strong>
+
+<strong id="currentMode">
+Normal
+</strong>
+
 &nbsp;•&nbsp;
-<span style="color:#7f8aa0">🔊 Sound ON</span>
+
+<span style="color:#7f8aa0">
+🔊 Sound ON
+</span>
+
 </div>
+
 
 <div class="timer-box">
-⏱ <strong id="time">60</strong>
-</div>
+
+⏱
+
+<strong id="time">
+60
+</strong>
 
 </div>
 
-<div class="typing-container" id="typingContainer">
+</div>
 
-<div id="textDisplay"></div>
+
+<div
+class="typing-container"
+id="typingContainer">
+
+
+<div id="textDisplay">
+</div>
+
 
 <textarea
 id="typingInput"
 autocomplete="off"
 autocorrect="off"
 autocapitalize="off"
-spellcheck="false"></textarea>
+spellcheck="false">
+</textarea>
 
 </div>
+
 
 <div class="typing-help">
-Click inside the typing area and start typing. Key sound is enabled.
+
+Click inside the typing area and start typing.
+Key sound is enabled.
+
 </div>
+
 
 <div class="test-actions">
 
-<button id="finishBtn" class="primary-btn" type="button">
+<button
+id="finishBtn"
+class="primary-btn"
+type="button">
+
 Finish Test
+
 </button>
 
-<button id="restartBtn" type="button">
+
+<button
+id="restartBtn"
+type="button">
+
 ↻ Restart
+
 </button>
 
 </div>
 
 </section>
 
-<section id="resultArea" class="card hidden">
+
+<section
+id="resultArea"
+class="card hidden">
+
 
 <div class="section-title">
-<h2>🎉 Your Result</h2>
-<p>Great job! Here is your typing performance.</p>
+
+<h2>
+🎉 Your Result
+</h2>
+
+<p>
+Great job! Here is your typing performance.
+</p>
+
 </div>
+
 
 <div class="result-grid">
 
-<div class="result-card">
-<span>WPM</span>
-<strong id="resultWpm">0</strong>
-</div>
 
 <div class="result-card">
-<span>Accuracy</span>
-<strong id="resultAccuracy">0%</strong>
+
+<span>
+WPM
+</span>
+
+<strong id="resultWpm">
+0
+</strong>
+
 </div>
+
 
 <div class="result-card">
-<span>Words</span>
-<strong id="resultWords">0</strong>
+
+<span>
+Accuracy
+</span>
+
+<strong id="resultAccuracy">
+0%
+</strong>
+
 </div>
+
 
 <div class="result-card">
-<span>Errors</span>
-<strong id="resultErrors">0</strong>
+
+<span>
+Words
+</span>
+
+<strong id="resultWords">
+0
+</strong>
+
 </div>
+
 
 <div class="result-card">
-<span>Correct Words</span>
-<strong id="correctWords">0</strong>
+
+<span>
+Errors
+</span>
+
+<strong id="resultErrors">
+0
+</strong>
+
 </div>
+
 
 <div class="result-card">
-<span>Wrong Words</span>
-<strong id="wrongWords">0</strong>
+
+<span>
+Correct Words
+</span>
+
+<strong id="correctWords">
+0
+</strong>
+
+</div>
+
+
+<div class="result-card">
+
+<span>
+Wrong Words
+</span>
+
+<strong id="wrongWords">
+0
+</strong>
+
 </div>
 
 </div>
+
 
 <div class="graph-box">
-<h3>Performance</h3>
-<canvas id="performanceChart"></canvas>
+
+<h3>
+Performance
+</h3>
+
+<canvas id="performanceChart">
+</canvas>
+
 </div>
 
-<div style="text-align:center;margin-top:20px">
-<button id="tryAgainBtn" class="primary-btn" type="button">
+
+<div
+style="text-align:center;margin-top:20px">
+
+<button
+id="tryAgainBtn"
+class="primary-btn"
+type="button">
+
 🚀 Try Again
+
 </button>
+
 </div>
 
 </section>
+
 
 <section class="card">
 
-<div style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap">
+
+<div
+style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap">
+
 
 <div>
-<h2>📊 Typing History</h2>
-<p style="color:#7d899f">Your latest typing results.</p>
+
+<h2>
+📊 Typing History
+</h2>
+
+<p style="color:#7d899f">
+Your latest typing results.
+</p>
+
 </div>
 
-<button id="historyBtn" type="button">View History</button>
+
+<button
+id="historyBtn"
+type="button">
+
+View History
+
+</button>
 
 </div>
 
-<div id="history" class="hidden"></div>
+
+<div
+id="history"
+class="hidden">
+</div>
 
 </section>
 
+
 </main>
 
-<div id="authModal" class="modal hidden">
+
+<!-- =======================================================
+     AUTH MODAL
+======================================================= -->
+
+<div
+id="authModal"
+class="modal hidden">
+
 
 <div class="modal-content">
 
-<button id="closeAuth" class="close-btn">×</button>
 
-<h2 id="authTitle">Create your account</h2>
+<button
+id="closeAuth"
+class="close-btn">
 
-<p id="authMessage" style="color:#8792a7"></p>
+×
 
-<div id="displayNameWrap" class="auth-field">
-<label>Name</label>
-<input id="displayName" type="text" placeholder="Your name">
+</button>
+
+
+<h2 id="authTitle">
+Create your account
+</h2>
+
+
+<p
+id="authMessage"
+style="color:#8792a7">
+</p>
+
+
+<div
+id="displayNameWrap"
+class="auth-field">
+
+<label>
+Name
+</label>
+
+<input
+id="displayName"
+type="text"
+placeholder="Your name">
+
 </div>
+
 
 <div class="auth-field">
-<label>Email</label>
-<input id="email" type="email" placeholder="you@example.com">
+
+<label>
+Email
+</label>
+
+<input
+id="email"
+type="email"
+placeholder="you@example.com">
+
 </div>
+
 
 <div class="auth-field">
-<label>Password</label>
-<input id="password" type="password" placeholder="Minimum 6 characters">
+
+<label>
+Password
+</label>
+
+<input
+id="password"
+type="password"
+placeholder="Minimum 6 characters">
+
 </div>
 
-<button id="submitAuth" class="primary-btn" type="button">
+
+<button
+id="submitAuth"
+class="primary-btn"
+type="button">
+
 Sign up
+
 </button>
 
-<button id="switchAuth" class="text-btn" type="button">
+
+<button
+id="googleAuth"
+class="google-btn"
+type="button">
+
+Continue with Google
+
+</button>
+
+
+<button
+id="switchAuth"
+class="text-btn"
+type="button">
+
 Already have an account? Login
+
 </button>
 
-</div>
+
 </div>
 
-<div id="infoModal" class="modal hidden">
+</div>
+
+
+<!-- =======================================================
+     INFO MODAL
+======================================================= -->
+
+<div
+id="infoModal"
+class="modal hidden">
+
 
 <div class="modal-content info-modal">
 
-<button class="close-btn" onclick="closeInfo()">×</button>
 
-<h2 id="infoTitle">AbidType</h2>
+<button
+class="close-btn"
+onclick="closeInfo()">
 
-<div id="infoBody"></div>
+×
+
+</button>
+
+
+<h2 id="infoTitle">
+AbidType
+</h2>
+
+
+<div id="infoBody">
+</div>
+
 
 </div>
+
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="config.js"></script>
+
 
 <script>
 
@@ -1039,125 +2041,400 @@ window.ABIDTYPE_SUPABASE_URL,
 window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
 );
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+document.getElementById(id);
 
 
 /* =========================================================
    DIFFERENT PASSAGES
-   IMPORTANT:
-   SAME PASSAGE NO LONGER REPEATS 100 TIMES
 ========================================================= */
 
 const passages = {
 
 en:[
+
 "Typing is a skill that becomes stronger with regular practice. Focus on accuracy first and speed will naturally follow.",
+
 "Every new typing session is an opportunity to improve your rhythm, confidence, accuracy, and control.",
+
 "Good typing is not only about speed. It is about staying accurate while keeping a comfortable and consistent rhythm.",
+
 "Practice a little every day. Keep your hands relaxed, watch the words carefully, and let your fingers learn the keyboard.",
+
 "Technology moves quickly, and strong typing skills help you communicate ideas faster and work with greater confidence."
+
 ],
 
 bn:[
+
 "নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন।",
+
 "প্রতিদিন একটু করে অনুশীলন করলে আপনার টাইপিং দক্ষতা, আত্মবিশ্বাস এবং লেখার গতি আরও ভালো হবে।",
+
 "ভালো টাইপিং শুধু দ্রুত লেখার বিষয় নয়। নির্ভুলতা, ছন্দ এবং নিয়ন্ত্রণও সমান গুরুত্বপূর্ণ।",
-"মনোযোগ দিয়ে টাইপ করুন এবং ভুল হলে হতাশ হবেন না। প্রতিটি অনুশীলন আপনাকে আরও দক্ষ করে তুলবে।",
-"নিয়মিত টাইপিং অনুশীলন আপনার পড়াশোনা, কাজ এবং অনলাইন যোগাযোগকে আরও সহজ ও দ্রুত করতে পারে।"
+
+"মনোযোগ দিয়ে টাইপ করুন এবং ভুল হলে হতাশ হবেন না। প্রতিটি অনুশীলন আপনাকে আরও দক্ষ করে তুলবে।"
+
 ],
 
 hi:[
-"नियमित अभ्यास से टाइपिंग की गति और सटीकता धीरे धीरे बेहतर होती है। पहले सटीकता पर ध्यान दें।",
-"हर दिन थोड़ा अभ्यास करने से आपका आत्मविश्वास और टाइपिंग कौशल लगातार बेहतर हो सकता है।",
-"अच्छी टाइपिंग केवल तेज गति नहीं है। सटीकता, नियंत्रण और सही लय भी बहुत महत्वपूर्ण हैं।"
+
+"नियमित अभ्यास से आपकी टाइपिंग गति और सटीकता धीरे धीरे बेहतर होती जाती है। पहले सटीकता पर ध्यान दें।",
+
+"हर नया टाइपिंग सत्र आपकी गति, आत्मविश्वास और नियंत्रण को बेहतर बनाने का एक नया अवसर है।"
+
 ],
 
-es:[
-"Escribir es una habilidad que mejora con la práctica regular. Concéntrate primero en la precisión y la velocidad llegará naturalmente.",
-"Cada sesión de práctica es una nueva oportunidad para mejorar tu velocidad, precisión y confianza.",
-"Una buena técnica de escritura combina velocidad, precisión, concentración y un ritmo cómodo."
-],
+ur:[
 
-fr:[
-"La frappe est une compétence qui s'améliore avec une pratique régulière. Concentrez-vous d'abord sur la précision.",
-"Chaque session est une nouvelle occasion d'améliorer votre vitesse, votre précision et votre confiance.",
-"Une bonne frappe ne consiste pas seulement à aller vite. La précision et le rythme sont également importants."
-],
+"باقاعدگی سے مشق کرنے سے آپ کی ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں۔",
 
-de:[
-"Tippen ist eine Fähigkeit, die sich durch regelmäßiges Üben verbessert. Konzentriere dich zuerst auf Genauigkeit.",
-"Jede Übung ist eine neue Möglichkeit, deine Geschwindigkeit, Genauigkeit und Sicherheit zu verbessern.",
-"Gutes Tippen bedeutet nicht nur Geschwindigkeit. Genauigkeit, Kontrolle und ein gleichmäßiger Rhythmus sind ebenfalls wichtig."
-],
+"ہر نیا ٹائپنگ سیشن آپ کی رفتار، اعتماد اور کنٹرول کو بہتر بنانے کا ایک نیا موقع ہے۔"
 
-it:[
-"La digitazione è un'abilità che migliora con la pratica regolare. Concentrati prima sulla precisione.",
-"Ogni sessione di pratica è una nuova opportunità per migliorare velocità, precisione e sicurezza.",
-"Una buona digitazione non significa solo velocità. Anche precisione, controllo e ritmo sono importanti."
-],
-
-pt:[
-"A digitação é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão.",
-"Cada sessão de prática é uma nova oportunidade para melhorar sua velocidade, precisão e confiança.",
-"Uma boa digitação não significa apenas velocidade. Precisão, controle e ritmo também são importantes."
-],
-
-ru:[
-"Печать — это навык, который улучшается благодаря регулярной практике. Сначала сосредоточьтесь на точности.",
-"Каждая тренировка дает новую возможность улучшить скорость, точность и уверенность.",
-"Хорошая печать — это не только скорость. Важны также точность, контроль и правильный ритм."
-],
-
-ja:[
-"タイピングは定期的な練習によって上達するスキルです。まず正確さを意識しましょう。",
-"毎日少しずつ練習することで、タイピングの速度と自信を高めることができます。",
-"速く入力するだけでなく、正確さと安定したリズムを意識することが大切です。"
-],
-
-ko:[
-"타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확성에 집중하세요.",
-"매일 조금씩 연습하면 타이핑 속도와 자신감을 함께 높일 수 있습니다.",
-"좋은 타이핑은 빠른 속도만을 의미하지 않습니다. 정확성과 안정적인 리듬도 중요합니다."
 ],
 
 ar:[
-"تتحسن سرعة الكتابة ودقتها مع التدريب المنتظم. ركز على الدقة أولاً ثم ستزداد السرعة بشكل طبيعي.",
-"كل جلسة تدريب هي فرصة جديدة لتحسين السرعة والدقة والثقة في الكتابة.",
-"الكتابة الجيدة لا تعتمد على السرعة فقط، بل تحتاج أيضاً إلى الدقة والتركيز والإيقاع."
+
+"الكتابة باللمس مهارة تتحسن مع التدريب المستمر. ركز على الدقة أولاً وستتحسن السرعة بشكل طبيعي.",
+
+"كل جلسة تدريب جديدة تمنحك فرصة لتحسين الإيقاع والثقة والدقة والتحكم."
+
+],
+
+es:[
+
+"Escribir rápido es una habilidad que mejora con la práctica constante. Primero concéntrate en la precisión y después llegará la velocidad.",
+
+"Cada nueva sesión de escritura es una oportunidad para mejorar tu ritmo, confianza y precisión."
+
+],
+
+fr:[
+
+"La frappe est une compétence qui devient plus forte avec une pratique régulière. Concentrez-vous d'abord sur la précision.",
+
+"Chaque nouvelle session est une occasion d'améliorer votre rythme, votre confiance et votre précision."
+
+],
+
+de:[
+
+"Tippen ist eine Fähigkeit, die durch regelmäßiges Üben immer besser wird. Konzentriere dich zuerst auf Genauigkeit.",
+
+"Jede neue Übung ist eine Gelegenheit, Rhythmus, Sicherheit und Genauigkeit zu verbessern."
+
+],
+
+it:[
+
+"La digitazione è una capacità che migliora con la pratica regolare. Concentrati prima sulla precisione e poi sulla velocità.",
+
+"Ogni nuova sessione è un'opportunità per migliorare ritmo, fiducia e precisione."
+
+],
+
+pt:[
+
+"Digitar é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.",
+
+"Cada nova sessão de digitação é uma oportunidade para melhorar seu ritmo e confiança."
+
+],
+
+ru:[
+
+"Печать — это навык, который становится лучше благодаря регулярной практике. Сначала сосредоточьтесь на точности.",
+
+"Каждая новая тренировка помогает улучшить ритм, уверенность и точность."
+
+],
+
+zh:[
+
+"打字是一项需要持续练习的技能。先专注于准确率，速度会自然提高。",
+
+"每一次新的打字练习都是提升节奏、信心和准确率的机会。"
+
+],
+
+ja:[
+
+"タイピングは、 नियमित的な練習によって上達するスキルです。まず正確さに集中しましょう。",
+
+"新しい練習をするたびに、リズム、正確さ、自信を高めることができます。"
+
+],
+
+ko:[
+
+"타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확도에 집중하면 속도는 자연스럽게 따라옵니다.",
+
+"새로운 타이핑 연습은 리듬과 자신감, 정확도를 향상시키는 좋은 기회입니다."
+
 ],
 
 tr:[
-"Yazma becerisi düzenli pratik ile gelişir. Önce doğruluğa odaklanın ve hızınız doğal olarak artacaktır.",
-"Her çalışma oturumu hızınızı, doğruluğunuzu ve güveninizi geliştirmek için yeni bir fırsattır.",
-"İyi yazmak sadece hızlı olmak değildir. Doğruluk, kontrol ve düzenli bir ritim de önemlidir."
-]
 
-};
+"Yazmak düzenli pratikle gelişen bir beceridir. Önce doğruluğa odaklanın, hız doğal olarak gelecektir.",
 
+"Her yeni çalışma ritminizi, güveninizi ve doğruluğunuzu geliştirmek için bir fırsattır."
 
-/* =========================================================
-   FALLBACK
-========================================================= */
-
-const fallbackPassages = passages.en;
-
-
-/* =========================================================
-   PUNCTUATION
-========================================================= */
-
-const punctuationTexts = {
-
-en:[
-"Practice carefully, stay focused, and remember: accuracy comes first! Can you improve your speed today?",
-"Typing quickly is useful, but typing correctly is even more important. Keep practicing!",
-"Ready, set, type! Keep your fingers relaxed; stay focused, and improve one word at a time."
 ],
 
-bn:[
-"নিয়মিত অনুশীলন করুন। প্রথমে নির্ভুলতা ঠিক রাখুন, তারপর গতি বাড়ান! আপনি কি আজ আরও ভালো করতে পারবেন?",
-"দ্রুত টাইপ করা ভালো, কিন্তু সঠিকভাবে টাইপ করা আরও গুরুত্বপূর্ণ। অনুশীলন চালিয়ে যান!",
-"প্রস্তুত তো? টাইপ করুন! মনোযোগ রাখুন, ভুল থেকে শিখুন এবং প্রতিদিন উন্নতি করুন।"
+id:[
+
+"Mengetik adalah keterampilan yang menjadi lebih baik dengan latihan rutin. Fokus pada akurasi terlebih dahulu.",
+
+"Setiap sesi mengetik baru adalah kesempatan untuk meningkatkan ritme dan kepercayaan diri."
+
+],
+
+ms:[
+
+"Menaip ialah kemahiran yang menjadi lebih baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu.",
+
+"Setiap sesi latihan membantu meningkatkan rentak, keyakinan dan ketepatan anda."
+
+],
+
+vi:[
+
+"Gõ bàn phím là một kỹ năng được cải thiện nhờ luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước.",
+
+"Mỗi buổi luyện tập mới là một cơ hội để cải thiện tốc độ và sự tự tin."
+
+],
+
+th:[
+
+"การพิมพ์เป็นทักษะที่ดีขึ้นได้จากการฝึกฝนอย่างสม่ำเสมอ ควรเน้นความถูกต้องก่อนความเร็ว",
+
+"ทุกครั้งที่ฝึกพิมพ์คือโอกาสในการพัฒนาจังหวะ ความมั่นใจ และความแม่นยำ"
+
+],
+
+nl:[
+
+"Typen is een vaardigheid die sterker wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid.",
+
+"Elke nieuwe typesessie is een kans om je ritme en vertrouwen te verbeteren."
+
+],
+
+pl:[
+
+"Pisanie na klawiaturze to umiejętność, która poprawia się dzięki regularnej praktyce. Najpierw skup się na dokładności.",
+
+"Każda nowa sesja to okazja do poprawy rytmu, pewności siebie i dokładności."
+
+],
+
+uk:[
+
+"Друк — це навичка, яка покращується завдяки регулярній практиці. Спочатку зосередьтеся на точності.",
+
+"Кожне нове тренування допомагає покращити ритм, впевненість і точність."
+
+],
+
+cs:[
+
+"Psaní je dovednost, která se zlepšuje pravidelným procvičováním. Nejprve se zaměřte na přesnost.",
+
+"Každé nové cvičení je příležitostí zlepšit rytmus a jistotu."
+
+],
+
+ro:[
+
+"Tastarea este o abilitate care devine mai bună prin practică regulată. Concentrează-te mai întâi pe precizie.",
+
+"Fiecare sesiune nouă este o oportunitate de a-ți îmbunătăți ritmul și încrederea."
+
+],
+
+hu:[
+
+"A gépelés rendszeres gyakorlással fejlődő készség. Először a pontosságra figyelj, a sebesség később természetesen javul.",
+
+"Minden új gyakorlás lehetőség a ritmus és a magabiztosság fejlesztésére."
+
+],
+
+el:[
+
+"Η πληκτρολόγηση είναι μια δεξιότητα που βελτιώνεται με τακτική εξάσκηση. Εστιάστε πρώτα στην ακρίβεια.",
+
+"Κάθε νέα προπόνηση είναι μια ευκαιρία να βελτιώσετε τον ρυθμό και την αυτοπεποίθησή σας."
+
+],
+
+he:[
+
+"הקלדה היא מיומנות שמשתפרת באמצעות תרגול קבוע. התמקדו קודם בדיוק ולאחר מכן המהירות תשתפר.",
+
+"כל אימון חדש הוא הזדמנות לשפר את הקצב, הביטחון והדיוק."
+
+],
+
+fa:[
+
+"تایپ کردن مهارتی است که با تمرین منظم بهتر می‌شود. ابتدا روی دقت تمرکز کنید و سرعت به‌طور طبیعی افزایش خواهد یافت.",
+
+"هر جلسه تمرین فرصت خوبی برای افزایش ریتم، اعتماد به نفس و دقت است."
+
+],
+
+ta:[
+
+"தொடர்ந்து பயிற்சி செய்வதன் மூலம் தட்டச்சு திறன் மேம்படும். முதலில் துல்லியத்தில் கவனம் செலுத்துங்கள்.",
+
+"ஒவ்வொரு புதிய பயிற்சியும் வேகம் மற்றும் நம்பிக்கையை மேம்படுத்தும் வாய்ப்பாகும்."
+
+],
+
+te:[
+
+"నిరంతర సాధనతో టైపింగ్ నైపుణ్యం మెరుగుపడుతుంది. ముందుగా ఖచ్చితత్వంపై దృష్టి పెట్టండి.",
+
+"ప్రతి కొత్త టైపింగ్ సెషన్ మీ వేగం మరియు నమ్మకాన్ని మెరుగుపరచడానికి అవకాశం."
+
+],
+
+ml:[
+
+"തുടർച്ചയായ പരിശീലനത്തിലൂടെ ടൈപ്പിംഗ് കഴിവ് മെച്ചപ്പെടുന്നു. ആദ്യം കൃത്യതയിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുക.",
+
+"ഓരോ പുതിയ പരിശീലനവും വേഗവും ആത്മവിശ്വാസവും മെച്ചപ്പെടുത്താനുള്ള അവസരമാണ്."
+
+],
+
+kn:[
+
+"ನಿಯಮಿತ ಅಭ್ಯಾಸದಿಂದ ಟೈಪಿಂಗ್ ಕೌಶಲ್ಯ ಉತ್ತಮವಾಗುತ್ತದೆ. ಮೊದಲು ನಿಖರತೆಯ ಮೇಲೆ ಗಮನ ಹರಿಸಿ.",
+
+"ಪ್ರತಿ ಹೊಸ ಅಭ್ಯಾಸವು ವೇಗ ಮತ್ತು ಆತ್ಮವಿಶ್ವಾಸವನ್ನು ಹೆಚ್ಚಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ."
+
+],
+
+gu:[
+
+"નિયમિત અભ્યાસથી ટાઇપિંગ કૌશલ્ય વધુ સારું બને છે. પહેલા ચોકસાઈ પર ધ્યાન આપો.",
+
+"દરેક નવી ટાઇપિંગ પ્રેક્ટિસ તમારી ઝડપ અને આત્મવિશ્વાસ વધારવાની તક છે."
+
+],
+
+mr:[
+
+"नियमित सरावामुळे टायपिंग कौशल्य अधिक चांगले होते. आधी अचूकतेवर लक्ष द्या.",
+
+"प्रत्येक नवीन सराव सत्र तुमचा वेग आणि आत्मविश्वास सुधारण्याची संधी आहे."
+
+],
+
+pa:[
+
+"ਨਿਯਮਿਤ ਅਭਿਆਸ ਨਾਲ ਟਾਈਪਿੰਗ ਦੀ ਕਾਬਲੀਅਤ ਵਧਦੀ ਹੈ। ਪਹਿਲਾਂ ਸਹੀਪਣ 'ਤੇ ਧਿਆਨ ਦਿਓ।",
+
+"ਹਰ ਨਵਾਂ ਟਾਈਪਿੰਗ ਸੈਸ਼ਨ ਤੁਹਾਡੀ ਗਤੀ ਅਤੇ ਭਰੋਸੇ ਨੂੰ ਸੁਧਾਰਨ ਦਾ ਮੌਕਾ ਹੈ।"
+
+],
+
+ne:[
+
+"नियमित अभ्यासले टाइपिङ सीप राम्रो हुँदै जान्छ। पहिले शुद्धतामा ध्यान दिनुहोस्।",
+
+"हरेक नयाँ अभ्यासले गति र आत्मविश्वास सुधार्ने अवसर दिन्छ।"
+
+],
+
+si:[
+
+"නිරන්තර පුහුණුවෙන් ටයිප් කිරීමේ හැකියාව වැඩි දියුණු වේ. මුලින් නිවැරදිභාවය කෙරෙහි අවධානය යොමු කරන්න.",
+
+"සෑම නව පුහුණු සැසියක්ම වේගය සහ විශ්වාසය වැඩි කිරීමට අවස්ථාවකි."
+
+],
+
+my:[
+
+"ပုံမှန်လေ့ကျင့်ခြင်းဖြင့် စာရိုက်ကျွမ်းကျင်မှု တိုးတက်လာနိုင်သည်။ ပထမဦးစွာ တိကျမှုကို အာရုံစိုက်ပါ။",
+
+"လေ့ကျင့်မှုတိုင်းသည် မြန်နှုန်းနှင့် ယုံကြည်မှုကို တိုးတက်စေရန် အခွင့်အရေးတစ်ခုဖြစ်သည်။"
+
+],
+
+km:[
+
+"ការវាយអក្សរគឺជាជំនាញដែលប្រសើរឡើងតាមរយៈការអនុវត្តជាប្រចាំ។ ផ្តោតលើភាពត្រឹមត្រូវជាមុន។",
+
+"រាល់ការហ្វឹកហាត់ថ្មីគឺជាឱកាសដើម្បីបង្កើនល្បឿន និងទំនុកចិត្ត។"
+
+],
+
+lo:[
+
+"ການພິມແມ່ນທັກສະທີ່ດີຂຶ້ນດ້ວຍການຝຶກຝົນຢ່າງສະເໝີ.",
+
+"ທຸກໆການຝຶກຝົນໃໝ່ເປັນໂອກາດໃນການພັດທະນາຄວາມໄວແລະຄວາມໝັ້ນໃຈ."
+
+],
+
+sw:[
+
+"Kuandika kwa kibodi ni ujuzi unaoboreshwa kwa mazoezi ya mara kwa mara. Anza kwa kuzingatia usahihi.",
+
+"Kila kipindi kipya cha mazoezi ni nafasi ya kuboresha kasi, mpangilio na kujiamini."
+
+],
+
+af:[
+
+"Tik is 'n vaardigheid wat verbeter met gereelde oefening. Fokus eers op akkuraatheid en spoed sal natuurlik volg.",
+
+"Elke nuwe sessie is 'n geleentheid om jou ritme, selfvertroue en akkuraatheid te verbeter."
+
+],
+
+fil:[
+
+"Ang pagta-type ay kasanayang gumagaling sa regular na pagsasanay. Unahin ang katumpakan bago ang bilis.",
+
+"Ang bawat bagong typing session ay pagkakataon para mapabuti ang ritmo at kumpiyansa."
+
+],
+
+da:[
+
+"At skrive er en færdighed, der bliver bedre med regelmæssig træning. Fokuser først på nøjagtighed.",
+
+"Hver ny træningssession er en mulighed for at forbedre rytme og selvtillid."
+
+],
+
+sv:[
+
+"Att skriva på tangentbordet är en färdighet som förbättras med regelbunden träning. Fokusera först på noggrannhet.",
+
+"Varje ny övning är en möjlighet att förbättra rytm och självförtroende."
+
+],
+
+no:[
+
+"Å skrive på tastatur er en ferdighet som blir bedre med regelmessig trening. Fokuser først på nøyaktighet.",
+
+"Hver nye økt er en mulighet til å forbedre rytme og selvtillit."
+
+],
+
+fi:[
+
+"Kirjoittaminen on taito, joka kehittyy säännöllisellä harjoittelulla. Keskity ensin tarkkuuteen.",
+
+"Jokainen uusi harjoituskerta auttaa parantamaan rytmiä ja itsevarmuutta."
+
 ]
 
 };
@@ -1167,17 +2444,39 @@ bn:[
    TEST STATE
 ========================================================= */
 
-let test = {
+const test = {
+
+duration:60,
 started:false,
 running:false,
 finished:false,
 start:0,
-timer:null,
-duration:60,
-text:"",
 input:"",
-wordResults:[]
+timer:null,
+text:"",
+history:[]
+
 };
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function escapeHtml(value){
+
+return String(value).replace(
+/[&<>'"]/g,
+ch => ({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+"'":"&#39;",
+'"':"&quot;"
+}[ch])
+);
+
+}
 
 
 /* =========================================================
@@ -1186,238 +2485,55 @@ wordResults:[]
 
 function getDuration(){
 
-const value = $("duration").value;
+let value =
+$("duration").value;
 
 if(value === "custom"){
 
-const n = Number($("customTime").value);
-
-return Math.min(
-3600,
-Math.max(
-10,
-Number.isFinite(n) ? n : 60
-)
+value =
+parseInt(
+$("customTime").value,
+10
 );
 
-}
+if(
+isNaN(value) ||
+value < 10
+){
 
-return Number(value) || 60;
-
-}
-
-
-/* =========================================================
-   RANDOM TEXT
-========================================================= */
-
-function randomItem(arr){
-return arr[Math.floor(Math.random()*arr.length)];
-}
-
-
-/* =========================================================
-   BUILD TEXT
-========================================================= */
-
-function buildText(){
-
-const lang = $("language").value;
-const mode = $("mode").value;
-
-let source =
-passages[lang] ||
-fallbackPassages;
-
-let text = randomItem(source);
-
-if(mode === "punctuation"){
-
-const p =
-punctuationTexts[lang] ||
-punctuationTexts.en;
-
-text = randomItem(p);
+value = 10;
 
 }
 
-if(mode === "capital"){
-text = text.toUpperCase();
-}
+if(value > 3600){
 
-if(mode === "small"){
-
-text =
-text
-.replace(/[.,!?;:'"()[\]{}\-—–]/g,"")
-.toLowerCase()
-.replace(/\s+/g," ")
-.trim();
+value = 3600;
 
 }
 
-if(mode === "advanced"){
-
-text =
-text +
-" " +
-randomItem(
-passages[lang] || fallbackPassages
-);
-
 }
 
-return text;
+return Number(value);
 
 }
 
 
 /* =========================================================
-   CREATE LONG UNIQUE TEXT
+   UPDATE LANGUAGE
 ========================================================= */
 
-function createLongText(){
+function updateLanguage(){
 
-let pieces = [];
+const select =
+$("language");
 
-const source =
-passages[$("language").value] ||
-fallbackPassages;
+const option =
+select.options[
+select.selectedIndex
+];
 
-for(let i=0;i<25;i++){
-
-let item =
-randomItem(source);
-
-if($("mode").value === "punctuation"){
-
-const p =
-punctuationTexts[$("language").value] ||
-punctuationTexts.en;
-
-item = randomItem(p);
-
-}
-
-if($("mode").value === "capital"){
-item = item.toUpperCase();
-}
-
-if($("mode").value === "small"){
-
-item =
-item
-.replace(/[.,!?;:'"()[\]{}\-—–]/g,"")
-.toLowerCase()
-.replace(/\s+/g," ")
-.trim();
-
-}
-
-pieces.push(item);
-
-}
-
-return pieces.join(" ").trim();
-
-}
-
-
-/* =========================================================
-   SETUP TEXT
-========================================================= */
-
-function setupText(){
-
-test.text = createLongText();
-
-const display = $("textDisplay");
-
-display.innerHTML = "";
-
-const fragment =
-document.createDocumentFragment();
-
-[...test.text].forEach((char,index)=>{
-
-const span =
-document.createElement("span");
-
-span.textContent = char;
-span.dataset.index = index;
-
-fragment.appendChild(span);
-
-});
-
-display.appendChild(fragment);
-
-display.scrollTop = 0;
-
-updateDisplay();
-
-}
-
-
-/* =========================================================
-   DISPLAY
-========================================================= */
-
-function updateDisplay(){
-
-const input =
-$("typingInput").value;
-
-const display =
-$("textDisplay");
-
-const spans =
-[...display.children];
-
-spans.forEach((span,index)=>{
-
-span.className = "";
-
-if(index < input.length){
-
-span.classList.add(
-input[index] === test.text[index]
-? "correct"
-: "wrong"
-);
-
-}
-
-});
-
-const current =
-spans[input.length];
-
-if(current){
-
-current.classList.add("current");
-
-const d =
-display.getBoundingClientRect();
-
-const c =
-current.getBoundingClientRect();
-
-if(c.bottom > d.bottom - 15){
-
-display.scrollTop +=
-c.bottom - d.bottom + 35;
-
-}
-
-if(c.top < d.top + 15){
-
-display.scrollTop -=
-d.top - c.top + 35;
-
-}
-
-}
+$("currentLanguage").textContent =
+option ? option.textContent.trim() : "English";
 
 }
 
@@ -1428,148 +2544,221 @@ d.top - c.top + 35;
 
 function updateModeInfo(){
 
-const mode = $("mode").value;
+const mode =
+$("mode").value;
 
 const info = {
 
 normal:"Normal typing practice.",
 
-advanced:"Advanced practice with longer mixed text.",
+advanced:"Advanced typing with longer and more challenging text.",
 
-punctuation:"Practice typing with punctuation marks.",
+punctuation:"Practice punctuation marks, commas, periods and symbols.",
 
-capital:"Practice typing CAPITAL letters.",
+capital:"Practice CAPITAL letters.",
 
-small:"Practice lowercase letters without punctuation."
+small:"Practice lowercase letters."
 
 };
 
 $("modeInfo").textContent =
-info[mode] || info.normal;
+info[mode] ||
+"Normal typing practice.";
 
 $("currentMode").textContent =
-mode.charAt(0).toUpperCase()+mode.slice(1);
+$("mode")
+.options[
+$("mode").selectedIndex
+].textContent;
 
 }
 
 
 /* =========================================================
-   LANGUAGE
+   RANDOM PASSAGE
 ========================================================= */
 
-function updateLanguage(){
+function getPassage(){
 
-const s = $("language");
+const lang =
+$("language").value;
 
-const option =
-s.options[s.selectedIndex];
+let list =
+passages[lang] ||
+passages.en;
 
-$("currentLanguage").textContent =
-option
-? option.textContent.replace(
-/^[^\p{L}\p{N}]+/u,
-""
-)
-: "English";
-
-}
-
-
-/* =========================================================
-   TIMER
-========================================================= */
-
-function beginTest(){
-
-if(test.started || test.finished)
-return;
-
-test.started = true;
-test.running = true;
-test.finished = false;
-test.start = Date.now();
-
-clearInterval(test.timer);
-
-test.timer =
-setInterval(updateTimer,100);
-
-}
-
-
-function updateTimer(){
-
-if(!test.running)
-return;
-
-const elapsed =
+return list[
 Math.floor(
-(Date.now()-test.start)/1000
-);
-
-const left =
-Math.max(
-0,
-test.duration-elapsed
-);
-
-$("time").textContent = left;
-
-if(left <= 0){
-
-finishTest();
-
-}
+Math.random()*list.length
+)
+];
 
 }
 
 
 /* =========================================================
-   SOUND
+   APPLY MODE
 ========================================================= */
 
-let audioContext = null;
+function applyMode(text){
 
-function playKeySound(){
+const mode =
+$("mode").value;
+
+if(mode === "capital"){
+
+return text.toUpperCase();
+
+}
+
+if(mode === "small"){
+
+return text.toLowerCase();
+
+}
+
+if(mode === "punctuation"){
+
+return text.replace(
+/([,.!?;:])/g,
+" $1 "
+).replace(
+/\s+/g,
+" "
+).trim();
+
+}
+
+if(mode === "advanced"){
+
+return text +
+" Keep practicing until your fingers move naturally across the keyboard while your mind stays focused on accuracy, rhythm, and consistency.";
+
+}
+
+return text;
+
+}
+
+
+/* =========================================================
+   SETUP TEXT
+========================================================= */
+
+function setupText(){
+
+test.text =
+applyMode(
+getPassage()
+);
+
+test.input = "";
+
+renderText();
+
+}
+
+
+/* =========================================================
+   RENDER TEXT
+========================================================= */
+
+function renderText(){
+
+const text =
+test.text || "";
+
+const typed =
+test.input || "";
+
+let html = "";
+
+for(
+let i=0;
+i<text.length;
+i++
+){
+
+const char =
+escapeHtml(
+text[i]
+);
+
+if(i < typed.length){
+
+if(
+typed[i] === text[i]
+){
+
+html +=
+`<span>${char}</span>`;
+
+}else{
+
+html +=
+`<span class="wrong">${char}</span>`;
+
+}
+
+}else if(
+i === typed.length
+){
+
+html +=
+`<span class="current">${char}</span>`;
+
+}else{
+
+html +=
+`<span>${char}</span>`;
+
+}
+
+}
+
+$("textDisplay").innerHTML =
+html;
+
+}
+
+
+/* =========================================================
+   KEY SOUND
+========================================================= */
+
+function keySound(){
 
 try{
 
-audioContext ||=
-new (
+const AudioContext =
 window.AudioContext ||
-window.webkitAudioContext
-)();
+window.webkitAudioContext;
 
-if(audioContext.state === "suspended"){
-audioContext.resume();
-}
+if(!AudioContext)
+return;
+
+const ctx =
+new AudioContext();
 
 const oscillator =
-audioContext.createOscillator();
+ctx.createOscillator();
 
 const gain =
-audioContext.createGain();
+ctx.createGain();
 
 oscillator.frequency.value =
-450 + Math.random()*80;
+520;
 
-gain.gain.setValueAtTime(
-.018,
-audioContext.currentTime
-);
-
-gain.gain.exponentialRampToValueAtTime(
-.001,
-audioContext.currentTime+.04
-);
+gain.gain.value =
+0.025;
 
 oscillator.connect(gain);
-gain.connect(audioContext.destination);
+gain.connect(ctx.destination);
 
 oscillator.start();
 
 oscillator.stop(
-audioContext.currentTime+.045
+ctx.currentTime + 0.035
 );
 
 }catch(e){}
@@ -1578,27 +2767,58 @@ audioContext.currentTime+.045
 
 
 /* =========================================================
-   INPUT
+   START DIRECT TEST
+========================================================= */
+
+function startDirectTest(){
+
+showTypingSetup();
+
+setTimeout(()=>{
+
+$("startTestBtn").click();
+
+},50);
+
+}
+
+
+/* =========================================================
+   TYPING INPUT
 ========================================================= */
 
 $("typingInput").addEventListener(
 "input",
-()=>{
+function(){
 
 if(test.finished)
 return;
 
-if(!test.started)
-beginTest();
+const value =
+this.value;
+
+if(!test.started){
+
+test.started = true;
+test.running = true;
+test.start =
+Date.now();
+
+startTimer();
+
+}
 
 test.input =
-$("typingInput").value;
+value;
 
-updateDisplay();
+renderText();
 
-playKeySound();
+keySound();
 
-if(test.input.length >= test.text.length){
+if(
+test.input.length >=
+test.text.length
+){
 
 finishTest();
 
@@ -1609,174 +2829,233 @@ finishTest();
 
 
 /* =========================================================
-   CLICK TYPING AREA
+   TIMER
 ========================================================= */
 
-$("typingContainer").addEventListener(
-"click",
-()=>{
+function startTimer(){
 
-$("typingInput").focus();
+clearInterval(
+test.timer
+);
+
+test.timer =
+setInterval(()=>{
+
+const elapsed =
+Math.floor(
+(Date.now()-test.start)/1000
+);
+
+const remaining =
+Math.max(
+0,
+test.duration-elapsed
+);
+
+$("time").textContent =
+remaining;
+
+if(remaining <= 0){
+
+finishTest();
 
 }
-);
+
+},250);
+
+}
 
 
 /* =========================================================
-   STATS
+   FINISH TEST
 ========================================================= */
 
-function calculateStats(){
+function finishTest(){
 
-const input =
-$("typingInput").value;
+if(test.finished)
+return;
 
-let correctChars = 0;
-let errors = 0;
+test.finished = true;
+test.running = false;
 
-[...input].forEach((char,index)=>{
-
-if(char === test.text[index])
-correctChars++;
-else
-errors++;
-
-});
+clearInterval(
+test.timer
+);
 
 const elapsed =
-test.start
+test.started
 ? Math.max(
 1,
 (Date.now()-test.start)/1000
 )
 : 1;
 
+const typed =
+test.input || "";
+
+const target =
+test.text || "";
+
+let correctChars = 0;
+let errors = 0;
+
+for(
+let i=0;
+i<typed.length;
+i++
+){
+
+if(
+typed[i] === target[i]
+){
+
+correctChars++;
+
+}else{
+
+errors++;
+
+}
+
+}
+
+const totalTyped =
+typed.length;
+
+const accuracy =
+totalTyped
+? Math.round(
+(correctChars/totalTyped)*100
+)
+: 0;
+
+const words =
+typed.trim()
+? typed.trim().split(/\s+/).length
+: 0;
+
 const wpm =
 Math.max(
 0,
 Math.round(
-(correctChars/5)/(elapsed/60)
+(correctChars/5) /
+(elapsed/60)
 )
 );
 
-const accuracy =
-input.length
-? Math.round(
-correctChars/input.length*100
+const targetWords =
+target.trim()
+? target.trim().split(/\s+/).length
+: 0;
+
+const correctWords =
+Math.min(
+words,
+Math.max(
+0,
+Math.round(
+(correctChars/5)
 )
-: 100;
+)
+);
 
-const typed =
-input.trim()
-? input.trim().split(/\s+/)
-: [];
+const wrongWords =
+Math.max(
+0,
+words-correctWords
+);
 
-const target =
-test.text.trim().split(/\s+/);
-
-let correctWords = 0;
-
-typed.forEach((word,index)=>{
-
-if(word === target[index])
-correctWords++;
-
-});
-
-return {
+const stats = {
 
 wpm,
 accuracy,
+words,
 errors,
-totalWords:typed.length,
 correctWords,
-wrongWords:Math.max(
-0,
-typed.length-correctWords
-),
-correctChars
+wrongWords,
+characters:totalTyped
 
 };
 
-}
-
-
-/* =========================================================
-   WORD RESULTS
-========================================================= */
-
-function makeWordResults(){
-
-const typed =
-$("typingInput")
-.value
-.trim();
-
-const a =
-typed
-? typed.split(/\s+/)
-: [];
-
-const b =
-test.text.trim().split(/\s+/);
-
-return a.map(
-(word,index)=>
-word === b[index]
-? "correct"
-: "wrong"
-);
-
-}
-
-
-/* =========================================================
-   FINISH
-========================================================= */
-
-async function finishTest(){
-
-if(!test.started || test.finished)
-return;
-
-test.running = false;
-test.finished = true;
-
-clearInterval(test.timer);
-test.timer = null;
-
-const stats =
-calculateStats();
-
-test.wordResults =
-makeWordResults();
-
-$("time").textContent = "0";
-
 $("resultWpm").textContent =
-stats.wpm;
+wpm;
 
 $("resultAccuracy").textContent =
-stats.accuracy+"%";
+accuracy + "%";
 
 $("resultWords").textContent =
-stats.totalWords;
+words;
 
 $("resultErrors").textContent =
-stats.errors;
+errors;
 
 $("correctWords").textContent =
-stats.correctWords;
+correctWords;
 
 $("wrongWords").textContent =
-stats.wrongWords;
+wrongWords;
 
-$("testArea").classList.add("hidden");
-$("resultArea").classList.remove("hidden");
+$("testArea").classList.add(
+"hidden"
+);
+
+$("resultArea").classList.remove(
+"hidden"
+);
 
 drawGraph();
 
-await saveResult(stats);
+saveResult(stats);
+
+}
+
+
+/* =========================================================
+   RESET TEST
+========================================================= */
+
+function resetTest(){
+
+clearInterval(
+test.timer
+);
+
+test.duration =
+getDuration();
+
+test.started = false;
+test.running = false;
+test.finished = false;
+test.start = 0;
+test.input = "";
+
+setupText();
+
+$("resultArea").classList.add(
+"hidden"
+);
+
+$("setupArea").classList.add(
+"hidden"
+);
+
+$("testArea").classList.remove(
+"hidden"
+);
+
+$("time").textContent =
+test.duration;
+
+$("typingInput").value = "";
+
+updateLanguage();
+updateModeInfo();
+
+setTimeout(()=>{
+
+$("typingInput").focus();
+
+},100);
 
 }
 
@@ -1790,240 +3069,122 @@ function drawGraph(){
 const canvas =
 $("performanceChart");
 
+if(!canvas)
+return;
+
+const rect =
+canvas.getBoundingClientRect();
+
+const dpr =
+window.devicePixelRatio || 1;
+
+canvas.width =
+rect.width*dpr;
+
+canvas.height =
+240*dpr;
+
 const ctx =
 canvas.getContext("2d");
 
-const width =
-canvas.clientWidth || 800;
-
-const height = 260;
-
-const ratio =
-window.devicePixelRatio || 1;
-
-canvas.width = width*ratio;
-canvas.height = height*ratio;
-
-ctx.setTransform(
-ratio,0,0,ratio,0,0
+ctx.scale(
+dpr,
+dpr
 );
+
+const w =
+rect.width;
+
+const h =
+240;
 
 ctx.clearRect(
-0,0,width,height
+0,
+0,
+w,
+h
 );
 
-const results =
-test.wordResults;
+const wpm =
+Number(
+$("resultWpm").textContent
+) || 0;
 
-if(!results.length){
-
-ctx.fillStyle="#9ba4b5";
-
-ctx.fillText(
-"Type some words to see your performance.",
-30,50
-);
-
-return;
-
-}
-
-const step =
-results.length>1
-? (width-60)/(results.length-1)
-: 0;
-
-results.forEach((result,index)=>{
-
-const x =
-results.length===1
-? width/2
-: 30+index*step;
-
-const y =
-result==="correct"
-? height-100
-: height-175;
-
-if(index){
-
-const previous =
-results[index-1];
-
-const px =
-results.length===1
-? width/2
-: 30+(index-1)*step;
-
-const py =
-previous==="correct"
-? height-100
-: height-175;
-
-ctx.beginPath();
-ctx.moveTo(px,py);
-ctx.lineTo(x,y);
+const accuracy =
+Number(
+String(
+$("resultAccuracy").textContent
+).replace("%","")
+) || 0;
 
 ctx.strokeStyle =
-"rgba(255,255,255,.18)";
+"rgba(255,255,255,.08)";
+
+ctx.lineWidth = 1;
+
+for(
+let y=30;
+y<h;
+y+=40
+){
+
+ctx.beginPath();
+
+ctx.moveTo(
+0,
+y
+);
+
+ctx.lineTo(
+w,
+y
+);
 
 ctx.stroke();
 
 }
 
+ctx.strokeStyle =
+"#7467ff";
+
+ctx.lineWidth = 4;
+
 ctx.beginPath();
 
-ctx.arc(
-x,
-y,
-5,
-0,
-Math.PI*2
+ctx.moveTo(
+30,
+h-40
 );
 
+ctx.lineTo(
+w*.5,
+h-40-(wpm*1.4)
+);
+
+ctx.lineTo(
+w-30,
+h-40-(accuracy*1.2)
+);
+
+ctx.stroke();
+
 ctx.fillStyle =
-result==="correct"
-? "#22c55e"
-: "#ef4444";
+"#ffffff";
 
-ctx.fill();
+ctx.font =
+"12px Arial";
 
-});
+ctx.fillText(
+"WPM",
+30,
+20
+);
 
-}
-
-
-/* =========================================================
-   SAVE RESULT
-========================================================= */
-
-async function saveResult(stats){
-
-try{
-
-if(!supabaseClient)
-return;
-
-const {
-data:{user}
-} =
-await supabaseClient
-.auth
-.getUser();
-
-if(!user)
-return;
-
-await supabaseClient
-.from("typing_results")
-.insert({
-
-user_id:user.id,
-
-language_code:
-$("language").value,
-
-duration_seconds:
-test.duration,
-
-wpm:stats.wpm,
-
-accuracy:stats.accuracy,
-
-errors:stats.errors,
-
-characters_typed:
-test.input.length
-
-});
-
-}catch(error){
-
-console.error(error);
-
-}
-
-}
-
-
-/* =========================================================
-   RESET TEST
-========================================================= */
-
-function resetTest(){
-
-clearInterval(test.timer);
-
-test = {
-
-started:false,
-running:false,
-finished:false,
-start:0,
-timer:null,
-duration:getDuration(),
-text:"",
-input:"",
-wordResults:[]
-
-};
-
-$("setupArea").classList.remove("hidden");
-$("testArea").classList.add("hidden");
-$("resultArea").classList.add("hidden");
-
-$("time").textContent =
-test.duration;
-
-$("typingInput").value = "";
-
-setupText();
-
-updateLanguage();
-updateModeInfo();
-
-}
-
-
-/* =========================================================
-   START DIRECT TEST
-========================================================= */
-
-function startDirectTest(){
-
-clearInterval(test.timer);
-
-test = {
-
-started:false,
-running:false,
-finished:false,
-start:0,
-timer:null,
-duration:60,
-text:"",
-input:"",
-wordResults:[]
-
-};
-
-$("homePage").classList.add("hidden");
-$("setupArea").classList.add("hidden");
-$("resultArea").classList.add("hidden");
-$("testArea").classList.remove("hidden");
-
-$("typingInput").value = "";
-
-setupText();
-
-$("time").textContent = 60;
-
-updateLanguage();
-updateModeInfo();
-
-setTimeout(()=>{
-$("typingInput").focus();
-},100);
+ctx.fillText(
+"Accuracy",
+w-80,
+20
+);
 
 }
 
@@ -2034,10 +3195,21 @@ $("typingInput").focus();
 
 function showTypingSetup(){
 
-$("homePage").classList.add("hidden");
-$("setupArea").classList.remove("hidden");
-$("testArea").classList.add("hidden");
-$("resultArea").classList.add("hidden");
+$("homePage").classList.add(
+"hidden"
+);
+
+$("setupArea").classList.remove(
+"hidden"
+);
+
+$("testArea").classList.add(
+"hidden"
+);
+
+$("resultArea").classList.add(
+"hidden"
+);
 
 }
 
@@ -2048,12 +3220,25 @@ $("resultArea").classList.add("hidden");
 
 function goHome(){
 
-clearInterval(test.timer);
+clearInterval(
+test.timer
+);
 
-$("homePage").classList.remove("hidden");
-$("setupArea").classList.add("hidden");
-$("testArea").classList.add("hidden");
-$("resultArea").classList.add("hidden");
+$("homePage").classList.remove(
+"hidden"
+);
+
+$("setupArea").classList.add(
+"hidden"
+);
+
+$("testArea").classList.add(
+"hidden"
+);
+
+$("resultArea").classList.add(
+"hidden"
+);
 
 }
 
@@ -2064,15 +3249,23 @@ $("resultArea").classList.add("hidden");
 
 function showInfo(title,html){
 
-$("infoTitle").textContent = title;
-$("infoBody").innerHTML = html;
-$("infoModal").classList.remove("hidden");
+$("infoTitle").textContent =
+title;
+
+$("infoBody").innerHTML =
+html;
+
+$("infoModal").classList.remove(
+"hidden"
+);
 
 }
 
 function closeInfo(){
 
-$("infoModal").classList.add("hidden");
+$("infoModal").classList.add(
+"hidden"
+);
 
 }
 
@@ -2084,18 +3277,26 @@ $("infoModal").classList.add("hidden");
 function showCompetition(){
 
 showInfo(
+
 "🏆 AbidType Competition",
+
 `
+
 <p>
 Competition mode is connected to the AbidType platform interface.
 For now you can prepare your score through the typing test.
 </p>
 
-<button class="primary-btn"
+<button
+class="primary-btn"
 onclick="closeInfo();startDirectTest()">
+
 🚀 Start Competitive Practice
+
 </button>
+
 `
+
 );
 
 }
@@ -2108,19 +3309,27 @@ onclick="closeInfo();startDirectTest()">
 function showMultiplayer(){
 
 showInfo(
+
 "🌐 AbidType Multiplayer",
+
 `
+
 <p>
 Multiplayer mode is prepared in the interface.
 Realtime multiplayer requires the online matchmaking system.
 Your normal typing test and account system remain fully usable now.
 </p>
 
-<button class="primary-btn"
+<button
+class="primary-btn"
 onclick="closeInfo();startDirectTest()">
+
 🎯 Practice Now
+
 </button>
+
 `
+
 );
 
 }
@@ -2133,18 +3342,26 @@ onclick="closeInfo();startDirectTest()">
 function showStats(){
 
 showInfo(
+
 "📊 Your Statistics",
+
 `
+
 <p>
 Login to AbidType and use <b>Typing History</b> to see your saved
 WPM, accuracy, language and previous test results.
 </p>
 
-<button class="primary-btn"
+<button
+class="primary-btn"
 onclick="closeInfo();loadHistory()">
+
 📊 View History
+
 </button>
+
 `
+
 );
 
 }
@@ -2157,8 +3374,11 @@ onclick="closeInfo();loadHistory()">
 function showAbout(){
 
 showInfo(
+
 "⌨️ About AbidType",
+
 `
+
 <p>
 <b>AbidType</b> is a global typing practice platform designed
 to help users improve speed, accuracy and confidence.
@@ -2167,7 +3387,9 @@ to help users improve speed, accuracy and confidence.
 <p>
 Practice with different languages, typing modes and test durations.
 </p>
+
 `
+
 );
 
 }
@@ -2179,7 +3401,8 @@ Practice with different languages, typing modes and test durations.
 
 $("startTestBtn").onclick = ()=>{
 
-test.duration = getDuration();
+test.duration =
+getDuration();
 
 test.started = false;
 test.running = false;
@@ -2187,24 +3410,37 @@ test.finished = false;
 test.start = 0;
 test.input = "";
 
-clearInterval(test.timer);
+clearInterval(
+test.timer
+);
 
 setupText();
 
-$("setupArea").classList.add("hidden");
-$("testArea").classList.remove("hidden");
-$("resultArea").classList.add("hidden");
+$("setupArea").classList.add(
+"hidden"
+);
+
+$("testArea").classList.remove(
+"hidden"
+);
+
+$("resultArea").classList.add(
+"hidden"
+);
 
 $("time").textContent =
 test.duration;
 
-$("typingInput").value = "";
+$("typingInput").value =
+"";
 
 updateLanguage();
 updateModeInfo();
 
 setTimeout(()=>{
+
 $("typingInput").focus();
+
 },100);
 
 };
@@ -2244,6 +3480,7 @@ resetTest();
 
 };
 
+
 $("mode").onchange = ()=>{
 
 updateModeInfo();
@@ -2260,13 +3497,14 @@ resetTest();
 
 };
 
+
 $("duration").onchange = ()=>{
 
 $("customTimeWrap")
 .classList
 .toggle(
 "hidden",
-$("duration").value!=="custom"
+$("duration").value !== "custom"
 );
 
 if(
@@ -2288,7 +3526,9 @@ resetTest();
 
 $("themeBtn").onclick = ()=>{
 
-document.body.classList.toggle("light");
+document.body.classList.toggle(
+"light"
+);
 
 $("themeBtn").textContent =
 document.body.classList.contains("light")
@@ -2304,24 +3544,34 @@ document.body.classList.contains("light")
 
 let loginMode = false;
 
+
 function openAuth(){
 
-$("authModal").classList.remove("hidden");
-$("authMessage").textContent="";
+$("authModal")
+.classList
+.remove("hidden");
+
+$("authMessage").textContent =
+"";
 
 }
+
 
 function closeAuth(){
 
-$("authModal").classList.add("hidden");
+$("authModal")
+.classList
+.add("hidden");
 
 }
+
 
 $("authBtn").onclick = async ()=>{
 
 if(!supabaseClient){
 
 openAuth();
+
 return;
 
 }
@@ -2332,6 +3582,7 @@ data:{user}
 await supabaseClient
 .auth
 .getUser();
+
 
 if(user){
 
@@ -2349,13 +3600,68 @@ openAuth();
 
 };
 
+
 $("closeAuth").onclick =
 closeAuth;
 
+
 $("authModal").onclick = e=>{
 
-if(e.target === $("authModal"))
+if(
+e.target ===
+$("authModal")
+){
+
 closeAuth();
+
+}
+
+};
+
+
+/* =========================================================
+   GOOGLE AUTH
+========================================================= */
+
+$("googleAuth").onclick = async ()=>{
+
+if(!supabaseClient){
+
+$("authMessage").textContent =
+"Supabase is not configured yet.";
+
+return;
+
+}
+
+$("authMessage").textContent =
+"Opening Google sign in...";
+
+
+const {error} =
+await supabaseClient
+.auth
+.signInWithOAuth({
+
+provider:"google",
+
+options:{
+
+redirectTo:
+window.location.origin +
+window.location.pathname
+
+}
+
+});
+
+
+if(error){
+
+$("authMessage").textContent =
+error.message;
+
+}
 
 };
 
@@ -2366,17 +3672,21 @@ closeAuth();
 
 $("switchAuth").onclick = ()=>{
 
-loginMode = !loginMode;
+loginMode =
+!loginMode;
+
 
 $("authTitle").textContent =
 loginMode
 ? "Welcome back"
 : "Create your account";
 
+
 $("submitAuth").textContent =
 loginMode
 ? "Login"
 : "Sign up";
+
 
 $("displayNameWrap")
 .classList
@@ -2384,6 +3694,7 @@ $("displayNameWrap")
 "hidden",
 loginMode
 );
+
 
 $("switchAuth").textContent =
 loginMode
@@ -2402,16 +3713,26 @@ $("submitAuth").onclick = async ()=>{
 if(!supabaseClient)
 return;
 
+
 const email =
-$("email").value.trim();
+$("email")
+.value
+.trim();
 
 const password =
-$("password").value;
+$("password")
+.value;
 
 const name =
-$("displayName").value.trim();
+$("displayName")
+.value
+.trim();
 
-if(!email || password.length<6){
+
+if(
+!email ||
+password.length < 6
+){
 
 $("authMessage").textContent =
 "Enter an email and a password with at least 6 characters.";
@@ -2420,31 +3741,48 @@ return;
 
 }
 
+
 $("authMessage").textContent =
 "Please wait...";
+
 
 const result =
 loginMode
 
-? await supabaseClient
+?
+
+await supabaseClient
 .auth
 .signInWithPassword({
+
 email,
 password
+
 })
 
-: await supabaseClient
+:
+
+await supabaseClient
 .auth
 .signUp({
+
 email,
 password,
+
 options:{
+
 data:{
+
 display_name:
-name || "AbidType User"
+name ||
+"AbidType User"
+
 }
+
 }
+
 });
+
 
 if(result.error){
 
@@ -2455,9 +3793,11 @@ return;
 
 }
 
+
 if(loginMode){
 
 closeAuth();
+
 refreshUser();
 
 }else{
@@ -2479,6 +3819,7 @@ async function refreshUser(){
 if(!supabaseClient)
 return;
 
+
 try{
 
 const {
@@ -2488,33 +3829,95 @@ await supabaseClient
 .auth
 .getUser();
 
+
 if(user){
 
 $("authBtn").textContent =
 "Logout";
 
+
 $("welcome").textContent =
-"Welcome, "+
+"Welcome, " +
 (
 user.user_metadata?.display_name ||
 "AbidType User"
 );
 
+
 $("accountNote").textContent =
 user.email || "";
+
 
 }else{
 
 $("authBtn").textContent =
 "Login / Sign up";
 
+
 $("welcome").textContent =
 "Practice as a guest";
+
 
 $("accountNote").textContent =
 "Create an account to save your typing results and build your personal record.";
 
 }
+
+}catch(e){}
+
+}
+
+
+/* =========================================================
+   SAVE RESULT
+========================================================= */
+
+async function saveResult(stats){
+
+try{
+
+if(!supabaseClient)
+return;
+
+
+const {
+data:{user}
+} =
+await supabaseClient
+.auth
+.getUser();
+
+
+if(!user)
+return;
+
+
+await supabaseClient
+.from("typing_results")
+.insert({
+
+user_id:
+user.id,
+
+language_code:
+$("language").value,
+
+duration_seconds:
+test.duration,
+
+wpm:
+stats.wpm,
+
+accuracy:
+stats.accuracy,
+
+errors:
+stats.errors,
+
+characters_typed:
+stats.characters
+
+});
 
 }catch(e){}
 
@@ -2530,9 +3933,11 @@ async function loadHistory(){
 if(!supabaseClient){
 
 openAuth();
+
 return;
 
 }
+
 
 const {
 data:{user}
@@ -2541,12 +3946,15 @@ await supabaseClient
 .auth
 .getUser();
 
+
 if(!user){
 
 openAuth();
+
 return;
 
 }
+
 
 const {
 data,
@@ -2557,17 +3965,27 @@ await supabaseClient
 .select(
 "language_code,duration_seconds,wpm,accuracy,created_at"
 )
-.eq("user_id",user.id)
+.eq(
+"user_id",
+user.id
+)
 .order(
 "created_at",
-{ascending:false}
+{
+ascending:false
+}
 )
 .limit(10);
+
 
 const box =
 $("history");
 
-box.classList.remove("hidden");
+
+box.classList.remove(
+"hidden"
+);
+
 
 if(error){
 
@@ -2578,6 +3996,7 @@ return;
 
 }
 
+
 if(!data?.length){
 
 box.textContent =
@@ -2587,33 +4006,53 @@ return;
 
 }
 
+
 box.innerHTML =
 data.map(x=>`
 
 <div class="history-row">
 
 <span>
+
 ${String(
-x.language_code || "en"
+x.language_code ||
+"en"
 ).toUpperCase()}
+
 </span>
 
-<b>
-${Number(x.wpm||0)} WPM
-</b>
 
 <b>
-${Number(x.accuracy||0)}%
+
+${Number(
+x.wpm || 0
+)}
+WPM
+
 </b>
+
+
+<b>
+
+${Number(
+x.accuracy || 0
+)}%
+
+</b>
+
 
 <span>
+
 ${
 x.created_at
-? new Date(
+?
+new Date(
 x.created_at
 ).toLocaleDateString()
-: ""
+:
+""
 }
+
 </span>
 
 </div>
@@ -2622,8 +4061,168 @@ x.created_at
 
 }
 
+
 $("historyBtn").onclick =
 loadHistory;
+
+
+/* =========================================================
+   QUICK REVIEWS
+========================================================= */
+
+function renderReviews(){
+
+const box =
+$("reviewList");
+
+if(!box)
+return;
+
+
+let reviews=[];
+
+
+try{
+
+reviews =
+JSON.parse(
+localStorage.getItem(
+"abidtype_reviews"
+) || "[]"
+);
+
+}catch(e){}
+
+
+if(!reviews.length){
+
+box.innerHTML = `
+
+<div class="review-item">
+
+<strong>
+Be the first to review AbidType.
+</strong>
+
+<p>
+Your review will appear here on this browser.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+box.innerHTML =
+reviews
+.slice(0,5)
+.map(r=>`
+
+<div class="review-item">
+
+<strong>
+⭐ ${escapeHtml(
+r.name ||
+"AbidType User"
+)}
+</strong>
+
+<p>
+${escapeHtml(r.text)}
+</p>
+
+</div>
+
+`)
+.join("");
+
+}
+
+
+$("submitReview").onclick = ()=>{
+
+const text =
+$("reviewText")
+.value
+.trim();
+
+const name =
+$("reviewName")
+.value
+.trim();
+
+const msg =
+$("reviewMessage");
+
+
+if(!text){
+
+msg.textContent =
+"Write a short review first.";
+
+return;
+
+}
+
+
+let reviews=[];
+
+
+try{
+
+reviews =
+JSON.parse(
+localStorage.getItem(
+"abidtype_reviews"
+) || "[]"
+);
+
+}catch(e){}
+
+
+reviews.unshift({
+
+name:
+name ||
+"AbidType User",
+
+text:
+text
+
+});
+
+
+localStorage.setItem(
+
+"abidtype_reviews",
+
+JSON.stringify(
+reviews.slice(0,20)
+)
+
+);
+
+
+$("reviewText").value =
+"";
+
+$("reviewName").value =
+"";
+
+msg.textContent =
+"Thanks for your review! ❤️";
+
+
+renderReviews();
+
+};
+
+
+renderReviews();
 
 
 /* =========================================================
@@ -2635,9 +4234,13 @@ if(supabaseClient){
 supabaseClient
 .auth
 .onAuthStateChange(
+
 ()=>{
+
 refreshUser();
+
 }
+
 );
 
 }
@@ -2667,11 +4270,16 @@ drawGraph();
 ========================================================= */
 
 $("customTimeWrap")
-.classList.add("hidden");
+.classList
+.add("hidden");
+
 
 updateModeInfo();
+
 updateLanguage();
+
 setupText();
+
 refreshUser();
 
 </script>
