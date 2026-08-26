@@ -37,11 +37,6 @@ button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
 
-
-/* =========================================================
-   FOUNDER CARD + REVIEWS
-========================================================= */
-
 .home-main-grid{
 position:relative;
 z-index:2;
@@ -159,11 +154,6 @@ max-width:210px;
 }
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
-
 .header{
 position:sticky;
 top:0;
@@ -252,21 +242,11 @@ display:flex;
 gap:8px;
 }
 
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
 .container{
 width:min(1240px,calc(100% - 30px));
 margin:auto;
 padding:26px 0 70px;
 }
-
-
-/* =========================================================
-   HOME
-========================================================= */
 
 .abid-home{
 position:relative;
@@ -447,11 +427,6 @@ padding:8px 12px;
 background:rgba(111,86,255,.18);
 }
 
-
-/* =========================================================
-   CARDS
-========================================================= */
-
 .account-card,
 .card{
 border:1px solid rgba(255,255,255,.08);
@@ -480,11 +455,6 @@ margin-bottom:27px;
 .section-title h2{
 margin:0 0 8px;
 }
-
-
-/* =========================================================
-   SETUP
-========================================================= */
 
 .control-grid{
 display:grid;
@@ -530,11 +500,6 @@ color:#717d94;
 margin-top:7px;
 font-size:11px;
 }
-
-
-/* =========================================================
-   TEST
-========================================================= */
 
 .test-top{
 display:grid;
@@ -591,6 +556,8 @@ white-space:pre-wrap;
 overflow-wrap:anywhere;
 color:#dce4f3;
 font-family:Georgia,"Times New Roman",serif;
+font-weight:600;
+scroll-behavior:smooth;
 }
 
 #textDisplay .wrong{
@@ -633,11 +600,6 @@ text-align:center;
 margin:5px;
 }
 
-
-/* =========================================================
-   RESULTS
-========================================================= */
-
 .result-grid{
 display:grid;
 grid-template-columns:repeat(6,1fr);
@@ -677,11 +639,6 @@ height:240px;
 display:block;
 }
 
-
-/* =========================================================
-   HISTORY
-========================================================= */
-
 .history-row{
 display:grid;
 grid-template-columns:1fr 1fr 1fr 1fr;
@@ -695,11 +652,6 @@ color:#c4ccdc;
 .history-row:last-child{
 border-bottom:0;
 }
-
-
-/* =========================================================
-   MODAL
-========================================================= */
 
 .modal{
 position:fixed;
@@ -761,11 +713,6 @@ background:none;
 color:#8f83ff;
 }
 
-
-/* =========================================================
-   LIGHT MODE
-========================================================= */
-
 body.light{
 color:#182033;
 background:
@@ -813,11 +760,6 @@ background:#f8f9fc;
 body.light #textDisplay{
 color:#273044;
 }
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
 
 @media(max-width:1100px){
 
@@ -912,7 +854,6 @@ grid-template-columns:1fr 1fr;
 
 </div>
 
-
 <nav class="header-nav">
 
 <button type="button" class="active" onclick="goHome()">
@@ -945,7 +886,6 @@ About
 
 </nav>
 
-
 <div class="header-actions">
 
 <button id="themeBtn" type="button">
@@ -960,9 +900,7 @@ Login / Sign up
 
 </header>
 
-
 <main class="container">
-
 
 <section id="homePage" class="abid-home">
 
@@ -979,7 +917,6 @@ Login / Sign up
 </div>
 
 </div>
-
 
 <div class="home-nav">
 
@@ -1006,7 +943,6 @@ Stats
 
 </div>
 
-
 <h1 class="home-title">
 
 Type Faster.<br>
@@ -1017,7 +953,6 @@ Become Better.
 
 </h1>
 
-
 <p class="home-subtitle">
 
 Improve your typing speed, accuracy and confidence with
@@ -1025,7 +960,6 @@ AbidType. Practice in multiple languages, choose your
 preferred typing mode and track your performance.
 
 </p>
-
 
 <div class="hero-buttons">
 
@@ -1036,7 +970,6 @@ onclick="startDirectTest()">
 
 </button>
 
-
 <button class="hero-secondary"
 onclick="showTypingSetup()">
 
@@ -1046,9 +979,7 @@ onclick="showTypingSetup()">
 
 </div>
 
-
 <div class="feature-grid">
-
 
 <article class="feature-card"
 onclick="startDirectTest()">
@@ -1071,7 +1002,6 @@ Start Test →
 
 </article>
 
-
 <article class="feature-card"
 onclick="showCompetition()">
 
@@ -1092,7 +1022,6 @@ Explore →
 </button>
 
 </article>
-
 
 <article class="feature-card"
 onclick="showMultiplayer()">
@@ -1115,7 +1044,6 @@ Explore →
 
 </article>
 
-
 <article class="feature-card"
 onclick="showTypingSetup()">
 
@@ -1136,7 +1064,6 @@ Practice →
 </button>
 
 </article>
-
 
 <article class="feature-card"
 onclick="showTypingSetup()">
@@ -1159,11 +1086,9 @@ Customize →
 
 </article>
 
-
 </div>
 
 </div>
-
 
 <aside class="founder-card">
 
@@ -1187,7 +1112,6 @@ Building AbidType for better typing.
 
 </section>
 
-
 <section class="account-card review-section">
 
 <h2>
@@ -1198,7 +1122,6 @@ Building AbidType for better typing.
 If you enjoyed AbidType, leave a small review. It is optional.
 </p>
 
-
 <div class="review-form">
 
 <input
@@ -1206,13 +1129,11 @@ id="reviewName"
 type="text"
 placeholder="Your name (optional)">
 
-
 <textarea
 id="reviewText"
 maxlength="300"
 placeholder="Write a short review...">
 </textarea>
-
 
 <div class="review-actions">
 
@@ -1234,14 +1155,12 @@ style="color:#7d899f;font-size:13px">
 
 </div>
 
-
 <div
 id="reviewList"
 class="review-list">
 </div>
 
 </section>
-
 
 <section class="account-card">
 
@@ -1255,10 +1174,8 @@ Create an account to save your typing results and build your personal record.
 
 </section>
 
-
 <section id="setupArea"
 class="card hidden">
-
 
 <div class="section-title">
 
@@ -1272,9 +1189,7 @@ Choose your language, typing mode and test duration.
 
 </div>
 
-
 <div class="control-grid">
-
 
 <div class="control-group">
 
@@ -1282,199 +1197,57 @@ Choose your language, typing mode and test duration.
 🌍 Language
 </label>
 
-
 <select id="language">
 
-<option value="en">
-🇺🇸 English
-</option>
-
-<option value="bn">
-🇧🇩 বাংলা
-</option>
-
-<option value="hi">
-🇮🇳 हिन्दी
-</option>
-
-<option value="ur">
-🇵🇰 اردو
-</option>
-
-<option value="ar">
-🇸🇦 العربية
-</option>
-
-<option value="es">
-🇪🇸 Español
-</option>
-
-<option value="fr">
-🇫🇷 Français
-</option>
-
-<option value="de">
-🇩🇪 Deutsch
-</option>
-
-<option value="it">
-🇮🇹 Italiano
-</option>
-
-<option value="pt">
-🇵🇹 Português
-</option>
-
-<option value="ru">
-🇷🇺 Русский
-</option>
-
-<option value="zh">
-🇨🇳 中文
-</option>
-
-<option value="ja">
-🇯🇵 日本語
-</option>
-
-<option value="ko">
-🇰🇷 한국어
-</option>
-
-<option value="tr">
-🇹🇷 Türkçe
-</option>
-
-<option value="id">
-🇮🇩 Bahasa Indonesia
-</option>
-
-<option value="ms">
-🇲🇾 Bahasa Melayu
-</option>
-
-<option value="vi">
-🇻🇳 Tiếng Việt
-</option>
-
-<option value="th">
-🇹🇭 ไทย
-</option>
-
-<option value="nl">
-🇳🇱 Nederlands
-</option>
-
-<option value="pl">
-🇵🇱 Polski
-</option>
-
-<option value="uk">
-🇺🇦 Українська
-</option>
-
-<option value="cs">
-🇨🇿 Čeština
-</option>
-
-<option value="ro">
-🇷🇴 Română
-</option>
-
-<option value="hu">
-🇭🇺 Magyar
-</option>
-
-<option value="el">
-🇬🇷 Ελληνικά
-</option>
-
-<option value="he">
-🇮🇱 עברית
-</option>
-
-<option value="fa">
-🇮🇷 فارسی
-</option>
-
-<option value="ta">
-🇮🇳 தமிழ்
-</option>
-
-<option value="te">
-🇮🇳 తెలుగు
-</option>
-
-<option value="ml">
-🇮🇳 മലയാളം
-</option>
-
-<option value="kn">
-🇮🇳 ಕನ್ನಡ
-</option>
-
-<option value="gu">
-🇮🇳 ગુજરાતી
-</option>
-
-<option value="mr">
-🇮🇳 मराठी
-</option>
-
-<option value="pa">
-🇮🇳 ਪੰਜਾਬੀ
-</option>
-
-<option value="ne">
-🇳🇵 नेपाली
-</option>
-
-<option value="si">
-🇱🇰 සිංහල
-</option>
-
-<option value="my">
-🇲🇲 မြန်မာ
-</option>
-
-<option value="km">
-🇰🇭 ខ្មែរ
-</option>
-
-<option value="lo">
-🇱🇦 ລາວ
-</option>
-
-<option value="sw">
-🌍 Kiswahili
-</option>
-
-<option value="af">
-🇿🇦 Afrikaans
-</option>
-
-<option value="fil">
-🇵🇭 Filipino
-</option>
-
-<option value="da">
-🇩🇰 Dansk
-</option>
-
-<option value="sv">
-🇸🇪 Svenska
-</option>
-
-<option value="no">
-🇳🇴 Norsk
-</option>
-
-<option value="fi">
-🇫🇮 Suomi
-</option>
+<option value="en">🇺🇸 English</option>
+<option value="bn">🇧🇩 বাংলা</option>
+<option value="hi">🇮🇳 हिन्दी</option>
+<option value="ur">🇵🇰 اردو</option>
+<option value="ar">🇸🇦 العربية</option>
+<option value="es">🇪🇸 Español</option>
+<option value="fr">🇫🇷 Français</option>
+<option value="de">🇩🇪 Deutsch</option>
+<option value="it">🇮🇹 Italiano</option>
+<option value="pt">🇵🇹 Português</option>
+<option value="ru">🇷🇺 Русский</option>
+<option value="zh">🇨🇳 中文</option>
+<option value="ja">🇯🇵 日本語</option>
+<option value="ko">🇰🇷 한국어</option>
+<option value="tr">🇹🇷 Türkçe</option>
+<option value="id">🇮🇩 Bahasa Indonesia</option>
+<option value="ms">🇲🇾 Bahasa Melayu</option>
+<option value="vi">🇻🇳 Tiếng Việt</option>
+<option value="th">🇹🇭 ไทย</option>
+<option value="nl">🇳🇱 Nederlands</option>
+<option value="pl">🇵🇱 Polski</option>
+<option value="uk">🇺🇦 Українська</option>
+<option value="cs">🇨🇿 Čeština</option>
+<option value="ro">🇷🇴 Română</option>
+<option value="hu">🇭🇺 Magyar</option>
+<option value="el">🇬🇷 Ελληνικά</option>
+<option value="he">🇮🇱 עברית</option>
+<option value="fa">🇮🇷 فارسی</option>
+<option value="ta">🇮🇳 தமிழ்</option>
+<option value="te">🇮🇳 తెలుగు</option>
+<option value="ml">🇮🇳 മലയാളം</option>
+<option value="kn">🇮🇳 ಕನ್ನಡ</option>
+<option value="gu">🇮🇳 ગુજરાતી</option>
+<option value="mr">🇮🇳 मराठी</option>
+<option value="pa">🇮🇳 ਪੰਜਾਬੀ</option>
+<option value="ne">🇳🇵 नेपाली</option>
+<option value="si">🇱🇰 සිංහල</option>
+<option value="my">🇲🇲 မြန်မာ</option>
+<option value="km">🇰🇭 ខ្មែរ</option>
+<option value="lo">🇱🇦 ລາວ</option>
+<option value="sw">🌍 Kiswahili</option>
+<option value="af">🇿🇦 Afrikaans</option>
+<option value="fil">🇵🇭 Filipino</option>
+<option value="da">🇩🇰 Dansk</option>
+<option value="sv">🇸🇪 Svenska</option>
+<option value="no">🇳🇴 Norsk</option>
+<option value="fi">🇫🇮 Suomi</option>
 
 </select>
-
 
 <div class="language-count">
 🌍 50+ languages available
@@ -1482,13 +1255,11 @@ Choose your language, typing mode and test duration.
 
 </div>
 
-
 <div class="control-group">
 
 <label>
 ⚡ Typing Mode
 </label>
-
 
 <select id="mode">
 
@@ -1514,20 +1285,17 @@ lowercase
 
 </select>
 
-
 <small id="modeInfo">
 Normal typing practice.
 </small>
 
 </div>
 
-
 <div class="control-group">
 
 <label>
 ⏱ Test Duration
 </label>
-
 
 <select id="duration">
 
@@ -1565,7 +1333,6 @@ Normal typing practice.
 
 </div>
 
-
 <div
 id="customTimeWrap"
 class="control-group hidden">
@@ -1587,7 +1354,6 @@ Minimum 10 seconds, maximum 3600 seconds.
 
 </div>
 
-
 <div style="text-align:center">
 
 <button
@@ -1603,14 +1369,11 @@ type="button">
 
 </section>
 
-
 <section
 id="testArea"
 class="card hidden">
 
-
 <div class="test-top">
-
 
 <div class="test-language">
 
@@ -1623,7 +1386,6 @@ English
 </strong>
 
 </div>
-
 
 <div>
 
@@ -1639,7 +1401,6 @@ Normal
 
 </div>
 
-
 <div class="timer-box">
 
 ⏱
@@ -1652,15 +1413,12 @@ Normal
 
 </div>
 
-
 <div
 class="typing-container"
 id="typingContainer">
 
-
 <div id="textDisplay">
 </div>
-
 
 <textarea
 id="typingInput"
@@ -1672,14 +1430,12 @@ spellcheck="false">
 
 </div>
 
-
 <div class="typing-help">
 
 Click inside the typing area and start typing.
 Key sound is enabled.
 
 </div>
-
 
 <div class="test-actions">
 
@@ -1692,12 +1448,11 @@ Finish Test
 
 </button>
 
-
 <button
 id="restartBtn"
 type="button">
 
-↻ Restart
+↻ Refresh Text
 
 </button>
 
@@ -1705,11 +1460,9 @@ type="button">
 
 </section>
 
-
 <section
 id="resultArea"
 class="card hidden">
-
 
 <div class="section-title">
 
@@ -1723,89 +1476,39 @@ Great job! Here is your typing performance.
 
 </div>
 
-
 <div class="result-grid">
 
+<div class="result-card">
+<span>WPM</span>
+<strong id="resultWpm">0</strong>
+</div>
 
 <div class="result-card">
-
-<span>
-WPM
-</span>
-
-<strong id="resultWpm">
-0
-</strong>
-
+<span>Accuracy</span>
+<strong id="resultAccuracy">0%</strong>
 </div>
-
 
 <div class="result-card">
-
-<span>
-Accuracy
-</span>
-
-<strong id="resultAccuracy">
-0%
-</strong>
-
+<span>Words</span>
+<strong id="resultWords">0</strong>
 </div>
-
 
 <div class="result-card">
-
-<span>
-Words
-</span>
-
-<strong id="resultWords">
-0
-</strong>
-
+<span>Errors</span>
+<strong id="resultErrors">0</strong>
 </div>
-
 
 <div class="result-card">
-
-<span>
-Errors
-</span>
-
-<strong id="resultErrors">
-0
-</strong>
-
+<span>Correct Words</span>
+<strong id="correctWords">0</strong>
 </div>
-
 
 <div class="result-card">
-
-<span>
-Correct Words
-</span>
-
-<strong id="correctWords">
-0
-</strong>
-
-</div>
-
-
-<div class="result-card">
-
-<span>
-Wrong Words
-</span>
-
-<strong id="wrongWords">
-0
-</strong>
-
+<span>Wrong Words</span>
+<strong id="wrongWords">0</strong>
 </div>
 
 </div>
-
 
 <div class="graph-box">
 
@@ -1813,14 +1516,11 @@ Wrong Words
 Performance
 </h3>
 
-<canvas id="performanceChart">
-</canvas>
+<canvas id="performanceChart"></canvas>
 
 </div>
 
-
-<div
-style="text-align:center;margin-top:20px">
+<div style="text-align:center;margin-top:20px">
 
 <button
 id="tryAgainBtn"
@@ -1835,13 +1535,10 @@ type="button">
 
 </section>
 
-
 <section class="card">
-
 
 <div
 style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap">
-
 
 <div>
 
@@ -1855,7 +1552,6 @@ Your latest typing results.
 
 </div>
 
-
 <button
 id="historyBtn"
 type="button">
@@ -1866,7 +1562,6 @@ View History
 
 </div>
 
-
 <div
 id="history"
 class="hidden">
@@ -1874,21 +1569,13 @@ class="hidden">
 
 </section>
 
-
 </main>
-
-
-<!-- =======================================================
-     AUTH MODAL
-======================================================= -->
 
 <div
 id="authModal"
 class="modal hidden">
 
-
 <div class="modal-content">
-
 
 <button
 id="closeAuth"
@@ -1898,17 +1585,14 @@ class="close-btn">
 
 </button>
 
-
 <h2 id="authTitle">
 Create your account
 </h2>
-
 
 <p
 id="authMessage"
 style="color:#8792a7">
 </p>
-
 
 <div
 id="displayNameWrap"
@@ -1925,7 +1609,6 @@ placeholder="Your name">
 
 </div>
 
-
 <div class="auth-field">
 
 <label>
@@ -1938,7 +1621,6 @@ type="email"
 placeholder="you@example.com">
 
 </div>
-
 
 <div class="auth-field">
 
@@ -1953,7 +1635,6 @@ placeholder="Minimum 6 characters">
 
 </div>
 
-
 <button
 id="submitAuth"
 class="primary-btn"
@@ -1962,7 +1643,6 @@ type="button">
 Sign up
 
 </button>
-
 
 <button
 id="googleAuth"
@@ -1973,7 +1653,6 @@ Continue with Google
 
 </button>
 
-
 <button
 id="switchAuth"
 class="text-btn"
@@ -1983,23 +1662,15 @@ Already have an account? Login
 
 </button>
 
-
 </div>
 
 </div>
-
-
-<!-- =======================================================
-     INFO MODAL
-======================================================= -->
 
 <div
 id="infoModal"
 class="modal hidden">
 
-
 <div class="modal-content info-modal">
-
 
 <button
 class="close-btn"
@@ -2009,31 +1680,21 @@ onclick="closeInfo()">
 
 </button>
 
-
 <h2 id="infoTitle">
 AbidType
 </h2>
 
-
 <div id="infoBody">
 </div>
 
-
 </div>
 
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script src="config.js"></script>
 
-
 <script>
-
-/* =========================================================
-   SUPABASE
-========================================================= */
 
 const supabaseClient =
 window.supabase?.createClient(
@@ -2044,405 +1705,249 @@ window.ABIDTYPE_SUPABASE_PUBLISHABLE_KEY
 const $ = id =>
 document.getElementById(id);
 
-
-/* =========================================================
-   DIFFERENT PASSAGES
-========================================================= */
-
 const passages = {
 
 en:[
-
 "Typing is a skill that becomes stronger with regular practice. Focus on accuracy first and speed will naturally follow.",
-
 "Every new typing session is an opportunity to improve your rhythm, confidence, accuracy, and control.",
-
 "Good typing is not only about speed. It is about staying accurate while keeping a comfortable and consistent rhythm.",
-
 "Practice a little every day. Keep your hands relaxed, watch the words carefully, and let your fingers learn the keyboard.",
-
 "Technology moves quickly, and strong typing skills help you communicate ideas faster and work with greater confidence."
-
 ],
 
 bn:[
-
 "নিয়মিত অনুশীলন করলে টাইপিংয়ের গতি এবং নির্ভুলতা ধীরে ধীরে বাড়ে। প্রথমে নির্ভুলতার দিকে মনোযোগ দিন।",
-
 "প্রতিদিন একটু করে অনুশীলন করলে আপনার টাইপিং দক্ষতা, আত্মবিশ্বাস এবং লেখার গতি আরও ভালো হবে।",
-
 "ভালো টাইপিং শুধু দ্রুত লেখার বিষয় নয়। নির্ভুলতা, ছন্দ এবং নিয়ন্ত্রণও সমান গুরুত্বপূর্ণ।",
-
 "মনোযোগ দিয়ে টাইপ করুন এবং ভুল হলে হতাশ হবেন না। প্রতিটি অনুশীলন আপনাকে আরও দক্ষ করে তুলবে।"
-
 ],
 
 hi:[
-
 "नियमित अभ्यास से आपकी टाइपिंग गति और सटीकता धीरे धीरे बेहतर होती जाती है। पहले सटीकता पर ध्यान दें।",
-
 "हर नया टाइपिंग सत्र आपकी गति, आत्मविश्वास और नियंत्रण को बेहतर बनाने का एक नया अवसर है।"
-
 ],
 
 ur:[
-
 "باقاعدگی سے مشق کرنے سے آپ کی ٹائپنگ کی رفتار اور درستگی بہتر ہوتی ہے۔ پہلے درستگی پر توجہ دیں۔",
-
 "ہر نیا ٹائپنگ سیشن آپ کی رفتار، اعتماد اور کنٹرول کو بہتر بنانے کا ایک نیا موقع ہے۔"
-
 ],
 
 ar:[
-
 "الكتابة باللمس مهارة تتحسن مع التدريب المستمر. ركز على الدقة أولاً وستتحسن السرعة بشكل طبيعي.",
-
 "كل جلسة تدريب جديدة تمنحك فرصة لتحسين الإيقاع والثقة والدقة والتحكم."
-
 ],
 
 es:[
-
 "Escribir rápido es una habilidad que mejora con la práctica constante. Primero concéntrate en la precisión y después llegará la velocidad.",
-
 "Cada nueva sesión de escritura es una oportunidad para mejorar tu ritmo, confianza y precisión."
-
 ],
 
 fr:[
-
 "La frappe est une compétence qui devient plus forte avec une pratique régulière. Concentrez-vous d'abord sur la précision.",
-
 "Chaque nouvelle session est une occasion d'améliorer votre rythme, votre confiance et votre précision."
-
 ],
 
 de:[
-
 "Tippen ist eine Fähigkeit, die durch regelmäßiges Üben immer besser wird. Konzentriere dich zuerst auf Genauigkeit.",
-
 "Jede neue Übung ist eine Gelegenheit, Rhythmus, Sicherheit und Genauigkeit zu verbessern."
-
 ],
 
 it:[
-
 "La digitazione è una capacità che migliora con la pratica regolare. Concentrati prima sulla precisione e poi sulla velocità.",
-
 "Ogni nuova sessione è un'opportunità per migliorare ritmo, fiducia e precisione."
-
 ],
 
 pt:[
-
 "Digitar é uma habilidade que melhora com a prática regular. Concentre-se primeiro na precisão e a velocidade virá naturalmente.",
-
 "Cada nova sessão de digitação é uma oportunidade para melhorar seu ritmo e confiança."
-
 ],
 
 ru:[
-
 "Печать — это навык, который становится лучше благодаря регулярной практике. Сначала сосредоточьтесь на точности.",
-
 "Каждая новая тренировка помогает улучшить ритм, уверенность и точность."
-
 ],
 
 zh:[
-
 "打字是一项需要持续练习的技能。先专注于准确率，速度会自然提高。",
-
 "每一次新的打字练习都是提升节奏、信心和准确率的机会。"
-
 ],
 
 ja:[
-
-"タイピングは、 नियमित的な練習によって上達するスキルです。まず正確さに集中しましょう。",
-
+"タイピングは、定期的な練習によって上達するスキルです。まず正確さに集中しましょう。",
 "新しい練習をするたびに、リズム、正確さ、自信を高めることができます。"
-
 ],
 
 ko:[
-
 "타이핑은 꾸준한 연습을 통해 향상되는 기술입니다. 먼저 정확도에 집중하면 속도는 자연스럽게 따라옵니다.",
-
 "새로운 타이핑 연습은 리듬과 자신감, 정확도를 향상시키는 좋은 기회입니다."
-
 ],
 
 tr:[
-
 "Yazmak düzenli pratikle gelişen bir beceridir. Önce doğruluğa odaklanın, hız doğal olarak gelecektir.",
-
 "Her yeni çalışma ritminizi, güveninizi ve doğruluğunuzu geliştirmek için bir fırsattır."
-
 ],
 
 id:[
-
 "Mengetik adalah keterampilan yang menjadi lebih baik dengan latihan rutin. Fokus pada akurasi terlebih dahulu.",
-
 "Setiap sesi mengetik baru adalah kesempatan untuk meningkatkan ritme dan kepercayaan diri."
-
 ],
 
 ms:[
-
 "Menaip ialah kemahiran yang menjadi lebih baik dengan latihan yang konsisten. Fokus pada ketepatan terlebih dahulu.",
-
 "Setiap sesi latihan membantu meningkatkan rentak, keyakinan dan ketepatan anda."
-
 ],
 
 vi:[
-
 "Gõ bàn phím là một kỹ năng được cải thiện nhờ luyện tập thường xuyên. Hãy tập trung vào độ chính xác trước.",
-
 "Mỗi buổi luyện tập mới là một cơ hội để cải thiện tốc độ và sự tự tin."
-
 ],
 
 th:[
-
 "การพิมพ์เป็นทักษะที่ดีขึ้นได้จากการฝึกฝนอย่างสม่ำเสมอ ควรเน้นความถูกต้องก่อนความเร็ว",
-
 "ทุกครั้งที่ฝึกพิมพ์คือโอกาสในการพัฒนาจังหวะ ความมั่นใจ และความแม่นยำ"
-
 ],
 
 nl:[
-
 "Typen is een vaardigheid die sterker wordt door regelmatig te oefenen. Richt je eerst op nauwkeurigheid.",
-
 "Elke nieuwe typesessie is een kans om je ritme en vertrouwen te verbeteren."
-
 ],
 
 pl:[
-
 "Pisanie na klawiaturze to umiejętność, która poprawia się dzięki regularnej praktyce. Najpierw skup się na dokładności.",
-
 "Każda nowa sesja to okazja do poprawy rytmu, pewności siebie i dokładności."
-
 ],
 
 uk:[
-
 "Друк — це навичка, яка покращується завдяки регулярній практиці. Спочатку зосередьтеся на точності.",
-
 "Кожне нове тренування допомагає покращити ритм, впевненість і точність."
-
 ],
 
 cs:[
-
 "Psaní je dovednost, která se zlepšuje pravidelným procvičováním. Nejprve se zaměřte na přesnost.",
-
 "Každé nové cvičení je příležitostí zlepšit rytmus a jistotu."
-
 ],
 
 ro:[
-
 "Tastarea este o abilitate care devine mai bună prin practică regulată. Concentrează-te mai întâi pe precizie.",
-
 "Fiecare sesiune nouă este o oportunitate de a-ți îmbunătăți ritmul și încrederea."
-
 ],
 
 hu:[
-
 "A gépelés rendszeres gyakorlással fejlődő készség. Először a pontosságra figyelj, a sebesség később természetesen javul.",
-
 "Minden új gyakorlás lehetőség a ritmus és a magabiztosság fejlesztésére."
-
 ],
 
 el:[
-
 "Η πληκτρολόγηση είναι μια δεξιότητα που βελτιώνεται με τακτική εξάσκηση. Εστιάστε πρώτα στην ακρίβεια.",
-
 "Κάθε νέα προπόνηση είναι μια ευκαιρία να βελτιώσετε τον ρυθμό και την αυτοπεποίθησή σας."
-
 ],
 
 he:[
-
 "הקלדה היא מיומנות שמשתפרת באמצעות תרגול קבוע. התמקדו קודם בדיוק ולאחר מכן המהירות תשתפר.",
-
 "כל אימון חדש הוא הזדמנות לשפר את הקצב, הביטחון והדיוק."
-
 ],
 
 fa:[
-
 "تایپ کردن مهارتی است که با تمرین منظم بهتر می‌شود. ابتدا روی دقت تمرکز کنید و سرعت به‌طور طبیعی افزایش خواهد یافت.",
-
 "هر جلسه تمرین فرصت خوبی برای افزایش ریتم، اعتماد به نفس و دقت است."
-
 ],
 
 ta:[
-
 "தொடர்ந்து பயிற்சி செய்வதன் மூலம் தட்டச்சு திறன் மேம்படும். முதலில் துல்லியத்தில் கவனம் செலுத்துங்கள்.",
-
 "ஒவ்வொரு புதிய பயிற்சியும் வேகம் மற்றும் நம்பிக்கையை மேம்படுத்தும் வாய்ப்பாகும்."
-
 ],
 
 te:[
-
 "నిరంతర సాధనతో టైపింగ్ నైపుణ్యం మెరుగుపడుతుంది. ముందుగా ఖచ్చితత్వంపై దృష్టి పెట్టండి.",
-
 "ప్రతి కొత్త టైపింగ్ సెషన్ మీ వేగం మరియు నమ్మకాన్ని మెరుగుపరచడానికి అవకాశం."
-
 ],
 
 ml:[
-
 "തുടർച്ചയായ പരിശീലനത്തിലൂടെ ടൈപ്പിംഗ് കഴിവ് മെച്ചപ്പെടുന്നു. ആദ്യം കൃത്യതയിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കുക.",
-
 "ഓരോ പുതിയ പരിശീലനവും വേഗവും ആത്മവിശ്വാസവും മെച്ചപ്പെടുത്താനുള്ള അവസരമാണ്."
-
 ],
 
 kn:[
-
 "ನಿಯಮಿತ ಅಭ್ಯಾಸದಿಂದ ಟೈಪಿಂಗ್ ಕೌಶಲ್ಯ ಉತ್ತಮವಾಗುತ್ತದೆ. ಮೊದಲು ನಿಖರತೆಯ ಮೇಲೆ ಗಮನ ಹರಿಸಿ.",
-
 "ಪ್ರತಿ ಹೊಸ ಅಭ್ಯಾಸವು ವೇಗ ಮತ್ತು ಆತ್ಮವಿಶ್ವಾಸವನ್ನು ಹೆಚ್ಚಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ."
-
 ],
 
 gu:[
-
 "નિયમિત અભ્યાસથી ટાઇપિંગ કૌશલ્ય વધુ સારું બને છે. પહેલા ચોકસાઈ પર ધ્યાન આપો.",
-
 "દરેક નવી ટાઇપિંગ પ્રેક્ટિસ તમારી ઝડપ અને આત્મવિશ્વાસ વધારવાની તક છે."
-
 ],
 
 mr:[
-
 "नियमित सरावामुळे टायपिंग कौशल्य अधिक चांगले होते. आधी अचूकतेवर लक्ष द्या.",
-
 "प्रत्येक नवीन सराव सत्र तुमचा वेग आणि आत्मविश्वास सुधारण्याची संधी आहे."
-
 ],
 
 pa:[
-
 "ਨਿਯਮਿਤ ਅਭਿਆਸ ਨਾਲ ਟਾਈਪਿੰਗ ਦੀ ਕਾਬਲੀਅਤ ਵਧਦੀ ਹੈ। ਪਹਿਲਾਂ ਸਹੀਪਣ 'ਤੇ ਧਿਆਨ ਦਿਓ।",
-
 "ਹਰ ਨਵਾਂ ਟਾਈਪਿੰਗ ਸੈਸ਼ਨ ਤੁਹਾਡੀ ਗਤੀ ਅਤੇ ਭਰੋਸੇ ਨੂੰ ਸੁਧਾਰਨ ਦਾ ਮੌਕਾ ਹੈ।"
-
 ],
 
 ne:[
-
 "नियमित अभ्यासले टाइपिङ सीप राम्रो हुँदै जान्छ। पहिले शुद्धतामा ध्यान दिनुहोस्।",
-
 "हरेक नयाँ अभ्यासले गति र आत्मविश्वास सुधार्ने अवसर दिन्छ।"
-
 ],
 
 si:[
-
 "නිරන්තර පුහුණුවෙන් ටයිප් කිරීමේ හැකියාව වැඩි දියුණු වේ. මුලින් නිවැරදිභාවය කෙරෙහි අවධානය යොමු කරන්න.",
-
 "සෑම නව පුහුණු සැසියක්ම වේගය සහ විශ්වාසය වැඩි කිරීමට අවස්ථාවකි."
-
 ],
 
 my:[
-
 "ပုံမှန်လေ့ကျင့်ခြင်းဖြင့် စာရိုက်ကျွမ်းကျင်မှု တိုးတက်လာနိုင်သည်။ ပထမဦးစွာ တိကျမှုကို အာရုံစိုက်ပါ။",
-
 "လေ့ကျင့်မှုတိုင်းသည် မြန်နှုန်းနှင့် ယုံကြည်မှုကို တိုးတက်စေရန် အခွင့်အရေးတစ်ခုဖြစ်သည်။"
-
 ],
 
 km:[
-
 "ការវាយអក្សរគឺជាជំនាញដែលប្រសើរឡើងតាមរយៈការអនុវត្តជាប្រចាំ។ ផ្តោតលើភាពត្រឹមត្រូវជាមុន។",
-
 "រាល់ការហ្វឹកហាត់ថ្មីគឺជាឱកាសដើម្បីបង្កើនល្បឿន និងទំនុកចិត្ត។"
-
 ],
 
 lo:[
-
 "ການພິມແມ່ນທັກສະທີ່ດີຂຶ້ນດ້ວຍການຝຶກຝົນຢ່າງສະເໝີ.",
-
 "ທຸກໆການຝຶກຝົນໃໝ່ເປັນໂອກາດໃນການພັດທະນາຄວາມໄວແລະຄວາມໝັ້ນໃຈ."
-
 ],
 
 sw:[
-
 "Kuandika kwa kibodi ni ujuzi unaoboreshwa kwa mazoezi ya mara kwa mara. Anza kwa kuzingatia usahihi.",
-
 "Kila kipindi kipya cha mazoezi ni nafasi ya kuboresha kasi, mpangilio na kujiamini."
-
 ],
 
 af:[
-
 "Tik is 'n vaardigheid wat verbeter met gereelde oefening. Fokus eers op akkuraatheid en spoed sal natuurlik volg.",
-
 "Elke nuwe sessie is 'n geleentheid om jou ritme, selfvertroue en akkuraatheid te verbeter."
-
 ],
 
 fil:[
-
 "Ang pagta-type ay kasanayang gumagaling sa regular na pagsasanay. Unahin ang katumpakan bago ang bilis.",
-
 "Ang bawat bagong typing session ay pagkakataon para mapabuti ang ritmo at kumpiyansa."
-
 ],
 
 da:[
-
 "At skrive er en færdighed, der bliver bedre med regelmæssig træning. Fokuser først på nøjagtighed.",
-
 "Hver ny træningssession er en mulighed for at forbedre rytme og selvtillid."
-
 ],
 
 sv:[
-
 "Att skriva på tangentbordet är en färdighet som förbättras med regelbunden träning. Fokusera först på noggrannhet.",
-
 "Varje ny övning är en möjlighet att förbättra rytm och självförtroende."
-
 ],
 
 no:[
-
 "Å skrive på tastatur er en ferdighet som blir bedre med regelmessig trening. Fokuser først på nøyaktighet.",
-
 "Hver nye økt er en mulighet til å forbedre rytme og selvtillit."
-
 ],
 
 fi:[
-
 "Kirjoittaminen on taito, joka kehittyy säännöllisellä harjoittelulla. Keskity ensin tarkkuuteen.",
-
 "Jokainen uusi harjoituskerta auttaa parantamaan rytmiä ja itsevarmuutta."
-
 ]
 
 };
-
-
-/* =========================================================
-   TEST STATE
-========================================================= */
 
 const test = {
 
@@ -2454,14 +1959,10 @@ start:0,
 input:"",
 timer:null,
 text:"",
+lastPassage:"",
 history:[]
 
 };
-
-
-/* =========================================================
-   HELPERS
-========================================================= */
 
 function escapeHtml(value){
 
@@ -2478,11 +1979,6 @@ ch => ({
 
 }
 
-
-/* =========================================================
-   GET DURATION
-========================================================= */
-
 function getDuration(){
 
 let value =
@@ -2496,19 +1992,12 @@ $("customTime").value,
 10
 );
 
-if(
-isNaN(value) ||
-value < 10
-){
-
+if(isNaN(value) || value < 10){
 value = 10;
-
 }
 
 if(value > 3600){
-
 value = 3600;
-
 }
 
 }
@@ -2516,11 +2005,6 @@ value = 3600;
 return Number(value);
 
 }
-
-
-/* =========================================================
-   UPDATE LANGUAGE
-========================================================= */
 
 function updateLanguage(){
 
@@ -2537,28 +2021,17 @@ option ? option.textContent.trim() : "English";
 
 }
 
-
-/* =========================================================
-   MODE INFO
-========================================================= */
-
 function updateModeInfo(){
 
 const mode =
 $("mode").value;
 
 const info = {
-
 normal:"Normal typing practice.",
-
 advanced:"Advanced typing with longer and more challenging text.",
-
 punctuation:"Practice punctuation marks, commas, periods and symbols.",
-
 capital:"Practice CAPITAL letters.",
-
 small:"Practice lowercase letters."
-
 };
 
 $("modeInfo").textContent =
@@ -2573,9 +2046,10 @@ $("mode").selectedIndex
 
 }
 
-
 /* =========================================================
    RANDOM PASSAGE
+   IMPORTANT: passage is selected ONLY when setupText()
+   runs. It never grows or changes during typing.
 ========================================================= */
 
 function getPassage(){
@@ -2587,18 +2061,41 @@ let list =
 passages[lang] ||
 passages.en;
 
-return list[
+if(list.length === 1){
+return list[0];
+}
+
+let passage =
+list[
 Math.floor(
 Math.random()*list.length
 )
 ];
 
+let attempts = 0;
+
+while(
+passage === test.lastPassage &&
+attempts < 10
+){
+
+passage =
+list[
+Math.floor(
+Math.random()*list.length
+)
+];
+
+attempts++;
+
 }
 
+test.lastPassage =
+passage;
 
-/* =========================================================
-   APPLY MODE
-========================================================= */
+return passage;
+
+}
 
 function applyMode(text){
 
@@ -2606,26 +2103,25 @@ const mode =
 $("mode").value;
 
 if(mode === "capital"){
-
 return text.toUpperCase();
-
 }
 
 if(mode === "small"){
-
 return text.toLowerCase();
-
 }
 
 if(mode === "punctuation"){
 
-return text.replace(
+return text
+.replace(
 /([,.!?;:])/g,
 " $1 "
-).replace(
+)
+.replace(
 /\s+/g,
 " "
-).trim();
+)
+.trim();
 
 }
 
@@ -2640,12 +2136,12 @@ return text;
 
 }
 
-
-/* =========================================================
-   SETUP TEXT
-========================================================= */
-
 function setupText(){
+
+/*
+   This is the ONLY place where the typing passage changes.
+   Therefore typing input can never append another passage.
+*/
 
 test.text =
 applyMode(
@@ -2657,11 +2153,6 @@ test.input = "";
 renderText();
 
 }
-
-
-/* =========================================================
-   RENDER TEXT
-========================================================= */
 
 function renderText(){
 
@@ -2719,12 +2210,60 @@ html +=
 $("textDisplay").innerHTML =
 html;
 
+/*
+   AUTO SCROLL:
+   The text itself does NOT change.
+   Only the visible position moves so the current
+   character remains on screen.
+*/
+
+const current =
+$("textDisplay")
+.querySelector(".current");
+
+if(current){
+
+const box =
+$("textDisplay");
+
+const top =
+current.offsetTop;
+
+const bottom =
+top + current.offsetHeight;
+
+const visibleTop =
+box.scrollTop + 35;
+
+const visibleBottom =
+box.scrollTop +
+box.clientHeight - 45;
+
+if(top < visibleTop){
+
+box.scrollTop =
+Math.max(
+0,
+top - 70
+);
+
+}else if(
+bottom > visibleBottom
+){
+
+box.scrollTop =
+Math.max(
+0,
+bottom -
+box.clientHeight +
+70
+);
+
 }
 
+}
 
-/* =========================================================
-   KEY SOUND
-========================================================= */
+}
 
 function keySound(){
 
@@ -2765,11 +2304,6 @@ ctx.currentTime + 0.035
 
 }
 
-
-/* =========================================================
-   START DIRECT TEST
-========================================================= */
-
 function startDirectTest(){
 
 showTypingSetup();
@@ -2782,10 +2316,20 @@ $("startTestBtn").click();
 
 }
 
-
 /* =========================================================
    TYPING INPUT
 ========================================================= */
+
+$("typingInput").addEventListener(
+"keydown",
+function(e){
+
+if(e.key === "Enter"){
+e.preventDefault();
+}
+
+}
+);
 
 $("typingInput").addEventListener(
 "input",
@@ -2796,6 +2340,11 @@ return;
 
 const value =
 this.value;
+
+/*
+   The textarea value is the ONLY source of typed text.
+   No new passage is generated here.
+*/
 
 if(!test.started){
 
@@ -2826,11 +2375,6 @@ finishTest();
 
 }
 );
-
-
-/* =========================================================
-   TIMER
-========================================================= */
 
 function startTimer(){
 
@@ -2864,11 +2408,6 @@ finishTest();
 },250);
 
 }
-
-
-/* =========================================================
-   FINISH TEST
-========================================================= */
 
 function finishTest(){
 
@@ -2943,11 +2482,6 @@ Math.round(
 )
 );
 
-const targetWords =
-target.trim()
-? target.trim().split(/\s+/).length
-: 0;
-
 const correctWords =
 Math.min(
 words,
@@ -3009,11 +2543,6 @@ saveResult(stats);
 
 }
 
-
-/* =========================================================
-   RESET TEST
-========================================================= */
-
 function resetTest(){
 
 clearInterval(
@@ -3048,6 +2577,8 @@ test.duration;
 
 $("typingInput").value = "";
 
+$("textDisplay").scrollTop = 0;
+
 updateLanguage();
 updateModeInfo();
 
@@ -3058,11 +2589,6 @@ $("typingInput").focus();
 },100);
 
 }
-
-
-/* =========================================================
-   GRAPH
-========================================================= */
 
 function drawGraph(){
 
@@ -3188,11 +2714,6 @@ w-80,
 
 }
 
-
-/* =========================================================
-   SETUP
-========================================================= */
-
 function showTypingSetup(){
 
 $("homePage").classList.add(
@@ -3212,11 +2733,6 @@ $("resultArea").classList.add(
 );
 
 }
-
-
-/* =========================================================
-   HOME
-========================================================= */
 
 function goHome(){
 
@@ -3242,11 +2758,6 @@ $("resultArea").classList.add(
 
 }
 
-
-/* =========================================================
-   INFO MODAL
-========================================================= */
-
 function showInfo(title,html){
 
 $("infoTitle").textContent =
@@ -3268,11 +2779,6 @@ $("infoModal").classList.add(
 );
 
 }
-
-
-/* =========================================================
-   COMPETITION
-========================================================= */
 
 function showCompetition(){
 
@@ -3300,11 +2806,6 @@ onclick="closeInfo();startDirectTest()">
 );
 
 }
-
-
-/* =========================================================
-   MULTIPLAYER
-========================================================= */
 
 function showMultiplayer(){
 
@@ -3334,11 +2835,6 @@ onclick="closeInfo();startDirectTest()">
 
 }
 
-
-/* =========================================================
-   STATS
-========================================================= */
-
 function showStats(){
 
 showInfo(
@@ -3366,11 +2862,6 @@ onclick="closeInfo();loadHistory()">
 
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
 function showAbout(){
 
 showInfo(
@@ -3393,11 +2884,6 @@ Practice with different languages, typing modes and test durations.
 );
 
 }
-
-
-/* =========================================================
-   START TEST BUTTON
-========================================================= */
 
 $("startTestBtn").onclick = ()=>{
 
@@ -3434,6 +2920,8 @@ test.duration;
 $("typingInput").value =
 "";
 
+$("textDisplay").scrollTop = 0;
+
 updateLanguage();
 updateModeInfo();
 
@@ -3445,11 +2933,6 @@ $("typingInput").focus();
 
 };
 
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
 $("finishBtn").onclick =
 finishTest;
 
@@ -3458,11 +2941,6 @@ resetTest;
 
 $("tryAgainBtn").onclick =
 resetTest;
-
-
-/* =========================================================
-   SETTINGS
-========================================================= */
 
 $("language").onchange = ()=>{
 
@@ -3480,7 +2958,6 @@ resetTest();
 
 };
 
-
 $("mode").onchange = ()=>{
 
 updateModeInfo();
@@ -3496,7 +2973,6 @@ resetTest();
 }
 
 };
-
 
 $("duration").onchange = ()=>{
 
@@ -3519,11 +2995,6 @@ resetTest();
 
 };
 
-
-/* =========================================================
-   THEME
-========================================================= */
-
 $("themeBtn").onclick = ()=>{
 
 document.body.classList.toggle(
@@ -3537,13 +3008,7 @@ document.body.classList.contains("light")
 
 };
 
-
-/* =========================================================
-   AUTH
-========================================================= */
-
 let loginMode = false;
-
 
 function openAuth(){
 
@@ -3556,7 +3021,6 @@ $("authMessage").textContent =
 
 }
 
-
 function closeAuth(){
 
 $("authModal")
@@ -3564,7 +3028,6 @@ $("authModal")
 .add("hidden");
 
 }
-
 
 $("authBtn").onclick = async ()=>{
 
@@ -3583,7 +3046,6 @@ await supabaseClient
 .auth
 .getUser();
 
-
 if(user){
 
 await supabaseClient
@@ -3600,10 +3062,8 @@ openAuth();
 
 };
 
-
 $("closeAuth").onclick =
 closeAuth;
-
 
 $("authModal").onclick = e=>{
 
@@ -3618,11 +3078,6 @@ closeAuth();
 
 };
 
-
-/* =========================================================
-   GOOGLE AUTH
-========================================================= */
-
 $("googleAuth").onclick = async ()=>{
 
 if(!supabaseClient){
@@ -3636,7 +3091,6 @@ return;
 
 $("authMessage").textContent =
 "Opening Google sign in...";
-
 
 const {error} =
 await supabaseClient
@@ -3655,7 +3109,6 @@ window.location.pathname
 
 });
 
-
 if(error){
 
 $("authMessage").textContent =
@@ -3665,28 +3118,20 @@ error.message;
 
 };
 
-
-/* =========================================================
-   SWITCH AUTH
-========================================================= */
-
 $("switchAuth").onclick = ()=>{
 
 loginMode =
 !loginMode;
-
 
 $("authTitle").textContent =
 loginMode
 ? "Welcome back"
 : "Create your account";
 
-
 $("submitAuth").textContent =
 loginMode
 ? "Login"
 : "Sign up";
-
 
 $("displayNameWrap")
 .classList
@@ -3695,7 +3140,6 @@ $("displayNameWrap")
 loginMode
 );
 
-
 $("switchAuth").textContent =
 loginMode
 ? "Need an account? Sign up"
@@ -3703,16 +3147,10 @@ loginMode
 
 };
 
-
-/* =========================================================
-   AUTH SUBMIT
-========================================================= */
-
 $("submitAuth").onclick = async ()=>{
 
 if(!supabaseClient)
 return;
-
 
 const email =
 $("email")
@@ -3728,7 +3166,6 @@ $("displayName")
 .value
 .trim();
 
-
 if(
 !email ||
 password.length < 6
@@ -3741,10 +3178,8 @@ return;
 
 }
 
-
 $("authMessage").textContent =
 "Please wait...";
-
 
 const result =
 loginMode
@@ -3783,7 +3218,6 @@ name ||
 
 });
 
-
 if(result.error){
 
 $("authMessage").textContent =
@@ -3792,7 +3226,6 @@ result.error.message;
 return;
 
 }
-
 
 if(loginMode){
 
@@ -3809,16 +3242,10 @@ $("authMessage").textContent =
 
 };
 
-
-/* =========================================================
-   USER
-========================================================= */
-
 async function refreshUser(){
 
 if(!supabaseClient)
 return;
-
 
 try{
 
@@ -3829,12 +3256,10 @@ await supabaseClient
 .auth
 .getUser();
 
-
 if(user){
 
 $("authBtn").textContent =
 "Logout";
-
 
 $("welcome").textContent =
 "Welcome, " +
@@ -3843,20 +3268,16 @@ user.user_metadata?.display_name ||
 "AbidType User"
 );
 
-
 $("accountNote").textContent =
 user.email || "";
-
 
 }else{
 
 $("authBtn").textContent =
 "Login / Sign up";
 
-
 $("welcome").textContent =
 "Practice as a guest";
-
 
 $("accountNote").textContent =
 "Create an account to save your typing results and build your personal record.";
@@ -3867,18 +3288,12 @@ $("accountNote").textContent =
 
 }
 
-
-/* =========================================================
-   SAVE RESULT
-========================================================= */
-
 async function saveResult(stats){
 
 try{
 
 if(!supabaseClient)
 return;
-
 
 const {
 data:{user}
@@ -3887,10 +3302,8 @@ await supabaseClient
 .auth
 .getUser();
 
-
 if(!user)
 return;
-
 
 await supabaseClient
 .from("typing_results")
@@ -3923,11 +3336,6 @@ stats.characters
 
 }
 
-
-/* =========================================================
-   HISTORY
-========================================================= */
-
 async function loadHistory(){
 
 if(!supabaseClient){
@@ -3938,14 +3346,12 @@ return;
 
 }
 
-
 const {
 data:{user}
 } =
 await supabaseClient
 .auth
 .getUser();
-
 
 if(!user){
 
@@ -3954,7 +3360,6 @@ openAuth();
 return;
 
 }
-
 
 const {
 data,
@@ -3977,15 +3382,12 @@ ascending:false
 )
 .limit(10);
 
-
 const box =
 $("history");
-
 
 box.classList.remove(
 "hidden"
 );
-
 
 if(error){
 
@@ -3996,7 +3398,6 @@ return;
 
 }
 
-
 if(!data?.length){
 
 box.textContent =
@@ -4006,43 +3407,32 @@ return;
 
 }
 
-
 box.innerHTML =
 data.map(x=>`
 
 <div class="history-row">
 
 <span>
-
 ${String(
 x.language_code ||
 "en"
 ).toUpperCase()}
-
 </span>
 
-
 <b>
-
 ${Number(
 x.wpm || 0
 )}
 WPM
-
 </b>
 
-
 <b>
-
 ${Number(
 x.accuracy || 0
 )}%
-
 </b>
 
-
 <span>
-
 ${
 x.created_at
 ?
@@ -4052,7 +3442,6 @@ x.created_at
 :
 ""
 }
-
 </span>
 
 </div>
@@ -4061,14 +3450,8 @@ x.created_at
 
 }
 
-
 $("historyBtn").onclick =
 loadHistory;
-
-
-/* =========================================================
-   QUICK REVIEWS
-========================================================= */
 
 function renderReviews(){
 
@@ -4078,9 +3461,7 @@ $("reviewList");
 if(!box)
 return;
 
-
 let reviews=[];
-
 
 try{
 
@@ -4092,7 +3473,6 @@ localStorage.getItem(
 );
 
 }catch(e){}
-
 
 if(!reviews.length){
 
@@ -4115,7 +3495,6 @@ Your review will appear here on this browser.
 return;
 
 }
-
 
 box.innerHTML =
 reviews
@@ -4142,7 +3521,6 @@ ${escapeHtml(r.text)}
 
 }
 
-
 $("submitReview").onclick = ()=>{
 
 const text =
@@ -4158,7 +3536,6 @@ $("reviewName")
 const msg =
 $("reviewMessage");
 
-
 if(!text){
 
 msg.textContent =
@@ -4168,9 +3545,7 @@ return;
 
 }
 
-
 let reviews=[];
-
 
 try{
 
@@ -4183,7 +3558,6 @@ localStorage.getItem(
 
 }catch(e){}
 
-
 reviews.unshift({
 
 name:
@@ -4195,17 +3569,12 @@ text
 
 });
 
-
 localStorage.setItem(
-
 "abidtype_reviews",
-
 JSON.stringify(
 reviews.slice(0,20)
 )
-
 );
-
 
 $("reviewText").value =
 "";
@@ -4216,39 +3585,23 @@ $("reviewName").value =
 msg.textContent =
 "Thanks for your review! ❤️";
 
-
 renderReviews();
 
 };
 
-
 renderReviews();
-
-
-/* =========================================================
-   AUTH STATE
-========================================================= */
 
 if(supabaseClient){
 
 supabaseClient
 .auth
 .onAuthStateChange(
-
 ()=>{
-
 refreshUser();
-
 }
-
 );
 
 }
-
-
-/* =========================================================
-   RESIZE
-========================================================= */
 
 window.onresize = ()=>{
 
@@ -4264,22 +3617,13 @@ drawGraph();
 
 };
 
-
-/* =========================================================
-   STARTUP
-========================================================= */
-
 $("customTimeWrap")
 .classList
 .add("hidden");
 
-
 updateModeInfo();
-
 updateLanguage();
-
 setupText();
-
 refreshUser();
 
 </script>
