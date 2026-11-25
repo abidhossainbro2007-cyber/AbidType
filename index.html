@@ -14,7 +14,7 @@ content="AbidType — Global Typing Practice. Improve typing speed, accuracy and
 content="AbidType, typing test, typing practice, WPM test, typing speed, keyboard practice, global typing">
 
 <title>AbidType — Global Typing Practice</title>
-
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
 
 <style>
@@ -176,18 +176,19 @@ gap:12px;
 min-width:max-content;
 }
 
-.logo-mark{
-width:44px;
-height:44px;
-display:grid;
-place-items:center;
-border-radius:14px;
-font-size:22px;
-font-weight:900;
-color:#fff;
-background:linear-gradient(135deg,#5b5cff,#b52cff,#00d9ff);
-box-shadow:0 0 25px rgba(100,70,255,.5);
+
+.logo-mark {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 17px;
+  background: linear-gradient(135deg, #6545ff, #a52cff, #00cfff);
+  box-shadow: 0 0 28px rgba(115, 75, 255, .45);
+  border: 1px solid rgba(255,255,255,.2);
 }
+
 
 .logo{
 font-size:25px;
@@ -845,7 +846,17 @@ grid-template-columns:1fr 1fr;
 
 <div class="brand">
 
-<div class="logo-mark">⌨</div>
+<div class="logo-mark">
+  <svg viewBox="0 0 64 64" width="38" height="38"
+       xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 49 L27 13 L42 49 M19 33 H35"
+          fill="none" stroke="white" stroke-width="6"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M34 15 H55 M44.5 15 V49"
+          fill="none" stroke="#d8c7ff" stroke-width="6"
+          stroke-linecap="round"/>
+  </svg>
+</div>
 
 <div>
 <div class="logo">AbidType</div>
